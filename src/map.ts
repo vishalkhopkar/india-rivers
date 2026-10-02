@@ -3,6 +3,7 @@ import {
   NavigationControl,
   ScaleControl,
   addProtocol,
+  setWorkerUrl,
   type ExpressionSpecification,
   type LayerSpecification,
 } from "maplibre-gl";
@@ -62,6 +63,9 @@ const lineColor: ExpressionSpecification = [
 ];
 
 export function createMap(container: HTMLElement): MapLibreMap {
+  // Production copies MapLibre's worker into the build (see vite.config.ts); dev serves
+  // it straight from node_modules, where MapLibre finds it unaided.
+  if (import.meta.env.PROD) setWorkerUrl(`${import.meta.env.BASE_URL}maplibre/maplibre-gl-worker.mjs`);
   addProtocol("pmtiles", new Protocol().tile);
 
   const map = new MapLibreMap({

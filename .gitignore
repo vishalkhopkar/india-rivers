@@ -9,9 +9,8 @@ river_network_shape.zip
 river_network_shape/
 data/raw/
 
-# Generated data artifacts - large, deploy separately
-public/rivers.pmtiles
-public/rivers-index.json
+# Generated data. rivers.pmtiles and rivers-index.json ARE committed: GitHub Pages
+# builds from the repo and cannot regenerate them (see .github/workflows/deploy.yml).
 public/geom.bin
 
 # go-pmtiles binary

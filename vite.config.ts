@@ -1,14 +1,40 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
+import { readFileSync } from "node:fs";
 
-export default defineConfig({
-  // MapLibre v6 loads its worker as a sibling module. Vite's dep pre-bundling rewrites
-  // maplibre-gl into .vite/deps/ without copying maplibre-gl-worker.mjs next to it, so
-  // the worker 404s and the map renders nothing. Serving it unbundled keeps the pair
-  // together.
+// MapLibre v6 finds its worker by resolving "./maplibre-gl-worker.mjs" next to its own
+// module. Once Vite folds MapLibre into the app bundle that file no longer exists, so
+// the worker 404s and nothing renders. This copies the worker, and the shared module it
+// imports, verbatim into the build; src/map.ts points setWorkerUrl at the copy.
+function maplibreWorker(): Plugin {
+  const files = ["maplibre-gl-worker.mjs", "maplibre-gl-shared.mjs"];
+  return {
+    name: "maplibre-worker",
+    apply: "build",
+    generateBundle() {
+      for (const f of files) {
+        this.emitFile({
+          type: "asset",
+          fileName: `maplibre/${f}`,
+          source: readFileSync(`node_modules/maplibre-gl/dist/${f}`),
+        });
+      }
+    },
+  };
+}
+
+export default defineConfig(({ command, isPreview }) => ({
+  // GitHub Pages serves a project site from /<repo>/. Dev keeps "/" so local URLs and
+  // the verification scripts stay simple; `vite preview` mirrors Pages. Data URLs in
+  // the app are built from import.meta.env.BASE_URL, so they follow this automatically.
+  base: command === "build" || isPreview ? "/india-rivers/" : "/",
+  plugins: [maplibreWorker()],
+  // In dev the same worker problem appears through dep pre-bundling, which rewrites
+  // maplibre-gl into .vite/deps/ without its worker. Serving it unbundled keeps the
+  // pair together.
   optimizeDeps: { exclude: ["maplibre-gl"] },
   build: {
     target: "es2022",
     // The PMTiles archive is served as a static asset, never inlined.
     assetsInlineLimit: 4096,
   },
-});
+}));

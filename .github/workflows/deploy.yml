@@ -1,0 +1,49 @@
+# Builds the site and publishes it to GitHub Pages on every push to master.
+#
+# The map data (public/rivers.pmtiles, public/rivers-index.json) is committed rather than
+# built here: generating it needs the ~700 MB source dataset and the go-pmtiles binary,
+# neither of which is in the repo. Rebuild it locally with `npm run data:all`, commit
+# the two files, and this workflow ships them.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check the map data made it into the build
+        run: test -s dist/rivers.pmtiles && test -s dist/rivers-index.json && test -s dist/maplibre/maplibre-gl-worker.mjs
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
