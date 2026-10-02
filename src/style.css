@@ -1,0 +1,98 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+/* Sized to its content so every row is visible at once - never a scrolling box. */
+.panel {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  width: min(360px, calc(100vw - 24px));
+  padding: 16px 18px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+  font-size: 13px;
+  line-height: 1.45;
+  color: #1c2530;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel h2 {
+  margin: 0 0 10px;
+  padding-right: 20px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #14557f;
+}
+
+.panel dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  margin: 0;
+}
+
+.panel dt {
+  color: #6b7785;
+  white-space: nowrap;
+}
+
+.panel dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.panel h3 {
+  margin: 14px 0 8px;
+  padding-top: 12px;
+  border-top: 1px solid #e3e7eb;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7785;
+}
+
+.river-link {
+  color: #14557f;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 85, 127, 0.35);
+  text-underline-offset: 2px;
+}
+
+.river-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.panel-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: 0;
+  background: none;
+  font-size: 20px;
+  line-height: 1;
+  color: #8a94a0;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.panel-close:hover {
+  color: #1c2530;
+}

@@ -1,0 +1,260 @@
+{
+  "23685": {
+    "name": "Ganga River",
+    "origin": "Devprayag, Uttarakhand, where the Bhagirathi and Alaknanda meet",
+    "end": "Via the Padma in Bangladesh; leaves India near Dhulian, West Bengal",
+    "why": "The dataset's Ganga line starts at Devprayag (the Bhagirathi is its own feature) and stops at the Bangladesh border, though Confluence says Bay of Bengal."
+  },
+  "53": {
+    "name": "Brahmaputra River",
+    "origin": "Formed near Dibrugarh, Assam, where the Lohit, Dibang and Siang meet",
+    "end": "Mankachar, Assam",
+    "endNear": true,
+    "why": "Line starts east of Dibrugarh (Siang is a separate feature). GeoNames wrongly places Mankachar in Meghalaya."
+  },
+  "4946": {
+    "name": "Godavari River",
+    "origin": "Brahmagiri hills (Western Ghats) near Trimbakeshwar, Maharashtra",
+    "end": "Antarvedi, near Narasapur, Andhra Pradesh",
+    "why": "Source text: Trambakeshwar. End point is at the Vasishta Godavari mouth by Antarvedi."
+  },
+  "29239": {
+    "name": "Yamuna River",
+    "origin": "Yamunotri Glacier (Himalayas), Uttarakhand",
+    "end": "Triveni Sangam, Prayagraj, Uttar Pradesh",
+    "endNear": true,
+    "why": "Source text: Yamunotri Glacier. Auto said '85 km NE of Dehradun'."
+  },
+  "3218": {
+    "name": "Krishna River",
+    "end": "Krishna delta, south of Repalle, Andhra Pradesh",
+    "why": "Auto end '90 km S of Vijayawada' was technically right but unhelpful. Origin left automatic: matches source text."
+  },
+  "1844": {
+    "name": "Narmada River",
+    "origin": "Maikal Range at Amarkantak, Madhya Pradesh",
+    "end": "Gulf of Khambhat, 40 km west of Bharuch, Gujarat",
+    "why": "Source text: Amarkantak. Mouth is out in the estuary, beyond Bharuch."
+  },
+  "30294": {
+    "name": "Ghaghara River",
+    "origin": "Rises in Tibet as the Karnali; enters India near Katarniaghat, Uttar Pradesh",
+    "why": "Line begins at the Nepal border; auto picked Tikapur, Nepal."
+  },
+  "11076": {
+    "name": "Mahanadi River",
+    "origin": "Sihawa hills near Nagri, Dhamtari district, Chhattisgarh",
+    "end": "Paradip, Odisha",
+    "endNear": true
+  },
+  "22590": {
+    "name": "Chambal River",
+    "origin": "Janapav hills (Vindhya Range) near Mhow, Madhya Pradesh",
+    "end": "Bhareh, near Etawah, Uttar Pradesh",
+    "endNear": true,
+    "why": "Source text: near Mhow. End point is Bhareh, by the Pachnada confluence."
+  },
+  "29220": {
+    "name": "Gomati River",
+    "origin": "Gomat Taal near Madho Tanda, Pilibhit district, Uttar Pradesh",
+    "end": "Kaithi, near Saidpur, Uttar Pradesh",
+    "endNear": true
+  },
+  "6983": {
+    "name": "Cauvery River",
+    "origin": "Talakaveri, Brahmagiri hills (Western Ghats), Karnataka",
+    "end": "Poompuhar, Tamil Nadu",
+    "endNear": true,
+    "why": "Source text: Talakaveri in the Brahmagiri range."
+  },
+  "15535": {
+    "name": "Indus River",
+    "origin": "Rises near Lake Mansarovar in Tibet; enters India at Demchok, Ladakh",
+    "end": "West of Chilas, Gilgit-Baltistan",
+    "why": "Line starts at the border near Demchok. End follows the source dataset, which runs the line to the edge of Gilgit-Baltistan."
+  },
+  "29252": {
+    "name": "Sone River",
+    "origin": "Maikal Range near Pendra, Chhattisgarh",
+    "why": "Source text: Amarkantak highlands, Maikala range. Auto applied the Chota Nagpur label."
+  },
+  "2961": {
+    "name": "Bhima River",
+    "origin": "Bhimashankar (Western Ghats), Pune district, Maharashtra",
+    "end": "Sangam village, near Raichur, Karnataka",
+    "endNear": true,
+    "why": "Source text: Bhimashankar. Auto said '70 km E of Mumbai'."
+  },
+  "5657": {
+    "name": "Manjra River",
+    "origin": "Balaghat Range near Patoda, Beed district, Maharashtra",
+    "why": "Source text: Balaghat Range, Beed."
+  },
+  "30282": {
+    "name": "Ramganga River",
+    "origin": "Dudhatoli hills near Gairsain, Uttarakhand"
+  },
+  "6016": {
+    "name": "Penganga River",
+    "origin": "Ajanta hills near Buldhana, Maharashtra"
+  },
+  "15848": {
+    "name": "Satluj River",
+    "origin": "Rises at Rakshastal in Tibet; enters India at Shipki La, Himachal Pradesh",
+    "why": "Source text: Rakshastal, Tibet. Line starts at Shipki La."
+  },
+  "5060": {
+    "name": "Indravati River",
+    "origin": "Eastern Ghats near Thuamul Rampur, Kalahandi district, Odisha",
+    "end": "Bhopalpatnam, Chhattisgarh",
+    "endNear": true
+  },
+  "6541": {
+    "name": "Wainganga River",
+    "end": "Chaparala, Gadchiroli district, Maharashtra, where the Wainganga and Wardha form the Pranhita"
+  },
+  "6554": {
+    "name": "Wardha River",
+    "end": "Near Gondpipri, Maharashtra, where the Wardha and Wainganga form the Pranhita"
+  },
+  "16577": {
+    "name": "Luni River",
+    "origin": "Aravalli hills near Pushkar, Rajasthan"
+  },
+  "20880": {
+    "name": "Pennar River",
+    "origin": "Nandi Hills near Chikkaballapur, Karnataka",
+    "why": "Source text: Chenna Kasava hill of the Nandidurg range."
+  },
+  "29255": {
+    "name": "Damodar River",
+    "end": "Gadiara, Howrah district, West Bengal",
+    "endNear": true
+  },
+  "29240": {
+    "name": "Gandak River",
+    "origin": "Rises in Nepal as the Kali Gandaki; enters India near Valmikinagar, Bihar",
+    "end": "Hajipur, opposite Patna, Bihar",
+    "endNear": true
+  },
+  "30314": {
+    "name": "Kosi River",
+    "origin": "Rises in Tibet and Nepal; enters India at the Kosi barrage, Bhimnagar, Bihar",
+    "end": "Kursela, Katihar district, Bihar",
+    "endNear": true
+  },
+  "15985": {
+    "name": "Mahi River",
+    "origin": "Vindhya Range near Sardarpur, Dhar district, Madhya Pradesh",
+    "end": "Dhuvaran, near Khambhat, Gujarat",
+    "endNear": true
+  },
+  "2912": {
+    "name": "Tungabhadra River",
+    "origin": "Koodli near Shivamogga, Karnataka, where the Tunga and Bhadra meet",
+    "end": "Alampur, Telangana",
+    "endNear": true
+  },
+  "21587": {
+    "name": "Banas River",
+    "origin": "Aravalli hills near Kumbhalgarh, Rajasthan",
+    "end": "Rameshwar, on the Rajasthan-Madhya Pradesh border",
+    "endNear": true
+  },
+  "29696": {
+    "name": "Sharda or Kali River",
+    "origin": "Kalapani, near Lipulekh Pass, Uttarakhand"
+  },
+  "30286": {
+    "name": "Rapti River",
+    "origin": "Rises in Nepal; enters India near Bhinga, Uttar Pradesh",
+    "end": "Barhaj, Deoria district, Uttar Pradesh",
+    "endNear": true
+  },
+  "19186": {
+    "name": "Barak River",
+    "origin": "Naga Hills near Mao, Senapati district, Manipur",
+    "end": "Near Karimganj, Assam, where it splits into the Surma and Kushiyara",
+    "why": "The dataset's end point is identical to its start point, so no automatic end description is possible."
+  },
+  "20458": {
+    "name": "Brahmani River",
+    "origin": "Vedvyas near Rourkela, Odisha, where the Sankh and South Koel meet",
+    "end": "Dhamra, Bhadrak district, Odisha",
+    "endNear": true
+  },
+  "15534": {
+    "name": "Shyok River",
+    "origin": "Rimo Glacier (Karakoram), Ladakh",
+    "end": "Keris, Gilgit-Baltistan",
+    "endNear": true
+  },
+  "11787": {
+    "name": "Beas River",
+    "origin": "Beas Kund near Rohtang Pass, Himachal Pradesh",
+    "end": "Harike, Punjab",
+    "endNear": true
+  },
+  "11466": {
+    "name": "Subarnarekha River",
+    "origin": "Chota Nagpur Plateau at Nagri, near Ranchi, Jharkhand",
+    "end": "Near Talsari, on the Odisha-West Bengal coast"
+  },
+  "864": {
+    "name": "Dihang/Siang River",
+    "origin": "Enters India from Tibet, as the Yarlung Tsangpo, near Gelling, Arunachal Pradesh"
+  },
+  "29296": {
+    "name": "Hooghly River",
+    "origin": "Formed near Nabadwip, West Bengal, where the Bhagirathi and Jalangi meet",
+    "end": "Sagar Island, West Bengal",
+    "endNear": true,
+    "why": "The recorded end point (Kalyani) is not the mouth; Damodar joins this line near Diamond Harbour, so it runs to the sea."
+  },
+  "9727": {
+    "name": "Periyar River",
+    "origin": "Sivagiri hills, Periyar Tiger Reserve (Western Ghats), Kerala",
+    "end": "Kochi, Kerala",
+    "endNear": true,
+    "why": "Source text: Sivagiri peak. Auto described it from a Tamil Nadu town."
+  },
+  "9293": {
+    "name": "Kallada River",
+    "origin": "Western Ghats near Kulathupuzha, Kerala",
+    "end": "Ashtamudi Lake, Kollam, Kerala",
+    "endNear": true,
+    "why": "Auto described a Kerala source relative to Tirunelveli, Tamil Nadu."
+  },
+  "8969": {
+    "name": "Ulhas",
+    "end": "Vasai, Maharashtra",
+    "endNear": true,
+    "why": "User's worked example. GeoNames has no 'Vasai' entry, only Virar and Bhayandar."
+  },
+  "8975": {
+    "name": "Savitri",
+    "end": "Harihareshwar, Maharashtra",
+    "endNear": true,
+    "why": "Mouth is at Bankot creek by Harihareshwar."
+  },
+  "9009": {
+    "name": "Malad Creek",
+    "rename": "Poisar",
+    "origin": "Sanjay Gandhi National Park, Mumbai",
+    "end": "Malad Creek, opening to the sea at Versova, Mumbai",
+    "why": "Drawn on the map, this line rises in the national park and runs through Kandivali East and West before entering Malad Creek: the Poisar's course. The dataset names it after the creek it drains into."
+  },
+  "8809": {
+    "name": "Mahim",
+    "rename": "Mithi",
+    "origin": "Near Vihar Lake, Sanjay Gandhi National Park, Mumbai",
+    "end": "Mahim Creek, Mumbai",
+    "why": "Line runs from beside Vihar Lake to Mahim Creek: the Mithi's course. The dataset names it after the creek at its mouth."
+  },
+  "8654": {
+    "name": "Dahisar",
+    "origin": "Tulsi Lake, Sanjay Gandhi National Park, Mumbai",
+    "end": "Manori Creek near Gorai, Mumbai",
+    "why": "Auto labelled it 'Western Ghats near Thane'; it rises in the national park."
+  }
+}

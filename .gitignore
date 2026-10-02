@@ -1,0 +1,23 @@
+node_modules/
+dist/
+build/
+
+# Source GIS data - ~700MB, keep local
+river_network.geojson
+river_network.kml
+river_network_shape.zip
+river_network_shape/
+data/raw/
+
+# Generated data artifacts - large, deploy separately
+public/rivers.pmtiles
+public/rivers-index.json
+public/geom.bin
+
+# go-pmtiles binary
+pmtiles.exe
+tools/
+
+*.log
+.DS_Store
+.vite/
