@@ -22,11 +22,15 @@ function maplibreWorker(): Plugin {
   };
 }
 
+// On GitHub Actions the repo name sets the path, so the same code deploys to
+// /india-rivers/ and to the /india-rivers-dev/ copy. Local builds use the production path.
+const repo = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "india-rivers";
+
 export default defineConfig(({ command, isPreview }) => ({
   // GitHub Pages serves a project site from /<repo>/. Dev keeps "/" so local URLs and
   // the verification scripts stay simple; `vite preview` mirrors Pages. Data URLs in
   // the app are built from import.meta.env.BASE_URL, so they follow this automatically.
-  base: command === "build" || isPreview ? "/india-rivers/" : "/",
+  base: command === "build" || isPreview ? `/${repo}/` : "/",
   plugins: [maplibreWorker()],
   // In dev the same worker problem appears through dep pre-bundling, which rewrites
   // maplibre-gl into .vite/deps/ without its worker. Serving it unbundled keeps the
