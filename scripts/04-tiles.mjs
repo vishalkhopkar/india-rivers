@@ -30,9 +30,23 @@ const places = JSON.parse(readFileSync("build/places.json", "utf8"));
 // applied only here, at the point names are written out for display.
 const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
 const displayName = (uid, fallback) => overrides[uid]?.rename ?? fallback;
+// "Formed by" reads "Mula River and Mutha River". Multi-word names already carry their
+// own generic term (Kalu Nala, Randi Gad), so " River" is added to single words only.
+const asRiver = (name) => (/\s/.test(name.trim()) ? name : `${name} River`);
+const nameByUid = new Map();
 
 // --- load -------------------------------------------------------------------
 console.log("loading extract...");
+const raw = [];
+{
+  const rl0 = createInterface({ input: createReadStream(IN), crlfDelay: Infinity });
+  for await (const line of rl0) if (line) raw.push(line);
+}
+// Formers are referenced by uid, so every name must be known before any feature is built.
+for (const line of raw) {
+  const p = JSON.parse(line).properties;
+  nameByUid.set(String(p.UID_River), displayName(String(p.UID_River), p.rivname ?? ""));
+}
 const features = [];
 // Per-river lookup for jumping to a river that is not on screen yet: following a
 // "Merges into" link needs the target's extent and the zoom at which it is drawn.
@@ -40,9 +54,7 @@ const riverIndex = {};
 let bbox = [180, 90, -180, -90];
 const r3 = (n) => Math.round(n * 1000) / 1000;
 
-const rl = createInterface({ input: createReadStream(IN), crlfDelay: Infinity });
-for await (const line of rl) {
-  if (!line) continue;
+for (const line of raw) {
   const f = JSON.parse(line);
   const p = f.properties;
   // Attributes for the click panel ride along in the tile rather than in a side file:
@@ -66,6 +78,11 @@ for await (const line of rl) {
     on: place.on,
     e: place.e,
     en: place.en,
+    // Rivers formed by a confluence: former uids and their display names, in step.
+    // MVT has no array type, hence the joined strings.
+    fb: (topo.formedBy ?? []).join(","),
+    fbn: (topo.formedBy ?? []).map((u) => asRiver(nameByUid.get(u))).join("|"),
+    fa: place.fa ?? "",
     // Kept in the data, shown only behind the showExtendedAttributes flag.
     basin: p.ba_name ?? "",
     sub: p.sub_basin ?? "",
@@ -174,6 +191,7 @@ const meta = {
           uid: "String", name: "String", len: "Number", minz: "Number",
           kind: "String", into: "String", down: "String",
           o: "String", on: "Boolean", e: "String", en: "Boolean",
+          fb: "String", fbn: "String", fa: "String",
           basin: "String", sub: "String", states: "String", origin: "String",
           confl: "String", from: "String", to: "String",
         },

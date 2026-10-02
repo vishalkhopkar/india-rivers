@@ -7,8 +7,8 @@
 // A unique name match is checked the same way: a "unique" parent 400 km away is a
 // name collision with a river missing from the dataset, not the real parent.
 
-import { writeFileSync } from "node:fs";
-import { loadRivers, partsOf, bboxOf, pointToLineKm, pointToBboxKm } from "./lib/geo.mjs";
+import { writeFileSync, readFileSync } from "node:fs";
+import { loadRivers, partsOf, bboxOf, pointToLineKm, pointToBboxKm, originPoint, distKm } from "./lib/geo.mjs";
 
 // A tributary's end point should sit on its parent. Beyond this, the match is not
 // trusted enough to link to.
@@ -44,6 +44,7 @@ const rivers = (await loadRivers()).map((f) => {
     name: p.rivname ?? "",
     len: p.length_km ?? 0,
     confl: (p.Confluence ?? "").trim(),
+    origin: originPoint(p, parts),
     end: [p.en_pt_long, p.en_pt_lat],
     parts,
     bbox: bboxOf(parts),
@@ -126,6 +127,48 @@ for (const r of rivers) {
   }
 }
 
+// --- rivers formed by a confluence ---------------------------------------------
+// Some rivers have no source of their own: the Ganga begins where the Bhagirathi and
+// Alaknanda meet, the Mula-Mutha where the Mula and Mutha meet. Their formers end
+// exactly on the new river's start (0.00 km in the data), while the next tributary
+// downstream is kilometres away, so a tight radius separates the two cleanly.
+const FORMED_KM = 0.5;
+const feeders = new Map();
+for (const [u, t] of Object.entries(out)) {
+  if (!t.down) continue;
+  if (!feeders.has(t.down)) feeders.set(t.down, []);
+  feeders.get(t.down).push(u);
+}
+let formed = 0;
+for (const r of rivers) {
+  const [ox, oy] = r.origin;
+  const atStart = (feeders.get(r.uid) ?? []).filter((u) => {
+    const [ex, ey] = byUid.get(u).end;
+    return distKm(ex, ey, ox, oy) <= FORMED_KM;
+  });
+  if (atStart.length < 2) continue;
+  // Longest first, which is how such rivers are conventionally named (Mula-Mutha).
+  out[r.uid].formedBy = atStart.sort((a, b) => byUid.get(b).len - byUid.get(a).len);
+  formed++;
+}
+
+// Hand-declared formers, for rivers whose confluence the dataset does not join up.
+const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
+const badFormers = [];
+for (const [uid, ov] of Object.entries(overrides)) {
+  if (!ov.formedBy) continue;
+  const missing = ov.formedBy.filter((u) => !byUid.has(u));
+  if (missing.length || !byUid.has(uid)) badFormers.push(`${uid}: unknown uid(s) ${missing.join(", ")}`);
+  else {
+    if (!out[uid].formedBy) formed++;
+    out[uid].formedBy = ov.formedBy;
+  }
+}
+if (badFormers.length) {
+  console.error(`FAIL - formedBy overrides reference missing rivers:\n  ${badFormers.join("\n  ")}`);
+  process.exit(1);
+}
+
 // --- chain depth to a terminal ------------------------------------------------
 let maxDepth = 0, deepest = "";
 const depthHist = new Map();
@@ -152,6 +195,9 @@ for (const [k, arr] of Object.entries(dists)) {
   );
 }
 console.log(`cycles broken: ${cyclesBroken}`);
+console.log(`formed by a confluence: ${formed} rivers. Largest:`);
+for (const r of rivers.filter((r) => out[r.uid].formedBy).sort((a, b) => b.len - a.len).slice(0, 12))
+  console.log(`  ${r.name.padEnd(22)} <- ${out[r.uid].formedBy.map((u) => byUid.get(u).name).join(" + ")}`);
 console.log(`chain depth to terminal: max ${maxDepth} (${deepest}); ` +
   [...depthHist].sort((a, b) => a[0] - b[0]).map(([d, n]) => `${d}:${n}`).join(" "));
 if (farExamples.length) console.log(`\nfar matches (not linked):\n  ${farExamples.join("\n  ")}`);

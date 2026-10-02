@@ -146,14 +146,37 @@ const ganga = await openRiver("Ganga River", [84.5, 25.4], 6);
 check("Ganga clickable", !!ganga);
 if (ganga) {
   check("panel shows the Ganga", ganga.panel.heading === "Ganga River", ganga.panel.heading);
-  check("Ganga origin is Devprayag", /^Devprayag/.test(ganga.panel.rows["Origin"] ?? ""), ganga.panel.rows["Origin"]);
+  check("Formed by", ganga.panel.rows["Formed by"] === "Confluence of Bhagirathi River and Alaknanda River", ganga.panel.rows["Formed by"]);
+  check("Formed at", ganga.panel.rows["Formed at"] === "Devprayag, Uttarakhand", ganga.panel.rows["Formed at"]);
+  check("no Origin row on a confluence-formed river", !("Origin" in ganga.panel.rows) && !("Origin near" in ganga.panel.rows));
   check("panel does not scroll", !ganga.panel.scrolls, ganga.panel.size);
   check("panel fits the viewport", ganga.panel.fitsViewport);
   console.log(`  rows: ${Object.entries(ganga.panel.rows).map(([k, v]) => `${k}=${v}`).join(" | ")}`);
   await page.screenshot({ path: `${OUT}/23-ganga.png` });
 }
 
-// --- 4. hand-corrected names ----------------------------------------------------
+// --- 4. formed by a confluence, detected automatically ---------------------------
+console.log("\nMula-Mutha (formed by a confluence, no override):");
+const mm = await openRiver("Mula-Mutha", [73.95, 18.53], 10);
+check("Mula-Mutha clickable", !!mm);
+if (mm) {
+  check("Formed by", mm.panel.rows["Formed by"] === "Confluence of Mula River and Mutha River", mm.panel.rows["Formed by"]);
+  check("Formed at", mm.panel.rows["Formed at"] === "Pune, Maharashtra", mm.panel.rows["Formed at"]);
+  check("no Origin row", !("Origin" in mm.panel.rows) && !("Origin near" in mm.panel.rows));
+  const links = await page.evaluate(() => [...document.querySelectorAll(".panel .river-link")].map((a) => a.textContent));
+  check("each former is a link, plus the merge link", links.join(" | ") === "Mula River | Mutha River | Bhima River", links.join(" | "));
+  await page.screenshot({ path: `${OUT}/26-mula-mutha.png` });
+
+  await page.evaluate(() => document.querySelector(".panel .river-link")?.click());
+  await new Promise((r) => setTimeout(r, 500));
+  await settle();
+  await new Promise((r) => setTimeout(r, 800));
+  const mula = await readPanel();
+  check("former link opens the Mula", mula.heading === "Mula", mula.heading);
+  check("the Mula merges back into the Mula-Mutha", mula.rows["Merges into"] === "Mula-Mutha", mula.rows["Merges into"]);
+}
+
+// --- 5. hand-corrected names ----------------------------------------------------
 // The dataset calls these "Malad Creek" and "Mahim"; both are corrected in
 // data/river-overrides.json.
 for (const [name, center, origin, mouth] of [
@@ -175,7 +198,7 @@ const oldNames = await page.evaluate(() =>
 );
 check("old dataset names no longer appear", oldNames === 0, `${oldNames} features`);
 
-// --- 5. dismiss ----------------------------------------------------------------
+// --- 6. dismiss ----------------------------------------------------------------
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));
 check("close hides the panel", await page.evaluate(() => !!document.querySelector(".panel")?.hidden));

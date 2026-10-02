@@ -9,7 +9,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { open } from "shapefile";
-import { loadRivers, partsOf, distKm, bearing8, pointInPolygonGeom } from "./lib/geo.mjs";
+import { loadRivers, partsOf, distKm, bearing8, pointInPolygonGeom, originPoint } from "./lib/geo.mjs";
 
 const SEARCH_KM = 100;
 const NEAR_KM = 15;
@@ -163,6 +163,7 @@ const rangeAt = (lon, lat, state) =>
 // --- overrides ------------------------------------------------------------------
 const OVERRIDES_PATH = "data/river-overrides.json";
 const overrides = existsSync(OVERRIDES_PATH) ? JSON.parse(readFileSync(OVERRIDES_PATH, "utf8")) : {};
+const topology = JSON.parse(readFileSync("build/topology.json", "utf8"));
 
 // --- rivers ---------------------------------------------------------------------
 const isPartial = (s) => !s || /partially/i.test(s);
@@ -172,22 +173,11 @@ const adminFallback = (sb, dst, ste) => () =>
     .filter(Boolean)
     .join(", ");
 
-// The declared start point is trusted unless it sits away from the line it describes
-// (57 rivers); then use the line endpoint farthest from the declared end instead.
-function originPoint(p, parts) {
-  const st = [p.st_pt_long, p.st_pt_lat];
-  const ends = parts.flatMap((pt) => [pt[0], pt[pt.length - 1]]);
-  if (ends.some(([x, y]) => distKm(st[0], st[1], x, y) < 2)) return st;
-  return ends.reduce((a, b) =>
-    distKm(b[0], b[1], p.en_pt_long, p.en_pt_lat) > distKm(a[0], a[1], p.en_pt_long, p.en_pt_lat) ? b : a
-  );
-}
-
 console.log(`gazetteer: ${placeCount} places, ${ranges.length} range polygons, ${Object.keys(overrides).length} overrides`);
 const rivers = await loadRivers();
 const out = {};
 const how = { origin: {}, end: {} };
-let withRange = 0, overridden = 0;
+let withRange = 0, overridden = 0, formedCount = 0;
 const staleOverrides = [];
 
 for (const f of rivers) {
@@ -208,10 +198,22 @@ for (const f of rivers) {
 
   const rec = { o: o.text, on: o.near, e: e.text, en: e.near };
 
+  // A river formed by a confluence has no source of its own, so it gets "Formed at"
+  // (the confluence point, plainly located) in place of an origin. No range prefix:
+  // "Western Ghats near Pune" is wrong for where the Mula meets the Mutha.
+  const formed = !!topology[uid]?.formedBy;
+  if (formed) {
+    rec.fa = describe(olon, olat, adminFallback(p.st_loc_sb_, p.st_loc_dst, p.st_loc_ste)).text;
+    formedCount++;
+  }
+
   const ov = overrides[uid];
   if (ov) {
     if (ov.name !== p.rivname) staleOverrides.push(`${uid}: override says "${ov.name}", data says "${p.rivname}"`);
+    if (ov.origin && formed) staleOverrides.push(`${uid} ${ov.name}: has "origin" but is formed by a confluence - use "formedAt"`);
+    if (ov.formedAt && !formed) staleOverrides.push(`${uid} ${ov.name}: has "formedAt" but no formers were detected or declared`);
     if (ov.origin) Object.assign(rec, { o: ov.origin, on: !!ov.originNear });
+    if (ov.formedAt) rec.fa = ov.formedAt;
     if (ov.end) Object.assign(rec, { e: ov.end, en: !!ov.endNear });
     overridden++;
   }
@@ -223,6 +225,7 @@ writeFileSync("build/places.json", JSON.stringify(out));
 console.log(`origins: ${JSON.stringify(how.origin)}, ${withRange} with a range prefix`);
 console.log(`ends:    ${JSON.stringify(how.end)}`);
 console.log(`overrides applied: ${overridden}`);
+console.log(`formed-at descriptions: ${formedCount}`);
 if (staleOverrides.length) {
   console.error(`\nFAIL - overrides no longer match the data:\n  ${staleOverrides.join("\n  ")}`);
   process.exit(1);

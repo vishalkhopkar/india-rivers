@@ -86,6 +86,17 @@ export function pointInPolygonGeom(lon, lat, geometry) {
   return false;
 }
 
+// Where a river starts. The declared start point is trusted unless it sits away from
+// the line it describes (57 rivers); then the line endpoint farthest from the declared
+// end is used instead.
+export function originPoint(props, parts) {
+  const st = [props.st_pt_long, props.st_pt_lat];
+  const ends = parts.flatMap((pt) => [pt[0], pt[pt.length - 1]]);
+  if (ends.some(([x, y]) => distKm(st[0], st[1], x, y) < 2)) return st;
+  const farFromEnd = (c) => distKm(c[0], c[1], props.en_pt_long, props.en_pt_lat);
+  return ends.reduce((a, b) => (farFromEnd(b) > farFromEnd(a) ? b : a));
+}
+
 // Read build/rivers.ndjson into memory.
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline";

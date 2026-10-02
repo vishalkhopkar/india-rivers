@@ -13,6 +13,11 @@ export interface RiverProps {
   on: boolean;
   e: string;
   en: boolean;
+  // Set only for rivers formed by a confluence: comma-joined former uids, the matching
+  // "|"-joined display names, and where the confluence is.
+  fb?: string;
+  fbn?: string;
+  fa?: string;
   basin?: string;
   sub?: string;
   states?: string;
@@ -72,9 +77,18 @@ export class InfoPanel {
   show(p: RiverProps) {
     const labels = END_LABELS[p.kind] ?? END_LABELS.trib;
 
+    // A river formed where others meet has no source of its own, so it is described by
+    // what forms it and where, instead of an origin.
+    const start: Row[] = p.fb
+      ? [
+          ["Formed by", this.formedByValue(p)],
+          ["Formed at", p.fa ?? ""],
+        ]
+      : [[p.on ? "Origin near" : "Origin", p.o]];
+
     const rows: Row[] = [
       ["Length", `${p.len.toLocaleString()} km`],
-      [p.on ? "Origin near" : "Origin", p.o],
+      ...start,
       [labels.into, this.intoValue(p)],
       [p.en ? labels.near : labels.far, p.e],
     ];
@@ -106,10 +120,27 @@ export class InfoPanel {
   private intoValue(p: RiverProps): string | Node {
     const text = INTO_TEXT[p.kind]?.(p.into) ?? p.into;
     if (p.kind !== "trib" || !p.down) return text;
-    const a = el("a", { href: `#river-${p.down}`, class: "river-link" }, text) as HTMLAnchorElement;
+    return this.riverLink(p.down, text);
+  }
+
+  // "Confluence of A and B" or "Confluence of A, B and C", each name a link.
+  private formedByValue(p: RiverProps): Node {
+    const uids = (p.fb ?? "").split(",");
+    const names = (p.fbn ?? "").split("|");
+    const frag = document.createDocumentFragment();
+    frag.append("Confluence of ");
+    uids.forEach((uid, i) => {
+      if (i > 0) frag.append(i === uids.length - 1 ? " and " : ", ");
+      frag.append(this.riverLink(uid, names[i] ?? uid));
+    });
+    return frag;
+  }
+
+  private riverLink(uid: string, text: string): HTMLAnchorElement {
+    const a = el("a", { href: `#river-${uid}`, class: "river-link" }, text) as HTMLAnchorElement;
     a.addEventListener("click", (ev) => {
       ev.preventDefault();
-      this.onNavigate?.(p.down);
+      this.onNavigate?.(uid);
     });
     return a;
   }
