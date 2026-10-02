@@ -185,10 +185,161 @@
   },
   "40025": {
     "name": "Oshiwara",
-    "hydroSource": 41211865,
-    "hydroOutlet": 41212082,
     "joins": null,
     "into": "Arabian Sea",
-    "why": "Mumbai river from the Aarey forest to Malad Creek; OpenStreetMap and Wikipedia. Absent from CWC."
+    "cutAt": "9009",
+    "osmWays": [
+      629006176,
+      1498518727,
+      1498518732,
+      1498518731,
+      1498518730,
+      1498518729,
+      1498518728,
+      48965039,
+      215437421,
+      1170388403,
+      257443428
+    ],
+    "why": "Mumbai river from the Aarey hills to Malad Creek, absent from CWC. Course from the OpenStreetMap \"Oshiwara River\" ways, ending where it meets the Malad Creek channel (drawn by CWC as the lower Poisar, uid 9009)."
+  },
+  "40026": {
+    "name": "Vakola Nala",
+    "joins": "8809",
+    "joinsName": "Mahim",
+    "why": "Rises north of Santacruz East and joins the Mithi (CWC \"Mahim\") just above Mahim Creek. OSM names it \"Vakola Nala\" (water area 39749207); the line follows the unnamed OSM waterways along it.",
+    "osmWays": [
+      376930300,
+      376930298,
+      477875991,
+      789931746,
+      789931745,
+      49055889,
+      204352191
+    ]
+  },
+  "40027": {
+    "name": "Mahul Creek",
+    "joins": null,
+    "into": "Arabian Sea",
+    "why": "From the Ghatkopar West hills through Vidyavihar, Shell Colony and Kurla East, then south past Chunabhatti and Wadala along Mahul Road into Mumbai Harbour; the stretch past Antop Hill is the Mumbai City / Suburban district boundary. Unnamed in OSM; \"Mahul Creek\" is the name of its tidal outlet.",
+    "osmWays": [
+      122187977,
+      427200318,
+      107213240,
+      125344254,
+      107213229,
+      219948755
+    ]
+  },
+  "40028": {
+    "name": "",
+    "joins": null,
+    "into": "Arabian Sea",
+    "why": "Unnamed. Rises in the Ghatkopar hills near R City Mall, runs through Ghatkopar East and along the north edge of the Deonar dumping ground into Thane Creek. Unnamed OSM waterways.",
+    "osmWays": [
+      436218449,
+      939595939,
+      436218448,
+      1315099371,
+      1315099370,
+      222971844,
+      204352219,
+      607578488
+    ]
+  },
+  "40029": {
+    "name": "Desai Khadi (north branch)",
+    "group": "desai",
+    "joins": null,
+    "into": "Desai Khadi",
+    "why": "Northern headstream of the Desai Khadi, from the hills south of Ambernath to the junction by the Taloja Bypass.",
+    "osmWays": [
+      54183832,
+      54183167
+    ]
+  },
+  "40030": {
+    "name": "Desai Khadi (south branch)",
+    "group": "desai",
+    "joins": null,
+    "into": "Desai Khadi",
+    "why": "Southern headstream of the Desai Khadi, from the hills south of Ambernath to the junction by the Taloja Bypass.",
+    "osmWays": [
+      777230053,
+      777230052,
+      777230042,
+      777230041,
+      54183167
+    ]
+  },
+  "40031": {
+    "name": "Desai Khadi",
+    "group": "desai",
+    "joins": "8969",
+    "joinsName": "Ulhas",
+    "why": "Formed by its two branches by the Taloja Bypass, flows west past Nilaje and Desai village, south of Diva, and north into the Ulhas near Mumbra. OSM way 204366002 and neighbours (unnamed); Desai village sits on its bank.",
+    "osmWays": [
+      54183167,
+      54183832,
+      204366002,
+      935860083,
+      935867274,
+      1007837685
+    ]
+  },
+  "40032": {
+    "name": "Chena",
+    "joins": "8969",
+    "joinsName": "Ulhas",
+    "why": "OSM \"Chena River\": from the Yeoor hills of Sanjay Gandhi National Park north to the Ulhas (Vasai Creek) at Ghodbunder.",
+    "osmWays": [
+      204352228
+    ]
+  },
+  "40033": {
+    "name": "Waldhuni",
+    "joins": "8969",
+    "joinsName": "Ulhas",
+    "why": "OSM \"Waldhuni River\" and \"Wadhuni\": from near Ambernath through Ulhasnagar to the Ulhas at Shahad, Kalyan. OSM maps only its lower course.",
+    "osmWays": [
+      816779802,
+      786495071,
+      786495070,
+      204366005
+    ]
+  },
+  "40034": {
+    "name": "Irla Nala",
+    "joins": null,
+    "into": "Arabian Sea",
+    "why": "OSM \"Irla Nala\": from Vile Parle west through Irla to the sea at Juhu.",
+    "osmWays": [
+      376930283,
+      376930282,
+      554967608,
+      73043478,
+      712610052,
+      712610051,
+      712610053
+    ]
+  },
+  "40035": {
+    "name": "Mogara Nallah",
+    "joins": null,
+    "into": "Arabian Sea",
+    "why": "OSM \"Mogara Nallah\": through Andheri West to Malad Creek near Lokhandwala.",
+    "osmWays": [
+      291430561,
+      1170462403
+    ]
+  },
+  "40036": {
+    "name": "Chandansar",
+    "hydroSource": 41203855,
+    "hydroOutlet": 41203465,
+    "joins": "8965",
+    "joinsName": "Vaitarna",
+    "why": "Unmapped in OSM; HydroRIVERS course from the hills east of the Jivdani temple, Virar, north past Chandansar village (on Chandansar Road) to the Vaitarna. Name as the user gave it."
   }
 }

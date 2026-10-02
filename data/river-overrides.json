@@ -340,5 +340,80 @@
     "origin": "Aarey Milk Colony, Goregaon, Mumbai",
     "end": "Malad Creek at Lokhandwala, Mumbai",
     "why": "Added from HydroRIVERS (data/added-rivers.json). Rises in the Aarey hills, not the Western Ghats, and drains into Malad Creek."
+  },
+  "40026": {
+    "name": "Vakola Nala",
+    "origin": "Shastri Nagar, Santacruz East, Mumbai",
+    "end": "Bandra Kurla Complex, just above Mahim Creek, Mumbai",
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40027": {
+    "name": "Mahul Creek",
+    "origin": "Ghatkopar West hills, Mumbai",
+    "end": "Mumbai Harbour at Mahul, Mumbai",
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40028": {
+    "name": "",
+    "origin": "Ghatkopar hills near R City Mall, Mumbai",
+    "end": "Thane Creek, north of the Deonar dumping ground, Mumbai",
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40029": {
+    "name": "Desai Khadi (north branch)",
+    "origin": "Hills south of Ambernath, Maharashtra",
+    "end": "Nilaje, south of Dombivli, Maharashtra",
+    "endNear": true,
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40030": {
+    "name": "Desai Khadi (south branch)",
+    "origin": "Hills south of Ambernath, Maharashtra",
+    "end": "Nilaje, south of Dombivli, Maharashtra",
+    "endNear": true,
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40031": {
+    "name": "Desai Khadi",
+    "formedAt": "Near Nilaje, south of Dombivli, Maharashtra",
+    "end": "Diva, Maharashtra",
+    "endNear": true,
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40032": {
+    "name": "Chena",
+    "origin": "Yeoor hills, Sanjay Gandhi National Park, Thane",
+    "end": "Ghodbunder, Thane",
+    "endNear": true,
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40033": {
+    "name": "Waldhuni",
+    "origin": "Ambernath, Maharashtra",
+    "originNear": true,
+    "end": "Shahad, Kalyan, Maharashtra",
+    "endNear": true,
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40034": {
+    "name": "Irla Nala",
+    "origin": "Vile Parle, Mumbai",
+    "originNear": true,
+    "end": "Juhu, Mumbai",
+    "endNear": true,
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40035": {
+    "name": "Mogara Nallah",
+    "origin": "Andheri West, Mumbai",
+    "originNear": true,
+    "end": "Malad Creek near Lokhandwala, Mumbai",
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40036": {
+    "name": "Chandansar",
+    "origin": "Jivdani hills, Virar, Maharashtra",
+    "end": "Vaitarna estuary, north of Virar, Maharashtra",
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
   }
 }

@@ -294,6 +294,30 @@ if (os) {
   await page.screenshot({ path: `${OUT}/31-oshiwara.png` });
 }
 
+// Mumbai Metropolitan Region rivers traced from OpenStreetMap.
+console.log("\nVakola Nala (joins the Mithi above Mahim Creek):");
+const vk = await openRiver("Vakola Nala", [72.848, 19.085], 14);
+check("Vakola Nala is on the map", !!vk);
+if (vk) check("Merges into", vk.panel.rows["Merges into"] === "Mithi", vk.panel.rows["Merges into"]);
+console.log("\nDesai Khadi (formed by two branches south of Ambernath):");
+const dk = await openRiver("Desai Khadi", [73.079, 19.143], 13);
+check("Desai Khadi is on the map", !!dk);
+if (dk) {
+  check("Formed by", dk.panel.rows["Formed by"] === "Confluence of Desai Khadi (south branch) and Desai Khadi (north branch)" || dk.panel.rows["Formed by"] === "Confluence of Desai Khadi (north branch) and Desai Khadi (south branch)", dk.panel.rows["Formed by"]);
+  check("Merges into", dk.panel.rows["Merges into"] === "Ulhas", dk.panel.rows["Merges into"]);
+}
+console.log("\nUnnamed river past the Deonar dumping ground:");
+const un = await openRiver("", [72.9175, 19.088], 14);
+check("unnamed river is on the map", !!un);
+if (un) {
+  check("heading", un.panel.heading === "Unnamed river", un.panel.heading);
+  check("Mouth", /Thane Creek/.test(un.panel.rows["Mouth"] ?? ""), un.panel.rows["Mouth"]);
+}
+console.log("\nChandansar (Virar, joins the Vaitarna):");
+const cs = await openRiver("Chandansar", [72.837, 19.48], 14);
+check("Chandansar is on the map", !!cs);
+if (cs) check("Merges into", cs.panel.rows["Merges into"] === "Vaitarna", cs.panel.rows["Merges into"]);
+
 // --- 7. dismiss ----------------------------------------------------------------
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));

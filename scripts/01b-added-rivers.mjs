@@ -1,5 +1,11 @@
 // Adds rivers the CWC dataset lacks, from a hand-curated list (data/added-rivers.json).
 //
+// Courses come from one of two sources:
+//   - OpenStreetMap: small urban rivers and nalas (the Vakola Nala, the Mahul creek) that
+//     no elevation-derived network resolves. Their traced courses are stored in
+//     data/added-rivers-osm.json, keyed by uid, with the OSM way ids in the entry.
+//   - HydroRIVERS, as below.
+//
 // HydroRIVERS (HydroSHEDS) has courses CWC does not, the Bhogawati through Barshi among
 // them, but no names. Each entry therefore names a river by hand and points at its
 // HydroRIVERS reaches: the chain from `hydroSource` down to `hydroOutlet`. The course is
@@ -13,7 +19,7 @@
 //   - no CWC river nearby may carry a similar name (it may be the same river), and
 //   - it must actually reach the river it is said to join.
 //
-// The added rivers are appended to build/rivers.ndjson, tagged src: "HydroSHEDS", so every
+// The added rivers are appended to build/rivers.ndjson, tagged with their src, so every
 // later step treats them like CWC rivers. Re-running replaces the previous additions.
 //
 //   node scripts/01b-added-rivers.mjs                        build
@@ -24,10 +30,12 @@ import { open } from "shapefile";
 import { loadRivers, partsOf, bboxOf, distKm, pointToLineKm } from "./lib/geo.mjs";
 
 const LIST = "data/added-rivers.json";
+const OSM_GEOMETRY = "data/added-rivers-osm.json";
 const RIVERS = "build/rivers.ndjson";
-const SRC_TAG = "HydroSHEDS";
+const SOURCES = { hydro: "HydroSHEDS", osm: "OpenStreetMap" };
 
 const JOIN_SNAP_KM = 0.5; // cut the course where it first comes this close to the river it joins
+const JOIN_SNAP_OSM_KM = 0.15; // OSM courses are surveyed, so they can run closer before the cut
 const JOIN_REACH_KM = 1.5; // ...and reject it if it never comes this close
 const NEAR_JOIN_KM = 1.5; // near the confluence, closeness to other lines is expected
 const OVERLAP_KM = 0.5; // a vertex this close to another CWC line is "on" that river
@@ -41,7 +49,8 @@ const list = JSON.parse(readFileSync(listPath, "utf8"));
 
 // --- CWC rivers ----------------------------------------------------------------------
 const all = await loadRivers(RIVERS);
-const cwc = all.filter((f) => f.properties.src !== SRC_TAG);
+const cwc = all.filter((f) => !f.properties.src);
+const osmGeometry = JSON.parse(readFileSync(OSM_GEOMETRY, "utf8"));
 const rivers = cwc.map((f) => {
   const parts = partsOf(f.geometry);
   return { uid: String(f.properties.UID_River), name: f.properties.rivname, props: f.properties, parts, bbox: bboxOf(parts) };
@@ -172,35 +181,44 @@ function stateAt(lon, lat) {
 // --- build each river --------------------------------------------------------------------
 function build(uid, entry, addedSoFar) {
   const problems = [];
-  let line = chain(entry.hydroSource, entry.hydroOutlet);
+  const fromOsm = !!entry.osmWays;
+  if (fromOsm && !osmGeometry[uid]) return { problems: [`no course for ${uid} in ${OSM_GEOMETRY}`] };
+  let line = fromOsm ? osmGeometry[uid] : chain(entry.hydroSource, entry.hydroOutlet);
+  // OSM courses are surveyed lines; only the stair-stepped HydroRIVERS ones need smoothing.
+  const tidy = fromOsm ? (l) => l : smooth;
   const join = entry.joins ? byUid.get(String(entry.joins)) : null;
   if (entry.joins && !join) return { problems: [`joins uid ${entry.joins}, which is not in the data`] };
   if (join && entry.joinsName && join.name !== entry.joinsName)
     problems.push(`joins ${entry.joins} expected "${entry.joinsName}", data says "${join.name}"`);
 
-  if (join) {
-    let cut = line.findIndex(([x, y]) => pointToLineKm(x, y, join.parts) <= JOIN_SNAP_KM);
+  // `cutAt` ends a sea-bound river where it reaches a CWC line without joining it: the
+  // Oshiwara meets the Malad Creek channel that the CWC draws as the Poisar's lower course.
+  const meets = join ?? (entry.cutAt ? byUid.get(String(entry.cutAt)) : null);
+  if (entry.cutAt && !meets) return { problems: [`cutAt uid ${entry.cutAt}, which is not in the data`] };
+  if (meets) {
+    const snapKm = fromOsm ? JOIN_SNAP_OSM_KM : JOIN_SNAP_KM;
+    let cut = line.findIndex(([x, y]) => pointToLineKm(x, y, meets.parts) <= snapKm);
     if (cut === -1) {
       const [x, y] = line[line.length - 1];
-      const d = pointToLineKm(x, y, join.parts);
-      if (d > JOIN_REACH_KM) problems.push(`ends ${d.toFixed(1)} km from ${join.name}, which it is said to join`);
+      const d = pointToLineKm(x, y, meets.parts);
+      if (d > JOIN_REACH_KM) problems.push(`ends ${d.toFixed(1)} km from ${meets.name}, which it is said to reach`);
       cut = line.length;
     }
     const tail = line[Math.min(cut, line.length - 1)];
-    line = [...line.slice(0, Math.max(cut, 1)), nearestOn(tail[0], tail[1], join.parts)];
-    line = smooth(line.slice(0, -1)).concat([line[line.length - 1]]);
+    line = [...line.slice(0, Math.max(cut, 1)), nearestOn(tail[0], tail[1], meets.parts)];
+    line = tidy(line.slice(0, -1)).concat([line[line.length - 1]]);
   } else {
-    line = smooth(line);
+    line = tidy(line);
   }
   const len = lengthKm(line);
-  if (len < 3) problems.push(`only ${len.toFixed(1)} km left after cutting at the confluence`);
+  if (len < (fromOsm ? 2 : 3)) problems.push(`only ${len.toFixed(1)} km left after cutting at the confluence`);
 
   // Conflicts with existing rivers. The last stretch before the confluence is excused:
   // there the course naturally runs into, and up against, the river it joins.
   const box = bboxOf([line]);
   const nearby = rivers.filter((r) => bboxesTouch(r.bbox, box, 0.03));
   const [mx, my] = line[line.length - 1];
-  const nearMouth = ([x, y]) => join && distKm(x, y, mx, my) <= NEAR_JOIN_KM;
+  const nearMouth = ([x, y]) => meets && distKm(x, y, mx, my) <= NEAR_JOIN_KM;
 
   let onKm = 0, run = 0, worstRun = 0, worstWho = null;
   for (let i = 0; i + 1 < line.length; i++) {
@@ -230,8 +248,9 @@ function build(uid, entry, addedSoFar) {
   const clashes = rivers
     .filter((r) => bboxesTouch(r.bbox, box, pad) && similarNames(r.name, entry.name))
     .map((r) => `${r.name} (uid ${r.uid})`);
+  // Pieces of one river (the Desai Khadi's two branches and its main stem) share a group.
   for (const [otherUid, other] of addedSoFar)
-    if (otherUid !== uid && similarNames(other.name, entry.name) && distKm(...line[0], ...other.at) < 100) clashes.push(`${other.name} (added ${otherUid})`);
+    if (otherUid !== uid && !(entry.group && entry.group === list[otherUid].group) && similarNames(other.name, entry.name) && distKm(...line[0], ...other.at) < 100) clashes.push(`${other.name} (added ${otherUid})`);
   if (clashes.length) problems.push(`similar name nearby: ${clashes.join(", ")}`);
 
   const [sx, sy] = line[0];
@@ -248,7 +267,7 @@ function build(uid, entry, addedSoFar) {
       state_al: stateAt(sx, sy),
       st_pt_lat: sy, st_pt_long: sx, st_loc_ste: stateAt(sx, sy),
       en_pt_lat: my, en_pt_long: mx, en_loc_ste: stateAt(mx, my),
-      src: SRC_TAG,
+      src: SOURCES[fromOsm ? "osm" : "hydro"],
       join_uid: join ? join.uid : "",
     },
     geometry: { type: "LineString", coordinates: line },
@@ -257,7 +276,7 @@ function build(uid, entry, addedSoFar) {
 }
 
 const results = [];
-const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: reaches.get(e.hydroSource)?.c[0] ?? [0, 0] }]));
+const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: e.osmWays ? osmGeometry[uid]?.[0] ?? [0, 0] : reaches.get(e.hydroSource)?.c[0] ?? [0, 0] }]));
 for (const [uid, entry] of Object.entries(list)) {
   if (!checkMode && byUid.has(uid)) throw new Error(`uid ${uid} is already a CWC river`);
   let r;

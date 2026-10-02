@@ -118,7 +118,7 @@ for (const line of raw) {
     confl: p.Confluence ?? "",
     from: [p.st_loc_dst, p.st_loc_ste].filter(Boolean).join(", "),
     to: [p.en_loc_dst, p.en_loc_ste].filter(Boolean).join(", "),
-    src: p.src ?? "", // "HydroSHEDS" for rivers added in 01b
+    src: p.src ?? "", // "HydroSHEDS" or "OpenStreetMap" for rivers added in 01b
   };
   const fb = bboxOf(partsOf(f.geometry));
   if (fb[0] < bbox[0]) bbox[0] = fb[0];
