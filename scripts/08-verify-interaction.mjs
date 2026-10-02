@@ -313,6 +313,25 @@ if (un) {
   check("heading", un.panel.heading === "Unnamed river", un.panel.heading);
   check("Mouth", /Thane Creek/.test(un.panel.rows["Mouth"] ?? ""), un.panel.rows["Mouth"]);
 }
+console.log("\nSomaiyya Nalla (joins the unnamed river before Thane Creek):");
+const sn = await openRiver("Somaiyya Nalla", [72.9103, 19.07], 14);
+check("Somaiyya Nalla is on the map", !!sn);
+if (sn) check("Merges into", sn.panel.rows["Merges into"] === "Unnamed river", sn.panel.rows["Merges into"]);
+console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
+const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
+check("Chhoti Yamuna clickable", !!cy);
+if (cy) {
+  check("Branched off from", cy.panel.rows["Branched off from"] === "Yamuna", cy.panel.rows["Branched off from"]);
+  check("no Origin row", !("Origin" in cy.panel.rows) && !("Origin near" in cy.panel.rows), Object.keys(cy.panel.rows).join(", "));
+}
+console.log("\nMain Drain No 8 / Najafgarh Drain (one channel renamed, no confluence):");
+const md = await openRiver("Main Drain No 8", [76.5443, 28.8666], 10);
+check("Main Drain No 8 clickable", !!md);
+if (md) check("Continues to", md.panel.rows["Continues to"] === "Najafgarh Drain", JSON.stringify(md.panel.rows));
+const nj = await openRiver("Najafgarh Drain", [76.9674, 28.514], 10);
+check("Najafgarh Drain clickable", !!nj);
+if (nj) check("Continues from", nj.panel.rows["Continues from"] === "Main Drain No 8", JSON.stringify(nj.panel.rows));
+
 console.log("\nChandansar (Virar, joins the Vaitarna):");
 const cs = await openRiver("Chandansar", [72.837, 19.48], 14);
 check("Chandansar is on the map", !!cs);

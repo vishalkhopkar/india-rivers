@@ -91,6 +91,7 @@ for (const line of raw) {
     kind: topo.kind, // trib | sea | border | inland
     into: topo.down ? displayName(topo.down, topo.into) : plain(topo.into),
     down: topo.down ?? "",
+    ct: !!topo.down && topology[topo.down]?.continues === uid, // continues to, under a new name
     o: sp.o,
     on: sp.on,
     e: place.e,

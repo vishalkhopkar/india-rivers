@@ -39,6 +39,9 @@ export interface RiverProps {
   from?: string;
   to?: string;
   src?: string;
+  // Set when the river it flows into is this river under another name (Main Drain No 8
+  // becomes the Najafgarh Drain): there is no confluence to describe.
+  ct?: boolean;
 }
 
 // How the far end of a river is labelled. `near` applies when the description is a
@@ -94,8 +97,7 @@ export class InfoPanel {
     const rows: Row[] = [
       ["Length", `${p.len.toLocaleString()} km`],
       ...this.startRows(p),
-      [labels.into, this.intoValue(p)],
-      [p.en ? labels.near : labels.far, p.e],
+      ...this.endRows(p, labels),
     ];
 
     const extended: Row[] = FEATURES.showExtendedAttributes
@@ -133,10 +135,10 @@ export class InfoPanel {
       ];
     if (p.bf)
       return [
-        ["Branched off from", this.riverLink(p.bf, p.bfn || p.bf)],
+        ["Branched off from", this.riverLink(p.bf, p.bfn ?? "")],
         [p.batn ? "Branches off near" : "Branches off", p.bat ?? ""],
       ];
-    if (p.cf) return [["Continues from", this.riverLink(p.cf, p.cfn || p.cf)]];
+    if (p.cf) return [["Continues from", this.riverLink(p.cf, p.cfn ?? "")]];
     const origin: Row = [p.on ? "Origin near" : "Origin", p.o];
     if (p.ab)
       return [
@@ -145,6 +147,20 @@ export class InfoPanel {
         [p.entn ? "Enters India near" : "Enters India", p.ent ?? ""],
       ];
     return [origin];
+  }
+
+  private endRows(p: RiverProps, labels: (typeof END_LABELS)[EndKind]): Row[] {
+    if (p.ct && p.down) {
+      const renamed = p.into !== p.name;
+      return [
+        ["Continues to", this.riverLink(p.down, p.into)],
+        [renamed ? (p.en ? "Name changes near" : "Name changes") : p.en ? "Continues near" : "Continues", p.e],
+      ];
+    }
+    return [
+      [labels.into, this.intoValue(p)],
+      [p.en ? labels.near : labels.far, p.e],
+    ];
   }
 
   private intoValue(p: RiverProps): string | Node {
@@ -161,13 +177,13 @@ export class InfoPanel {
     frag.append("Confluence of ");
     uids.forEach((uid, i) => {
       if (i > 0) frag.append(i === uids.length - 1 ? " and " : ", ");
-      frag.append(this.riverLink(uid, names[i] ?? uid));
+      frag.append(this.riverLink(uid, names[i] ?? ""));
     });
     return frag;
   }
 
   private riverLink(uid: string, text: string): HTMLAnchorElement {
-    const a = el("a", { href: `#river-${uid}`, class: "river-link" }, text) as HTMLAnchorElement;
+    const a = el("a", { href: `#river-${uid}`, class: "river-link" }, text || "Unnamed river") as HTMLAnchorElement;
     a.addEventListener("click", (ev) => {
       ev.preventDefault();
       this.onNavigate?.(uid);

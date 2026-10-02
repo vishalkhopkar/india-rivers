@@ -65,6 +65,13 @@ const dists = { unique: [], ambiguous: [] };
 const farExamples = [];
 
 for (const r of rivers) {
+  // Rivers added by hand name the river they join by uid, which also covers joining an
+  // unnamed river or another added one.
+  if (r.joinUid && byUid.has(r.joinUid)) {
+    out[r.uid] = { kind: "trib", into: byUid.get(r.joinUid).name, down: r.joinUid, d: 0 };
+    stats.linked++;
+    continue;
+  }
   const sink = sinkOf(r.confl);
   if (sink) {
     out[r.uid] = { kind: sink.kind, into: sink.into };
@@ -152,6 +159,9 @@ const BRANCH_ON_BIG_KM = 1;
 const BIG_RIVER_KM = 300;
 const branchTolerance = (g) => (g.len >= BIG_RIVER_KM ? BRANCH_ON_BIG_KM : BRANCH_ON_KM);
 const BRANCH_INTERIOR_KM = 1; // ...and away from the parent's own ends
+const REJOIN_MIN_KM = 2; // a loop shorter than this is digitising noise, not an anabranch
+const rejoined = [];
+let rejoinedReversed = 0;
 
 const feeders = new Map();
 for (const [u, t] of Object.entries(out)) {
@@ -221,10 +231,25 @@ for (const r of rivers) {
   // Starting on the very river it flows into means the recorded start and end are
   // swapped (Banjar "starts" on the Narmada it joins). It is a tributary, and its real
   // source is the recorded end.
-  if (out[r.uid].down === parent.uid) {
+  //
+  // Unless its end is on that river too: then it leaves the river and rejoins it lower
+  // down (the Chhoti Yamuna), and its start really is where it branches off.
+  const rejoins = pointToLineKm(r.end[0], r.end[1], parent.parts) <= branchTolerance(parent) &&
+    distKm(ox, oy, r.end[0], r.end[1]) >= REJOIN_MIN_KM;
+  if (out[r.uid].down === parent.uid && !rejoins) {
     out[r.uid].swapped = true;
     swapped++;
     continue;
+  }
+  if (rejoins) {
+    rejoined.push(r.name);
+    // Such a loop can still be digitised mouth-first. The branch point is the end farther
+    // from the parent's mouth.
+    const [mx, my] = parent.end;
+    if (distKm(ox, oy, mx, my) < distKm(r.end[0], r.end[1], mx, my)) {
+      out[r.uid].swapped = true;
+      rejoinedReversed++;
+    }
   }
   out[r.uid].branchedFrom = parent.uid;
   branched++;
@@ -235,6 +260,25 @@ for (const r of rivers) {
 // "branched off" (the Sharda's data shows it continuing the Kuthi Yankti, yet it rises
 // at Kalapani).
 const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
+// Links the data gets wrong. Main Drain No 8 is digitised mouth-first, starting exactly
+// where the Najafgarh Drain begins: declaring it swapped, flowing into the Najafgarh
+// Drain, and the Najafgarh Drain continuing it, restores the real picture.
+const badLinks = [];
+for (const [uid, ov] of Object.entries(overrides)) {
+  if (!out[uid]) continue;
+  for (const k of ["down", "continues"]) if (ov[k] && !byUid.has(ov[k])) badLinks.push(`${uid}: ${k} ${ov[k]} is not in the data`);
+  if (ov.swapped) { out[uid].swapped = true; delete out[uid].branchedFrom; }
+  if (ov.down && byUid.has(ov.down)) Object.assign(out[uid], { kind: "trib", into: byUid.get(ov.down).name, down: ov.down, d: 0 });
+  if (ov.continues && byUid.has(ov.continues)) {
+    out[uid].continues = ov.continues;
+    delete out[uid].formedBy;
+    delete out[uid].branchedFrom;
+  }
+}
+if (badLinks.length) {
+  console.error(`FAIL - link overrides reference missing rivers:\n  ${badLinks.join("\n  ")}`);
+  process.exit(1);
+}
 for (const [uid, ov] of Object.entries(overrides)) {
   if (!ov.origin || !out[uid]) continue;
   delete out[uid].continues;
@@ -300,6 +344,7 @@ for (const r of largest("formedBy")) console.log(`  ${r.name.padEnd(22)} <- ${ou
 console.log(`continues another river: ${continued}. Largest:`);
 for (const r of largest("continues", 8)) console.log(`  ${r.name.padEnd(22)} <- ${nm(out[r.uid].continues)}`);
 console.log(`start and end swapped in the data (start sits on its own parent): ${swapped}`);
+console.log(`branches that rejoin their parent: ${rejoined.length}, ${rejoinedReversed} of them digitised mouth-first (${rejoined.slice(0, 12).join(", ")}${rejoined.length > 12 ? ", ..." : ""})`);
 console.log(`branched off another river: ${branched}. Largest:`);
 for (const r of largest("branchedFrom", 14)) console.log(`  ${r.name.padEnd(22)} <- ${nm(out[r.uid].branchedFrom)}`);
 console.log(`chain depth to terminal: max ${maxDepth} (${deepest}); ` +

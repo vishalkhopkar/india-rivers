@@ -251,19 +251,18 @@
   "40029": {
     "name": "Desai Khadi (north branch)",
     "group": "desai",
-    "joins": null,
-    "into": "Desai Khadi",
+    "joins": "40031",
     "why": "Northern headstream of the Desai Khadi, from the hills south of Ambernath to the junction by the Taloja Bypass.",
     "osmWays": [
       54183832,
       54183167
-    ]
+    ],
+    "joinsName": "Desai Khadi"
   },
   "40030": {
     "name": "Desai Khadi (south branch)",
     "group": "desai",
-    "joins": null,
-    "into": "Desai Khadi",
+    "joins": "40031",
     "why": "Southern headstream of the Desai Khadi, from the hills south of Ambernath to the junction by the Taloja Bypass.",
     "osmWays": [
       777230053,
@@ -271,7 +270,8 @@
       777230042,
       777230041,
       54183167
-    ]
+    ],
+    "joinsName": "Desai Khadi"
   },
   "40031": {
     "name": "Desai Khadi",
@@ -341,5 +341,15 @@
     "joins": "8965",
     "joinsName": "Vaitarna",
     "why": "Unmapped in OSM; HydroRIVERS course from the hills east of the Jivdani temple, Virar, north past Chandansar village (on Chandansar Road) to the Vaitarna. Name as the user gave it."
+  },
+  "40037": {
+    "name": "Somaiyya Nalla",
+    "joins": "40028",
+    "joinsName": "",
+    "osmWays": [
+      153950472,
+      841044962
+    ],
+    "why": "OSM \"Somaiyya Nalla\": rises at Tilak Nagar, about 1 km from Lokmanya Tilak Terminus, runs east under the Eastern Express Highway, along the Ghatkopar-Mankhurd Link Road and east to the unnamed river at the north-west corner of the Deonar dumping ground; their joint channel reaches Thane Creek."
   }
 }

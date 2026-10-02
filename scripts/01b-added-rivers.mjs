@@ -186,7 +186,7 @@ function build(uid, entry, addedSoFar) {
   let line = fromOsm ? osmGeometry[uid] : chain(entry.hydroSource, entry.hydroOutlet);
   // OSM courses are surveyed lines; only the stair-stepped HydroRIVERS ones need smoothing.
   const tidy = fromOsm ? (l) => l : smooth;
-  const join = entry.joins ? byUid.get(String(entry.joins)) : null;
+  const join = entry.joins ? byUid.get(String(entry.joins)) ?? addedRivers.get(String(entry.joins)) : null;
   if (entry.joins && !join) return { problems: [`joins uid ${entry.joins}, which is not in the data`] };
   if (join && entry.joinsName && join.name !== entry.joinsName)
     problems.push(`joins ${entry.joins} expected "${entry.joinsName}", data says "${join.name}"`);
@@ -276,12 +276,21 @@ function build(uid, entry, addedSoFar) {
 }
 
 const results = [];
+// Added rivers that others join (the unnamed river the Somaiyya Nalla flows into), built
+// first so the tributary can be cut and snapped onto them.
+const addedRivers = new Map();
+const order = Object.keys(list).sort((a, b) => (list[a].joins in list ? 1 : 0) - (list[b].joins in list ? 1 : 0));
 const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: e.osmWays ? osmGeometry[uid]?.[0] ?? [0, 0] : reaches.get(e.hydroSource)?.c[0] ?? [0, 0] }]));
-for (const [uid, entry] of Object.entries(list)) {
+for (const uid of order) {
+  const entry = list[uid];
   if (!checkMode && byUid.has(uid)) throw new Error(`uid ${uid} is already a CWC river`);
   let r;
   try { r = build(uid, entry, addedSoFar); } catch (err) { r = { problems: [err.message] }; }
   results.push({ uid, name: entry.name, ...r });
+  if (r.feature) {
+    const parts = [r.feature.geometry.coordinates];
+    addedRivers.set(uid, { uid, name: entry.name, props: r.feature.properties, parts, bbox: bboxOf(parts) });
+  }
   console.log(`${r.problems.length ? "CONFLICT" : "ok      "} ${uid} ${entry.name.padEnd(20)} ${r.len ? r.len.toFixed(1).padStart(6) + " km" : ""}${r.problems.length ? "\n           " + r.problems.join("\n           ") : ""}`);
 }
 

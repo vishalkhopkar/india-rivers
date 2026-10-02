@@ -254,6 +254,17 @@
     "why": "The dataset's Ganga line starts at Devprayag (the Bhagirathi is its own feature) and stops at the Bangladesh border, though Confluence says Bay of Bengal.",
     "formedAt": "Devprayag, Uttarakhand"
   },
+  "26420": {
+    "name": "Main Drain No 8",
+    "swapped": true,
+    "down": "26906",
+    "why": "Digitised mouth-first: its recorded start is exactly where the Najafgarh Drain begins. It flows south into the Najafgarh Drain, which continues it under a new name."
+  },
+  "26906": {
+    "name": "Najafgarh Drain",
+    "continues": "26420",
+    "why": "Continues Main Drain No 8; there is no confluence where the name changes."
+  },
   "29220": {
     "name": "Gomati River",
     "origin": "Gomat Taal near Madho Tanda, Pilibhit district, Uttar Pradesh",
@@ -415,5 +426,11 @@
     "origin": "Jivdani hills, Virar, Maharashtra",
     "end": "Vaitarna estuary, north of Virar, Maharashtra",
     "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+  },
+  "40037": {
+    "name": "Somaiyya Nalla",
+    "origin": "Tilak Nagar, near Lokmanya Tilak Terminus, Mumbai",
+    "end": "North-west corner of the Deonar dumping ground, Mumbai",
+    "why": "Added river; the automatic description reads only \"Mumbai\"."
   }
 }
