@@ -176,7 +176,7 @@ for (const f of rivers) {
   if (t.formedBy || t.continues || t.branchedFrom || t.swapped) continue;
 
   const parts = partsOf(f.geometry);
-  const [ox, oy] = originPoint(p, parts);
+  const [ox, oy] = t.ends?.[0] ?? originPoint(p, parts);
   if (!nearForeignLand(ox, oy)) continue;
   candidates++;
 

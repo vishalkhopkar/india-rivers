@@ -8,7 +8,7 @@
 // name collision with a river missing from the dataset, not the real parent.
 
 import { writeFileSync, readFileSync } from "node:fs";
-import { loadRivers, partsOf, bboxOf, pointToLineKm, pointToBboxKm, originPoint, distKm } from "./lib/geo.mjs";
+import { loadRivers, partsOf, bboxOf, pointToLineKm, pointToBboxKm, originPoint, endCopiesStart, farthestEnd, distKm } from "./lib/geo.mjs";
 
 // A tributary's end point should sit on its parent. Beyond this, the match is not
 // trusted enough to link to.
@@ -46,6 +46,7 @@ const rivers = (await loadRivers()).map((f) => {
     confl: (p.Confluence ?? "").trim(),
     origin: originPoint(p, parts),
     end: [p.en_pt_long, p.en_pt_lat],
+    copied: endCopiesStart(p),
     parts,
     bbox: bboxOf(parts),
     joinUid: p.join_uid, // set on rivers added from HydroRIVERS (01b)
@@ -72,6 +73,13 @@ for (const r of rivers) {
     stats.linked++;
     continue;
   }
+  // Start and end recorded as one point: assume the start is the genuine one unless the
+  // other end of the line turns out to sit farther from the river it joins (below).
+  if (r.copied) {
+    r.origin = r.end;
+    r.end = farthestEnd(r.parts, r.origin);
+  }
+
   const sink = sinkOf(r.confl);
   if (sink) {
     out[r.uid] = { kind: sink.kind, into: sink.into };
@@ -86,12 +94,22 @@ for (const r of rivers) {
     continue;
   }
 
-  const [lon, lat] = r.end;
-  let best = null, bestD = Infinity;
-  for (const c of candidates) {
-    if (pointToBboxKm(lon, lat, c.bbox) >= bestD) continue;
-    const d = pointToLineKm(lon, lat, c.parts);
-    if (d < bestD) { bestD = d; best = c; }
+  const nearest = ([lon, lat]) => {
+    let best = null, bestD = Infinity;
+    for (const c of candidates) {
+      if (pointToBboxKm(lon, lat, c.bbox) >= bestD) continue;
+      const d = pointToLineKm(lon, lat, c.parts);
+      if (d < bestD) { bestD = d; best = c; }
+    }
+    return { best, bestD };
+  };
+  let { best, bestD } = nearest(r.end);
+  if (r.copied) {
+    const other = nearest(r.origin);
+    if (other.bestD < bestD) {
+      ({ best, bestD } = other);
+      [r.origin, r.end] = [r.end, r.origin];
+    }
   }
   (candidates.length === 1 ? dists.unique : dists.ambiguous).push(bestD);
 
@@ -212,6 +230,10 @@ for (const r of rivers) {
 let swapped = 0;
 for (const r of rivers) {
   if (out[r.uid].formedBy || out[r.uid].continues) continue;
+  // With start and end recorded as one point, which end is the source was a judgement
+  // call above; a "source" lying on another river (Binno Khad's on the Beas) more likely
+  // means that call was wrong than that a hill stream branches off. Don't build on it.
+  if (r.copied) continue;
   const [ox, oy] = r.origin;
   let parent = null, best = Infinity;
   for (const g of grid.get(`${Math.floor(ox / GRID)},${Math.floor(oy / GRID)}`) ?? []) {
@@ -320,6 +342,12 @@ if (misjoined.length) {
   console.error(`FAIL - added rivers linked to the wrong river:\n  ${misjoined.join("\n  ")}`);
   process.exit(1);
 }
+
+// Rivers whose recorded start and end coincide: hand the ends chosen above to
+// 03b-abroad and 03c-places, which would otherwise read the duplicated point for both.
+const copied = rivers.filter((r) => r.copied && out[r.uid]);
+for (const r of copied) out[r.uid].ends = [r.origin, r.end].map(([x, y]) => [+x.toFixed(5), +y.toFixed(5)]);
+console.log(`\nstart and end recorded as one point: ${copied.length} rivers, ends taken from the line`);
 
 writeFileSync("build/topology.json", JSON.stringify(out));
 

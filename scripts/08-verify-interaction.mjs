@@ -337,6 +337,14 @@ const cs = await openRiver("Chandansar", [72.837, 19.48], 14);
 check("Chandansar is on the map", !!cs);
 if (cs) check("Merges into", cs.panel.rows["Merges into"] === "Vaitarna", cs.panel.rows["Merges into"]);
 
+console.log("\nKhari (Gujarat; the data repeats its source as its end point):");
+const kh = await openRiver("Khari", [72.734, 23.0595], 11);
+check("Khari is on the map", !!kh);
+if (kh) {
+  check("Merges into", kh.panel.rows["Merges into"] === "Sabarmati", kh.panel.rows["Merges into"]);
+  check("Confluence", kh.panel.rows["Confluence"] === "Vautha, south of Ahmedabad, Gujarat", JSON.stringify(kh.panel.rows));
+}
+
 // --- 7. dismiss ----------------------------------------------------------------
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));

@@ -97,6 +97,21 @@ export function originPoint(props, parts) {
   return ends.reduce((a, b) => (farFromEnd(b) > farFromEnd(a) ? b : a));
 }
 
+// True when the declared start and end are the same point (60 rivers, Khari in Gujarat
+// among them). Either one may be the copy - Khari's end repeats its source, Ari Nala's
+// start repeats its mouth - so only the network can tell which end is the mouth.
+// 03a-topology decides and records both ends as `ends` for the later steps.
+export function endCopiesStart(props) {
+  return distKm(props.en_pt_long, props.en_pt_lat, props.st_pt_long, props.st_pt_lat) < 0.5;
+}
+
+// The endpoint of the line farthest from [x, y].
+export function farthestEnd(parts, [x, y]) {
+  const ends = parts.flatMap((pt) => [pt[0], pt[pt.length - 1]]);
+  const far = (c) => distKm(c[0], c[1], x, y);
+  return ends.reduce((a, b) => (far(b) > far(a) ? b : a));
+}
+
 // Read build/rivers.ndjson into memory.
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline";

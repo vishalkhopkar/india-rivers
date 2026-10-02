@@ -241,10 +241,11 @@ for (const f of rivers) {
 
   // Where the river starts and ends. When the data has them swapped (91 rivers whose
   // recorded start sits on the very river they flow into), so do we.
-  let [olon, olat] = originPoint(p, partsOf(f.geometry));
-  let [elon, elat] = [p.en_pt_long, p.en_pt_lat];
-  let startAdmin = adminFallback(p.st_loc_sb_, p.st_loc_dst, p.st_loc_ste);
-  let endAdmin = adminFallback(p.en_loc_sb_, p.en_loc_dst, p.en_loc_ste);
+  // Rivers whose recorded start and end coincide carry the ends topology chose; their
+  // district names describe only one of those ends, so fall back to the state alone.
+  let [[olon, olat], [elon, elat]] = t.ends ?? [originPoint(p, partsOf(f.geometry)), [p.en_pt_long, p.en_pt_lat]];
+  let startAdmin = t.ends ? adminFallback(null, null, p.st_loc_ste) : adminFallback(p.st_loc_sb_, p.st_loc_dst, p.st_loc_ste);
+  let endAdmin = t.ends ? adminFallback(null, null, p.en_loc_ste) : adminFallback(p.en_loc_sb_, p.en_loc_dst, p.en_loc_ste);
   let startState = stateOf(p.st_loc_ste);
   if (t.swapped) {
     [olon, olat, elon, elat] = [elon, elat, olon, olat];
