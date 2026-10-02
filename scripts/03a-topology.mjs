@@ -48,6 +48,7 @@ const rivers = (await loadRivers()).map((f) => {
     end: [p.en_pt_long, p.en_pt_lat],
     parts,
     bbox: bboxOf(parts),
+    joinUid: p.join_uid, // set on rivers added from HydroRIVERS (01b)
   };
 });
 const byUid = new Map(rivers.map((r) => [r.uid, r]));
@@ -264,6 +265,16 @@ for (const r of rivers) {
   while (out[cur]?.down) { cur = out[cur].down; depth++; }
   depthHist.set(depth, (depthHist.get(depth) ?? 0) + 1);
   if (depth > maxDepth) { maxDepth = depth; deepest = r.name; }
+}
+
+// Rivers added by hand were cut and snapped onto a specific river; resolving their
+// Confluence name must land on that same river.
+const misjoined = rivers
+  .filter((r) => r.joinUid && out[r.uid]?.down !== r.joinUid)
+  .map((r) => `${r.uid} ${r.name}: curated to join ${r.joinUid}, resolved to ${out[r.uid]?.down ?? out[r.uid]?.into}`);
+if (misjoined.length) {
+  console.error(`FAIL - added rivers linked to the wrong river:\n  ${misjoined.join("\n  ")}`);
+  process.exit(1);
 }
 
 writeFileSync("build/topology.json", JSON.stringify(out));

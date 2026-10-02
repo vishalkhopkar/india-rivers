@@ -1,0 +1,194 @@
+{
+  "40001": {
+    "name": "Bhogawati",
+    "hydroSource": 41238002,
+    "hydroOutlet": 41246591,
+    "joins": "2997",
+    "joinsName": "Sina",
+    "why": "Wikipedia: rises on the Balaghat scarp near Dharashiv (Osmanabad), flows ~65 km SW through Barshi and Madha talukas and joins the Sina near Mohol - matches source, course, length and mouth. CWC's three 'Bhogavati/Bhogawati' lines are different rivers (Kolhapur, Tapi and Godavari basins). Catchment 1,647 km2 - the largest humid-zone gap found."
+  },
+  "40003": {
+    "name": "Panyu Pabung",
+    "hydroSource": 40814585,
+    "hydroOutlet": 40802437,
+    "joins": "401",
+    "joinsName": "Kurung",
+    "why": "Name: OpenStreetMap names it along 69% of the uncovered course (\"Panyu Pabung\")."
+  },
+  "40004": {
+    "name": "Budhil",
+    "hydroSource": 40595373,
+    "hydroOutlet": 40596114,
+    "joins": "15541",
+    "joinsName": "Ravi",
+    "why": "Name: OpenStreetMap names it along 65% of the uncovered course (\"Budhil Nadi\")."
+  },
+  "40005": {
+    "name": "Vinchrana",
+    "hydroSource": 41221177,
+    "hydroOutlet": 41226938,
+    "joins": "2997",
+    "joinsName": "Sina",
+    "why": "Name: OpenStreetMap names it along 69% of the uncovered course (\"Vinchrana River\")."
+  },
+  "40006": {
+    "name": "Andra",
+    "hydroSource": 40722013,
+    "hydroOutlet": 40731857,
+    "joins": "456",
+    "joinsName": "Matun",
+    "why": "Name: OpenStreetMap names it along 52% of the uncovered course (\"Andra River\")."
+  },
+  "40007": {
+    "name": "Igo",
+    "hydroSource": 40796779,
+    "hydroOutlet": 40800960,
+    "joins": "884",
+    "joinsName": "Simen",
+    "why": "Name: OpenStreetMap names it along 83% of the uncovered course (\"Igo River\")."
+  },
+  "40008": {
+    "name": "Lomu",
+    "hydroSource": 40909343,
+    "hydroOutlet": 40917133,
+    "joins": "1048",
+    "joinsName": "Zungki",
+    "why": "Name: OpenStreetMap names it along 100% of the uncovered course (\"Lomu\")."
+  },
+  "40009": {
+    "name": "Upper Nambol",
+    "hydroSource": 40989212,
+    "hydroOutlet": 41004354,
+    "joins": "1050",
+    "joinsName": "Imphal/Manipur",
+    "why": "Name: OpenStreetMap names it along 67% of the uncovered course (\"Upper Nambol River\")."
+  },
+  "40010": {
+    "name": "Pohultukish Nar",
+    "hydroSource": 40517782,
+    "hydroOutlet": 40526234,
+    "joins": "15547",
+    "joinsName": "Shingo",
+    "why": "Name: OpenStreetMap names it along 100% of the uncovered course (\"Pohultukish Nar\")."
+  },
+  "40011": {
+    "name": "Intaki",
+    "hydroSource": 40943059,
+    "hydroOutlet": 40934095,
+    "joins": "136",
+    "joinsName": "Dhansiri or Dima",
+    "why": "Name: OpenStreetMap names it along 65% of the uncovered course (\"Intaki River\")."
+  },
+  "40012": {
+    "name": "Waldi",
+    "hydroSource": 41192888,
+    "hydroOutlet": 41192601,
+    "joins": "4684",
+    "joinsName": "Darna",
+    "why": "Name: OpenStreetMap names it along 55% of the uncovered course (\"Waldi\")."
+  },
+  "40013": {
+    "name": "Da Chu",
+    "hydroSource": 40773478,
+    "hydroOutlet": 40771594,
+    "joins": "959",
+    "joinsName": "Lohit/Tellu",
+    "why": "Name: OpenStreetMap names it along 96% of the uncovered course (\"Da Chu\")."
+  },
+  "40014": {
+    "name": "Malana Nala",
+    "hydroSource": 40606085,
+    "hydroOutlet": 40611233,
+    "joins": "14248",
+    "joinsName": "Parbati",
+    "why": "Name: OpenStreetMap names it along 90% of the uncovered course (\"Malana Nala\")."
+  },
+  "40015": {
+    "name": "Selin",
+    "hydroSource": 40769027,
+    "hydroOutlet": 40775073,
+    "joins": "859",
+    "joinsName": "Subansiri",
+    "why": "Name: OpenStreetMap names it along 58% of the uncovered course (\"Selin\")."
+  },
+  "40016": {
+    "name": "Khunti Sot",
+    "hydroSource": 41014729,
+    "hydroOutlet": 41014729,
+    "joins": "27142",
+    "joinsName": "North Koel",
+    "why": "Name: OpenStreetMap names it along 100% of the uncovered course (\"Khunti Sot\")."
+  },
+  "40017": {
+    "name": "Surya Ganga",
+    "hydroSource": 41163199,
+    "hydroOutlet": 41161191,
+    "joins": "6554",
+    "joinsName": "Wardha River",
+    "why": "Name: OpenStreetMap names it along 81% of the uncovered course (\"Surya Ganga\")."
+  },
+  "40018": {
+    "name": "Parsen",
+    "hydroSource": 40814593,
+    "hydroOutlet": 40804983,
+    "joins": "332",
+    "joinsName": "Kamla",
+    "why": "Name: OpenStreetMap names it along 78% of the uncovered course (\"Parsen River\")."
+  },
+  "40019": {
+    "name": "Yonggyap",
+    "hydroSource": 40721052,
+    "hydroOutlet": 40728126,
+    "joins": "456",
+    "joinsName": "Matun",
+    "why": "Name: OpenStreetMap names it along 100% of the uncovered course (\"Yonggyap River\")."
+  },
+  "40020": {
+    "name": "Balganga",
+    "hydroSource": 41222428,
+    "hydroOutlet": 41221506,
+    "joins": "8856",
+    "joinsName": "Patalganga",
+    "why": "Name: OpenStreetMap names it along 92% of the uncovered course (\"Balganga\")."
+  },
+  "40021": {
+    "name": "Khanna Nadi",
+    "hydroSource": 40846981,
+    "hydroOutlet": 40855064,
+    "joins": "2311",
+    "joinsName": "Bhareli",
+    "why": "Name: OpenStreetMap names it along 77% of the uncovered course (\"Khanna Nadi\")."
+  },
+  "40022": {
+    "name": "Mynsar Nadi",
+    "hydroSource": 40942520,
+    "hydroOutlet": 40942062,
+    "joins": "897",
+    "joinsName": "Myntangtihwieh",
+    "why": "Name: OpenStreetMap names it along 94% of the uncovered course (\"Mynsar Nadi\")."
+  },
+  "40023": {
+    "name": "Shivaganga",
+    "hydroSource": 41234388,
+    "hydroOutlet": 41237240,
+    "joins": "2524",
+    "joinsName": "Gunjawani",
+    "why": "Name: OpenStreetMap names it along 88% of the uncovered course (\"Shivaganga\")."
+  },
+  "40024": {
+    "name": "Chhatri Nar",
+    "hydroSource": 40521325,
+    "hydroOutlet": 40522974,
+    "joins": "13372",
+    "joinsName": "Kishanganga",
+    "why": "Name: OpenStreetMap names it along 100% of the uncovered course (\"Chhatri Nar\")."
+  },
+  "40025": {
+    "name": "Oshiwara",
+    "hydroSource": 41211865,
+    "hydroOutlet": 41212082,
+    "joins": null,
+    "into": "Arabian Sea",
+    "why": "Mumbai river from the Aarey forest to Malad Creek; OpenStreetMap and Wikipedia. Absent from CWC."
+  }
+}

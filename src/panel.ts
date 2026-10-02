@@ -38,6 +38,7 @@ export interface RiverProps {
   confl?: string;
   from?: string;
   to?: string;
+  src?: string;
 }
 
 // How the far end of a river is labelled. `near` applies when the description is a
@@ -106,6 +107,7 @@ export class InfoPanel {
           ["Ends in", p.to],
           ["Recorded origin", p.origin],
           ["Recorded confluence", p.confl],
+          ["Course from", p.src ? `${p.src} (approximate; not in the CWC data)` : ""],
         ].filter(([, v]) => v && String(v).trim() && !/partially/i.test(String(v))) as Row[])
       : [];
 

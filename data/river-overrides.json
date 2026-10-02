@@ -334,5 +334,11 @@
     "endNear": true,
     "entersAt": "Bhimnagar (Kosi barrage), Bihar",
     "entersAtNear": true
+  },
+  "40025": {
+    "name": "Oshiwara",
+    "origin": "Aarey Milk Colony, Goregaon, Mumbai",
+    "end": "Malad Creek at Lokhandwala, Mumbai",
+    "why": "Added from HydroRIVERS (data/added-rivers.json). Rises in the Aarey hills, not the Western Ghats, and drains into Malad Creek."
   }
 }

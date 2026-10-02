@@ -1,0 +1,282 @@
+// Adds rivers the CWC dataset lacks, from a hand-curated list (data/added-rivers.json).
+//
+// HydroRIVERS (HydroSHEDS) has courses CWC does not, the Bhogawati through Barshi among
+// them, but no names. Each entry therefore names a river by hand and points at its
+// HydroRIVERS reaches: the chain from `hydroSource` down to `hydroOutlet`. The course is
+// cut where it reaches the river it joins and snapped onto that river's CWC line, so the
+// confluence meets exactly. HydroRIVERS is traced on a 15-arc-second grid and moves in
+// stair steps, so the line is lightly smoothed.
+//
+// Every added river must pass the conflict checks below, or the build fails:
+//   - it must not run along an existing CWC river (that river is already drawn),
+//   - it must not cross one (a course that crosses a river is misrouted),
+//   - no CWC river nearby may carry a similar name (it may be the same river), and
+//   - it must actually reach the river it is said to join.
+//
+// The added rivers are appended to build/rivers.ndjson, tagged src: "HydroSHEDS", so every
+// later step treats them like CWC rivers. Re-running replaces the previous additions.
+//
+//   node scripts/01b-added-rivers.mjs                        build
+//   node scripts/01b-added-rivers.mjs --check <in> <out>     report on candidates, write nothing
+
+import { readFileSync, writeFileSync, renameSync } from "node:fs";
+import { open } from "shapefile";
+import { loadRivers, partsOf, bboxOf, distKm, pointToLineKm } from "./lib/geo.mjs";
+
+const LIST = "data/added-rivers.json";
+const RIVERS = "build/rivers.ndjson";
+const SRC_TAG = "HydroSHEDS";
+
+const JOIN_SNAP_KM = 0.5; // cut the course where it first comes this close to the river it joins
+const JOIN_REACH_KM = 1.5; // ...and reject it if it never comes this close
+const NEAR_JOIN_KM = 1.5; // near the confluence, closeness to other lines is expected
+const OVERLAP_KM = 0.5; // a vertex this close to another CWC line is "on" that river
+const OVERLAP_MAX_FRAC = 0.15;
+const OVERLAP_RUN_KM = 2;
+const NAME_SEARCH_KM = 40;
+
+const checkMode = process.argv[2] === "--check";
+const listPath = checkMode ? process.argv[3] : LIST;
+const list = JSON.parse(readFileSync(listPath, "utf8"));
+
+// --- CWC rivers ----------------------------------------------------------------------
+const all = await loadRivers(RIVERS);
+const cwc = all.filter((f) => f.properties.src !== SRC_TAG);
+const rivers = cwc.map((f) => {
+  const parts = partsOf(f.geometry);
+  return { uid: String(f.properties.UID_River), name: f.properties.rivname, props: f.properties, parts, bbox: bboxOf(parts) };
+});
+const byUid = new Map(rivers.map((r) => [r.uid, r]));
+console.log(`CWC rivers: ${rivers.length}${all.length > cwc.length ? ` (dropped ${all.length - cwc.length} previous additions)` : ""}`);
+
+// --- HydroRIVERS -----------------------------------------------------------------------
+const wanted = Object.values(list);
+const reaches = new Map();
+{
+  const src = await open("data/raw/HydroRIVERS_v10_as.shp", "data/raw/HydroRIVERS_v10_as.dbf");
+  while (true) {
+    const { done, value } = await src.read();
+    if (done) break;
+    const [x, y] = value.geometry.coordinates[0];
+    if (x < 66 || x > 100 || y < 5 || y > 38) continue;
+    const p = value.properties;
+    reaches.set(p.HYRIV_ID, { next: p.NEXT_DOWN, c: value.geometry.coordinates, upland: p.UPLAND_SKM });
+  }
+}
+console.log(`HydroRIVERS reaches in the India window: ${reaches.size.toLocaleString()}`);
+
+function chain(sourceId, outletId) {
+  const pts = [];
+  let id = sourceId;
+  for (let guard = 0; guard < 2000 && id; guard++) {
+    const r = reaches.get(id);
+    if (!r) throw new Error(`reach ${id} not found`);
+    for (const c of r.c) {
+      const last = pts[pts.length - 1];
+      if (!last || last[0] !== c[0] || last[1] !== c[1]) pts.push(c);
+    }
+    if (id === outletId) return pts;
+    id = r.next;
+  }
+  throw new Error(`reach ${outletId} is not downstream of ${sourceId}`);
+}
+
+// --- geometry helpers ----------------------------------------------------------------
+const lengthKm = (line) => line.slice(1).reduce((s, c, i) => s + distKm(line[i][0], line[i][1], c[0], c[1]), 0);
+
+// Nearest point on a (multi)line, in degrees. Planar maths is fine at this scale.
+function nearestOn(lon, lat, parts) {
+  const kx = Math.cos((lat * Math.PI) / 180);
+  let best = null, bestD = Infinity;
+  for (const part of parts)
+    for (let i = 0; i + 1 < part.length; i++) {
+      const [ax, ay] = part[i], [bx, by] = part[i + 1];
+      const dx = (bx - ax) * kx, dy = by - ay;
+      const len2 = dx * dx + dy * dy;
+      const t = len2 ? Math.max(0, Math.min(1, (((lon - ax) * kx) * dx + (lat - ay) * dy) / len2)) : 0;
+      const px = ax + t * (bx - ax), py = ay + t * (by - ay);
+      const d = distKm(lon, lat, px, py);
+      if (d < bestD) { bestD = d; best = [px, py]; }
+    }
+  return best;
+}
+
+// Chaikin corner cutting, endpoints kept exactly where they are.
+function smooth(line, rounds = 2) {
+  let pts = line;
+  for (let k = 0; k < rounds; k++) {
+    const out = [pts[0]];
+    for (let i = 0; i + 1 < pts.length; i++) {
+      const [ax, ay] = pts[i], [bx, by] = pts[i + 1];
+      out.push([0.75 * ax + 0.25 * bx, 0.75 * ay + 0.25 * by], [0.25 * ax + 0.75 * bx, 0.25 * ay + 0.75 * by]);
+    }
+    out.push(pts[pts.length - 1]);
+    pts = out;
+  }
+  return pts.map(([x, y]) => [Math.round(x * 1e6) / 1e6, Math.round(y * 1e6) / 1e6]);
+}
+
+function segmentsCross([ax, ay], [bx, by], [cx, cy], [dx, dy]) {
+  const o = (px, py, qx, qy, rx, ry) => Math.sign((qx - px) * (ry - py) - (qy - py) * (rx - px));
+  return o(ax, ay, bx, by, cx, cy) * o(ax, ay, bx, by, dx, dy) < 0 && o(cx, cy, dx, dy, ax, ay) * o(cx, cy, dx, dy, bx, by) < 0;
+}
+
+const bboxesTouch = (a, b, padDeg) => a[0] - padDeg <= b[2] && b[0] - padDeg <= a[2] && a[1] - padDeg <= b[3] && b[1] - padDeg <= a[3];
+
+// "Budhil Nadi" and "Budhil" are the same name; so, nearly, are "Nambul" and "Nambol".
+const GENERIC = /\b(river|nadi|nala|nallah|nalla|nadhi|odai|vagu|vagu|khal|n|r)\b/g;
+const normName = (s) => s.toLowerCase().replace(/\(.*?\)/g, " ").replace(GENERIC, " ").replace(/[^a-z]/g, "");
+function editDistance(a, b) {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++)
+    for (let j = 1; j <= b.length; j++)
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+// CWC often gives two names at once: "Korttalaiyar/Kushasthalaiar", "Bari Gandak Or Narayni".
+const ALTERNATIVES = /\s*\/\s*|\s+or\s+/i;
+function similarNames(a, b) {
+  return a.split(ALTERNATIVES).some((x) => b.split(ALTERNATIVES).some((y) => similarName(x, y)));
+}
+function similarName(a, b) {
+  const x = normName(a), y = normName(b);
+  if (!x || !y) return false;
+  if (x === y) return true;
+  if (Math.min(x.length, y.length) >= 4 && (x.includes(y) || y.includes(x))) return true;
+  return editDistance(x, y) / Math.max(x.length, y.length) <= 0.25;
+}
+
+// --- states, from the nearest Indian town ------------------------------------------------
+const admin1 = new Map();
+for (const line of readFileSync("data/raw/admin1CodesASCII.txt", "utf8").split("\n")) {
+  const [code, name] = line.split("\t");
+  if (code?.startsWith("IN.")) admin1.set(code, name);
+}
+const towns = [];
+for (const line of readFileSync("data/raw/cities500.txt", "utf8").split("\n")) {
+  const c = line.split("\t");
+  if (c.length < 15 || c[8] !== "IN" || c[6] !== "P") continue;
+  towns.push({ lon: +c[5], lat: +c[4], state: admin1.get(`IN.${c[10]}`) });
+}
+function stateAt(lon, lat) {
+  let best = null, bestD = Infinity;
+  for (const t of towns) {
+    if (Math.abs(t.lon - lon) > 1.5 || Math.abs(t.lat - lat) > 1.5) continue;
+    const d = distKm(lon, lat, t.lon, t.lat);
+    if (d < bestD) { bestD = d; best = t; }
+  }
+  return best?.state ?? "";
+}
+
+// --- build each river --------------------------------------------------------------------
+function build(uid, entry, addedSoFar) {
+  const problems = [];
+  let line = chain(entry.hydroSource, entry.hydroOutlet);
+  const join = entry.joins ? byUid.get(String(entry.joins)) : null;
+  if (entry.joins && !join) return { problems: [`joins uid ${entry.joins}, which is not in the data`] };
+  if (join && entry.joinsName && join.name !== entry.joinsName)
+    problems.push(`joins ${entry.joins} expected "${entry.joinsName}", data says "${join.name}"`);
+
+  if (join) {
+    let cut = line.findIndex(([x, y]) => pointToLineKm(x, y, join.parts) <= JOIN_SNAP_KM);
+    if (cut === -1) {
+      const [x, y] = line[line.length - 1];
+      const d = pointToLineKm(x, y, join.parts);
+      if (d > JOIN_REACH_KM) problems.push(`ends ${d.toFixed(1)} km from ${join.name}, which it is said to join`);
+      cut = line.length;
+    }
+    const tail = line[Math.min(cut, line.length - 1)];
+    line = [...line.slice(0, Math.max(cut, 1)), nearestOn(tail[0], tail[1], join.parts)];
+    line = smooth(line.slice(0, -1)).concat([line[line.length - 1]]);
+  } else {
+    line = smooth(line);
+  }
+  const len = lengthKm(line);
+  if (len < 3) problems.push(`only ${len.toFixed(1)} km left after cutting at the confluence`);
+
+  // Conflicts with existing rivers. The last stretch before the confluence is excused:
+  // there the course naturally runs into, and up against, the river it joins.
+  const box = bboxOf([line]);
+  const nearby = rivers.filter((r) => bboxesTouch(r.bbox, box, 0.03));
+  const [mx, my] = line[line.length - 1];
+  const nearMouth = ([x, y]) => join && distKm(x, y, mx, my) <= NEAR_JOIN_KM;
+
+  let onKm = 0, run = 0, worstRun = 0, worstWho = null;
+  for (let i = 0; i + 1 < line.length; i++) {
+    const [x, y] = line[i];
+    const seg = distKm(x, y, line[i + 1][0], line[i + 1][1]);
+    const who = nearMouth(line[i]) ? null : nearby.find((r) => pointToLineKm(x, y, r.parts) <= OVERLAP_KM);
+    if (who) {
+      onKm += seg;
+      run += seg;
+      if (run > worstRun) { worstRun = run; worstWho = who; }
+    } else run = 0;
+  }
+  if (onKm / len > OVERLAP_MAX_FRAC || worstRun >= OVERLAP_RUN_KM)
+    problems.push(`runs along ${worstWho?.name ?? "existing rivers"} (uid ${worstWho?.uid}) for ${worstRun.toFixed(1)} km; ${Math.round((100 * onKm) / len)}% of it is on CWC lines`);
+
+  const crossed = new Set();
+  for (let i = 0; i + 1 < line.length; i++) {
+    if (nearMouth(line[i + 1])) break;
+    for (const r of nearby)
+      for (const part of r.parts)
+        for (let j = 0; j + 1 < part.length; j++)
+          if (segmentsCross(line[i], line[i + 1], part[j], part[j + 1])) crossed.add(`${r.name} (uid ${r.uid})`);
+  }
+  if (crossed.size) problems.push(`crosses ${[...crossed].join(", ")}`);
+
+  const pad = NAME_SEARCH_KM / 100;
+  const clashes = rivers
+    .filter((r) => bboxesTouch(r.bbox, box, pad) && similarNames(r.name, entry.name))
+    .map((r) => `${r.name} (uid ${r.uid})`);
+  for (const [otherUid, other] of addedSoFar)
+    if (otherUid !== uid && similarNames(other.name, entry.name) && distKm(...line[0], ...other.at) < 100) clashes.push(`${other.name} (added ${otherUid})`);
+  if (clashes.length) problems.push(`similar name nearby: ${clashes.join(", ")}`);
+
+  const [sx, sy] = line[0];
+  const feature = {
+    type: "Feature",
+    properties: {
+      UID_River: uid,
+      rivname: entry.name,
+      ba_name: join?.props.ba_name ?? entry.basin ?? "",
+      sub_basin: join?.props.sub_basin ?? "",
+      length_km: len,
+      origin: null,
+      Confluence: join ? join.name : entry.into,
+      state_al: stateAt(sx, sy),
+      st_pt_lat: sy, st_pt_long: sx, st_loc_ste: stateAt(sx, sy),
+      en_pt_lat: my, en_pt_long: mx, en_loc_ste: stateAt(mx, my),
+      src: SRC_TAG,
+      join_uid: join ? join.uid : "",
+    },
+    geometry: { type: "LineString", coordinates: line },
+  };
+  return { problems, feature, len };
+}
+
+const results = [];
+const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: reaches.get(e.hydroSource)?.c[0] ?? [0, 0] }]));
+for (const [uid, entry] of Object.entries(list)) {
+  if (!checkMode && byUid.has(uid)) throw new Error(`uid ${uid} is already a CWC river`);
+  let r;
+  try { r = build(uid, entry, addedSoFar); } catch (err) { r = { problems: [err.message] }; }
+  results.push({ uid, name: entry.name, ...r });
+  console.log(`${r.problems.length ? "CONFLICT" : "ok      "} ${uid} ${entry.name.padEnd(20)} ${r.len ? r.len.toFixed(1).padStart(6) + " km" : ""}${r.problems.length ? "\n           " + r.problems.join("\n           ") : ""}`);
+}
+
+if (checkMode) {
+  writeFileSync(process.argv[4], JSON.stringify(results.map(({ feature, ...rest }) => ({ ...rest, joins: feature?.properties.Confluence })), null, 2));
+  console.log(`\n${results.filter((r) => !r.problems.length).length} of ${results.length} pass; report written to ${process.argv[4]}`);
+} else {
+  const bad = results.filter((r) => r.problems.length);
+  if (bad.length) {
+    console.error(`\nFAIL - ${bad.length} added river(s) conflict with the CWC data. Fix or remove them in ${LIST}.`);
+    process.exit(1);
+  }
+  const lines = cwc.map((f) => JSON.stringify(f)).concat(results.map((r) => JSON.stringify(r.feature)));
+  writeFileSync(RIVERS + ".tmp", lines.join("\n") + "\n");
+  renameSync(RIVERS + ".tmp", RIVERS);
+  console.log(`\nappended ${results.length} rivers to ${RIVERS} (${lines.length} features)`);
+}

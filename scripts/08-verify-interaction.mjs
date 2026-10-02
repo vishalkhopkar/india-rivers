@@ -277,6 +277,23 @@ const oldNames = await page.evaluate(() =>
 );
 check("old dataset names no longer appear", oldNames === 0, `${oldNames} features`);
 
+// --- 6b. rivers added from HydroRIVERS (data/added-rivers.json) -----------------------
+console.log("\nBhogawati (added; CWC lacks it):");
+const bg = await openRiver("Bhogawati", [75.776, 18.11], 10);
+check("Bhogawati is on the map", !!bg);
+if (bg) {
+  check("Merges into", bg.panel.rows["Merges into"] === "Sina", bg.panel.rows["Merges into"]);
+  check("Origin near", bg.panel.rows["Origin near"] === "Dharashiv, Maharashtra", bg.panel.rows["Origin near"]);
+}
+console.log("\nOshiwara (added; Mumbai):");
+const os = await openRiver("Oshiwara", [72.843, 19.153], 13);
+check("Oshiwara is on the map", !!os);
+if (os) {
+  check("Origin", os.panel.rows["Origin"] === "Aarey Milk Colony, Goregaon, Mumbai", os.panel.rows["Origin"]);
+  check("Mouth into", os.panel.rows["Mouth into"] === "Arabian Sea", os.panel.rows["Mouth into"]);
+  await page.screenshot({ path: `${OUT}/31-oshiwara.png` });
+}
+
 // --- 7. dismiss ----------------------------------------------------------------
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));

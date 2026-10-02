@@ -103,7 +103,7 @@ export function createMap(container: HTMLElement): MapLibreMap {
       url: `pmtiles://${location.origin}${import.meta.env.BASE_URL}rivers.pmtiles`,
       attribution:
         "Rivers: CWC / India-WRIS | Places: <a href='https://www.geonames.org/'>GeoNames</a> | " +
-        "Courses abroad: <a href='https://www.hydrosheds.org/'>HydroSHEDS</a>",
+        "Courses abroad and added rivers: <a href='https://www.hydrosheds.org/'>HydroSHEDS</a>",
       // Vector tiles carry no feature id, so setFeatureState has nothing to key on
       // until uid is promoted into that slot.
       promoteId: { rivers: "uid" },
