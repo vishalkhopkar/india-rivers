@@ -30,7 +30,7 @@ for await (const line of rl) {
 
 console.log(`total features: ${total}\n`);
 console.log("zoom  threshold   new    cumulative visible");
-const thresholds = { 4: "≥600 km", 5: "≥300 km", 6: "≥150 km", 7: "≥100 km", 8: "≥50 km", 9: "≥30 km", 10: "≥15 km", 11: "all" };
+const thresholds = { 3: "≥600 km", 4: "-", 5: "≥300 km", 6: "≥150 km", 7: "≥100 km", 8: "≥50 km", 9: "≥30 km", 10: "≥15 km", 11: "all" };
 let cum = 0;
 for (let z = MIN_ZOOM; z <= MAX_ZOOM; z++) {
   const n = perZoom.get(z) ?? 0;
@@ -44,9 +44,9 @@ for (const name of WATCH) {
   console.log(f ? `  ${name.padEnd(12)} ${f.len.toFixed(1).padStart(7)} km  -> z${f.z}` : `  ${name.padEnd(12)} NOT FOUND`);
 }
 
-const atZ4 = perZoom.get(4) ?? 0;
-if (atZ4 < 20 || atZ4 > 30) {
-  console.error(`\nFAIL: all-India view shows ${atZ4} rivers, expected 20-30.`);
+const topTier = perZoom.get(MIN_ZOOM) ?? 0;
+if (topTier < 20 || topTier > 30) {
+  console.error(`\nFAIL: all-India view shows ${topTier} rivers, expected 20-30.`);
   process.exit(1);
 }
-console.log(`\nOK - all-India view shows ${atZ4} rivers`);
+console.log(`\nOK - all-India view shows ${topTier} rivers`);

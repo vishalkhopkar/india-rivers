@@ -33,21 +33,24 @@ const check = (label, ok, detail) => {
   if (!ok) failures++;
 };
 
-// --- z4: the all-India view -------------------------------------------------
-console.log("\nall-India view (z4):");
-const z4names = new Set();
-let z4minz = 0;
-for (const r of db.prepare("SELECT zoom_level z, tile_column x, tile_row ry FROM tiles WHERE zoom_level=4").all()) {
-  const t = readTile(4, r.x, 2 ** 4 - 1 - r.ry);
-  for (const f of t.features) {
-    z4names.add(f.properties.name);
-    z4minz = Math.max(z4minz, f.properties.minz);
+// --- z3 and z4: the all-India view (z3 is what a phone opens at) -------------
+for (const z of [3, 4]) {
+  console.log(`
+all-India view (z${z}):`);
+  const names = new Set();
+  let maxMinz = 0;
+  for (const r of db.prepare("SELECT tile_column x, tile_row ry FROM tiles WHERE zoom_level=?").all(z)) {
+    const t = readTile(z, r.x, 2 ** z - 1 - r.ry);
+    for (const f of t.features) {
+      names.add(f.properties.name);
+      maxMinz = Math.max(maxMinz, f.properties.minz);
+    }
   }
+  check(`distinct rivers = ${names.size}`, names.size >= 20 && names.size <= 30, "expected 20-30");
+  check("no river below its tier leaked in", maxMinz <= z, `max minz seen = ${maxMinz}`);
+  const expectBig = ["Ganga", "Brahmaputra", "Godavari", "Yamuna", "Krishna"];
+  check("major rivers present", expectBig.every((n) => names.has(n)), expectBig.filter((n) => !names.has(n)).join(", ") || "all present");
 }
-check(`distinct rivers = ${z4names.size}`, z4names.size >= 20 && z4names.size <= 30, "expected 20-30");
-check("no river below its tier leaked in", z4minz <= 4, `max minz seen = ${z4minz}`);
-const expectBig = ["Ganga", "Brahmaputra", "Godavari", "Yamuna", "Krishna"];
-check("major rivers present", expectBig.every((n) => z4names.has(n)), expectBig.filter((n) => !z4names.has(n)).join(", ") || "all present");
 
 // --- specific rivers appear at their tier, and not before --------------------
 // lon/lat sampled from each river's own course.

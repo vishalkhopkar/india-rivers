@@ -73,7 +73,8 @@ export function createMap(container: HTMLElement): MapLibreMap {
     style: BASE_STYLE,
     bounds: INDIA_BOUNDS,
     fitBoundsOptions: { padding: 24 },
-    minZoom: 3.5,
+    // z3 lets a phone fit all of India; the tiles start at z3 for the same reason.
+    minZoom: 3,
     maxZoom: 16,
     // Generous: a tight maxBounds clamps the opening fitBounds on wide viewports and
     // crops Kashmir and Kanyakumari out of the default view. This only exists to stop

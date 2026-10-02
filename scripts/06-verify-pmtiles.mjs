@@ -6,6 +6,7 @@ import { PMTiles, FetchSource } from "pmtiles";
 import { VectorTile } from "@mapbox/vector-tile";
 import { PbfReader } from "pbf";
 import { gunzipSync } from "node:zlib";
+import { MIN_ZOOM, MAX_ZOOM } from "./lib/tiers.mjs";
 
 const URL_ = process.argv[2] ?? "http://localhost:5174/rivers.pmtiles";
 
@@ -24,7 +25,7 @@ console.log(
   `  bounds ${[header.minLon, header.minLat, header.maxLon, header.maxLat].map((n) => n.toFixed(2)).join(", ")}\n`
 );
 
-check("zoom range is 4-11", header.minZoom === 4 && header.maxZoom === 11);
+check(`zoom range is ${MIN_ZOOM}-${MAX_ZOOM}`, header.minZoom === MIN_ZOOM && header.maxZoom === MAX_ZOOM);
 check("covers India", header.minLon > 60 && header.maxLon < 100 && header.minLat > 5 && header.maxLat < 40);
 
 const meta = await p.getMetadata();
