@@ -12,8 +12,8 @@ declare global {
 const container = document.getElementById("map");
 if (!container) throw new Error("#map missing");
 
-// The dev copy is served from /india-rivers-dev/; mark its tab so it isn't mistaken for the live site.
-if (import.meta.env.BASE_URL.endsWith("-dev/")) document.title += " (dev)";
+// The dev branch is served from /india-rivers/dev/; mark its tab so it isn't mistaken for the live site.
+if (import.meta.env.BASE_URL.endsWith("/dev/")) document.title += " (dev)";
 
 const map = createMap(container);
 map.on("load", () => wireInteraction(map));

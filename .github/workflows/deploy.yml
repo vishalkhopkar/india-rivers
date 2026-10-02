@@ -1,4 +1,11 @@
-# Builds the site and publishes it to GitHub Pages on every push to master.
+# Builds the site and publishes it to GitHub Pages on every push to master or dev.
+#
+# GitHub Pages gives a repo one site, so both environments ship in one artifact:
+#   master -> https://vishalkhopkar.github.io/india-rivers/
+#   dev    -> https://vishalkhopkar.github.io/india-rivers/dev/
+# Every run builds the current tip of both branches, so pushing either one leaves the
+# other environment as it was. The github-pages environment only accepts deploys from
+# master, so a push to dev just re-runs this workflow on master, which picks up dev.
 #
 # The map data (public/rivers.pmtiles, public/rivers-index.json) is committed rather than
 # built here: generating it needs the ~700 MB source dataset and the go-pmtiles binary,
@@ -9,7 +16,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [master, dev]
   workflow_dispatch:
 
 permissions:
@@ -22,21 +29,66 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  redeploy-from-master:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref master --repo "${{ github.repository }}"
+
   build:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-      - name: Check the map data made it into the build
-        run: test -s dist/rivers.pmtiles && test -s dist/rivers-index.json && test -s dist/maplibre/maplibre-gl-worker.mjs
+
+      - name: Build master (production)
+        uses: actions/checkout@v7
+        with:
+          ref: master
+          path: prod
+      - working-directory: prod
+        env:
+          BASE_PATH: /india-rivers/
+        run: npm ci && npm run build
+      - name: Check the map data made it into the production build
+        run: test -s prod/dist/rivers.pmtiles && test -s prod/dist/rivers-index.json && test -s prod/dist/maplibre/maplibre-gl-worker.mjs
+
+      - name: Does a dev branch exist?
+        id: dev
+        working-directory: prod
+        run: |
+          if git ls-remote --exit-code --heads origin dev >/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build dev
+        if: steps.dev.outputs.exists == 'true'
+        uses: actions/checkout@v7
+        with:
+          ref: dev
+          path: dev
+      - if: steps.dev.outputs.exists == 'true'
+        working-directory: dev
+        env:
+          BASE_PATH: /india-rivers/dev/
+        run: npm ci && npm run build
+      - name: Check the map data made it into the dev build
+        if: steps.dev.outputs.exists == 'true'
+        run: test -s dev/dist/rivers.pmtiles && test -s dev/dist/rivers-index.json && test -s dev/dist/maplibre/maplibre-gl-worker.mjs
+
+      - name: Combine both builds into one site
+        run: |
+          cp -r prod/dist site
+          if [ -d dev/dist ]; then cp -r dev/dist site/dev; fi
+
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: dist
+          path: site
 
   deploy:
     needs: build
