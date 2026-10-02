@@ -23,6 +23,12 @@ const MATCH_KM = 2; // HydroRIVERS reach must pass this close to the start
 const ALIGN_KM = 1.5; // ...and follow the CWC line downstream this closely
 const MIN_ABROAD_KM = 5; // upstream course outside India needed to count as entering
 const MIN_RUN_KM = 5; // shorter stretches through a country are border noise
+const START_INSIDE_CELLS = 1; // a start this deep in a foreign country (~2 km) rises there
+// ...but only along the Nepal terai, where the border is settled and runs across flat
+// ground. In the hills Natural Earth's line strays from the watershed (it puts Lipulekh
+// and Barahoti in China and the Sharda's Kalapani source in Nepal), so starts there are
+// left to the HydroRIVERS trace.
+const START_ABROAD_IN = ["NPL"];
 
 // --- country raster -------------------------------------------------------------
 const X0 = 60, Y0 = 0, CELL = 0.02, W = 2500, H = 2250;
@@ -65,6 +71,17 @@ const countryAt = (lon, lat) => {
   const c = Math.floor((lon - X0) / CELL), r = Math.floor((lat - Y0) / CELL);
   return c < 0 || r < 0 || c >= W || r >= H ? 0 : mask[r * W + c];
 };
+// The foreign country a point lies well inside (every cell within START_INSIDE_CELLS),
+// or 0. Several Nepal terai channels are digitised from a start point in Nepal itself.
+function foreignAt(lon, lat) {
+  const c0 = Math.floor((lon - X0) / CELL), r0 = Math.floor((lat - Y0) / CELL);
+  const cc = mask[r0 * W + c0];
+  if (!cc || cc === IND || !START_ABROAD_IN.includes(CODES[cc - 1])) return 0;
+  for (let dr = -START_INSIDE_CELLS; dr <= START_INSIDE_CELLS; dr++)
+    for (let dc = -START_INSIDE_CELLS; dc <= START_INSIDE_CELLS; dc++)
+      if (mask[(r0 + dr) * W + (c0 + dc)] !== cc) return 0;
+  return cc;
+}
 function nearForeignLand(lon, lat) {
   const c0 = Math.floor((lon - X0) / CELL), r0 = Math.floor((lat - Y0) / CELL);
   for (let dr = -NEAR_BORDER_CELLS; dr <= NEAR_BORDER_CELLS; dr++)
@@ -149,7 +166,7 @@ function upstreamPath(r) {
 const topology = JSON.parse(readFileSync("build/topology.json", "utf8"));
 const rivers = await loadRivers();
 const out = {};
-let candidates = 0, unmatched = 0;
+let candidates = 0, unmatched = 0, startsAbroad = 0;
 const examples = [];
 
 for (const f of rivers) {
@@ -163,12 +180,29 @@ for (const f of rivers) {
   if (!nearForeignLand(ox, oy)) continue;
   candidates++;
 
+  const rec = trace(parts, ox, oy) ?? startedAbroad(ox, oy);
+  if (!rec) continue;
+  out[uid] = rec;
+  examples.push({ name: p.rivname, len: p.length_km, ...rec });
+}
+
+// When HydroRIVERS cannot follow a river upstream but the line itself starts in another
+// country, that start is the best source we have.
+function startedAbroad(ox, oy) {
+  const cc = foreignAt(ox, oy);
+  if (!cc) return null;
+  startsAbroad++;
+  const name = COUNTRIES[CODES[cc - 1]];
+  return { src: [ox, oy].map((n) => Math.round(n * 1e4) / 1e4), rises: name, via: [], from: name, abroadKm: 0 };
+}
+
+function trace(parts, ox, oy) {
   // CWC vertices a few km downstream of the start, to check a match runs the same way.
   const samples = parts.flat().filter(([x, y]) => {
     const d = distKm(ox, oy, x, y);
     return d >= 3 && d <= 8;
   });
-  if (!samples.length) continue;
+  if (!samples.length) return null;
 
   let match = null;
   for (const r of reachesNear(ox, oy, MATCH_KM)) {
@@ -177,7 +211,7 @@ for (const f of rivers) {
     if (aligned < samples.length / 2) continue;
     if (!match || r.upland > match.upland) match = r;
   }
-  if (!match) { unmatched++; continue; }
+  if (!match) { unmatched++; return null; }
 
   const path = upstreamPath(match);
   // Stop at the point on the traced path nearest the CWC start.
@@ -200,11 +234,11 @@ for (const f of rivers) {
     else real.push({ ...r });
   }
   const abroadKm = runs.filter((r) => r.cc && r.cc !== IND).reduce((s, r) => s + r.km, 0);
-  if (abroadKm < MIN_ABROAD_KM || !real.length || real[0].cc === IND) continue;
+  if (abroadKm < MIN_ABROAD_KM || !real.length || real[0].cc === IND) return null;
   // The river must arrive from abroad, not dip out and back somewhere far upstream.
   const beforeIndia = real[real.length - 1].cc === IND ? real.slice(0, -1) : real;
   const arrivesFrom = beforeIndia[beforeIndia.length - 1]?.cc;
-  if (!arrivesFrom || arrivesFrom === IND) continue;
+  if (!arrivesFrom || arrivesFrom === IND) return null;
 
   // Countries crossed after the river last leaves its country of origin. A path along
   // the Bhutan-Tibet frontier that strays over the line and back is not "via China".
@@ -215,18 +249,17 @@ for (const f of rivers) {
   for (const r of beforeIndia.slice(lastHome + 1)) if (r.cc !== IND && !via.includes(r.cc)) via.push(r.cc);
 
   const name = (i) => COUNTRIES[CODES[i - 1]];
-  out[uid] = {
+  return {
     src: path[0].map((n) => Math.round(n * 1e4) / 1e4),
     rises: name(risesCC),
     via: via.map(name),
     from: name(arrivesFrom),
     abroadKm: Math.round(abroadKm),
   };
-  examples.push({ name: p.rivname, len: p.length_km, ...out[uid] });
 }
 
 writeFileSync("build/abroad.json", JSON.stringify(out));
-console.log(`\nstarts near a foreign border: ${candidates} (no HydroRIVERS match: ${unmatched})`);
+console.log(`\nstarts near a foreign border: ${candidates} (no HydroRIVERS match: ${unmatched}; line starts abroad: ${startsAbroad})`);
 console.log(`enter India from abroad: ${Object.keys(out).length}. Largest:`);
 for (const e of examples.sort((a, b) => b.len - a.len).slice(0, 25))
   console.log(`  ${e.name.padEnd(22)} ${e.rises}${e.via.length ? " -> " + e.via.join(" -> ") : ""} -> India  (${e.abroadKm} km abroad)`);

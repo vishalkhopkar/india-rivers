@@ -11,6 +11,24 @@
     ],
     "formedAt": "17 km NE of Dibrugarh, Assam"
   },
+  "803": {
+    "name": "Tsari Chu/ Gelen Bung",
+    "origin": "Tsari, Tibet, China",
+    "via": [],
+    "entersAt": "Longju, Arunachal Pradesh",
+    "entersAtNear": true,
+    "why": "Tibetan river that joins the Subansiri after crossing at Longju. The CWC line starts about 17 km inside the border, beyond the automatic check."
+  },
+  "860": {
+    "name": "Jaldhaka",
+    "origin": "Bitang Lake near Kupup, Sikkim",
+    "via": [
+      "Bhutan"
+    ],
+    "entersAt": "Bindu, West Bengal",
+    "entersAtNear": true,
+    "why": "Rises in East Sikkim, crosses about 40 km of Bhutan and re-enters India at Bindu. The tracer took the Bhutan stretch for the source."
+  },
   "864": {
     "name": "Dihang/Siang River",
     "origin": "Tibet, China, as the Yarlung Tsangpo",
@@ -21,6 +39,22 @@
     "name": "Torsa",
     "origin": "Chumbi Valley, Tibet, China",
     "why": "Traced source is in remote Tibet with no listed town nearby; the Torsa (Amo Chu) rises in the Chumbi Valley."
+  },
+  "950": {
+    "name": "Manas",
+    "origin": "Tibet, China, as the Kuri Chhu",
+    "via": [
+      "Bhutan"
+    ],
+    "why": "Its main headstreams rise in Tibet. The traced path starts on a Bhutan border ridge, so the tracer reported a Bhutanese source."
+  },
+  "951": {
+    "name": "Burisuti",
+    "origin": "Tibet, China, as the Kuri Chhu",
+    "via": [
+      "Bhutan"
+    ],
+    "why": "A channel of the Manas, sharing its catchment."
   },
   "1844": {
     "name": "Narmada River",
@@ -159,6 +193,13 @@
     "entersAt": "Demchok, Ladakh",
     "entersAtNear": true
   },
+  "15569": {
+    "name": "Tangtsa",
+    "origin": "Pangong Tso, Ladakh",
+    "originNear": true,
+    "abroad": false,
+    "why": "The line starts in Pangong Tso, so HydroRIVERS sends the lake basin through it; the lake has no outflow, and the river rises in Ladakh."
+  },
   "15848": {
     "name": "Satluj River",
     "origin": "Rakshastal, near Lake Mansarovar, Tibet, China",
@@ -219,6 +260,14 @@
     "end": "Kaithi, near Saidpur, Uttar Pradesh",
     "endNear": true
   },
+  "29233": {
+    "name": "Bari Gandak Or Narayni",
+    "origin": "Mustang, Nepal, near the Tibet border, as the Kali Gandaki",
+    "via": [],
+    "entersAt": "Valmikinagar, Bihar",
+    "entersAtNear": true,
+    "why": "Upper part of the curated Gandak (29240). The 11 km of trace in Tibet is border noise."
+  },
   "29239": {
     "name": "Yamuna River",
     "origin": "Yamunotri Glacier (Himalayas), Uttarakhand",
@@ -254,7 +303,9 @@
   },
   "29696": {
     "name": "Sharda or Kali River",
-    "origin": "Kalapani, near Lipulekh Pass, Uttarakhand"
+    "origin": "Kalapani, near Lipulekh Pass, Uttarakhand",
+    "abroad": false,
+    "why": "Rises at Kalapani, which India administers; Natural Earth puts that start in Nepal. It is the India-Nepal border river, not one entering from Nepal."
   },
   "30282": {
     "name": "Ramganga River",

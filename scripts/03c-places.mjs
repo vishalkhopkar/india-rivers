@@ -253,7 +253,9 @@ for (const f of rivers) {
     kinds.swapped++;
   }
 
-  const o = describe(olon, olat, startAdmin);
+  // A river that rises in India is placed by Indian towns: "Sarpang, Bhutan" reads as a
+  // Bhutanese source even when the point is on the Assam side.
+  const o = describe(olon, olat, startAdmin, true);
   const range = rangeAt(olon, olat, startState);
   if (range) {
     withRange++;
@@ -280,7 +282,9 @@ for (const f of rivers) {
 
   // Rivers entering from abroad: the real source is beyond the border, and the CWC start
   // is where the river crosses into India.
-  const ab = abroad[uid];
+  // An override can veto the tracer: the Tangtsa starts in Pangong Tso, whose basin
+  // HydroRIVERS routes through it although the lake has no outflow.
+  const ab = overrides[uid]?.abroad === false ? null : abroad[uid];
   if (ab) {
     const src = describeAbroad(ab.src[0], ab.src[1], ab.rises);
     const ent = describe(olon, olat, startAdmin, true);
@@ -292,6 +296,7 @@ for (const f of rivers) {
   if (ov) {
     if (ov.name !== p.rivname) staleOverrides.push(`${uid}: override says "${ov.name}", data says "${p.rivname}"`);
     if (ov.origin && formed) staleOverrides.push(`${uid} ${ov.name}: has "origin" but is formed by a confluence - use "formedAt"`);
+    if (ov.abroad === false && !abroad[uid]) staleOverrides.push(`${uid} ${ov.name}: has "abroad": false but the tracer no longer flags it`);
     if (ov.formedAt && !formed) staleOverrides.push(`${uid} ${ov.name}: has "formedAt" but no formers were detected or declared`);
     if (ov.origin) Object.assign(rec, { o: ov.origin, on: !!ov.originNear });
     if (ov.formedAt) rec.fa = ov.formedAt;

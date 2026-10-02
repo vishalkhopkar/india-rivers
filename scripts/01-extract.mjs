@@ -76,6 +76,14 @@ const startErrors = [];
 let reversed = 0;
 let maxParts = 0;
 
+// UID_River is not unique: 7 ids are each shared by two unrelated rivers (30407 is both
+// the Kankai Nadi in Bihar and the Siyar Gad in Uttarakhand). Every later table is keyed
+// by uid, so the second river of each pair gets a fresh id above the dataset's range.
+// File order is fixed, so the reassignment is stable across rebuilds.
+const DUP_UID_BASE = 31001;
+const seenUids = new Set();
+const reassigned = [];
+
 while (true) {
   const { done, value } = await source.read();
   if (done) break;
@@ -129,6 +137,12 @@ while (true) {
 
   const kept = {};
   for (const k of KEEP) if (props[k] !== undefined) kept[k] = props[k];
+  if (seenUids.has(kept.UID_River)) {
+    const uid = String(DUP_UID_BASE + reassigned.length);
+    reassigned.push(`${kept.UID_River} -> ${uid} (${kept.rivname})`);
+    kept.UID_River = uid;
+  }
+  seenUids.add(kept.UID_River);
 
   await write(
     out,
@@ -154,6 +168,7 @@ console.log(`  over 1km : ${startErrors.filter((e) => e > 1).length} features`);
 console.log(`\norientation:`);
 console.log(`  single-part digitised mouth-to-source : ${reversed}`);
 console.log(`  max parts in a MultiLineString        : ${maxParts}`);
+if (reassigned.length) console.log(`\nduplicate UID_River reassigned: ${reassigned.join(", ")}`);
 if (badFeatures.length) {
   console.log(`\nskipped ${badFeatures.length}:`, badFeatures.slice(0, 10));
 }

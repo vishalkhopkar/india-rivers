@@ -218,6 +218,38 @@ if (to) {
   await page.screenshot({ path: `${OUT}/28-torsa.png` });
 }
 
+// Border audit corrections: a source misplaced abroad, a lake mistaken for a river from
+// China, a river whose start the data puts in Nepal, and a uid the dataset reuses.
+console.log("\nJaldhaka (rises in Sikkim, crosses Bhutan, re-enters India):");
+const jd = await openRiver("Jaldhaka", [88.911, 26.587], 10);
+check("Jaldhaka clickable", !!jd);
+if (jd) {
+  check("Origin", jd.panel.rows["Origin"] === "Bitang Lake near Kupup, Sikkim", jd.panel.rows["Origin"]);
+  check("Flows through", jd.panel.rows["Flows through"] === "Bhutan", jd.panel.rows["Flows through"]);
+  check("Enters India near", jd.panel.rows["Enters India near"] === "Bindu, West Bengal", jd.panel.rows["Enters India near"]);
+}
+console.log("\nTangtsa (starts in Pangong Tso, not in China):");
+const tg = await openRiver("Tangtsa", [78.167, 34.038], 10);
+check("Tangtsa clickable", !!tg);
+if (tg) {
+  check("Origin near", tg.panel.rows["Origin near"] === "Pangong Tso, Ladakh", tg.panel.rows["Origin near"]);
+  check("not shown as entering India", !("Flows through" in tg.panel.rows) && !Object.keys(tg.panel.rows).some((k) => k.startsWith("Enters India")), Object.keys(tg.panel.rows).join(", "));
+}
+console.log("\nHardi (the data's own start point is in Nepal):");
+const hd = await openRiver("Hardi", [85.778, 26.566], 11);
+check("Hardi clickable", !!hd);
+if (hd) {
+  check("Origin near", /Nepal$/.test(hd.panel.rows["Origin near"] ?? hd.panel.rows["Origin"] ?? ""), hd.panel.rows["Origin near"] ?? hd.panel.rows["Origin"]);
+  check("Enters India", Object.keys(hd.panel.rows).some((k) => k.startsWith("Enters India")), Object.keys(hd.panel.rows).join(", "));
+}
+console.log("\nKankai Nadi (its uid is shared with a stream in Uttarakhand):");
+const kk = await openRiver("Kankai Nadi", [87.86, 26.217], 11);
+check("Kankai Nadi clickable", !!kk);
+if (kk) {
+  const o = kk.panel.rows["Origin near"] ?? kk.panel.rows["Origin"] ?? "";
+  check("origin is in Bihar", /Bihar$/.test(o), o);
+}
+
 const withSuffix = await page.evaluate(() =>
   window.__map.querySourceFeatures("rivers", { sourceLayer: "rivers" }).filter((f) => / River$/.test(f.properties.name)).length
 );
