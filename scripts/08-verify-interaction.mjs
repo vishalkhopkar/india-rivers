@@ -199,6 +199,15 @@ if (kj) {
   await page.screenshot({ path: `${OUT}/27-katjuri.png` });
 }
 
+console.log("\nBhagirathi, West Bengal (leaves the Ganga 0.63 km off its centreline):");
+const bh = await openRiver("Bhagirathi", [88.0, 24.6], 9);
+check("Bhagirathi clickable", !!bh);
+if (bh) {
+  check("Branched off from the Ganga", bh.panel.rows["Branched off from"] === "Ganga", bh.panel.rows["Branched off from"]);
+  check("at Farakka", /Farakka/.test(bh.panel.rows["Branches off near"] ?? ""), bh.panel.rows["Branches off near"]);
+  check("no Origin row", !("Origin" in bh.panel.rows) && !("Origin near" in bh.panel.rows));
+}
+
 console.log("\nTorsa (enters India from abroad):");
 const to = await openRiver("Torsa", [89.45, 26.55], 9);
 check("Torsa clickable", !!to);

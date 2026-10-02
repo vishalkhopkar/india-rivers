@@ -143,7 +143,13 @@ for (const r of rivers) {
 const FORMED_EXACT_KM = 0.5;
 const FORMED_NEAR_KM = 5;
 const FORMED_SHARE = 0.25;
-const BRANCH_ON_KM = 0.1; // start must sit on the parent's line
+// The start must sit on the parent's line. A big river's digitised centreline can lie
+// well inside a channel over a kilometre wide (the Bhagirathi leaves the Ganga 0.63 km
+// from it at Farakka), so long parents get more room.
+const BRANCH_ON_KM = 0.1;
+const BRANCH_ON_BIG_KM = 1;
+const BIG_RIVER_KM = 300;
+const branchTolerance = (g) => (g.len >= BIG_RIVER_KM ? BRANCH_ON_BIG_KM : BRANCH_ON_KM);
 const BRANCH_INTERIOR_KM = 1; // ...and away from the parent's own ends
 
 const feeders = new Map();
@@ -198,11 +204,11 @@ for (const r of rivers) {
   const [ox, oy] = r.origin;
   let parent = null, best = Infinity;
   for (const g of grid.get(`${Math.floor(ox / GRID)},${Math.floor(oy / GRID)}`) ?? []) {
-    if (g === r || pointToBboxKm(ox, oy, g.bbox) > BRANCH_ON_KM) continue;
+    if (g === r || pointToBboxKm(ox, oy, g.bbox) > branchTolerance(g)) continue;
     // Same name: the dataset cutting one river into pieces, not a branch.
     if (g.name === r.name) continue;
     const d = pointToLineKm(ox, oy, g.parts);
-    if (d > BRANCH_ON_KM || d >= best) continue;
+    if (d > branchTolerance(g) || d >= best) continue;
     // At the parent's end it would be a confluence; at its start, a shared source.
     const gStart = g.origin, gEnd = g.end;
     if (distKm(ox, oy, gStart[0], gStart[1]) < BRANCH_INTERIOR_KM) continue;
