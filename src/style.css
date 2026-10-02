@@ -96,3 +96,81 @@ body {
 .panel-close:hover {
   color: #1c2530;
 }
+
+/* "Show river basins" switch, styled to sit with MapLibre's own control buttons. The
+   whole pill is the label, so tapping anywhere on it flips the switch. */
+.basins-toggle {
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.basins-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1c2530;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.basins-toggle input {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  flex: none;
+  width: 32px;
+  height: 18px;
+  margin: 0;
+  border-radius: 999px;
+  background: #c3cad2;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.basins-toggle input::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s;
+}
+
+.basins-toggle input:checked {
+  background: #14557f;
+}
+
+.basins-toggle input:checked::after {
+  transform: translateX(14px);
+}
+
+.basins-toggle input:focus-visible {
+  outline: 2px solid #14557f;
+  outline-offset: 2px;
+}
+
+/* Touch screens: a taller pill makes a comfortable tap target. */
+@media (pointer: coarse) {
+  .basins-toggle label {
+    padding: 8px 8px 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Narrow screens: the panel spans the width, so start it below the basins switch
+   instead of covering it. */
+@media (max-width: 600px) {
+  .panel {
+    top: 58px;
+  }
+}

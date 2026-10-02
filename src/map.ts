@@ -8,6 +8,7 @@ import {
   type LayerSpecification,
 } from "maplibre-gl";
 import { Protocol } from "pmtiles";
+import { BasinsToggle } from "./basins-toggle";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 export const RIVER_SOURCE = "rivers";
@@ -86,6 +87,8 @@ export function createMap(container: HTMLElement): MapLibreMap {
     attributionControl: { compact: true },
   });
 
+  // Added first so it sits above the zoom buttons in the same corner.
+  map.addControl(new BasinsToggle(), "top-right");
   map.addControl(new NavigationControl({ visualizePitch: true }), "top-right");
   map.addControl(new ScaleControl({ maxWidth: 120, unit: "metric" }), "bottom-left");
 
