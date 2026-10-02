@@ -46,7 +46,7 @@ for (const r of db.prepare("SELECT zoom_level z, tile_column x, tile_row ry FROM
 }
 check(`distinct rivers = ${z4names.size}`, z4names.size >= 20 && z4names.size <= 30, "expected 20-30");
 check("no river below its tier leaked in", z4minz <= 4, `max minz seen = ${z4minz}`);
-const expectBig = ["Ganga River", "Brahmaputra River", "Godavari River", "Yamuna River", "Krishna River"];
+const expectBig = ["Ganga", "Brahmaputra", "Godavari", "Yamuna", "Krishna"];
 check("major rivers present", expectBig.every((n) => z4names.has(n)), expectBig.filter((n) => !z4names.has(n)).join(", ") || "all present");
 
 // --- specific rivers appear at their tier, and not before --------------------

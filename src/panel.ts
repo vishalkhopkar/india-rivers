@@ -18,6 +18,19 @@ export interface RiverProps {
   fb?: string;
   fbn?: string;
   fa?: string;
+  // Distributaries: the river it branches off, and where.
+  bf?: string;
+  bfn?: string;
+  bat?: string;
+  batn?: boolean;
+  // The same water under a new name: the river it continues.
+  cf?: string;
+  cfn?: string;
+  // Rivers entering from abroad: countries crossed before India, and where it crosses.
+  ab?: boolean;
+  via?: string;
+  ent?: string;
+  entn?: boolean;
   basin?: string;
   sub?: string;
   states?: string;
@@ -77,18 +90,9 @@ export class InfoPanel {
   show(p: RiverProps) {
     const labels = END_LABELS[p.kind] ?? END_LABELS.trib;
 
-    // A river formed where others meet has no source of its own, so it is described by
-    // what forms it and where, instead of an origin.
-    const start: Row[] = p.fb
-      ? [
-          ["Formed by", this.formedByValue(p)],
-          ["Formed at", p.fa ?? ""],
-        ]
-      : [[p.on ? "Origin near" : "Origin", p.o]];
-
     const rows: Row[] = [
       ["Length", `${p.len.toLocaleString()} km`],
-      ...start,
+      ...this.startRows(p),
       [labels.into, this.intoValue(p)],
       [p.en ? labels.near : labels.far, p.e],
     ];
@@ -115,6 +119,30 @@ export class InfoPanel {
 
   hide() {
     this.el.hidden = true;
+  }
+
+  // How a river begins. Only a river that rises at a source has an "Origin"; the others
+  // are described by what they come from.
+  private startRows(p: RiverProps): Row[] {
+    if (p.fb)
+      return [
+        ["Formed by", this.formedByValue(p)],
+        ["Formed at", p.fa ?? ""],
+      ];
+    if (p.bf)
+      return [
+        ["Branched off from", this.riverLink(p.bf, p.bfn || p.bf)],
+        [p.batn ? "Branches off near" : "Branches off", p.bat ?? ""],
+      ];
+    if (p.cf) return [["Continues from", this.riverLink(p.cf, p.cfn || p.cf)]];
+    const origin: Row = [p.on ? "Origin near" : "Origin", p.o];
+    if (p.ab)
+      return [
+        origin,
+        ["Flows through", p.via ?? ""],
+        [p.entn ? "Enters India near" : "Enters India", p.ent ?? ""],
+      ];
+    return [origin];
   }
 
   private intoValue(p: RiverProps): string | Node {

@@ -115,7 +115,7 @@ const koyna = await openRiver("Koyna", [73.85, 17.4], 9);
 check("Koyna clickable", !!koyna);
 if (koyna) {
   const r = koyna.panel.rows;
-  check("Merges into is a link", koyna.panel.link === "Krishna River", koyna.panel.link);
+  check("Merges into is a link", koyna.panel.link === "Krishna", koyna.panel.link);
   check("Confluence row present", "Confluence near" in r || "Confluence" in r, r["Confluence near"] ?? r["Confluence"]);
   check("Origin row present", "Origin" in r || "Origin near" in r, r["Origin"] ?? r["Origin near"]);
   check("no mouth rows on a tributary", !("Mouth into" in r) && !("Mouth near" in r));
@@ -133,20 +133,23 @@ if (koyna) {
     (uid) => window.__map.getFeatureState({ source: "rivers", sourceLayer: "rivers", id: uid }),
     koyna.pt.uid
   );
-  check("link opens the Krishna River panel", after.heading === "Krishna River", after.heading);
-  check("Krishna River is now selected", kState.selected === true, JSON.stringify(kState));
+  check("link opens the Krishna panel", after.heading === "Krishna", after.heading);
+  check("Krishna is now selected", kState.selected === true, JSON.stringify(kState));
   check("Koyna is no longer selected", !koynaState.selected, JSON.stringify(koynaState));
   check("Krishna shows its own mouth", after.rows["Mouth into"] === "Bay of Bengal", after.rows["Mouth into"]);
   await page.screenshot({ path: `${OUT}/22-followed-to-krishna.png` });
 }
 
 // --- 3. the longest descriptions still fit -------------------------------------
-console.log("\nGanga River (longest curated text):");
-const ganga = await openRiver("Ganga River", [84.5, 25.4], 6);
+// Formers may appear in any order; only the set matters.
+const formedBySet = (text) => (text ?? "").replace(/^Confluence of /, "").split(/, | and /).sort().join("+");
+
+console.log("\nGanga (longest curated text):");
+const ganga = await openRiver("Ganga", [84.5, 25.4], 6);
 check("Ganga clickable", !!ganga);
 if (ganga) {
-  check("panel shows the Ganga", ganga.panel.heading === "Ganga River", ganga.panel.heading);
-  check("Formed by", ganga.panel.rows["Formed by"] === "Confluence of Bhagirathi River and Alaknanda River", ganga.panel.rows["Formed by"]);
+  check("panel shows the Ganga, without 'River'", ganga.panel.heading === "Ganga", ganga.panel.heading);
+  check("Formed by", formedBySet(ganga.panel.rows["Formed by"]) === "Alaknanda+Bhagirathi", ganga.panel.rows["Formed by"]);
   check("Formed at", ganga.panel.rows["Formed at"] === "Devprayag, Uttarakhand", ganga.panel.rows["Formed at"]);
   check("no Origin row on a confluence-formed river", !("Origin" in ganga.panel.rows) && !("Origin near" in ganga.panel.rows));
   check("panel does not scroll", !ganga.panel.scrolls, ganga.panel.size);
@@ -160,14 +163,14 @@ console.log("\nMula-Mutha (formed by a confluence, no override):");
 const mm = await openRiver("Mula-Mutha", [73.95, 18.53], 10);
 check("Mula-Mutha clickable", !!mm);
 if (mm) {
-  check("Formed by", mm.panel.rows["Formed by"] === "Confluence of Mula River and Mutha River", mm.panel.rows["Formed by"]);
+  check("Formed by", formedBySet(mm.panel.rows["Formed by"]) === "Mula+Mutha", mm.panel.rows["Formed by"]);
   check("Formed at", mm.panel.rows["Formed at"] === "Pune, Maharashtra", mm.panel.rows["Formed at"]);
   check("no Origin row", !("Origin" in mm.panel.rows) && !("Origin near" in mm.panel.rows));
   const links = await page.evaluate(() => [...document.querySelectorAll(".panel .river-link")].map((a) => a.textContent));
-  check("each former is a link, plus the merge link", links.join(" | ") === "Mula River | Mutha River | Bhima River", links.join(" | "));
+  check("each former is a link, plus the merge link", [...links].sort().join("|") === "Bhima|Mula|Mutha", links.join(" | "));
   await page.screenshot({ path: `${OUT}/26-mula-mutha.png` });
 
-  await page.evaluate(() => document.querySelector(".panel .river-link")?.click());
+  await page.evaluate(() => [...document.querySelectorAll(".panel .river-link")].find((a) => a.textContent === "Mula")?.click());
   await new Promise((r) => setTimeout(r, 500));
   await settle();
   await new Promise((r) => setTimeout(r, 800));
@@ -176,7 +179,42 @@ if (mm) {
   check("the Mula merges back into the Mula-Mutha", mula.rows["Merges into"] === "Mula-Mutha", mula.rows["Merges into"]);
 }
 
-// --- 5. hand-corrected names ----------------------------------------------------
+// --- 5. the other ways a river can begin -----------------------------------------
+console.log("\nPranhita (former found 3.8 km short of the start):");
+const pr = await openRiver("Pranhitha", [79.95, 19.2], 9);
+check("Pranhita clickable", !!pr);
+if (pr) {
+  check("Formed by", formedBySet(pr.panel.rows["Formed by"]) === "Wainganga+Wardha", pr.panel.rows["Formed by"]);
+  check("no Origin row", !("Origin" in pr.panel.rows) && !("Origin near" in pr.panel.rows));
+}
+
+console.log("\nKatjuri/Kathajodi (distributary):");
+const kj = await openRiver("Katjuri/Kathajodi", [85.95, 20.42], 11);
+check("Katjuri clickable", !!kj);
+if (kj) {
+  check("Branched off from", kj.panel.rows["Branched off from"] === "Mahanadi", kj.panel.rows["Branched off from"]);
+  check("it is a link", kj.panel.link === "Mahanadi", kj.panel.link);
+  check("where it branches", kj.panel.rows["Branches off near"] === "Cuttack, Odisha", kj.panel.rows["Branches off near"]);
+  check("no Origin row", !("Origin" in kj.panel.rows) && !("Origin near" in kj.panel.rows));
+  await page.screenshot({ path: `${OUT}/27-katjuri.png` });
+}
+
+console.log("\nTorsa (enters India from abroad):");
+const to = await openRiver("Torsa", [89.45, 26.55], 9);
+check("Torsa clickable", !!to);
+if (to) {
+  check("Origin", to.panel.rows["Origin"] === "Chumbi Valley, Tibet, China", to.panel.rows["Origin"]);
+  check("Flows through", to.panel.rows["Flows through"] === "Bhutan", to.panel.rows["Flows through"]);
+  check("Enters India near", to.panel.rows["Enters India near"] === "Jaigaon, West Bengal", to.panel.rows["Enters India near"]);
+  await page.screenshot({ path: `${OUT}/28-torsa.png` });
+}
+
+const withSuffix = await page.evaluate(() =>
+  window.__map.querySourceFeatures("rivers", { sourceLayer: "rivers" }).filter((f) => / River$/.test(f.properties.name)).length
+);
+check("no displayed name ends in 'River'", withSuffix === 0, `${withSuffix} features`);
+
+// --- 6. hand-corrected names ----------------------------------------------------
 // The dataset calls these "Malad Creek" and "Mahim"; both are corrected in
 // data/river-overrides.json.
 for (const [name, center, origin, mouth] of [
@@ -198,7 +236,7 @@ const oldNames = await page.evaluate(() =>
 );
 check("old dataset names no longer appear", oldNames === 0, `${oldNames} features`);
 
-// --- 6. dismiss ----------------------------------------------------------------
+// --- 7. dismiss ----------------------------------------------------------------
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));
 check("close hides the panel", await page.evaluate(() => !!document.querySelector(".panel")?.hidden));

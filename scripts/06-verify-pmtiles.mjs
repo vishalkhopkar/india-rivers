@@ -53,7 +53,7 @@ async function namesAt(z, lon, lat) {
 
 const z4 = await namesAt(4, 81, 22.5);
 check("z4 tile fetches over range requests", z4 !== null, z4 ? `${z4.length} features` : "no tile");
-check("z4 holds trunk rivers", !!z4?.some((n) => n.includes("River")), z4?.slice(0, 3).join(", "));
+check("z4 holds trunk rivers", !!z4?.some((n) => ["Ganga", "Narmada", "Brahmaputra", "Godavari"].includes(n)), z4?.slice(0, 3).join(", "));
 
 const mumbai = await namesAt(11, 72.8564, 19.2501);
 check("z11 Mumbai tile fetches", mumbai !== null, mumbai ? `${mumbai.length} features` : "no tile");

@@ -29,11 +29,24 @@ const places = JSON.parse(readFileSync("build/places.json", "utf8"));
 // creek they drain into). Topology is resolved on the original names, so renames are
 // applied only here, at the point names are written out for display.
 const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
-const displayName = (uid, fallback) => overrides[uid]?.rename ?? fallback;
-// "Formed by" reads "Mula River and Mutha River". Multi-word names already carry their
-// own generic term (Kalu Nala, Randi Gad), so " River" is added to single words only.
-const asRiver = (name) => (/\s/.test(name.trim()) ? name : `${name} River`);
+// Names are shown without a trailing "River": the dataset's "Ganga River" reads as "Ganga".
+const plain = (name) => name.replace(/\s+River$/i, "");
+const displayName = (uid, fallback) => plain(overrides[uid]?.rename ?? fallback);
 const nameByUid = new Map();
+const rawNameByUid = new Map();
+
+// Where a river's start is described from. A river the dataset merely cut in two
+// ("Banas" continuing "Banas") takes its description from the head of that chain,
+// not "Continues from: Banas".
+function startUid(uid) {
+  let cur = uid;
+  for (let guard = 0; guard < 50; guard++) {
+    const up = topology[cur]?.continues;
+    if (!up || rawNameByUid.get(up) !== rawNameByUid.get(cur)) return cur;
+    cur = up;
+  }
+  return cur;
+}
 
 // --- load -------------------------------------------------------------------
 console.log("loading extract...");
@@ -46,6 +59,7 @@ const raw = [];
 for (const line of raw) {
   const p = JSON.parse(line).properties;
   nameByUid.set(String(p.UID_River), displayName(String(p.UID_River), p.rivname ?? ""));
+  rawNameByUid.set(String(p.UID_River), p.rivname ?? "");
 }
 const features = [];
 // Per-river lookup for jumping to a river that is not on screen yet: following a
@@ -65,6 +79,9 @@ for (const line of raw) {
   const place = places[uid];
   const minz = minzFor(p.length_km);
   const name = displayName(uid, p.rivname ?? "");
+  const head = startUid(uid);
+  const st = topology[head]; // how the river begins
+  const sp = places[head];
   f.properties = {
     uid,
     name,
@@ -72,17 +89,27 @@ for (const line of raw) {
     minz,
     // Shown in the panel.
     kind: topo.kind, // trib | sea | border | inland
-    into: topo.down ? displayName(topo.down, topo.into) : topo.into,
+    into: topo.down ? displayName(topo.down, topo.into) : plain(topo.into),
     down: topo.down ?? "",
-    o: place.o,
-    on: place.on,
+    o: sp.o,
+    on: sp.on,
     e: place.e,
     en: place.en,
-    // Rivers formed by a confluence: former uids and their display names, in step.
-    // MVT has no array type, hence the joined strings.
-    fb: (topo.formedBy ?? []).join(","),
-    fbn: (topo.formedBy ?? []).map((u) => asRiver(nameByUid.get(u))).join("|"),
-    fa: place.fa ?? "",
+    // How the river begins, when it is not simply a source. MVT has no array type, so
+    // lists travel as joined strings with uids and names in step.
+    fb: (st.formedBy ?? []).join(","), // formed by a confluence of...
+    fbn: (st.formedBy ?? []).map((u) => nameByUid.get(u)).join("|"),
+    fa: sp.fa ?? "",
+    bf: st.branchedFrom ?? "", // branched off (a distributary of)...
+    bfn: st.branchedFrom ? nameByUid.get(st.branchedFrom) : "",
+    bat: sp.bat ?? "",
+    batn: !!sp.batn,
+    cf: st.continues ?? "", // continues another river under a new name
+    cfn: st.continues ? nameByUid.get(st.continues) : "",
+    ab: !!sp.abroad, // enters India from abroad
+    via: (sp.via ?? []).join(", "),
+    ent: sp.ent ?? "",
+    entn: !!sp.entn,
     // Kept in the data, shown only behind the showExtendedAttributes flag.
     basin: p.ba_name ?? "",
     sub: p.sub_basin ?? "",
@@ -192,6 +219,9 @@ const meta = {
           kind: "String", into: "String", down: "String",
           o: "String", on: "Boolean", e: "String", en: "Boolean",
           fb: "String", fbn: "String", fa: "String",
+          bf: "String", bfn: "String", bat: "String", batn: "Boolean",
+          cf: "String", cfn: "String",
+          ab: "Boolean", via: "String", ent: "String", entn: "Boolean",
           basin: "String", sub: "String", states: "String", origin: "String",
           confl: "String", from: "String", to: "String",
         },

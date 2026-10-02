@@ -127,33 +127,112 @@ for (const r of rivers) {
   }
 }
 
-// --- rivers formed by a confluence ---------------------------------------------
-// Some rivers have no source of their own: the Ganga begins where the Bhagirathi and
-// Alaknanda meet, the Mula-Mutha where the Mula and Mutha meet. Their formers end
-// exactly on the new river's start (0.00 km in the data), while the next tributary
-// downstream is kilometres away, so a tight radius separates the two cleanly.
-const FORMED_KM = 0.5;
+// --- how each river begins -------------------------------------------------------
+// Most rivers rise at a source. Three kinds do not, and get no "origin":
+//   formed by    - two or more rivers meet at its start (Ganga, Mula-Mutha, Pranhita)
+//   continues    - exactly one river ends at its start; it is that river renamed
+//                  (Devi continues the Katjuri/Kathajodi)
+//   branched off - its start lies part-way along another river (Birupa leaves the
+//                  Mahanadi at Cuttack): a distributary
+//
+// Formers usually end exactly on the start (0.00 km), and those always count. A former
+// can also be digitised a little short - the Wainganga ends 3.8 km from the Pranhita's
+// start - so within 5 km a river also counts if it is at least a quarter the length of
+// the longest one there. That admits the Wainganga (634 km) but not the 31 km Mota Nala
+// beside it, nor the Ganga's 9 km Randi Gad.
+const FORMED_EXACT_KM = 0.5;
+const FORMED_NEAR_KM = 5;
+const FORMED_SHARE = 0.25;
+const BRANCH_ON_KM = 0.1; // start must sit on the parent's line
+const BRANCH_INTERIOR_KM = 1; // ...and away from the parent's own ends
+
 const feeders = new Map();
 for (const [u, t] of Object.entries(out)) {
   if (!t.down) continue;
   if (!feeders.has(t.down)) feeders.set(t.down, []);
   feeders.get(t.down).push(u);
 }
-let formed = 0;
+
+let formed = 0, continued = 0, branched = 0;
 for (const r of rivers) {
   const [ox, oy] = r.origin;
-  const atStart = (feeders.get(r.uid) ?? []).filter((u) => {
-    const [ex, ey] = byUid.get(u).end;
-    return distKm(ex, ey, ox, oy) <= FORMED_KM;
-  });
-  if (atStart.length < 2) continue;
-  // Longest first, which is how such rivers are conventionally named (Mula-Mutha).
-  out[r.uid].formedBy = atStart.sort((a, b) => byUid.get(b).len - byUid.get(a).len);
-  formed++;
+  const near = (feeders.get(r.uid) ?? [])
+    .map((u) => ({ u, d: distKm(byUid.get(u).end[0], byUid.get(u).end[1], ox, oy), len: byUid.get(u).len }))
+    .filter((c) => c.d <= FORMED_NEAR_KM);
+  const longest = Math.max(0, ...near.map((c) => c.len));
+  // A former found short of the start must also be substantial next to the river it
+  // forms, or small headwater streams near a long river's own source (the Ramganga's)
+  // would be mistaken for formers.
+  const formers = near.filter(
+    (c) => c.d <= FORMED_EXACT_KM || (c.len >= FORMED_SHARE * longest && c.len >= 0.5 * r.len)
+  );
+
+  if (formers.length >= 2) {
+    // Formers meeting exactly at the start come first, then longest first - the usual
+    // phrasing: "Bhagirathi and Alaknanda", "Mula and Mutha", "Wardha and Wainganga".
+    const exact = (c) => (c.d <= FORMED_EXACT_KM ? 0 : 1);
+    out[r.uid].formedBy = formers.sort((a, b) => exact(a) - exact(b) || b.len - a.len).map((c) => c.u);
+    formed++;
+  } else if (formers.length === 1 && formers[0].d <= FORMED_EXACT_KM) {
+    out[r.uid].continues = formers[0].u;
+    continued++;
+  }
+}
+
+// Distributaries: a start on the middle of another river. Spatial grid keeps this from
+// being 30k x 30k line tests.
+const GRID = 0.25;
+const grid = new Map();
+for (const r of rivers) {
+  const [x0, y0, x1, y1] = r.bbox;
+  for (let gx = Math.floor(x0 / GRID); gx <= Math.floor(x1 / GRID); gx++)
+    for (let gy = Math.floor(y0 / GRID); gy <= Math.floor(y1 / GRID); gy++) {
+      const k = `${gx},${gy}`;
+      if (!grid.has(k)) grid.set(k, []);
+      grid.get(k).push(r);
+    }
+}
+let swapped = 0;
+for (const r of rivers) {
+  if (out[r.uid].formedBy || out[r.uid].continues) continue;
+  const [ox, oy] = r.origin;
+  let parent = null, best = Infinity;
+  for (const g of grid.get(`${Math.floor(ox / GRID)},${Math.floor(oy / GRID)}`) ?? []) {
+    if (g === r || pointToBboxKm(ox, oy, g.bbox) > BRANCH_ON_KM) continue;
+    // Same name: the dataset cutting one river into pieces, not a branch.
+    if (g.name === r.name) continue;
+    const d = pointToLineKm(ox, oy, g.parts);
+    if (d > BRANCH_ON_KM || d >= best) continue;
+    // At the parent's end it would be a confluence; at its start, a shared source.
+    const gStart = g.origin, gEnd = g.end;
+    if (distKm(ox, oy, gStart[0], gStart[1]) < BRANCH_INTERIOR_KM) continue;
+    if (distKm(ox, oy, gEnd[0], gEnd[1]) < BRANCH_INTERIOR_KM) continue;
+    best = d;
+    parent = g;
+  }
+  if (!parent) continue;
+  // Starting on the very river it flows into means the recorded start and end are
+  // swapped (Banjar "starts" on the Narmada it joins). It is a tributary, and its real
+  // source is the recorded end.
+  if (out[r.uid].down === parent.uid) {
+    out[r.uid].swapped = true;
+    swapped++;
+    continue;
+  }
+  out[r.uid].branchedFrom = parent.uid;
+  branched++;
 }
 
 // Hand-declared formers, for rivers whose confluence the dataset does not join up.
+// A hand-written origin means the source is known, so it outranks "continues" and
+// "branched off" (the Sharda's data shows it continuing the Kuthi Yankti, yet it rises
+// at Kalapani).
 const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
+for (const [uid, ov] of Object.entries(overrides)) {
+  if (!ov.origin || !out[uid]) continue;
+  delete out[uid].continues;
+  delete out[uid].branchedFrom;
+}
 const badFormers = [];
 for (const [uid, ov] of Object.entries(overrides)) {
   if (!ov.formedBy) continue;
@@ -162,6 +241,8 @@ for (const [uid, ov] of Object.entries(overrides)) {
   else {
     if (!out[uid].formedBy) formed++;
     out[uid].formedBy = ov.formedBy;
+    delete out[uid].continues;
+    delete out[uid].branchedFrom;
   }
 }
 if (badFormers.length) {
@@ -195,9 +276,15 @@ for (const [k, arr] of Object.entries(dists)) {
   );
 }
 console.log(`cycles broken: ${cyclesBroken}`);
-console.log(`formed by a confluence: ${formed} rivers. Largest:`);
-for (const r of rivers.filter((r) => out[r.uid].formedBy).sort((a, b) => b.len - a.len).slice(0, 12))
-  console.log(`  ${r.name.padEnd(22)} <- ${out[r.uid].formedBy.map((u) => byUid.get(u).name).join(" + ")}`);
+const largest = (key, n = 12) => rivers.filter((r) => out[r.uid][key]).sort((a, b) => b.len - a.len).slice(0, n);
+const nm = (u) => byUid.get(u).name;
+console.log(`\nformed by a confluence: ${formed} rivers. Largest:`);
+for (const r of largest("formedBy")) console.log(`  ${r.name.padEnd(22)} <- ${out[r.uid].formedBy.map(nm).join(" + ")}`);
+console.log(`continues another river: ${continued}. Largest:`);
+for (const r of largest("continues", 8)) console.log(`  ${r.name.padEnd(22)} <- ${nm(out[r.uid].continues)}`);
+console.log(`start and end swapped in the data (start sits on its own parent): ${swapped}`);
+console.log(`branched off another river: ${branched}. Largest:`);
+for (const r of largest("branchedFrom", 14)) console.log(`  ${r.name.padEnd(22)} <- ${nm(out[r.uid].branchedFrom)}`);
 console.log(`chain depth to terminal: max ${maxDepth} (${deepest}); ` +
   [...depthHist].sort((a, b) => a[0] - b[0]).map(([d, n]) => `${d}:${n}`).join(" "));
 if (farExamples.length) console.log(`\nfar matches (not linked):\n  ${farExamples.join("\n  ")}`);

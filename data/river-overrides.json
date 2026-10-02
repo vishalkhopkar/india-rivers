@@ -13,7 +13,14 @@
   },
   "864": {
     "name": "Dihang/Siang River",
-    "origin": "Enters India from Tibet, as the Yarlung Tsangpo, near Gelling, Arunachal Pradesh"
+    "origin": "Tibet, China, as the Yarlung Tsangpo",
+    "entersAt": "Gelling, Arunachal Pradesh",
+    "entersAtNear": true
+  },
+  "872": {
+    "name": "Torsa",
+    "origin": "Chumbi Valley, Tibet, China",
+    "why": "Traced source is in remote Tibet with no listed town nearby; the Torsa (Amo Chu) rises in the Chumbi Valley."
   },
   "1844": {
     "name": "Narmada River",
@@ -146,14 +153,18 @@
   },
   "15535": {
     "name": "Indus River",
-    "origin": "Rises near Lake Mansarovar in Tibet; enters India at Demchok, Ladakh",
+    "origin": "Near Lake Mansarovar, Tibet, China",
     "end": "West of Chilas, Gilgit-Baltistan",
-    "why": "Line starts at the border near Demchok. End follows the source dataset, which runs the line to the edge of Gilgit-Baltistan."
+    "why": "Line starts at the border near Demchok. End follows the source dataset, which runs the line to the edge of Gilgit-Baltistan.",
+    "entersAt": "Demchok, Ladakh",
+    "entersAtNear": true
   },
   "15848": {
     "name": "Satluj River",
-    "origin": "Rises at Rakshastal in Tibet; enters India at Shipki La, Himachal Pradesh",
-    "why": "Source text: Rakshastal, Tibet. Line starts at Shipki La."
+    "origin": "Rakshastal, near Lake Mansarovar, Tibet, China",
+    "why": "Source text: Rakshastal, Tibet. Line starts at Shipki La.",
+    "entersAt": "Shipki La, Himachal Pradesh",
+    "entersAtNear": true
   },
   "15985": {
     "name": "Mahi River",
@@ -217,9 +228,12 @@
   },
   "29240": {
     "name": "Gandak River",
-    "origin": "Rises in Nepal as the Kali Gandaki; enters India near Valmikinagar, Bihar",
+    "origin": "Mustang, Nepal, near the Tibet border, as the Kali Gandaki",
     "end": "Hajipur, opposite Patna, Bihar",
-    "endNear": true
+    "endNear": true,
+    "entersAt": "Valmikinagar, Bihar",
+    "entersAtNear": true,
+    "why": "Line starts about 30 km inside the border, too far for the automatic border-crossing check."
   },
   "29252": {
     "name": "Sone River",
@@ -248,19 +262,26 @@
   },
   "30286": {
     "name": "Rapti River",
-    "origin": "Rises in Nepal; enters India near Bhinga, Uttar Pradesh",
     "end": "Barhaj, Deoria district, Uttar Pradesh",
-    "endNear": true
+    "endNear": true,
+    "entersAt": "Near Bhinga, Shravasti district, Uttar Pradesh"
   },
   "30294": {
     "name": "Ghaghara River",
-    "origin": "Rises in Tibet as the Karnali; enters India near Katarniaghat, Uttar Pradesh",
-    "why": "Line begins at the Nepal border; auto picked Tikapur, Nepal."
+    "origin": "Tibet, China, as the Karnali",
+    "why": "Line begins at the Nepal border. The HydroRIVERS trace matched a side channel and stopped in Nepal, so the Tibetan source is declared by hand.",
+    "via": [
+      "Nepal"
+    ],
+    "entersAt": "Katarniaghat, Uttar Pradesh",
+    "entersAtNear": true
   },
   "30314": {
     "name": "Kosi River",
-    "origin": "Rises in Tibet and Nepal; enters India at the Kosi barrage, Bhimnagar, Bihar",
+    "origin": "Tibet, China, as the Arun",
     "end": "Kursela, Katihar district, Bihar",
-    "endNear": true
+    "endNear": true,
+    "entersAt": "Bhimnagar (Kosi barrage), Bihar",
+    "entersAtNear": true
   }
 }
