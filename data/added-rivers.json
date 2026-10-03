@@ -686,5 +686,22 @@
       1311917061
     ],
     "why": "BBMP storm-water drain BD-423: the Yellamallappa Chetty Lake outflow to the Dakshina Pinakini. OSM ways tagged BD423."
+  },
+  "40051": {
+    "name": "Nagarbhavi Thorai",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "osmWays": [
+      674181132,
+      1094685212,
+      1232059847,
+      1232059846,
+      28065996,
+      28065984,
+      90842834,
+      90842806,
+      1054489001
+    ],
+    "why": "The western branch of the Vrishabhavati, from Peenya past Laggere and Nagarbhavi to the confluence near Bangalore University. CWC drew it as the head of the Vrishabhavati; OSM and the Paani.Earth basin map name it the Nagarbhavi. OSM ways \"Nagarbhavi Thorai\" and \"Nagarbhavi Drain\"."
   }
 }

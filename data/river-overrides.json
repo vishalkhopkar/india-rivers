@@ -121,6 +121,11 @@
     "endNear": true,
     "why": "Source text: Talakaveri in the Brahmagiri range."
   },
+  "7599": {
+    "name": "Suvarnamukhi",
+    "end": "The Vrishabhavati north of Kanakapura, Karnataka",
+    "why": "Joins the Vrishabhavati rather than the other way round (data/course-overrides.json)."
+  },
   "7696": {
     "name": "Vellar",
     "continues": "7698",
@@ -139,6 +144,12 @@
     "branchedFrom": "7698",
     "why": "The northern branch of the Vennar, splitting off at the Thenperambur dam near Thanjavur (Wikipedia, Vennaaru River). Its start is 0.3 km from the Vennar line, outside the automatic tolerance.",
     "branchesAt": "Thenperambur dam, near Thanjavur"
+  },
+  "7707": {
+    "name": "Vrishabhavati",
+    "origin": "Nandi Teertha temple near Sankey Tank, Malleshwaram, Bengaluru",
+    "end": "The Arkavati near Kanakapura, Karnataka",
+    "why": "Head redrawn along the eastern branch from Malleshwaram and the lower course carried on to the Arkavati (data/course-overrides.json)."
   },
   "8654": {
     "name": "Dahisar",
@@ -541,5 +552,11 @@
     "continues": "40049",
     "why": "Added from OSM. Yellamallappa Chetty Lake outflow to the Dakshina Pinakini.",
     "end": "The Dakshina Pinakini near Koralur, east of Bengaluru"
+  },
+  "40051": {
+    "name": "Nagarbhavi Thorai",
+    "origin": "Peenya, Bengaluru",
+    "end": "The Vrishabhavati near Bangalore University, Bengaluru",
+    "why": "Added from OSM. The western branch of the Vrishabhavati, which CWC drew as the river's head."
   }
 }

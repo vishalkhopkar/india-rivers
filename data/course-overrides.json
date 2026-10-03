@@ -1,4 +1,38 @@
 {
+  "7599": {
+    "name": "Suvarnamukhi",
+    "endsAt": "7707",
+    "why": "CWC carries the Suvarnamukhi on to the Arkavati and makes the Vrishabhavati its tributary. It is the other way round: the Suvarnamukhi joins the Vrishabhavati north of Kanakapura (Paani.Earth Vrishabhavathi and Arkavathi basin maps). Ended at the confluence."
+  },
+  "7707": {
+    "name": "Vrishabhavati",
+    "head": {
+      "osmWays": [
+        335169250,
+        335169249,
+        330226513,
+        330226514,
+        1244269661,
+        1244269660,
+        62781846,
+        38538359,
+        546760250,
+        350178537,
+        350178538,
+        673625078,
+        1187741525,
+        1187741524,
+        36777716,
+        1111945333,
+        1111945332,
+        143346876,
+        1381024228,
+        172895643
+      ]
+    },
+    "tailFrom": "7599",
+    "why": "CWC starts the Vrishabhavati in Peenya, along the Nagarbhavi stream. The river rises at the Nandi Teertha temple by Sankey Tank in Malleshwaram (Paani.Earth; the district gazetteer and IISc also place the source in the old city) and meets the Nagarbhavi near Bangalore University: head redrawn from the OSM \"Vrishabhavathi\" ways. Below the Suvarnamukhi confluence it runs on to the Arkavati near Kanakapura, a stretch CWC gives to the Suvarnamukhi."
+  },
   "8809": {
     "name": "Mithi",
     "osmWays": [

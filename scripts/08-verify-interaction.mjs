@@ -403,6 +403,19 @@ if (c100) check("C-100 merges into the Bellandur outflow", c100.panel.rows["Merg
 const bd = await openRiver("Hebbal Valley (BD-423)", [77.755, 13.008], 13);
 if (bd) check("BD-423 merges into the Dakshina Pinakini", /Dakshina Pinakini/.test(bd.panel.rows["Merges into"] ?? ""), JSON.stringify(bd.panel.rows));
 
+console.log("\nVrishabhavati (from Malleshwaram, on to the Arkavati) and its branches:");
+const vr = await openRiver("Vrishabhavati", [77.565, 12.985], 13);
+check("Vrishabhavati runs through the old city", !!vr);
+if (vr) {
+  check("rises near Sankey Tank", /Sankey Tank/.test(vr.panel.rows["Origin"] ?? ""), JSON.stringify(vr.panel.rows));
+  check("merges into the Arkavati", vr.panel.rows["Merges into"] === "Arkavati", JSON.stringify(vr.panel.rows));
+}
+const nt = await openRiver("Nagarbhavi Thorai", [77.527, 12.99], 13);
+check("Nagarbhavi Thorai is on the map", !!nt);
+if (nt) check("Nagarbhavi Thorai merges into the Vrishabhavati", nt.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(nt.panel.rows));
+const sv = await openRiver("Suvarnamukhi", [77.47, 12.72], 11);
+if (sv) check("Suvarnamukhi merges into the Vrishabhavati", sv.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(sv.panel.rows));
+
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);
 check("Musi is on the map", !!mu);
