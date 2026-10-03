@@ -361,6 +361,13 @@ if (gh) check("it rises below the Parsik hills and merges into Thane Creek", /Pa
 const khg = await openRiver("", [73.0642, 19.0499], 15);
 check("the Kharghar stream is on the map", !!khg);
 if (khg) check("it merges into the Bava Malang", khg.panel.rows["Merges into"] === "Bava Malang", JSON.stringify(khg.panel.rows));
+console.log("\nMira-Bhayandar (to Vasai Creek and Manori Creek):");
+const kmr = await openRiver("", [72.8826, 19.2804], 15);
+check("the Kashimira stream is on the map", !!kmr);
+if (kmr) check("it merges into the Ulhas at Vasai Creek", kmr.panel.rows["Merges into"] === "Ulhas" && /Vasai Creek/.test(kmr.panel.rows["Confluence"] ?? ""), JSON.stringify(kmr.panel.rows));
+const byr = await openRiver("", [72.8519, 19.2799], 15);
+check("the Bhayandar stream is on the map", !!byr);
+if (byr) check("it merges into the Dahisar at Manori Creek", byr.panel.rows["Merges into"] === "Dahisar" && /Manori Creek/.test(byr.panel.rows["Confluence"] ?? ""), JSON.stringify(byr.panel.rows));
 console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
 const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
 check("Chhoti Yamuna clickable", !!cy);

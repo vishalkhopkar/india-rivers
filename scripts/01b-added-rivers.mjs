@@ -324,7 +324,9 @@ function build(uid, entry, addedSoFar) {
   // mouth on the shore: its line is not carried across the water to the creek's centre
   // line. The creek's entry says how far from that line its shores lie (`shoreKm`: Thane
   // Creek is 6 km wide at Belapur), and the stream's mouth must be within that distance.
-  const shoreKm = join ? list[join.uid]?.shoreKm : undefined;
+  // Where the estuary is a CWC river with no entry here (Vasai Creek is the Ulhas, Manori
+  // Creek the Dahisar), the stream's own entry carries `shoreKm`.
+  const shoreKm = entry.shoreKm ?? (join ? list[join.uid]?.shoreKm : undefined);
   let atShore = false;
   if (meets) {
     const snapKm = fromOsm ? JOIN_SNAP_OSM_KM : JOIN_SNAP_KM;

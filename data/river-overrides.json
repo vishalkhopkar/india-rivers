@@ -1508,5 +1508,71 @@
     "origin": "Kharghar hills above Owe, Navi Mumbai",
     "end": "Kharghar, Navi Mumbai",
     "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40210": {
+    "name": "",
+    "origin": "Bhayandar, beside the Western Railway line",
+    "end": "The Dahisar's tidal reach (Manori Creek), south-west of Mira Road",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40211": {
+    "name": "",
+    "origin": "Sanjay Gandhi National Park foothills at Kashimira, Mira-Bhayandar",
+    "end": "Vasai Creek, west of Ghodbunder Fort, Mira-Bhayandar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40212": {
+    "name": "",
+    "origin": "Mangroves south of Morva, near Uttan",
+    "end": "The Dahisar's tidal reach (Manori Creek) near Gorai, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40213": {
+    "name": "",
+    "origin": "Morva village, near Uttan, Mira-Bhayandar",
+    "end": "The mouth of Vasai Creek at Rai, west of Bhayandar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40214": {
+    "name": "",
+    "origin": "Morva village, near Uttan, Mira-Bhayandar",
+    "end": "The Dahisar's tidal reach (Manori Creek), south of Bhayandar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40215": {
+    "name": "",
+    "origin": "Dahisar Check Naka, on the Mumbai-Mira Road boundary",
+    "end": "The Dahisar's tidal reach (Manori Creek), south-west of Mira Road",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40216": {
+    "name": "",
+    "origin": "Murdha village, Bhayandar West",
+    "end": "Vasai Creek at Bhayandar West",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40217": {
+    "name": "",
+    "origin": "Gorai, Mumbai",
+    "end": "The Dahisar's tidal reach (Manori Creek) between Gorai and Manori, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40218": {
+    "name": "",
+    "origin": "Mangroves east of Uttan, Mira-Bhayandar",
+    "end": "Mangroves north-east of Gorai, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40219": {
+    "name": "",
+    "origin": "Murdha village, Bhayandar West",
+    "end": "Mangroves north of Manori Creek, south of Bhayandar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40220": {
+    "name": "",
+    "origin": "Mangroves north of Gorai, Mumbai",
+    "end": "Mangroves north-east of Gorai, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
   }
 }

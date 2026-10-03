@@ -3492,5 +3492,123 @@
       940795179
     ],
     "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 58% of its length; on a valley floor in elevation data for 61% of its 3.3 km above the coastal flats; falls from about 239 m to 14 m."
+  },
+  "40210": {
+    "name": "",
+    "joins": "8654",
+    "joinsName": "Dahisar",
+    "minKm": 1.5,
+    "osmWays": [
+      1441626712,
+      1441626713,
+      309802294
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 65% of its length; falls from about 3 m to 4 m. 0.3 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w46480994)."
+  },
+  "40211": {
+    "name": "",
+    "joins": "8969",
+    "joinsName": "Ulhas",
+    "minKm": 1.5,
+    "shoreKm": 0.6,
+    "osmWays": [
+      439776931,
+      785570003,
+      50883867
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 100% of its length; falls from about 10 m to 0 m."
+  },
+  "40212": {
+    "name": "",
+    "joins": "8654",
+    "joinsName": "Dahisar",
+    "minKm": 1.5,
+    "osmWays": [
+      420138357
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 78% of its length; a tidal creek arm, 99% of it in mangrove or creek water; falls from about 3 m to 3 m. 2.0 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w420138348 w420138362 r6245907)."
+  },
+  "40213": {
+    "name": "",
+    "joins": null,
+    "into": "Arabian Sea",
+    "minKm": 1.5,
+    "osmWays": [
+      46481707
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 80% of its length; falls from about 1 m to 1 m. The northern arm of the tidal channel past Morva."
+  },
+  "40214": {
+    "name": "",
+    "joins": "8654",
+    "joinsName": "Dahisar",
+    "minKm": 1.5,
+    "osmWays": [
+      46481707,
+      46481718
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: a tidal creek arm, 77% of it in mangrove or creek water; falls from about 1 m to 4 m. 0.4 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. OSM maps one continuous tidal channel past Morva between the mouth of Vasai Creek and Manori Creek, which cuts Uttan and Gorai off from Salsette; it is drawn as two arms that part at Morva, this one running south-east."
+  },
+  "40215": {
+    "name": "",
+    "joins": "8654",
+    "joinsName": "Dahisar",
+    "minKm": 1.5,
+    "osmWays": [
+      46480676,
+      46480637
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 95% of its length; a tidal creek arm, 98% of it in mangrove or creek water; falls from about 3 m to 3 m. 0.9 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w46480994)."
+  },
+  "40216": {
+    "name": "",
+    "joins": "8969",
+    "joinsName": "Ulhas",
+    "minKm": 1.5,
+    "shoreKm": 1.3,
+    "osmWays": [
+      1257689953,
+      46481706
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: a tidal creek arm, 77% of it in mangrove or creek water; falls from about 1 m to 2 m. OSM maps one continuous tidal channel through Murdha between Vasai Creek and Manori Creek; it is drawn as two arms that part at its middle, this one running north."
+  },
+  "40217": {
+    "name": "",
+    "joins": "8654",
+    "joinsName": "Dahisar",
+    "minKm": 1.5,
+    "shoreKm": 0.8,
+    "osmWays": [
+      420138344
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 82% of its length; a tidal creek arm, 100% of it in mangrove or creek water; falls from about 1 m to 1 m. 2.2 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w420138340 w420138347 w420138365)."
+  },
+  "40218": {
+    "name": "",
+    "joins": "40212",
+    "minKm": 1.5,
+    "osmWays": [
+      1226640418,
+      1222224269
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: a tidal creek arm, 100% of it in mangrove or creek water; falls from about 2 m to 0 m. 1.6 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w420138348 w420138362 r6245907)."
+  },
+  "40219": {
+    "name": "",
+    "joins": "40214",
+    "minKm": 1.5,
+    "osmWays": [
+      1257689953
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 63% of its length; a tidal creek arm, 98% of it in mangrove or creek water; falls from about 1 m to 1 m. The southern arm of the tidal channel through Murdha between Vasai Creek and Manori Creek."
+  },
+  "40220": {
+    "name": "",
+    "joins": "40212",
+    "minKm": 1.5,
+    "osmWays": [
+      420138338
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Mira-Bhayandar, Gorai and Manori Creek. From OSM waterways, unnamed in OSM. Natural course: a tidal creek arm, 100% of it in mangrove or creek water; falls from about 1 m to 0 m. 1.1 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line."
   }
 }
