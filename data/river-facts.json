@@ -159,6 +159,16 @@
     "confidence": "high",
     "region": "west"
   },
+  "2637": {
+    "name": "Karha",
+    "category": "Pilgrimage",
+    "fact": "The river flows close to Jejuri, sacred to devotees of Khandoba, who is also known as Malhar; the reservoir of the Nazare Dam on the river is therefore known locally as Malhar Sagar. Morgaon, on its banks, is one of the Ashtavinayak pilgrimage sites and is traditionally where the Ashtavinayak yatra starts and ends.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
+  },
   "2694": {
     "name": "Koyna",
     "category": "Engineering",
@@ -168,6 +178,16 @@
     ],
     "confidence": "high",
     "region": "west"
+  },
+  "2699": {
+    "name": "Kukadi",
+    "category": "Pilgrimage",
+    "fact": "Ozar, on this river's banks, is home to the Vighneshwar Ganapati temple, one of the Ashtavinayaks. The temple is mentioned in the Skanda Purana. Chimaji Appa, younger brother and military commander of Peshwa Baji Rao I, renovated it and covered its spire with gold after taking Vasai Fort from the Portuguese. It was renovated again in 1967.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
   },
   "2744": {
     "name": "Malprabha",
@@ -611,6 +631,16 @@
     ],
     "confidence": "high",
     "region": "south"
+  },
+  "8764": {
+    "name": "Kasadi",
+    "category": "History",
+    "fact": "Belapur Fort, on this river's banks, is one of the few forts in the Mumbai region built not by the Portuguese but by the Siddis of Janjira, in 1570. It changed hands between the Portuguese, the Marathas and finally the British, who partly demolished it in 1817.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
   },
   "8808": {
     "name": "Mahadavi (Mandovi)",
