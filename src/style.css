@@ -68,6 +68,25 @@ body {
   color: #6b7785;
 }
 
+/* Fun Facts: a heading a step larger than the rows, then the fact as running text. Not
+   the small uppercase style of the other section headings. */
+.panel h3.fact-heading {
+  margin: 14px 0 6px;
+  padding-top: 12px;
+  border-top: 1px solid #e3e7eb;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #1c2530;
+}
+
+.panel .fact {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .river-link {
   color: #14557f;
   font-weight: 600;
@@ -168,9 +187,9 @@ body {
 }
 
 /* Narrow screens: the panel spans the width, so start it below the basins switch
-   instead of covering it. */
+   instead of covering it (only when the switch is shown - it is behind a flag). */
 @media (max-width: 600px) {
-  .panel {
+  body:has(.basins-toggle) .panel {
     top: 58px;
   }
 }

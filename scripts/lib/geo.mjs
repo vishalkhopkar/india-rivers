@@ -102,6 +102,8 @@ export function originPoint(props, parts) {
 // start repeats its mouth - so only the network can tell which end is the mouth.
 // 03a-topology decides and records both ends as `ends` for the later steps.
 export function endCopiesStart(props) {
+  // Rivers added in 01b get their ends from their own course, however short it is.
+  if (props.src) return false;
   return distKm(props.en_pt_long, props.en_pt_lat, props.st_pt_long, props.st_pt_lat) < 0.5;
 }
 

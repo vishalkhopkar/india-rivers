@@ -130,9 +130,9 @@
   "8809": {
     "name": "Mahim",
     "rename": "Mithi",
-    "origin": "Near Vihar Lake, Sanjay Gandhi National Park, Mumbai",
+    "origin": "Vihar Lake, Sanjay Gandhi National Park, Mumbai",
     "end": "Mahim Creek, Mumbai",
-    "why": "Line runs from beside Vihar Lake to Mahim Creek: the Mithi's course. The dataset names it after the creek at its mouth."
+    "why": "The dataset names it after the creek at its mouth. The river leaves Vihar Lake at its dam (course redrawn from OSM, data/course-overrides.json) and reaches Mahim Creek."
   },
   "8969": {
     "name": "Ulhas",
@@ -310,6 +310,13 @@
     "end": "Gadiara, Howrah district, West Bengal",
     "endNear": true
   },
+  "29293": {
+    "name": "Terhi",
+    "swapped": true,
+    "branchedFrom": "29246",
+    "down": "30294",
+    "why": "The data records the Terhi backwards: its recorded start, east of Ayodhya, is its mouth on the Ghaghara, and its recorded end near Bahraich is where it leaves the Sarju. It branches off the Sarju and joins the Ghaghara."
+  },
   "29296": {
     "name": "Hooghly River",
     "end": "Sagar Island, West Bengal",
@@ -437,5 +444,11 @@
     "origin": "Tilak Nagar, near Lokmanya Tilak Terminus, Mumbai",
     "end": "North-west corner of the Deonar dumping ground, Mumbai",
     "why": "Added river; the automatic description reads only \"Mumbai\"."
+  },
+  "40038": {
+    "name": "",
+    "origin": "Powai Lake, Mumbai",
+    "why": "Added from OSM (data/added-rivers.json): the overflow channel from Powai Lake into the Mithi.",
+    "end": "The Mithi near Saki Vihar Road, Mumbai"
   }
 }

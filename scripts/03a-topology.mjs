@@ -288,8 +288,13 @@ const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
 const badLinks = [];
 for (const [uid, ov] of Object.entries(overrides)) {
   if (!out[uid]) continue;
-  for (const k of ["down", "continues"]) if (ov[k] && !byUid.has(ov[k])) badLinks.push(`${uid}: ${k} ${ov[k]} is not in the data`);
+  for (const k of ["down", "continues", "branchedFrom"]) if (ov[k] && !byUid.has(ov[k])) badLinks.push(`${uid}: ${k} ${ov[k]} is not in the data`);
   if (ov.swapped) { out[uid].swapped = true; delete out[uid].branchedFrom; }
+  if (ov.branchedFrom && byUid.has(ov.branchedFrom)) {
+    out[uid].branchedFrom = ov.branchedFrom;
+    delete out[uid].formedBy;
+    delete out[uid].continues;
+  }
   if (ov.down && byUid.has(ov.down)) Object.assign(out[uid], { kind: "trib", into: byUid.get(ov.down).name, down: ov.down, d: 0 });
   if (ov.continues && byUid.has(ov.continues)) {
     out[uid].continues = ov.continues;

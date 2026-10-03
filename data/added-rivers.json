@@ -351,5 +351,15 @@
       841044962
     ],
     "why": "OSM \"Somaiyya Nalla\": rises at Tilak Nagar, about 1 km from Lokmanya Tilak Terminus, runs east under the Eastern Express Highway, along the Ghatkopar-Mankhurd Link Road and east to the unnamed river at the north-west corner of the Deonar dumping ground; their joint channel reaches Thane Creek."
+  },
+  "40038": {
+    "name": "",
+    "joins": "8809",
+    "joinsName": "Mahim",
+    "osmWays": [
+      1187638404
+    ],
+    "minKm": 0.3,
+    "why": "The overflow from Powai Lake into the Mithi: OSM drain from the lake shore north of the Powai Dam to the river near Saki Vihar Road. Unnamed in OSM."
   }
 }

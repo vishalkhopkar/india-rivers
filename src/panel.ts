@@ -60,6 +60,21 @@ const INTO_TEXT: Partial<Record<EndKind, (into: string) => string>> = {
 
 type Row = [label: string, value: string | Node];
 
+// Fun facts, keyed by uid: public/river-facts.json, built from data/river-facts.json by
+// scripts/03d-facts.mjs. Only a sample of rivers has one. Fetched once, when the first
+// panel opens; a panel already showing when it arrives is redrawn.
+let facts: Record<string, string> | null = null;
+let factsRequest: Promise<void> | null = null;
+function loadFacts(): Promise<void> {
+  factsRequest ??= fetch(`${import.meta.env.BASE_URL}river-facts.json`)
+    .then((r) => (r.ok ? r.json() : {}))
+    .catch(() => ({}))
+    .then((json: Record<string, string>) => {
+      facts = json;
+    });
+  return factsRequest;
+}
+
 export class InfoPanel {
   private el: HTMLElement;
   private body: HTMLElement;
@@ -91,7 +106,11 @@ export class InfoPanel {
     return this.el.hidden ? 0 : this.el.getBoundingClientRect().width;
   }
 
+  private shown?: RiverProps;
+
   show(p: RiverProps) {
+    this.shown = p;
+    if (!facts) void loadFacts().then(() => this.shown === p && !this.el.hidden && this.show(p));
     const labels = END_LABELS[p.kind] ?? END_LABELS.trib;
 
     const rows: Row[] = [
@@ -113,9 +132,11 @@ export class InfoPanel {
         ].filter(([, v]) => v && String(v).trim() && !/partially/i.test(String(v))) as Row[])
       : [];
 
+    const fact = facts?.[p.uid];
     this.body.replaceChildren(
       el("h2", {}, p.name || "Unnamed river"),
       list(rows),
+      ...(fact ? [el("h3", { class: "fact-heading" }, "Fun Facts"), el("p", { class: "fact" }, fact)] : []),
       ...(extended.length ? [el("h3", {}, "More details"), list(extended)] : [])
     );
     this.el.hidden = false;

@@ -260,7 +260,7 @@ check("no displayed name ends in 'River'", withSuffix === 0, `${withSuffix} feat
 // data/river-overrides.json.
 for (const [name, center, origin, mouth] of [
   ["Poisar", [72.865, 19.2], "Sanjay Gandhi National Park, Mumbai", "Malad Creek, opening to the sea at Versova, Mumbai"],
-  ["Mithi", [72.88, 19.1], "Near Vihar Lake, Sanjay Gandhi National Park, Mumbai", "Mahim Creek, Mumbai"],
+  ["Mithi", [72.88, 19.1], "Vihar Lake, Sanjay Gandhi National Park, Mumbai", "Mahim Creek, Mumbai"],
 ]) {
   console.log(`\n${name} (renamed from the dataset):`);
   const r = await openRiver(name, center, 13);
@@ -344,6 +344,31 @@ if (kh) {
   check("Merges into", kh.panel.rows["Merges into"] === "Sabarmati", kh.panel.rows["Merges into"]);
   check("Confluence", kh.panel.rows["Confluence"] === "Vautha, south of Ahmedabad, Gujarat", JSON.stringify(kh.panel.rows));
 }
+
+console.log("\nTerhi (recorded backwards: leaves the Sarju, joins the Ghaghara):");
+const th = await openRiver("Terhi", [82.0, 27.1], 9);
+check("Terhi is on the map", !!th);
+if (th) {
+  check("Branched off from", th.panel.rows["Branched off from"] === "Sarju", JSON.stringify(th.panel.rows));
+  check("Merges into", /^Ghaghara/.test(th.panel.rows["Merges into"] ?? ""), th.panel.rows["Merges into"]);
+}
+
+console.log("\nPowai Lake overflow (unnamed, into the Mithi):");
+const pw = await openRiver("", [72.8987, 19.1302], 16.5);
+check("Powai channel is on the map", !!pw);
+if (pw) {
+  check("Origin", pw.panel.rows["Origin"] === "Powai Lake, Mumbai", JSON.stringify(pw.panel.rows));
+  check("Merges into", pw.panel.rows["Merges into"] === "Mithi", pw.panel.rows["Merges into"]);
+}
+
+console.log("\nFun facts and feature switches:");
+const mu = await openRiver("Musi", [78.47, 17.37], 10);
+check("Musi is on the map", !!mu);
+if (mu) {
+  const f = await page.evaluate(() => ({ head: document.querySelector(".panel .fact-heading")?.textContent, text: document.querySelector(".panel .fact")?.textContent ?? "" }));
+  check("Fun Facts section shown", f.head === "Fun Facts" && f.text.length > 40, f.text.slice(0, 60));
+}
+check("basins switch hidden by default", await page.evaluate(() => !document.querySelector(".basins-toggle")));
 
 // --- 7. dismiss ----------------------------------------------------------------
 await page.evaluate(() => document.querySelector(".panel-close")?.click());

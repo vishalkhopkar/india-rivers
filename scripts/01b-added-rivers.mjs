@@ -31,6 +31,7 @@ import { loadRivers, partsOf, bboxOf, distKm, pointToLineKm } from "./lib/geo.mj
 
 const LIST = "data/added-rivers.json";
 const OSM_GEOMETRY = "data/added-rivers-osm.json";
+const COURSES = "data/course-overrides.json";
 const RIVERS = "build/rivers.ndjson";
 const SOURCES = { hydro: "HydroSHEDS", osm: "OpenStreetMap" };
 
@@ -51,6 +52,29 @@ const list = JSON.parse(readFileSync(listPath, "utf8"));
 const all = await loadRivers(RIVERS);
 const cwc = all.filter((f) => !f.properties.src);
 const osmGeometry = JSON.parse(readFileSync(OSM_GEOMETRY, "utf8"));
+
+// CWC rivers whose line is redrawn from OSM (data/course-overrides.json): the CWC course
+// of the Mithi runs a kilometre past Vihar Lake into the hills, while the river leaves the
+// lake at its dam. The uid and attributes stay, so rivers that join it still link; the
+// geometry, length and end points come from the OSM course in data/added-rivers-osm.json.
+const courseOverrides = JSON.parse(readFileSync(COURSES, "utf8"));
+for (const f of cwc) {
+  const uid = String(f.properties.UID_River);
+  if (!courseOverrides[uid]) continue;
+  const line = osmGeometry[uid];
+  if (!line) throw new Error(`no course for ${uid} in ${OSM_GEOMETRY}`);
+  const [[x0, y0], [x1, y1]] = [line[0], line[line.length - 1]];
+  f.geometry = { type: "LineString", coordinates: line };
+  Object.assign(f.properties, {
+    length_km: line.slice(1).reduce((s, c, i) => s + distKm(line[i][0], line[i][1], c[0], c[1]), 0),
+    st_pt_long: x0, st_pt_lat: y0, en_pt_long: x1, en_pt_lat: y1,
+    course_src: SOURCES.osm,
+  });
+}
+const replaced = cwc.filter((f) => courseOverrides[String(f.properties.UID_River)]).length;
+if (replaced !== Object.keys(courseOverrides).length) throw new Error(`${COURSES} names a uid that is not a CWC river`);
+console.log(`courses redrawn from OSM: ${replaced}`);
+
 const rivers = cwc.map((f) => {
   const parts = partsOf(f.geometry);
   return { uid: String(f.properties.UID_River), name: f.properties.rivname, props: f.properties, parts, bbox: bboxOf(parts) };
@@ -211,7 +235,9 @@ function build(uid, entry, addedSoFar) {
     line = tidy(line);
   }
   const len = lengthKm(line);
-  if (len < (fromOsm ? 2 : 3)) problems.push(`only ${len.toFixed(1)} km left after cutting at the confluence`);
+  // A few real channels are shorter (the overflow from Powai Lake into the Mithi), so an
+  // entry may lower the minimum with `minKm`.
+  if (len < (entry.minKm ?? (fromOsm ? 2 : 3))) problems.push(`only ${len.toFixed(1)} km left after cutting at the confluence`);
 
   // Conflicts with existing rivers. The last stretch before the confluence is excused:
   // there the course naturally runs into, and up against, the river it joins.

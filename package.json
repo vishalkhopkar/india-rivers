@@ -14,8 +14,9 @@
     "data:topology": "node --max-old-space-size=8192 scripts/03a-topology.mjs",
     "data:abroad": "node --max-old-space-size=12288 scripts/03b-abroad.mjs",
     "data:places": "node --max-old-space-size=8192 scripts/03c-places.mjs",
+    "data:facts": "node scripts/03d-facts.mjs",
     "data:tiles": "node --max-old-space-size=12288 scripts/04-tiles.mjs",
-    "data:all": "npm run data:fetch && npm run data:extract && npm run data:added && npm run data:tier && npm run data:topology && npm run data:abroad && npm run data:places && npm run data:tiles",
+    "data:all": "npm run data:fetch && npm run data:extract && npm run data:added && npm run data:tier && npm run data:topology && npm run data:abroad && npm run data:places && npm run data:facts && npm run data:tiles",
     "verify:data": "node scripts/05-verify-tiles.mjs",
     "verify:ui": "node scripts/06-verify-pmtiles.mjs && node scripts/08-verify-interaction.mjs"
   },
