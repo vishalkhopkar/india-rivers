@@ -544,6 +544,20 @@
     "confidence": "high",
     "region": "national"
   },
+  "8607": {
+    "name": "Bava Malang",
+    "category": "Names and etymology",
+    "fact": "Bava Malang is an old name for the Sufi saint Haji Malang and for Malanggad, the hill near Kalyan where this stream rises and his dargah stands. Hindus and Muslims both visit the shrine. Since the 1980s some Hindu groups have claimed it is the samadhi of the Nath saint Machindranath, a claim that remains contested.",
+    "sources": [
+      "https://www.gazetteers.maharashtra.gov.in/cultural.maharashtra.gov.in/english/gazetteer/Thana%20District/places_Malanggad.html",
+      "https://www.altnews.in/fact-check-did-muslims-enter-a-temple-in-maharashtras-malanggad-to-disrupt-aarti/",
+      "https://www.outlookindia.com/national/maharashtra-cm-eknath-shinde-vows-to-liberate-haji-malang-sufi-shrine-revives-hindutva-movement-after-decades-news-342047",
+      "https://madhyamamonline.com/india/haji-malang-dargahs-hindu-trustee-denies-shindes-temple-claims-labels-them-political-assertions-1243418",
+      "https://en.wikipedia.org/wiki/Malanggad"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
   "8641": {
     "name": "Chapora",
     "category": "Film",
