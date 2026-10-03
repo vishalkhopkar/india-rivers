@@ -150,9 +150,11 @@
   "2569": {
     "name": "Indrayani",
     "category": "Names and etymology",
-    "fact": "Maharashtra's popular scented Indrayani rice is named after this river. The variety was bred at the Rice Research Station at Vadgaon Maval, in the Maval country the river drains, and released in 1987. It now covers the largest area under paddy in western Maharashtra.",
+    "fact": "Alandi on its banks holds the samadhi of Sant Dnyaneshwar, who entombed himself there in 1296 aged 21; pilgrims bathe in the river before darshan. Maharashtra's scented Indrayani rice is also named after it: bred at the Rice Research Station at Vadgaon Maval, in the Maval country the river drains, and released in 1987, it now covers the largest paddy area in western Maharashtra.",
     "sources": [
-      "https://www.extensionjournal.com/uploads/archives/8-10-38-595.pdf"
+      "https://www.extensionjournal.com/uploads/archives/8-10-38-595.pdf",
+      "https://en.wikipedia.org/wiki/Alandi",
+      "https://en.wikipedia.org/wiki/Dnyaneshwar"
     ],
     "confidence": "high",
     "region": "west"
@@ -221,6 +223,17 @@
     ],
     "confidence": "high",
     "region": "national"
+  },
+  "2932": {
+    "name": "Varna",
+    "category": "History",
+    "fact": "Under the Treaty of Warna, concluded at Varna on 26 April 1731, Chhatrapati Shahu of Satara and his cousin Sambhaji II of Kolhapur ended their war of succession for the Maratha throne. Sambhaji gave up all claims north of the river, which became the border: Satara to the north, Kolhapur to the south. Kolhapur lasted as a princely state until it merged into Bombay State in 1949.",
+    "sources": [
+      "https://gazetteers.maharashtra.gov.in/cultural.maharashtra.gov.in/english/gazetteer/KOLHAPUR/his_maratha.html",
+      "https://en.wikipedia.org/wiki/Kolhapur_State"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
   },
   "2961": {
     "name": "Bhima River",
@@ -312,10 +325,11 @@
   "3669": {
     "name": "Adyar",
     "category": "Sport",
-    "fact": "The Madras Boat Club, founded in 1867, has rowed on the Adyar since 1892. Its Madras-Colombo Regatta, held since 1898, is thought to be among the oldest inter-club regattas in the world. Its men's race is said to be second in age only to the Oxford-Cambridge Boat Race.",
+    "fact": "The Madras Boat Club has rowed on the Adyar since 1892, and its Madras-Colombo Regatta, held since 1898, is thought to be among the world's oldest inter-club regattas. The river also named the Adyar neighbourhood, and through it the Adyar Ananda Bhavan (A2B) chain: K.S. Thirupathi Raja's restaurant was simply Ananda Bhavan until a branch opened in Adyar in 1988.",
     "sources": [
       "https://en.wikipedia.org/wiki/Madras_Boat_Club",
-      "https://en.wikipedia.org/wiki/Adyar_River"
+      "https://en.wikipedia.org/wiki/Adyar_River",
+      "https://en.wikipedia.org/wiki/Adyar_Ananda_Bhavan"
     ],
     "confidence": "medium",
     "region": "south"
