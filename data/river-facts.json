@@ -179,6 +179,17 @@
     "confidence": "high",
     "region": "south"
   },
+  "2776": {
+    "name": "Mutha",
+    "category": "Disasters",
+    "fact": "On 12 July 1961, after weeks of record rain, the new Panshet dam upstream burst at about 3:30 am in its very first year of storing water. Its flood overwhelmed the Khadakwasla dam on the Mutha, which gave way at 7:30 am and sent a wall of water through Pune, the worst disaster in the city's history.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Khadakwasla_dam",
+      "https://en.wikipedia.org/wiki/Panshet_Dam"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
   "2821": {
     "name": "Panchganga",
     "category": "Names and etymology",

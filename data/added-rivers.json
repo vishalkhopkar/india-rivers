@@ -361,5 +361,91 @@
     ],
     "minKm": 0.3,
     "why": "The overflow from Powai Lake into the Mithi: OSM drain from the lake shore north of the Powai Dam to the river near Saki Vihar Road. Unnamed in OSM."
+  },
+  "40039": {
+    "name": "Kukatpally Nala",
+    "joins": "40040",
+    "joinsName": "Hussain Sagar Surplus Nala",
+    "osmWays": [
+      28476533,
+      1308306356,
+      1308306355,
+      775681489,
+      775681488,
+      28476617,
+      281499659
+    ],
+    "why": "Musi tributary from Fox Sagar's outlet south past Jeedimetla, Qutubullapur and Balanagar, under the west end of Begumpet Airport, into Hussain Sagar from the north (HMDA names the Kukatpally Nala as the lake's northern feeder, with a catchment over Jeedimetla, Qutbullapur and Balanagar). OSM ways; the line crosses the lake to its outlet."
+  },
+  "40040": {
+    "name": "Hussain Sagar Surplus Nala",
+    "joins": "3220",
+    "joinsName": "Musi",
+    "osmWays": [
+      737789245,
+      737789244,
+      28095682
+    ],
+    "why": "Hussain Sagar's outflow, past Gandhi Nagar and Ashok Nagar and north of Kacheguda station, to the Musi south-east of Kacheguda. OSM \"Ashoknagar Nala\"."
+  },
+  "40041": {
+    "name": "Picket Nala",
+    "joins": "40040",
+    "joinsName": "Hussain Sagar Surplus Nala",
+    "osmWays": [
+      109559926,
+      824016735,
+      1083196544,
+      1083196545,
+      824016734,
+      363881169,
+      363881170,
+      775679648,
+      775679647,
+      364084234,
+      364084239,
+      364084232,
+      364084235,
+      364084231,
+      364084237,
+      364084233,
+      364084238,
+      364084229,
+      364084236,
+      84835091
+    ],
+    "why": "Hussain Sagar's north-eastern feeder (HMDA): from north-west of Old Alwal pond through Bon Cheruvu, under the east end of Begumpet Airport, into the lake between Sanjeevaiah Park and James Street. HydroRIVERS reach 41256718 to Bon Cheruvu (no OSM waterway there), then OSM ways; the line crosses the lake to its outlet."
+  },
+  "40042": {
+    "name": "",
+    "joins": "40039",
+    "joinsName": "Kukatpally Nala",
+    "osmWays": [
+      1296626563,
+      1296626564,
+      163627519,
+      364501607,
+      163627518,
+      163627512,
+      163627508,
+      163627513,
+      163628034,
+      163628035,
+      163628036,
+      163628033,
+      28476618,
+      363859805,
+      1308306355,
+      1308306356,
+      28476533
+    ],
+    "why": "From the tank near Jagadgirigutta (probably Pariki Cheruvu, unnamed in OSM) south through Kukatpally and Bharath Nagar to the Kukatpally Nala at Balanagar, north of Begumpet Airport. OSM ways, unnamed."
+  },
+  "40043": {
+    "name": "",
+    "joins": "40042",
+    "hydroSource": 41256945,
+    "hydroOutlet": 41256945,
+    "why": "Through Mullakathuva, Kamuni and Chinna Maisamma Cheruvus to the stream from Jagadgirigutta at Bharath Nagar, north of Sanathnagar station. HydroRIVERS reach 41256945; OSM maps only short stubs here."
   }
 }

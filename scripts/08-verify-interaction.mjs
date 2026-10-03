@@ -385,6 +385,15 @@ if (vl) check("Vellar continues from the Vennar", vl.panel.rows["Continues from"
 const vt = await openRiver("Vettar", [79.4, 10.85], 10);
 if (vt) check("Vettar branched off from the Vennar", vt.panel.rows["Branched off from"] === "Vennar", JSON.stringify(vt.panel.rows));
 
+console.log("\nHyderabad nalas (Musi tributaries through Hussain Sagar):");
+const kn = await openRiver("Kukatpally Nala", [78.47, 17.49], 13);
+check("Kukatpally Nala is on the map", !!kn);
+if (kn) check("Continues to the Surplus Nala", kn.panel.rows["Continues to"] === "Hussain Sagar Surplus Nala", JSON.stringify(kn.panel.rows));
+const hsn = await openRiver("Hussain Sagar Surplus Nala", [78.497, 17.405], 14);
+if (hsn) check("Surplus Nala merges into the Musi", hsn.panel.rows["Merges into"] === "Musi", JSON.stringify(hsn.panel.rows));
+const pk = await openRiver("Picket Nala", [78.49, 17.465], 13);
+if (pk) check("Picket Nala merges into the Surplus Nala", pk.panel.rows["Merges into"] === "Hussain Sagar Surplus Nala", JSON.stringify(pk.panel.rows));
+
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);
 check("Musi is on the map", !!mu);

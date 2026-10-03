@@ -469,5 +469,35 @@
     "origin": "Powai Lake, Mumbai",
     "why": "Added from OSM (data/added-rivers.json): the overflow channel from Powai Lake into the Mithi.",
     "end": "The Mithi near Saki Vihar Road, Mumbai"
+  },
+  "40039": {
+    "name": "Kukatpally Nala",
+    "origin": "Fox Sagar, Jeedimetla, Hyderabad",
+    "end": "Hussain Sagar, Hyderabad",
+    "why": "Added from OSM (data/added-rivers.json). Leaves Fox Sagar and enters Hussain Sagar, whose outflow is the Surplus Nala."
+  },
+  "40040": {
+    "name": "Hussain Sagar Surplus Nala",
+    "continues": "40039",
+    "end": "The Musi, south-east of Kacheguda station, Hyderabad",
+    "why": "Added from OSM. Hussain Sagar's outflow: the Kukatpally Nala's water continues to the Musi under this name."
+  },
+  "40041": {
+    "name": "Picket Nala",
+    "origin": "North-west of Old Alwal pond, Secunderabad",
+    "end": "Hussain Sagar, Hyderabad",
+    "why": "Added from HydroRIVERS and OSM (data/added-rivers.json). Enters Hussain Sagar from the north-east and leaves with the Surplus Nala."
+  },
+  "40042": {
+    "name": "",
+    "origin": "Tank near Jagadgirigutta, Kukatpally, Hyderabad",
+    "end": "Balanagar, north of Begumpet Airport, Hyderabad",
+    "why": "Added from OSM. Probably rises at Pariki Cheruvu, which OSM leaves unnamed."
+  },
+  "40043": {
+    "name": "",
+    "origin": "Near Mullakathuva Cheruvu, Hyderabad",
+    "end": "Bharath Nagar, north of Sanathnagar station, Hyderabad",
+    "why": "Added from HydroRIVERS. Runs through Mullakathuva, Kamuni and Chinna Maisamma Cheruvus."
   }
 }
