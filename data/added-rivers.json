@@ -522,6 +522,7 @@
   },
   "40047": {
     "name": "Hebbal Valley (H-200)",
+    "group": "hebbal-valley",
     "joins": "40048",
     "osmWays": [
       674362389,
@@ -592,11 +593,11 @@
       1456924455,
       1456924456
     ],
-    "why": "BBMP storm-water drain H-200, the Hebbal valley's main channel, through Hebbal and Nagavara lakes; Nagavara's outflow joins H-300. OSM ways tagged H200 and unnamed ways below Nagavara.",
-    "group": "hebbal-valley"
+    "why": "BBMP storm-water drain H-200, the Hebbal valley's main channel, through Hebbal and Nagavara lakes; Nagavara's outflow joins H-300. OSM ways tagged H200 and unnamed ways below Nagavara."
   },
   "40048": {
     "name": "Hebbal Valley (H-300)",
+    "group": "hebbal-valley",
     "joins": "40049",
     "osmWays": [
       800107902,
@@ -624,8 +625,7 @@
       1113226443,
       1113226438
     ],
-    "why": "BBMP storm-water drain H-300 in the Hebbal valley, from east of the city centre north-east towards Kalkere. OSM ways tagged H300.",
-    "group": "hebbal-valley"
+    "why": "BBMP storm-water drain H-300 in the Hebbal valley, from east of the city centre north-east towards Kalkere. OSM ways tagged H300."
   },
   "40049": {
     "name": "",
@@ -675,6 +675,7 @@
   },
   "40050": {
     "name": "Hebbal Valley (BD-423)",
+    "group": "hebbal-valley",
     "joins": "4132",
     "joinsName": "Ponnaiyar/Dakshina Pinakini",
     "osmWays": [
@@ -684,7 +685,6 @@
       1311917062,
       1311917061
     ],
-    "why": "BBMP storm-water drain BD-423: the Yellamallappa Chetty Lake outflow to the Dakshina Pinakini. OSM ways tagged BD423.",
-    "group": "hebbal-valley"
+    "why": "BBMP storm-water drain BD-423: the Yellamallappa Chetty Lake outflow to the Dakshina Pinakini. OSM ways tagged BD423."
   }
 }

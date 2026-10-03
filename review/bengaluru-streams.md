@@ -19,7 +19,7 @@ The "natural" column below is the share of the course within 0.5 km of a HydroRI
 | 40046 | Unnamed | Bellandur Lake → Varthur Lake → the Dakshina Pinakini near Channasandra | 94% | Dakshina Pinakini |
 | 40047 | Hebbal Valley (H-200) | Yeshwanthpur → Hebbal Lake → Nagavara Lake → joins H-300 | 70% | 40048 |
 | 40048 | Hebbal Valley (H-300) | Cooke Town → HBR Layout → near Bileshivale | 59% | 40049 (continues) |
-| 40049 | Unnamed | Near Bileshivale → Yellamallappa Chetty Lake (Medahalli) | 96% | 40050 (continues) |
+| 40049 | Unnamed | Near Bileshivale → through Yellamallappa Chetty Lake (Medahalli) to its outlet | 99% | 40050 (continues) |
 | 40050 | Hebbal Valley (BD-423) | Yellamallappa Chetty Lake → the Dakshina Pinakini near Koralur | 98% | Dakshina Pinakini |
 
 Lines are drawn across Bellandur, Varthur and Yellamallappa Chetty lakes to their outlets.
