@@ -574,6 +574,16 @@
     "confidence": "high",
     "region": "national"
   },
+  "8467": {
+    "name": "Unal",
+    "category": "Pilgrimage",
+    "fact": "On the banks of the river lies the samadhi of Gajanan Maharaj, a revered saint from Maharashtra. The river is almost entirely dry and the Anand Sagar reservoir on this river actually gets most of its water from the Man river, 9 km to its east. The Shri Gajanan Maharaj Sansthan also has a walkway from the samadhi temple to Anand Vihar, a recreational site just north of Anand Sagar which runs along the course of this river.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
+  },
   "8583": {
     "name": "Amba",
     "category": "Transport",
