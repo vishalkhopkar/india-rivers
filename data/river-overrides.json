@@ -1164,5 +1164,215 @@
     "origin": "Anekal, south of Bengaluru",
     "end": "The Chinnar near Attibele, south-east of Bengaluru",
     "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40153": {
+    "name": "",
+    "origin": "Near Hesaraghatta, north-west of Bengaluru",
+    "end": "Near Hesaraghatta, north-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40154": {
+    "name": "",
+    "origin": "Near Hoskote, east of Bengaluru",
+    "end": "The Dakshina Pinakini near Sarjapur, east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40155": {
+    "name": "",
+    "origin": "Near Hoskote, north-east of Bengaluru",
+    "end": "The Dakshina Pinakini near Hoskote, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40156": {
+    "name": "",
+    "origin": "Near Devanahalli, north of Bengaluru",
+    "end": "The Dakshina Pinakini near Budigere, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40157": {
+    "name": "",
+    "origin": "Near Tavarekere, west of Bengaluru",
+    "end": "The Vrishabhavati near Bidadi, south-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40158": {
+    "name": "",
+    "origin": "Near Devanahalli, north of Bengaluru",
+    "end": "The Arkavati near Rajanukunte, north of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40159": {
+    "name": "",
+    "origin": "Near Hoskote, east of Bengaluru",
+    "end": "The Dakshina Pinakini near Kadugodi, east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40160": {
+    "name": "",
+    "origin": "Near Nelamangala, north-west of Bengaluru",
+    "end": "The Kumudvati near Nelamangala, north-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40161": {
+    "name": "",
+    "origin": "Near Devanahalli, north-east of Bengaluru",
+    "end": "The Dakshina Pinakini near Devanahalli, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40162": {
+    "name": "",
+    "origin": "Near Budigere, north-east of Bengaluru",
+    "end": "The Dakshina Pinakini near Budigere, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40163": {
+    "name": "",
+    "origin": "Near Hesaraghatta, north-west of Bengaluru",
+    "end": "Near Hesaraghatta, north-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40164": {
+    "name": "",
+    "origin": "Near Budigere, north-east of Bengaluru",
+    "end": "The Dakshina Pinakini near Devanahalli, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40165": {
+    "name": "",
+    "origin": "Devanahalli, north of Bengaluru",
+    "end": "Devanahalli, north of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40166": {
+    "name": "",
+    "origin": "Near Doddajala, north of Bengaluru",
+    "end": "Near Devanahalli, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40167": {
+    "name": "",
+    "origin": "Near Attibele, south-east of Bengaluru",
+    "end": "The Chinnar near Attibele, south-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40168": {
+    "name": "",
+    "origin": "Near Nelamangala, west of Bengaluru",
+    "end": "The Arkavati near Tavarekere, west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40169": {
+    "name": "",
+    "origin": "Near Bidadi, south-west of Bengaluru",
+    "end": "The Arkavati near Bidadi, south-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40170": {
+    "name": "",
+    "origin": "Near Kadugodi, east of Bengaluru",
+    "end": "The Dakshina Pinakini near Varthur, east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40171": {
+    "name": "",
+    "origin": "Near Attibele, south-east of Bengaluru",
+    "end": "The Dakshina Pinakini near Attibele, south-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40172": {
+    "name": "",
+    "origin": "Anekal, south-east of Bengaluru",
+    "end": "Near Chandapura, south-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40173": {
+    "name": "",
+    "origin": "Near Hoskote, east of Bengaluru",
+    "end": "Near Hoskote, east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40174": {
+    "name": "",
+    "origin": "Near Bidadi, south-west of Bengaluru",
+    "end": "Bidadi, south-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40175": {
+    "name": "",
+    "origin": "Near Tavarekere, west of Bengaluru",
+    "end": "The Arkavati near Tavarekere, west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40176": {
+    "name": "",
+    "origin": "Near Devanahalli, north-east of Bengaluru",
+    "end": "The Dakshina Pinakini near Devanahalli, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40177": {
+    "name": "",
+    "origin": "Near Hoskote, north-east of Bengaluru",
+    "end": "Near Hoskote, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40178": {
+    "name": "",
+    "origin": "Near Bidadi, south-west of Bengaluru",
+    "end": "The Suvarnamukhi near Bidadi, south-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40179": {
+    "name": "",
+    "origin": "Near Hoskote, north-east of Bengaluru",
+    "end": "Near Hoskote, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40180": {
+    "name": "",
+    "origin": "Near Nelamangala, north-west of Bengaluru",
+    "end": "The Kumudvati near Nelamangala, north-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40181": {
+    "name": "",
+    "origin": "Near Devanahalli, north-east of Bengaluru",
+    "end": "Near Devanahalli, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40182": {
+    "name": "",
+    "origin": "Near Hoskote, north-east of Bengaluru",
+    "end": "Near Hoskote, north-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40183": {
+    "name": "",
+    "origin": "Bidadi, south-west of Bengaluru",
+    "end": "Near Bidadi, south-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40184": {
+    "name": "",
+    "origin": "Near Bagalur, Tamil Nadu",
+    "end": "The Dakshina Pinakini near Bagalur, Tamil Nadu",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40185": {
+    "name": "",
+    "origin": "Bidarahalli, north-east of Bengaluru",
+    "end": "Bidarahalli, north-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40186": {
+    "name": "",
+    "origin": "Devanahalli, north of Bengaluru",
+    "end": "Devanahalli, north of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40187": {
+    "name": "",
+    "origin": "Ramohalli, west of Bengaluru",
+    "end": "Bidadi, south-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
   }
 }

@@ -439,6 +439,10 @@ if (ec) check("it merges into the Chinnar", /Chinnar/.test(ec.panel.rows["Merges
 const dj = await openRiver("", [77.66, 13.186], 14);
 check("the Doddajala stream is on the map", !!dj);
 if (dj) check("it merges into the Dakshina Pinakini", /Dakshina Pinakini/.test(dj.panel.rows["Merges into"] ?? ""), JSON.stringify(dj.panel.rows));
+// beyond the district: valleys drawn from HydroRIVERS
+const bs = await openRiver("", [77.392, 12.86], 13);
+check("the Bidadi valley, outside the district, is on the map", !!bs);
+if (bs) check("it merges into the Vrishabhavati", bs.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(bs.panel.rows));
 
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);

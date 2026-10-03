@@ -2810,5 +2810,296 @@
     "joins": "3718",
     "joinsName": "Chinnar R",
     "why": "Bengaluru stream network: the valley running north-east from Anekal, a HydroRIVERS drainage line with a 107 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40153": {
+    "name": "",
+    "hydroSource": 41343958,
+    "hydroOutlet": 41345532,
+    "joins": "40132",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (193 km2 catchment) with no drawn river along it; falls 32 m. Drawn from its head to the river it joins."
+  },
+  "40154": {
+    "name": "",
+    "hydroSource": 41347983,
+    "hydroOutlet": 41351102,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (169 km2 catchment) with no drawn river along it; falls 53 m. Drawn from its head to the river it joins."
+  },
+  "40155": {
+    "name": "",
+    "hydroSource": 41346710,
+    "hydroOutlet": 41347457,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (158 km2 catchment) with no drawn river along it; falls 30 m. Drawn from its head to the river it joins."
+  },
+  "40156": {
+    "name": "",
+    "hydroSource": 41344835,
+    "hydroOutlet": 41345725,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (148 km2 catchment) with no drawn river along it; falls 35 m. Drawn from its head to the river it joins."
+  },
+  "40157": {
+    "name": "",
+    "hydroSource": 41352247,
+    "hydroOutlet": 41353535,
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (118 km2 catchment) with no drawn river along it; falls 111 m. Drawn from its head to the river it joins."
+  },
+  "40158": {
+    "name": "",
+    "hydroSource": 41344749,
+    "hydroOutlet": 41345326,
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (91 km2 catchment) with no drawn river along it; falls 53 m. Drawn from its head to the river it joins."
+  },
+  "40159": {
+    "name": "",
+    "hydroSource": 41348499,
+    "hydroOutlet": 41348652,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (80 km2 catchment) with no drawn river along it; falls 37 m. Drawn from its head to the river it joins."
+  },
+  "40160": {
+    "name": "",
+    "hydroSource": 41346631,
+    "hydroOutlet": 41346631,
+    "joins": "7304",
+    "joinsName": "Kumudvati",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (59 km2 catchment) with no drawn river along it; falls 28 m. Drawn from its head to the river it joins."
+  },
+  "40161": {
+    "name": "",
+    "hydroSource": 41344294,
+    "hydroOutlet": 41344750,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (52 km2 catchment) with no drawn river along it; falls 14 m. Drawn from its head to the river it joins."
+  },
+  "40162": {
+    "name": "",
+    "hydroSource": 41345668,
+    "hydroOutlet": 41345808,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (46 km2 catchment) with no drawn river along it; falls 23 m. Drawn from its head to the river it joins."
+  },
+  "40163": {
+    "name": "",
+    "hydroSource": 41345149,
+    "hydroOutlet": 41345532,
+    "joins": "40153",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (43 km2 catchment) with no drawn river along it; falls 19 m. Drawn from its head to the river it joins."
+  },
+  "40164": {
+    "name": "",
+    "hydroSource": 41345068,
+    "hydroOutlet": 41345068,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (33 km2 catchment) with no drawn river along it; falls 14 m. Drawn from its head to the river it joins."
+  },
+  "40165": {
+    "name": "",
+    "hydroSource": 41344836,
+    "hydroOutlet": 41344995,
+    "joins": "40156",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (32 km2 catchment) with no drawn river along it; falls 15 m. Drawn from its head to the river it joins."
+  },
+  "40166": {
+    "name": "",
+    "hydroSource": 41345152,
+    "hydroOutlet": 41345725,
+    "joins": "40156",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (31 km2 catchment) with no drawn river along it; falls 26 m. Drawn from its head to the river it joins."
+  },
+  "40167": {
+    "name": "",
+    "hydroSource": 41353855,
+    "hydroOutlet": 41353855,
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (30 km2 catchment) with no drawn river along it; falls 30 m. Drawn from its head to the river it joins."
+  },
+  "40168": {
+    "name": "",
+    "hydroSource": 41348945,
+    "hydroOutlet": 41348945,
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (26 km2 catchment) with no drawn river along it; falls 40 m. Drawn from its head to the river it joins."
+  },
+  "40169": {
+    "name": "",
+    "hydroSource": 41354595,
+    "hydroOutlet": 41354595,
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (26 km2 catchment) with no drawn river along it; falls 30 m. Drawn from its head to the river it joins."
+  },
+  "40170": {
+    "name": "",
+    "hydroSource": 41349921,
+    "hydroOutlet": 41349921,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (25 km2 catchment) with no drawn river along it; falls 12 m. Drawn from its head to the river it joins."
+  },
+  "40171": {
+    "name": "",
+    "hydroSource": 41354366,
+    "hydroOutlet": 41354366,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (23 km2 catchment) with no drawn river along it; falls 21 m. Drawn from its head to the river it joins."
+  },
+  "40172": {
+    "name": "",
+    "hydroSource": 41353772,
+    "hydroOutlet": 41353772,
+    "joins": "40152",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (22 km2 catchment) with no drawn river along it; falls 11 m. Drawn from its head to the river it joins."
+  },
+  "40173": {
+    "name": "",
+    "hydroSource": 41348653,
+    "hydroOutlet": 41348652,
+    "joins": "40159",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (20 km2 catchment) with no drawn river along it; falls 16 m. Drawn from its head to the river it joins."
+  },
+  "40174": {
+    "name": "",
+    "hydroSource": 41352246,
+    "hydroOutlet": 41353229,
+    "joins": "40157",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (19 km2 catchment) with no drawn river along it; falls 21 m. Drawn from its head to the river it joins."
+  },
+  "40175": {
+    "name": "",
+    "hydroSource": 41348868,
+    "hydroOutlet": 41348868,
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (19 km2 catchment) with no drawn river along it; falls 20 m. Drawn from its head to the river it joins."
+  },
+  "40176": {
+    "name": "",
+    "hydroSource": 41345327,
+    "hydroOutlet": 41345327,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (18 km2 catchment) with no drawn river along it; falls 6 m. Drawn from its head to the river it joins."
+  },
+  "40177": {
+    "name": "",
+    "hydroSource": 41347112,
+    "hydroOutlet": 41346909,
+    "joins": "40155",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (18 km2 catchment) with no drawn river along it; falls 15 m. Drawn from its head to the river it joins."
+  },
+  "40178": {
+    "name": "",
+    "hydroSource": 41354596,
+    "hydroOutlet": 41354596,
+    "joins": "7599",
+    "joinsName": "Suvarnamukhi",
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (17 km2 catchment) with no drawn river along it; falls 18 m. Drawn from its head to the river it joins."
+  },
+  "40179": {
+    "name": "",
+    "hydroSource": 41347378,
+    "hydroOutlet": 41347457,
+    "joins": "40155",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (17 km2 catchment) with no drawn river along it; falls 5 m. Drawn from its head to the river it joins."
+  },
+  "40180": {
+    "name": "",
+    "hydroSource": 41346765,
+    "hydroOutlet": 41346765,
+    "joins": "7304",
+    "joinsName": "Kumudvati",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (16 km2 catchment) with no drawn river along it; falls 9 m. Drawn from its head to the river it joins."
+  },
+  "40181": {
+    "name": "",
+    "hydroSource": 41344370,
+    "hydroOutlet": 41344750,
+    "joins": "40161",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (16 km2 catchment) with no drawn river along it; falls 8 m. Drawn from its head to the river it joins."
+  },
+  "40182": {
+    "name": "",
+    "hydroSource": 41346908,
+    "hydroOutlet": 41347171,
+    "joins": "40155",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (14 km2 catchment) with no drawn river along it; falls 7 m. Drawn from its head to the river it joins."
+  },
+  "40183": {
+    "name": "",
+    "hydroSource": 41353228,
+    "hydroOutlet": 41353535,
+    "joins": "40157",
+    "minKm": 1.5,
+    "why": "Bengaluru stream network: a HydroRIVERS drainage line (13 km2 catchment) with no drawn river along it; falls 13 m. Drawn from its head to the river it joins."
+  },
+  "40184": {
+    "name": "",
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "minKm": 1.5,
+    "osmWays": [
+      1546207469,
+      1546207470,
+      1546207471,
+      1546207472,
+      1394164344,
+      1394164343,
+      537774437
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 71%; in a tank chain; falls 38 m."
+  },
+  "40185": {
+    "name": "",
+    "joins": "40150",
+    "minKm": 1.5,
+    "osmWays": [
+      412922555
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 97%; falls 16 m."
+  },
+  "40186": {
+    "name": "",
+    "joins": "40156",
+    "minKm": 1.5,
+    "osmWays": [
+      639361802
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: in a tank chain; falls 15 m."
+  },
+  "40187": {
+    "name": "",
+    "joins": "40174",
+    "minKm": 1.5,
+    "osmWays": [
+      1459250646,
+      1459250647
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 100%; falls 29 m."
   }
 }
