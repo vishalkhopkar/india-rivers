@@ -36,7 +36,8 @@ for (const [uid, f] of Object.entries(facts)) {
   if (!f.sources?.length) problems.push(`${uid} ${f.name}: no source`);
   const known = names.get(uid).filter(Boolean).map(norm);
   const given = norm(f.name ?? "");
-  if (!known.some((n) => n.includes(given) || given.includes(n)))
+  // an unnamed river has no name to mismatch
+  if (known.length && !known.some((n) => n.includes(given) || given.includes(n)))
     warnings.push(`${uid}: fact names "${f.name}", map has "${names.get(uid).filter(Boolean).join('" / "')}"`);
   out[uid] = texts;
 }
