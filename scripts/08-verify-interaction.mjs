@@ -373,6 +373,18 @@ for (const [name, center, zoom, conf] of [
   check("Confluence", (r.panel.rows["Confluence near"] ?? r.panel.rows["Confluence"]) === conf, r.panel.rows["Confluence near"] ?? r.panel.rows["Confluence"]);
 }
 
+console.log("\nKaveri delta (Vennar recorded backwards; Vellar is its lower course; Vettar branches off it):");
+const vn = await openRiver("Vennar", [79.15, 10.8], 10);
+check("Vennar is on the map", !!vn);
+if (vn) {
+  check("Branched off from", /^Cauvery/.test(vn.panel.rows["Branched off from"] ?? ""), JSON.stringify(vn.panel.rows));
+  check("Continues to", vn.panel.rows["Continues to"] === "Vellar", vn.panel.rows["Continues to"]);
+}
+const vl = await openRiver("Vellar", [79.68, 10.7], 11);
+if (vl) check("Vellar continues from the Vennar", vl.panel.rows["Continues from"] === "Vennar", JSON.stringify(vl.panel.rows));
+const vt = await openRiver("Vettar", [79.4, 10.85], 10);
+if (vt) check("Vettar branched off from the Vennar", vt.panel.rows["Branched off from"] === "Vennar", JSON.stringify(vt.panel.rows));
+
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);
 check("Musi is on the map", !!mu);
@@ -380,6 +392,8 @@ if (mu) {
   const f = await page.evaluate(() => ({ head: document.querySelector(".panel .fact-heading")?.textContent, text: document.querySelector(".panel .fact")?.textContent ?? "" }));
   check("Fun Facts section shown", f.head === "Fun Facts" && f.text.length > 40, f.text.slice(0, 60));
 }
+const dh = await openRiver("Dahisar", [72.86, 19.22], 13);
+if (dh) check("Dahisar shows two fun facts", (await page.evaluate(() => document.querySelectorAll(".panel .fact").length)) === 2);
 check("basins switch hidden by default", await page.evaluate(() => !document.querySelector(".basins-toggle")));
 
 // --- 7. dismiss ----------------------------------------------------------------

@@ -82,9 +82,13 @@ body {
 }
 
 .panel .fact {
-  margin: 0;
+  margin: 0 0 8px;
   font-size: 13px;
   line-height: 1.5;
+}
+
+.panel .fact:last-child {
+  margin-bottom: 0;
 }
 
 .river-link {

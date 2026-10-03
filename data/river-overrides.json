@@ -121,6 +121,25 @@
     "endNear": true,
     "why": "Source text: Talakaveri in the Brahmagiri range."
   },
+  "7696": {
+    "name": "Vellar",
+    "continues": "7698",
+    "why": "The lower course of the Vennar, from Koothanallur to the sea south of Velankanni."
+  },
+  "7698": {
+    "name": "Vennar",
+    "swapped": true,
+    "branchedFrom": "6983",
+    "down": "7696",
+    "why": "Recorded backwards, with the Kaveri as its confluence. The Vennar branches off the Kaveri at the Grand Anicut and flows east past Thanjavur; below Koothanallur CWC draws its lower course, which reaches the sea south of Velankanni, as the Vellar (Wikipedia, Vennaaru River).",
+    "branchesAt": "The Grand Anicut (Kallanai), near Tiruchirappalli"
+  },
+  "7701": {
+    "name": "Vettar",
+    "branchedFrom": "7698",
+    "why": "The northern branch of the Vennar, splitting off at the Thenperambur dam near Thanjavur (Wikipedia, Vennaaru River). Its start is 0.3 km from the Vennar line, outside the automatic tolerance.",
+    "branchesAt": "Thenperambur dam, near Thanjavur"
+  },
   "8654": {
     "name": "Dahisar",
     "origin": "Tulsi Lake, Sanjay Gandhi National Park, Mumbai",

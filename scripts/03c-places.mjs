@@ -298,9 +298,12 @@ for (const f of rivers) {
     if (ov.name !== p.rivname) staleOverrides.push(`${uid}: override says "${ov.name}", data says "${p.rivname}"`);
     if (ov.origin && formed) staleOverrides.push(`${uid} ${ov.name}: has "origin" but is formed by a confluence - use "formedAt"`);
     if (ov.abroad === false && !abroad[uid]) staleOverrides.push(`${uid} ${ov.name}: has "abroad": false but the tracer no longer flags it`);
+    if (ov.branchesAt && !t.branchedFrom) staleOverrides.push(`${uid} ${ov.name}: has "branchesAt" but is not a branch`);
     if (ov.formedAt && !formed) staleOverrides.push(`${uid} ${ov.name}: has "formedAt" but no formers were detected or declared`);
     if (ov.origin) Object.assign(rec, { o: ov.origin, on: !!ov.originNear });
     if (ov.formedAt) rec.fa = ov.formedAt;
+    // Where a distributary leaves its parent, as a landmark (the Vennar at the Grand Anicut).
+    if (ov.branchesAt) Object.assign(rec, { bat: ov.branchesAt, batn: !!ov.branchesAtNear });
     if (ov.end) Object.assign(rec, { e: ov.end, en: !!ov.endNear });
     // Declaring where it enters India marks a river as coming from abroad, even when the
     // tracer could not follow it (the Gandak starts 30 km inside the border).

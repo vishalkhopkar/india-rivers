@@ -63,13 +63,13 @@ type Row = [label: string, value: string | Node];
 // Fun facts, keyed by uid: public/river-facts.json, built from data/river-facts.json by
 // scripts/03d-facts.mjs. Only a sample of rivers has one. Fetched once, when the first
 // panel opens; a panel already showing when it arrives is redrawn.
-let facts: Record<string, string> | null = null;
+let facts: Record<string, string[]> | null = null;
 let factsRequest: Promise<void> | null = null;
 function loadFacts(): Promise<void> {
   factsRequest ??= fetch(`${import.meta.env.BASE_URL}river-facts.json`)
     .then((r) => (r.ok ? r.json() : {}))
     .catch(() => ({}))
-    .then((json: Record<string, string>) => {
+    .then((json: Record<string, string[]>) => {
       facts = json;
     });
   return factsRequest;
@@ -132,11 +132,13 @@ export class InfoPanel {
         ].filter(([, v]) => v && String(v).trim() && !/partially/i.test(String(v))) as Row[])
       : [];
 
-    const fact = facts?.[p.uid];
+    const riverFacts = facts?.[p.uid] ?? [];
     this.body.replaceChildren(
       el("h2", {}, p.name || "Unnamed river"),
       list(rows),
-      ...(fact ? [el("h3", { class: "fact-heading" }, "Fun Facts"), el("p", { class: "fact" }, fact)] : []),
+      ...(riverFacts.length
+        ? [el("h3", { class: "fact-heading" }, "Fun Facts"), ...riverFacts.map((f) => el("p", { class: "fact" }, f))]
+        : []),
       ...(extended.length ? [el("h3", {}, "More details"), list(extended)] : [])
     );
     this.el.hidden = false;

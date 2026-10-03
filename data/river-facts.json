@@ -546,10 +546,16 @@
   "8654": {
     "name": "Dahisar",
     "category": "Film",
-    "fact": "It starts at Tulsi Lake inside Sanjay Gandhi National Park and was once pretty enough for Hindi film shoots. The 1957 Dilip Kumar and Vyjayanthimala film Naya Daur is said to have been shot beside it, and crocodiles reportedly lived in it until the late 1960s.",
+    "fact": [
+      "It starts at Tulsi Lake inside Sanjay Gandhi National Park and was once pretty enough for Hindi film shoots. The 1957 Dilip Kumar and Vyjayanthimala film Naya Daur is said to have been shot beside it, and crocodiles reportedly lived in it until the late 1960s.",
+      "Dahisar railway station is named after Dahisar village, not the river: the village name is traced to Dadhicheshwar, a temple of the sage Dadhichi mentioned in the medieval Mahikavatichi Bakhar. Elsewhere stations take a river's name, like Vaitarna on the same Western line, or Krishna in Telangana, whose platform begins at the river's edge."
+    ],
     "sources": [
       "https://en.wikipedia.org/wiki/Dahisar_River",
-      "https://curlytales.com/this-naturally-gorgeous-dahisar-river-shooting-spot-in-mumbai-has-turned-into-a-dumping-ground-now-its-disheartening/"
+      "https://curlytales.com/this-naturally-gorgeous-dahisar-river-shooting-spot-in-mumbai-has-turned-into-a-dumping-ground-now-its-disheartening/",
+      "https://en.wikipedia.org/wiki/Dahisar",
+      "https://en.wikipedia.org/wiki/Vaitarna_railway_station",
+      "https://en.wikipedia.org/wiki/Krishna_railway_station"
     ],
     "confidence": "medium",
     "region": "west"
@@ -686,6 +692,17 @@
     ],
     "confidence": "high",
     "region": "west"
+  },
+  "9009": {
+    "name": "Poisar",
+    "category": "History",
+    "fact": "Our Lady of Remedy Church in Poisar village, Kandivali West, dates from the Portuguese era of the 1550s (accounts give 1550 or 1555), making it one of Mumbai's oldest churches still in use. It is a Grade II-A listed heritage structure.",
+    "sources": [
+      "https://ourladyofremedychurchpoinsur.com/history",
+      "https://www.dnaindia.com/mumbai/report-protestors-stand-up-for-kandivali-s-poisar-church-2227377"
+    ],
+    "confidence": "medium",
+    "region": "west (site owner)"
   },
   "9155": {
     "name": "Bharathapuzha/Ponnani",
