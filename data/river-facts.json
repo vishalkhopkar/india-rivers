@@ -685,10 +685,16 @@
   "8969": {
     "name": "Ulhas",
     "category": "Disasters",
-    "fact": "On 27 July 2019 the swollen Ulhas flooded the railway tracks between Badlapur and Vangani and stranded the Kolhapur-bound Mahalaxmi Express in deep water for 12 to 15 hours. The NDRF, Navy, Air Force, police and Vangani villagers rescued all of its passengers, several hundred of them, including nine pregnant women.",
+    "fact": [
+      "On 27 July 2019 the swollen Ulhas flooded the railway tracks between Badlapur and Vangani and stranded the Kolhapur-bound Mahalaxmi Express in deep water for 12 to 15 hours. The NDRF, Navy, Air Force, police and Vangani villagers rescued all of its passengers, several hundred of them, including nine pregnant women.",
+      "The Ulhas's two distributaries, Thane Creek and Vasai Creek, make Salsette an island. With Mumbai, Thane and Mira-Bhayandar on it, Salsette is among the world's ten most populous islands, though it covers only about 620 sq km."
+    ],
     "sources": [
       "https://en.wikipedia.org/wiki/Mahalaxmi_Express",
-      "https://globalnews.ca/news/5699995/india-train-rescue-monsoon/"
+      "https://globalnews.ca/news/5699995/india-train-rescue-monsoon/",
+      "https://en.wikipedia.org/wiki/List_of_islands_by_population",
+      "https://en.wikipedia.org/wiki/Salsette_Island",
+      "https://en.wikipedia.org/wiki/Ulhas_River"
     ],
     "confidence": "high",
     "region": "west"
