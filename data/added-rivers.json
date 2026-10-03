@@ -3388,5 +3388,109 @@
       363869161
     ],
     "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 71% of its length; runs through Trombay Creek; falls from about 20 m to 3 m."
+  },
+  "40203": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      1152889493,
+      1152889494,
+      1152889483,
+      1152889488,
+      1152889487,
+      1152889484,
+      1152889489,
+      1152889490,
+      151777065,
+      937511687
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 75% of its length; on a valley floor in elevation data for 79% of its 1.9 km above the coastal flats; runs through a lake; falls from about 24 m to 0 m. 1.5 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. Between Rabale and Ghansoli it runs along the Thane-Belapur railway, where the stream has been channelled."
+  },
+  "40204": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      235982903,
+      376923597,
+      376923602,
+      376923593,
+      376923592,
+      93059030,
+      257479181
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 100% of its length; on a valley floor in elevation data for 97% of its 3.4 km above the coastal flats; a tidal creek arm, 59% of it in mangrove or creek water; falls from about 18 m to 0 m."
+  },
+  "40205": {
+    "name": "",
+    "joins": "8607",
+    "joinsName": "Bava Malang",
+    "minKm": 1.5,
+    "osmWays": [
+      1152273615,
+      1152273617,
+      39963836
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 64% of its length; on a valley floor in elevation data for 75% of its 2.8 km above the coastal flats; runs through a lake; falls from about 48 m to 0 m. 1.0 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. Head cut by hand: Kharghar hills: above this point OSM draws the descent in straight lines and right angles."
+  },
+  "40206": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      257468933,
+      376622673,
+      376622680,
+      257468927,
+      1051778198,
+      1051778197,
+      785570005,
+      785570004,
+      376622676,
+      376622672,
+      628548472,
+      1464532715,
+      1464532716,
+      789924814,
+      789924813,
+      628548471
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 70% of its 2 km above the coastal flats; runs through a lake; falls from about 43 m to 1 m."
+  },
+  "40207": {
+    "name": "",
+    "joins": null,
+    "into": "Arabian Sea",
+    "minKm": 1.5,
+    "osmWays": [
+      648699318
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 98% of its length; a tidal creek arm, 72% of it in mangrove or creek water; runs through Lotus Pond; falls from about 5 m to 0 m. 2.1 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. Its mouth is on the east shore of the mouth of Thane Creek, 5 km from the creek's centre line, so it is recorded as reaching the sea."
+  },
+  "40208": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 80% of its length; a tidal creek arm, 88% of it in mangrove or creek water; falls from about 2 m to 0 m. 2.1 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w49510547)."
+  },
+  "40209": {
+    "name": "",
+    "joins": "40205",
+    "minKm": 1.5,
+    "osmWays": [
+      1152286157,
+      1152286162,
+      1152286163,
+      1152273613,
+      1152267959,
+      940795179
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 58% of its length; on a valley floor in elevation data for 61% of its 3.3 km above the coastal flats; falls from about 239 m to 14 m."
   }
 }

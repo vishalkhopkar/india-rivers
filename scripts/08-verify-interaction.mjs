@@ -354,6 +354,13 @@ if (bdp) check("it rises in Bhandup West and merges into Thane Creek", bdp.panel
 const mkd = await openRiver("", [72.9251, 19.0504], 15);
 check("the Mankhurd stream is on the map", !!mkd);
 if (mkd) check("it merges into the Trombay Creek", mkd.panel.rows["Merges into"] === "Trombay Creek", JSON.stringify(mkd.panel.rows));
+console.log("\nThane Creek, east bank (Navi Mumbai) and the Panvel Creek side:");
+const gh = await openRiver("", [72.9992, 19.1118], 15);
+check("the Rabale-Ghansoli stream is on the map", !!gh);
+if (gh) check("it rises below the Parsik hills and merges into Thane Creek", /Parsik hills/.test(gh.panel.rows["Origin"] ?? "") && gh.panel.rows["Merges into"] === "Thane Creek" && /Ghansoli/.test(gh.panel.rows["Confluence"] ?? ""), JSON.stringify(gh.panel.rows));
+const khg = await openRiver("", [73.0642, 19.0499], 15);
+check("the Kharghar stream is on the map", !!khg);
+if (khg) check("it merges into the Bava Malang", khg.panel.rows["Merges into"] === "Bava Malang", JSON.stringify(khg.panel.rows));
 console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
 const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
 check("Chhoti Yamuna clickable", !!cy);
