@@ -1014,12 +1014,26 @@
   "12954": {
     "name": "Jhelum",
     "category": "History",
-    "fact": "The Jhelum's main source is the Verinag spring in south Kashmir, where Emperor Jahangir built an octagonal stone tank around the spring in 1620; Shah Jahan later added a garden. Jahangir loved the spot so much he wished to be buried there, but the wish was not carried out and his tomb is in Lahore.",
-    "sources": [
-      "https://en.wikipedia.org/wiki/Verinag_Spring"
+    "fact": [
+      "The Jhelum's main source is the Verinag spring in south Kashmir, where Emperor Jahangir built an octagonal stone tank around the spring in 1620; Shah Jahan later added a garden. Jahangir loved the spot so much he wished to be buried there, but the wish was not carried out and his tomb is in Lahore.",
+      "Jhelum doesn't flow through Jammu city; yet, the Pune Jammu Tawi express is known as the Jhelum Express. It started in 1979 at a time when the Kashmir valley had no rail link. The train was likely named after the primary river in the Kashmir valley and was meant for military purposes."
     ],
-    "confidence": "high",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Verinag_Spring",
+      "site owner"
+    ],
+    "confidence": "owner",
     "region": "national"
+  },
+  "13372": {
+    "name": "Kishanganga",
+    "category": "Geography",
+    "fact": "Also known as Neelum in Pakistan-occupied Kashmir, a small section of this river runs across the LOC at Keran where tourists can camp and easily see each other's side. The campgrounds on either side of this river there are known as Keran.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "north (site owner)"
   },
   "14119": {
     "name": "Nubra/ Yarma Tsangpo",
