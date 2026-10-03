@@ -13,5 +13,23 @@
       420108354
     ],
     "why": "CWC draws the Mithi (as \"Mahim\") from the hills a kilometre north of Vihar Lake. The river leaves the lake at the Vihar Lake Dam; course from the OpenStreetMap \"Mithi River\" waterway relation 6245575, dam to Mahim Creek."
+  },
+  "16612": {
+    "name": "Mithari or Jojri",
+    "extend": {
+      "hydroSource": 40902161,
+      "hydroOutlet": 40904873,
+      "joins": "16577"
+    },
+    "why": "Rises in the hills near Poondloo, Nagaur (the Jojari source on Wikipedia) and runs to the Luni east of Jodhpur. CWC stops the line about 5 km short and records it as inland drainage. Continued down the HydroRIVERS reaches to the Luni."
+  },
+  "16613": {
+    "name": "Jojri",
+    "extend": {
+      "hydroSource": 40912340,
+      "hydroOutlet": 40923992,
+      "joins": "16577"
+    },
+    "why": "The Jojari flows through Jodhpur, past Doli and Dhawa, and joins the Luni near Balotra (Mongabay, 2025; Wikipedia). CWC stops the line short and records it as inland drainage. Continued down the HydroRIVERS reaches to the Luni."
   }
 }

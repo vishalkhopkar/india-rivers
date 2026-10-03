@@ -53,35 +53,6 @@ const all = await loadRivers(RIVERS);
 const cwc = all.filter((f) => !f.properties.src);
 const osmGeometry = JSON.parse(readFileSync(OSM_GEOMETRY, "utf8"));
 
-// CWC rivers whose line is redrawn from OSM (data/course-overrides.json): the CWC course
-// of the Mithi runs a kilometre past Vihar Lake into the hills, while the river leaves the
-// lake at its dam. The uid and attributes stay, so rivers that join it still link; the
-// geometry, length and end points come from the OSM course in data/added-rivers-osm.json.
-const courseOverrides = JSON.parse(readFileSync(COURSES, "utf8"));
-for (const f of cwc) {
-  const uid = String(f.properties.UID_River);
-  if (!courseOverrides[uid]) continue;
-  const line = osmGeometry[uid];
-  if (!line) throw new Error(`no course for ${uid} in ${OSM_GEOMETRY}`);
-  const [[x0, y0], [x1, y1]] = [line[0], line[line.length - 1]];
-  f.geometry = { type: "LineString", coordinates: line };
-  Object.assign(f.properties, {
-    length_km: line.slice(1).reduce((s, c, i) => s + distKm(line[i][0], line[i][1], c[0], c[1]), 0),
-    st_pt_long: x0, st_pt_lat: y0, en_pt_long: x1, en_pt_lat: y1,
-    course_src: SOURCES.osm,
-  });
-}
-const replaced = cwc.filter((f) => courseOverrides[String(f.properties.UID_River)]).length;
-if (replaced !== Object.keys(courseOverrides).length) throw new Error(`${COURSES} names a uid that is not a CWC river`);
-console.log(`courses redrawn from OSM: ${replaced}`);
-
-const rivers = cwc.map((f) => {
-  const parts = partsOf(f.geometry);
-  return { uid: String(f.properties.UID_River), name: f.properties.rivname, props: f.properties, parts, bbox: bboxOf(parts) };
-});
-const byUid = new Map(rivers.map((r) => [r.uid, r]));
-console.log(`CWC rivers: ${rivers.length}${all.length > cwc.length ? ` (dropped ${all.length - cwc.length} previous additions)` : ""}`);
-
 // --- HydroRIVERS -----------------------------------------------------------------------
 const wanted = Object.values(list);
 const reaches = new Map();
@@ -97,6 +68,75 @@ const reaches = new Map();
   }
 }
 console.log(`HydroRIVERS reaches in the India window: ${reaches.size.toLocaleString()}`);
+
+// CWC rivers whose course is corrected (data/course-overrides.json). The uid and
+// attributes stay, so rivers that join them still link. Two kinds:
+//   - `osmWays`: the line is redrawn from OSM (data/added-rivers-osm.json). The CWC Mithi
+//     runs a kilometre past Vihar Lake into the hills; the river leaves the lake at its dam.
+//   - `extend`: the CWC line stops short of the river it flows into, so it is continued
+//     down the HydroRIVERS reaches `hydroSource`..`hydroOutlet`, from where they pass
+//     closest to the CWC mouth to where they reach `joins`, and snapped onto that river.
+//     The Jojri ends 50 km short of the Luni at Balotra. The original CWC course is kept
+//     in `cwc_course` so that re-running this script starts from it again.
+const courseOverrides = JSON.parse(readFileSync(COURSES, "utf8"));
+const lineKm = (line) => line.slice(1).reduce((s, c, i) => s + distKm(line[i][0], line[i][1], c[0], c[1]), 0);
+const cwcByUid = new Map(cwc.map((f) => [String(f.properties.UID_River), f]));
+for (const f of cwc) {
+  const p = f.properties;
+  if (p.cwc_course) {
+    Object.assign(f, { geometry: p.cwc_course.geometry });
+    Object.assign(p, p.cwc_course.props);
+    delete p.cwc_course;
+    delete p.join_uid;
+  }
+}
+for (const f of cwc) {
+  const uid = String(f.properties.UID_River);
+  const o = courseOverrides[uid];
+  if (!o) continue;
+  const p = f.properties;
+  if (o.osmWays) {
+    const line = osmGeometry[uid];
+    if (!line) throw new Error(`no course for ${uid} in ${OSM_GEOMETRY}`);
+    const [[x0, y0], [x1, y1]] = [line[0], line[line.length - 1]];
+    f.geometry = { type: "LineString", coordinates: line };
+    Object.assign(p, { length_km: lineKm(line), st_pt_long: x0, st_pt_lat: y0, en_pt_long: x1, en_pt_lat: y1, course_src: SOURCES.osm });
+  } else if (o.extend) {
+    const { hydroSource, hydroOutlet, joins } = o.extend;
+    const target = cwcByUid.get(String(joins));
+    if (!target) throw new Error(`${COURSES}: ${uid} extends to ${joins}, which is not a CWC river`);
+    const targetParts = partsOf(target.geometry);
+    const parts = partsOf(f.geometry);
+    const mouth = [p.en_pt_long, p.en_pt_lat];
+    if (!parts.some((q) => [q[0], q[q.length - 1]].some(([x, y]) => distKm(x, y, mouth[0], mouth[1]) < 0.5)))
+      throw new Error(`${COURSES}: ${uid}'s recorded end is not an end of its line`);
+    let ch = chain(hydroSource, hydroOutlet);
+    const near = ch.reduce((bi, c, i) => (distKm(c[0], c[1], mouth[0], mouth[1]) < distKm(ch[bi][0], ch[bi][1], mouth[0], mouth[1]) ? i : bi), 0);
+    ch = ch.slice(near);
+    const cut = ch.findIndex(([x, y]) => pointToLineKm(x, y, targetParts) <= JOIN_SNAP_KM);
+    if (cut === -1) throw new Error(`${COURSES}: reaches for ${uid} never come within ${JOIN_SNAP_KM} km of ${joins}`);
+    const tail = ch[cut];
+    const ext = smooth([mouth, ...ch.slice(1, cut)]).concat([nearestOn(tail[0], tail[1], targetParts)]);
+    p.cwc_course = {
+      geometry: f.geometry,
+      props: { length_km: p.length_km, en_pt_long: p.en_pt_long, en_pt_lat: p.en_pt_lat, Confluence: p.Confluence },
+    };
+    f.geometry = { type: "MultiLineString", coordinates: [...parts, ext] };
+    const [ex, ey] = ext[ext.length - 1];
+    Object.assign(p, { length_km: p.length_km + lineKm(ext), en_pt_long: ex, en_pt_lat: ey, Confluence: target.properties.rivname, join_uid: String(joins) });
+    console.log(`  ${uid} ${p.rivname}: extended ${lineKm(ext).toFixed(1)} km to ${target.properties.rivname}`);
+  }
+}
+const corrected = cwc.filter((f) => courseOverrides[String(f.properties.UID_River)]).length;
+if (corrected !== Object.keys(courseOverrides).length) throw new Error(`${COURSES} names a uid that is not a CWC river`);
+console.log(`courses corrected: ${corrected}`);
+
+const rivers = cwc.map((f) => {
+  const parts = partsOf(f.geometry);
+  return { uid: String(f.properties.UID_River), name: f.properties.rivname, props: f.properties, parts, bbox: bboxOf(parts) };
+});
+const byUid = new Map(rivers.map((r) => [r.uid, r]));
+console.log(`CWC rivers: ${rivers.length}${all.length > cwc.length ? ` (dropped ${all.length - cwc.length} previous additions)` : ""}`);
 
 function chain(sourceId, outletId) {
   const pts = [];

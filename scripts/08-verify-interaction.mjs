@@ -361,6 +361,18 @@ if (pw) {
   check("Merges into", pw.panel.rows["Merges into"] === "Mithi", pw.panel.rows["Merges into"]);
 }
 
+console.log("\nJojri and Mithari or Jojri (CWC stops both short of the Luni):");
+for (const [name, center, zoom, conf] of [
+  ["Jojri", [72.9, 26.15], 10, "Balotra, Rajasthan"],
+  ["Mithari or Jojri", [73.5, 26.4], 10, "25 km SE of Jodhpur, Rajasthan"],
+]) {
+  const r = await openRiver(name, center, zoom);
+  check(`${name} is on the map`, !!r);
+  if (!r) continue;
+  check("Merges into the Luni", /^Luni/.test(r.panel.rows["Merges into"] ?? ""), JSON.stringify(r.panel.rows));
+  check("Confluence", (r.panel.rows["Confluence near"] ?? r.panel.rows["Confluence"]) === conf, r.panel.rows["Confluence near"] ?? r.panel.rows["Confluence"]);
+}
+
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);
 check("Musi is on the map", !!mu);
