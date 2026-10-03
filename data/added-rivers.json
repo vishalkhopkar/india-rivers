@@ -3657,7 +3657,7 @@
     "why": "Mumbai region stream network (review/mumbai-streams.md), the rest of the Mumbai Metropolitan Region. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 91% of its 13.5 km above the coastal flats; runs through a lake, a lake; falls from about 405 m to 27 m."
   },
   "40224": {
-    "name": "",
+    "name": "Ulwe",
     "joins": null,
     "into": "Arabian Sea",
     "minKm": 1.5,
@@ -3665,7 +3665,7 @@
       705385998,
       804146263
     ],
-    "why": "Mumbai region stream network (review/mumbai-streams.md), the rest of the Mumbai Metropolitan Region. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 91% of its length; on a valley floor in elevation data for 53% of its 5.7 km above the coastal flats; falls from about 225 m to 0 m. The river through Ulwe; its lower course was moved to run along the south side of the Navi Mumbai airport."
+    "why": "Mumbai region stream network (review/mumbai-streams.md), the rest of the Mumbai Metropolitan Region. From OSM waterways, unnamed in OSM; named by the owner from the references. Natural course: within 0.5 km of a HydroRIVERS drainage line for 91% of its length; on a valley floor in elevation data for 53% of its 5.7 km above the coastal flats; falls from about 225 m to 0 m. The Ulwe River (Times of India, 2022; Wikipedia, Navi Mumbai International Airport). It used to run north across what is now the airport to the Panvel Creek side; CIDCO cut a channel about 3 km long along the airport's southern edge and turned it west into Moha Creek. The channel is man-made, but it is the river's present course, so it is drawn (OSM way 804146263), as the Mithi is at Mumbai's airport."
   },
   "40225": {
     "name": "",

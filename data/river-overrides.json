@@ -1598,10 +1598,10 @@
     "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
   },
   "40224": {
-    "name": "",
-    "origin": "Hills south of Panvel",
-    "end": "Panvel Creek at Ulwe, Navi Mumbai",
-    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+    "name": "Ulwe",
+    "origin": "Hills south of Panvel, Maharashtra",
+    "end": "Moha Creek, south of Targhar station, Navi Mumbai",
+    "why": "Added from OSM (review/mumbai-streams.md). Diverted round the south of Navi Mumbai International Airport; its mouth is now on Moha Creek, south of Targhar."
   },
   "40225": {
     "name": "",

@@ -19,6 +19,7 @@ These decided **what** to look for and what to call it. No line was traced from 
 - Maharashtra Pollution Control Board, *Environmental status and action plan: Navi Mumbai industrial cluster* (CEPI): names four nallas of the Trans-Thane-Creek industrial belt (Airoli, Nocil, Alok and Juinagar nallas). https://mpcb.gov.in/sites/default/files/pollution-index/industrial-clusture/Action%20Plan%20CEPI-Navimumbai.pdf
 - Adluri et al., "Multi-decadal changes of Thane Creek", *Current Science* 124(3), 2023: the creek's extent, its link with the Ulhas at Kasheli. https://www.currentscience.ac.in/Volumes/124/03/0363.pdf
 - Swamy and Suryanarayana (NIO), *Indian Journal of Marine Sciences* 13, 1984: tidal flow at Kasheli. Quadros and Athalye, "Thane Creek" (VPM Thane): fresh water in the creek only in the monsoon.
+- Times of India, "Cidco diverts Ulwe river from Navi Mumbai intl airport" (2022), given by the owner, and Wikipedia, Navi Mumbai International Airport: the Ulwe River and its diversion into Moha Creek. https://timesofindia.indiatimes.com/city/navi-mumbai/cidco-diverts-ulwe-river-from-navi-mumbai-intl-airport/articleshow/94258072.cms
 - Wikipedia: Thane Creek, Vasai Creek, Ulhas River, Eastern Express Highway. A Bombay High Court judgment on the Mulund salt-pan lands, found through a web search, names the Nanepada and Bombay Oxygen nallas there.
 - HydroRIVERS v1.0 (HydroSHEDS): drainage lines, used as evidence only. No Mumbai stream was drawn from it: its 450 m grid puts lines through city blocks and down the middle of the creek.
 - AWS Terrain Tiles (SRTM-based elevation), for the terrain test. Nothing from them is published.
@@ -216,7 +217,7 @@ OSM's "Trombay Creek" water areas also run up the Somaiyya Nalla as far as Tilak
 | UID | Name | From → to | km | Evidence | Joins |
 |---|---|---|---|---|---|
 | 40222 | Unnamed | Hills above the Ransai reservoir, east of Uran → Karanja Creek, south-east of Uran | 15.9 | HydroRIVERS 79%; valley floor 74% of 4.3 km upland; tidal creek 56%; lake on its course; OSM river/stream | the sea |
-| 40224 | Unnamed | Hills south of Panvel → Panvel Creek at Ulwe, Navi Mumbai | 13.2 | HydroRIVERS 91%; valley floor 53% of 5.7 km upland; OSM river/stream | the sea |
+| 40224 | Ulwe | Hills south of Panvel, Maharashtra → Moha Creek, south of Targhar station, Navi Mumbai | 13.2 | HydroRIVERS 91%; valley floor 53% of 5.7 km upland; OSM river/stream | the sea |
 | 40225 | Unnamed | Prabalgad foothills, east of Panvel → The Panel (Panvel Creek's river) at Panvel | 13.2 | HydroRIVERS 80%; lake on its course; OSM river/stream | Panel (8846) |
 | 40226 | Unnamed | Prabalgad hills, near Matheran → The Patalganga at Rasayani, Maharashtra | 12.4 | HydroRIVERS 84%; valley floor 71% of 12.6 km upland; OSM river/stream | Patalganga (8856) |
 | 40229 | Nhava Creek | Jasai, near Uran → Mumbai Harbour at Nhava, near Uran | 9.3 | tidal creek 99%; 7.4 km on the centre line of water areas | the sea |
@@ -243,7 +244,7 @@ OSM's "Trombay Creek" water areas also run up the Somaiyya Nalla as far as Tilak
 | 40332 | Unnamed | Koproli, east of Uran → Kalambusare, east of Uran | 2.8 | HydroRIVERS 69%; OSM river/stream | unnamed (40313) |
 
 - 40222: Runs through the Ransai reservoir.
-- 40224: The river through Ulwe; its lower course was moved to run along the south side of the Navi Mumbai airport.
+- 40224: The Ulwe River (Times of India, 2022; Wikipedia, Navi Mumbai International Airport). It used to run north across what is now the airport to the Panvel Creek side; CIDCO cut a channel about 3 km long along the airport's southern edge and turned it west into Moha Creek. The channel is man-made, but it is the river's present course, so it is drawn (OSM way 804146263), as the Mithi is at Mumbai's airport.
 - 40229: OSM names the creek's water area "Nhava Creek".
 
 **The north-east: Padgha, Vasind and Shahapur (7 streams, 43 km):**
@@ -285,7 +286,7 @@ OSM's "Trombay Creek" water areas also run up the Somaiyya Nalla as far as Tilak
 
 - 40233: OSM names this stream "Dhavari River"; the map's Dhavri is CWC's line, to the west, so no name is given here.
 
-Names: "Nane Pada Nalla" (Mulund) and "Nhava Creek" (Uran) are OSM's. Every other stream is unnamed, because no reference both names a nalla and says where it runs.
+Names: "Nane Pada Nalla" (Mulund) and "Nhava Creek" (Uran) are OSM's; "Ulwe" is the owner's, from a Times of India report of the river's diversion at the Navi Mumbai airport. Every other stream is unnamed, because no reference both names a nalla and says where it runs.
 
 ## Not drawn
 
@@ -343,7 +344,7 @@ OSM ways taken out of the network by hand, for the same kind of reason:
 
 | Stream | km | Would join | Reason |
 |---|---|---|---|
-| Unnamed, Ulwe, Navi Mumbai → Ulwe (18.990 N, 73.046 E) | 2.2 | unnamed (40224) | Does not run downhill (6 m to 1 m, downhill for 0% of its upland part). |
+| Unnamed, Ulwe, Navi Mumbai → Ulwe (18.990 N, 73.046 E) | 2.2 | Ulwe (40224) | Does not run downhill (6 m to 1 m, downhill for 0% of its upland part). |
 
 ### 5. Pass the test but cannot be joined to the map
 
@@ -463,7 +464,7 @@ The complete ones:
 | Panvel, Taloja and Uran | Near Jasai, Maharashtra → Near Jasai, Maharashtra (18.920 N, 73.032 E) | 2.0 | HydroRIVERS 83%; tidal creek 98%; OSM river/stream | unnamed (40222) |
 | Panvel, Taloja and Uran | Near Taloja, Maharashtra → The Kasadi near Taloja, Maharashtra (19.086 N, 73.136 E) [OSM: Taloje Creek] | 1.7 | HydroRIVERS 92%; OSM river/stream | Kasadi (8764) |
 | Panvel, Taloja and Uran | Near Taloja, Maharashtra → The Kasadi near Taloja, Maharashtra (19.098 N, 73.177 E) | 1.5 | HydroRIVERS 51%; valley floor 82% of 1.7 km upland; OSM river/stream | Kasadi (8764) |
-| Panvel, Taloja and Uran | Near Panvel, Maharashtra → Near Ulwe, Navi Mumbai (18.944 N, 73.076 E) | 1.2 | HydroRIVERS 100%; valley floor 100% of 1.1 km upland; OSM river/stream | unnamed (40224) |
+| Panvel, Taloja and Uran | Near Panvel, Maharashtra → The Ulwe near Ulwe, Navi Mumbai (18.944 N, 73.076 E) | 1.2 | HydroRIVERS 100%; valley floor 100% of 1.1 km upland; OSM river/stream | Ulwe (40224) |
 | Panvel, Taloja and Uran | Kharghar, Navi Mumbai → Kharghar, Navi Mumbai (19.040 N, 73.058 E) | 1.2 | OSM river/stream | unnamed (40205) |
 | Panvel, Taloja and Uran | Belapur, Navi Mumbai → The Kasadi at Belapur, Navi Mumbai (19.017 N, 73.036 E) | 1.2 | OSM river/stream | Kasadi (8764) |
 | Panvel, Taloja and Uran | Near Apta, Maharashtra → Near Apta, Maharashtra (18.823 N, 73.047 E) | 1.1 | OSM river/stream | unnamed (40291) |

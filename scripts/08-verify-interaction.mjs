@@ -387,6 +387,9 @@ if (nhv) check("Nhava Creek reaches Mumbai Harbour", nhv.panel.rows["Mouth into"
 const val = await openRiver("", [73.0276, 19.242], 15);
 check("the stream from Val, south-west of Bhiwandi, is on the map", !!val);
 if (val) check("it merges into the Ulhas", val.panel.rows["Merges into"] === "Ulhas", JSON.stringify(val.panel.rows));
+const ulw = await openRiver("Ulwe", [73.0496, 18.98], 14);
+check("the Ulwe runs along the south side of the Navi Mumbai airport", !!ulw);
+if (ulw) check("the Ulwe reaches Moha Creek south of Targhar", ulw.panel.rows["Mouth into"] === "Arabian Sea" && /Moha Creek, south of Targhar/.test(ulw.panel.rows["Mouth"] ?? "") && /Hills south of Panvel/.test(ulw.panel.rows["Origin"] ?? ""), JSON.stringify(ulw.panel.rows));
 console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
 const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
 check("Chhoti Yamuna clickable", !!cy);
