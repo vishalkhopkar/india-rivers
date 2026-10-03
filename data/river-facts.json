@@ -544,6 +544,22 @@
     "confidence": "high",
     "region": "national"
   },
+  "8583": {
+    "name": "Amba",
+    "category": "Transport",
+    "fact": "Alibaug is only about 30 km from the Gateway of India in a straight line, but Dharamtar Creek, the Amba's estuary, forces the road a long way round. A 2 km bridge being built across the creek mouth, from Karanja to Rewas, should cut the two-hour, 70 km drive between Uran and Alibaug to about half an hour.",
+    "sources": [
+      "https://www.freepressjournal.in/mumbai/mumbai-in-motion-revaskaranja-bridge-to-slash-uranalibaug-travel-to-30-minutes",
+      "https://www.oneindia.com/mumbai/karanja-revas-bridge-will-this-new-route-really-cut-travel-time-from-2-hours-to-just-30-minutes-3964389.html",
+      "https://themetrorailguy.com/2024/03/06/afcons-wins-dharamtar-creek-bridges-contract-near-mumbai/",
+      "https://en.wikipedia.org/wiki/Amba_River_(India)",
+      "https://www.manthan-india.org/ambamarch24/",
+      "https://www.openstreetmap.org/way/28845634",
+      "https://www.openstreetmap.org/node/628932479"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
   "8607": {
     "name": "Bava Malang",
     "category": "Names and etymology",
@@ -1697,6 +1713,32 @@
       "https://www.currentscience.ac.in/Volumes/124/03/0363.pdf",
       "https://nopr.niscpr.res.in/bitstream/123456789/38817/1/IJMS%2013(4)%20168-171.pdf",
       "https://www.vpmthane.org/sci/FAVEO/ko5.pdf"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
+  "40194": {
+    "name": "(unnamed)",
+    "category": "Geography",
+    "fact": "From Mulund Check Naka this stream is the line between Mumbai and Thane for its first kilometre or so: Mulund on one bank, Thane on the other. On the Thane side it skirts the Regional Mental Hospital, where a 2023 court order cleared 14.83 of the 72 acres for a new railway station between Thane and Mulund.",
+    "sources": [
+      "https://www.openstreetmap.org/relation/7885386",
+      "https://www.openstreetmap.org/way/151861276",
+      "https://www.outlookindia.com/national/creation-of-new-railway-station-between-thane-and-mulund-will-help-commuters-maha-cm-on-hc-order-news-267132",
+      "https://www.mumbailive.com/en/civic/new-railway-station-will-be-built-between-thane-and-mulund-station-77430"
+    ],
+    "confidence": "medium",
+    "region": "west (site owner)"
+  },
+  "40196": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "This stream runs along the north side of Thane Central Jail, which began as a fort. The Portuguese started building it about 1730, the Marathas took it unfinished in 1737 and completed it, and the British captured it in 1774. The fort was dismantled in 1833 and has been a jail since 1838.",
+    "sources": [
+      "https://www.gazetteers.maharashtra.gov.in/cultural.maharashtra.gov.in/english/gazetteer/Thana%20District/places_Thana.html",
+      "https://en.wikipedia.org/wiki/Thane",
+      "https://en.wikipedia.org/wiki/Salsette_Island",
+      "https://www.openstreetmap.org/way/235950468"
     ],
     "confidence": "high",
     "region": "west (site owner)"
