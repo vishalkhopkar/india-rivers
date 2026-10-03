@@ -558,5 +558,143 @@
     "origin": "Peenya, Bengaluru",
     "end": "The Vrishabhavati near Bangalore University, Bengaluru",
     "why": "Added from OSM. The western branch of the Vrishabhavati, which CWC drew as the river's head."
+  },
+  "40052": {
+    "name": "",
+    "origin": "Herohalli, Bengaluru",
+    "end": "The Vrishabhavati near Kumbalgodu, south-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40053": {
+    "name": "Sonnenahalli",
+    "origin": "Herohalli, Bengaluru",
+    "end": "The Vrishabhavati near Kengeri, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40054": {
+    "name": "Channasandra",
+    "origin": "JP Nagar, Bengaluru",
+    "end": "The Vrishabhavati near Rajarajeshwari Nagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40055": {
+    "name": "Kathriguppe",
+    "origin": "Jayanagar, Bengaluru",
+    "end": "The Vrishabhavati near Rajarajeshwari Nagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40056": {
+    "name": "Vrishabhavati Valley (V-207)",
+    "origin": "Vijayanagar, Bengaluru",
+    "end": "The Vrishabhavati near Rajarajeshwari Nagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40057": {
+    "name": "Vrishabhavati Valley (V-116)",
+    "origin": "Basaveshwaranagar, Bengaluru",
+    "end": "The Vrishabhavati near Vijayanagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40058": {
+    "name": "Vrishabhavati Valley (V-112)",
+    "origin": "Mahalakshmi Layout, Bengaluru",
+    "end": "The Vrishabhavati near Rajajinagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40059": {
+    "name": "Vrishabhavati Valley (V-120)",
+    "origin": "Chamarajpet, Bengaluru",
+    "end": "The Vrishabhavati near Vijayanagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40060": {
+    "name": "",
+    "origin": "Kengeri, Bengaluru",
+    "end": "The Vrishabhavati near Kengeri, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40061": {
+    "name": "",
+    "origin": "Kumbalgodu, south-west of Bengaluru",
+    "end": "The Vrishabhavati near Kumbalgodu, south-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40062": {
+    "name": "",
+    "origin": "Kengeri, Bengaluru",
+    "end": "The Vrishabhavati near Kengeri, south-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40063": {
+    "name": "",
+    "origin": "Tavarekere, west of Bengaluru",
+    "end": "Kumbalgodu, south-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40064": {
+    "name": "",
+    "origin": "Kommaghatta, Bengaluru",
+    "end": "Kommaghatta, west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40065": {
+    "name": "Vrishabhavati Valley (V-300)",
+    "origin": "Banashankari, Bengaluru",
+    "end": "The Kathriguppe near Rajarajeshwari Nagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40066": {
+    "name": "",
+    "origin": "Herohalli, Bengaluru",
+    "end": "The Sonnenahalli near Kengeri, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40067": {
+    "name": "",
+    "origin": "Herohalli, west of Bengaluru",
+    "end": "Herohalli, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40068": {
+    "name": "",
+    "origin": "Nagarbhavi, Bengaluru",
+    "end": "Mallathahalli Lake, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40069": {
+    "name": "",
+    "origin": "Ramohalli, west of Bengaluru",
+    "end": "Kommaghatta, west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40070": {
+    "name": "",
+    "origin": "Kommaghatta, west of Bengaluru",
+    "end": "Kommaghatta, south-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40071": {
+    "name": "Vrishabhavati Valley (V-201)",
+    "origin": "Laggere, Bengaluru",
+    "end": "The Nagarbhavi Thorai near Basaveshwaranagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40072": {
+    "name": "Vrishabhavati Valley (V-202)",
+    "origin": "Yeswanthpur, Bengaluru",
+    "end": "The Nagarbhavi Thorai near Laggere, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40073": {
+    "name": "",
+    "origin": "Gottigere, Bengaluru",
+    "end": "The Suvarnamukhi near Kaggalipura, south of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40074": {
+    "name": "",
+    "origin": "Konanakunte, Bengaluru",
+    "end": "The Suvarnamukhi near Anjanapura, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
   }
 }

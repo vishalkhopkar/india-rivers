@@ -450,6 +450,7 @@
   },
   "40044": {
     "name": "Koramangala Valley (K-100)",
+    "group": "koramangala-valley",
     "joins": "40046",
     "osmWays": [
       27931726,
@@ -466,6 +467,7 @@
   },
   "40045": {
     "name": "Challaghatta Valley (C-100)",
+    "group": "challaghatta-valley",
     "joins": "40046",
     "osmWays": [
       36883838,
@@ -703,5 +705,459 @@
       1054489001
     ],
     "why": "The western branch of the Vrishabhavati, from Peenya past Laggere and Nagarbhavi to the confluence near Bangalore University. CWC drew it as the head of the Vrishabhavati; OSM and the Paani.Earth basin map name it the Nagarbhavi. OSM ways \"Nagarbhavi Thorai\" and \"Nagarbhavi Drain\"."
+  },
+  "40052": {
+    "name": "",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1548740974,
+      1188681281,
+      1205178514,
+      1205178513,
+      1188681289,
+      675685134,
+      1327182219,
+      1327182218,
+      792485830,
+      1104930794,
+      792485831,
+      252711296,
+      798227978,
+      798227977,
+      798227985,
+      798227984,
+      675662529,
+      1464880574,
+      1464880573,
+      675662528
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 74% of its length; on the valley floor in elevation data for 78%; in a tank chain (Sulikere); falls 109 m."
+  },
+  "40053": {
+    "name": "Sonnenahalli",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1104894211,
+      1104894216,
+      1104894215,
+      1104894212,
+      1104894217,
+      1104894218,
+      1104894220,
+      1104894221,
+      1113269530,
+      1104894224,
+      1104894225,
+      675689515,
+      1112988055,
+      1393102039,
+      1393102038,
+      1112988056,
+      675682297,
+      1543999373,
+      1543999372,
+      148473853,
+      857589677,
+      857589674,
+      857589676,
+      1108965701,
+      1108965702,
+      1547422295,
+      1547422294,
+      793850714,
+      793850715,
+      793835670,
+      793835669,
+      1450458933,
+      1450458934,
+      55685639,
+      437584789,
+      1311424951,
+      1311424952,
+      437584788
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 56% of its length; on the valley floor in elevation data for 85%; in a tank chain (Hosakere); falls 119 m. 0.3 km of it bridges gaps in the OSM mapping."
+  },
+  "40054": {
+    "name": "Channasandra",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1270568462,
+      1314554523,
+      1314554524,
+      1314554522,
+      1314554525,
+      119172171,
+      1112002102,
+      1184436587,
+      1184436590,
+      1184436589,
+      1184436588,
+      174416956,
+      1525500126,
+      1525500125,
+      197655062
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 82% of its length; on the valley floor in elevation data for 97%; in a tank chain (Dore Kere); falls 95 m."
+  },
+  "40055": {
+    "name": "Kathriguppe",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      604000949,
+      1111970291,
+      41192908,
+      1111970292,
+      40167064,
+      1381024231,
+      172895633
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V304, V300). Natural course: on the valley floor in elevation data for 80%; in a tank chain (Hosakerahalli Lake); falls 96 m."
+  },
+  "40056": {
+    "name": "Vrishabhavati Valley (V-207)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      437848266,
+      437848267,
+      38673993,
+      1409948311,
+      1409948312,
+      1092043504,
+      1092043503,
+      1092043507,
+      1092043505,
+      1092043502,
+      1265721079,
+      1092043501,
+      1265721078,
+      1204456625
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V207). Natural course: on the valley floor in elevation data for 84%; falls 52 m."
+  },
+  "40057": {
+    "name": "Vrishabhavati Valley (V-116)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1092672114,
+      1303120302,
+      1303120303,
+      1457126597,
+      1457126596,
+      38673796
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V116). Natural course: on the valley floor in elevation data for 87%; falls 52 m."
+  },
+  "40058": {
+    "name": "Vrishabhavati Valley (V-112)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1092672110,
+      1203925649,
+      1249789880,
+      1249789881,
+      1249789882,
+      1249789883,
+      38096774
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V112). Natural course: on the valley floor in elevation data for 74%; in a tank chain; falls 27 m."
+  },
+  "40059": {
+    "name": "Vrishabhavati Valley (V-120)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      673852971,
+      411089440,
+      411089441,
+      55684016,
+      1110165766,
+      1110165767,
+      1110165768,
+      1110165771,
+      1110165772,
+      1110165765
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V120). Natural course: on the valley floor in elevation data for 100%; in a tank chain (Kempambudhi Kere); falls 49 m."
+  },
+  "40060": {
+    "name": "",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1343719072,
+      1548146831,
+      1548146830,
+      1343719073,
+      1343719075,
+      1343719076,
+      1343719078,
+      1343719077,
+      1343719079,
+      1343719080,
+      437563261,
+      1343719071,
+      1343719070,
+      1343719069,
+      1343719068,
+      1203925642
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 48%; in a tank chain (Dubasi Palya Kere); falls 25 m."
+  },
+  "40061": {
+    "name": "",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1264396387
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 100% of its length; on the valley floor in elevation data for 88%; in a tank chain; falls 18 m."
+  },
+  "40062": {
+    "name": "",
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1281359322,
+      1281359324,
+      1287354798
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 87%; in a tank chain (Konasandra Lake); falls 23 m."
+  },
+  "40063": {
+    "name": "",
+    "joins": "40052",
+    "minKm": 1.5,
+    "osmWays": [
+      1479979281,
+      1317332283,
+      1227294235,
+      1227294236,
+      1120291629,
+      1365570124,
+      1188681280,
+      1365570122,
+      1365570121,
+      675653561,
+      675653562,
+      675662953,
+      675662955,
+      675662956,
+      675662954,
+      675653563
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 88% of its length; on the valley floor in elevation data for 83%; in a tank chain (Hosakere Lake, Bheemanakuppa Lake); falls 58 m. The line crosses the lake(s) on its way."
+  },
+  "40064": {
+    "name": "",
+    "joins": "40052",
+    "minKm": 1.5,
+    "osmWays": [
+      1241560536,
+      1241560535,
+      1241560533,
+      1241560532,
+      1241560531,
+      1241560530,
+      1241560534,
+      1241560529,
+      1241560528,
+      1241560527,
+      1241560526,
+      1241560525,
+      1515968022,
+      1515968023,
+      1241560524,
+      675685127,
+      793835667,
+      793835666,
+      793835665,
+      1410092231,
+      1410092230,
+      1287334787,
+      1287334788,
+      793835664,
+      1218956387,
+      1218956386
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 89%; falls 43 m."
+  },
+  "40065": {
+    "name": "Vrishabhavati Valley (V-300)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "40055",
+    "minKm": 1.5,
+    "osmWays": [
+      172895635,
+      224319509
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V300). Natural course: on the valley floor in elevation data for 85%; falls 64 m."
+  },
+  "40066": {
+    "name": "",
+    "joins": "40053",
+    "minKm": 1.5,
+    "osmWays": [
+      1112988058,
+      1112988059,
+      675690080,
+      1241561482,
+      492937928
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 72%; in a tank chain (Ullal Lake); falls 41 m. The line crosses the lake(s) on its way."
+  },
+  "40067": {
+    "name": "",
+    "joins": "40052",
+    "minKm": 1.5,
+    "osmWays": [
+      1188681284,
+      1240791799,
+      1240791800,
+      1317332276,
+      1317332277,
+      1240791797,
+      1240791798,
+      1188681283
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 83%; in a tank chain (Sheegehalli Lake); falls 26 m. The line crosses the lake(s) on its way."
+  },
+  "40068": {
+    "name": "",
+    "joins": "40053",
+    "minKm": 1.5,
+    "osmWays": [
+      675682293,
+      1241556747,
+      1241556745
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 88%; in a tank chain (Mallathahalli Lake); falls 17 m. The line crosses the lake(s) on its way."
+  },
+  "40069": {
+    "name": "",
+    "joins": "40063",
+    "minKm": 1.5,
+    "osmWays": [
+      1366495609,
+      1366495610,
+      1120291632,
+      1229217651,
+      1229217652,
+      1365570122
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 83% of its length; on the valley floor in elevation data for 96%; in a tank chain (Bheemanakuppa Lake); falls 29 m. The line crosses the lake(s) on its way."
+  },
+  "40070": {
+    "name": "",
+    "joins": "40063",
+    "minKm": 1.5,
+    "osmWays": [
+      1120291642,
+      1120291637
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 91%; in a tank chain; falls 30 m. The line crosses the lake(s) on its way."
+  },
+  "40071": {
+    "name": "Vrishabhavati Valley (V-201)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "40051",
+    "minKm": 1.5,
+    "osmWays": [
+      675688700,
+      675688703,
+      1203925644
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V201). Natural course: on the valley floor in elevation data for 93%; in a tank chain; falls 53 m."
+  },
+  "40072": {
+    "name": "Vrishabhavati Valley (V-202)",
+    "group": "vrishabhavati-valley",
+    "distinctFrom": [
+      "7707"
+    ],
+    "joins": "40051",
+    "minKm": 1.5,
+    "osmWays": [
+      1317500329,
+      1317500330,
+      1111954422,
+      1239610856,
+      1239610855,
+      1111954423,
+      1111954420,
+      1111954421,
+      1203925646,
+      40419736,
+      1104878036,
+      1104878035
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain V202, V204). Natural course: on the valley floor in elevation data for 96%; falls 36 m."
+  },
+  "40073": {
+    "name": "",
+    "joins": "7599",
+    "joinsName": "Suvarnamukhi",
+    "minKm": 1.5,
+    "osmWays": [
+      1443402172,
+      699281412
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 56% of its length; on the valley floor in elevation data for 95%; in a tank chain; falls 159 m."
+  },
+  "40074": {
+    "name": "",
+    "joins": "7599",
+    "joinsName": "Suvarnamukhi",
+    "minKm": 1.5,
+    "osmWays": [
+      1328835822,
+      1499632473,
+      1499632474,
+      1499632471,
+      1499632472,
+      1189440571,
+      1176579510
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 74%; in a tank chain (Avalahalli Lake); falls 59 m. 0.2 km of it bridges gaps in the OSM mapping. The line crosses the lake(s) on its way."
   }
 }

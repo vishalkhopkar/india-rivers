@@ -40,6 +40,7 @@ const JOIN_SNAP_OSM_KM = 0.15; // OSM courses are surveyed, so they can run clos
 const JOIN_REACH_KM = 1.5; // ...and reject it if it never comes this close
 const NEAR_JOIN_KM = 1.5; // near the confluence, closeness to other lines is expected
 const OVERLAP_KM = 0.5; // a vertex this close to another CWC line is "on" that river
+const OVERLAP_OSM_KM = 0.1; // ...tighter for surveyed OSM courses: city streams run close together
 const OVERLAP_MAX_FRAC = 0.15;
 const OVERLAP_RUN_KM = 2;
 const NAME_SEARCH_KM = 40;
@@ -350,7 +351,7 @@ function build(uid, entry, addedSoFar) {
   for (let i = 0; i + 1 < line.length; i++) {
     const [x, y] = line[i];
     const seg = distKm(x, y, line[i + 1][0], line[i + 1][1]);
-    const who = nearMouth(line[i]) ? null : nearby.find((r) => pointToLineKm(x, y, r.parts) <= OVERLAP_KM);
+    const who = nearMouth(line[i]) ? null : nearby.find((r) => pointToLineKm(x, y, r.parts) <= (fromOsm ? OVERLAP_OSM_KM : OVERLAP_KM));
     if (who) {
       onKm += seg;
       run += seg;
@@ -371,8 +372,11 @@ function build(uid, entry, addedSoFar) {
   if (crossed.size) problems.push(`crosses ${[...crossed].join(", ")}`);
 
   const pad = NAME_SEARCH_KM / 100;
+  // `distinctFrom` lists rivers the name deliberately echoes: "Vrishabhavati Valley (V-116)"
+  // is a drain of the Vrishabhavati's valley, not the river.
+  const distinct = new Set((entry.distinctFrom ?? []).map(String));
   const clashes = rivers
-    .filter((r) => bboxesTouch(r.bbox, box, pad) && similarNames(r.name, entry.name))
+    .filter((r) => !distinct.has(r.uid) && bboxesTouch(r.bbox, box, pad) && similarNames(r.name, entry.name))
     .map((r) => `${r.name} (uid ${r.uid})`);
   // Pieces of one river (the Desai Khadi's two branches and its main stem) share a group.
   for (const [otherUid, other] of addedSoFar)

@@ -416,6 +416,15 @@ if (nt) check("Nagarbhavi Thorai merges into the Vrishabhavati", nt.panel.rows["
 const sv = await openRiver("Suvarnamukhi", [77.47, 12.72], 11);
 if (sv) check("Suvarnamukhi merges into the Vrishabhavati", sv.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(sv.panel.rows));
 
+console.log("\nBengaluru stream network (tributaries assembled from OSM):");
+const kg = await openRiver("Kathriguppe", [77.545, 12.93], 13);
+check("Kathriguppe is on the map", !!kg);
+if (kg) check("Kathriguppe merges into the Vrishabhavati", kg.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(kg.panel.rows));
+const so = await openRiver("Sonnenahalli", [77.495, 12.955], 13);
+if (so) check("Sonnenahalli merges into the Vrishabhavati", so.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(so.panel.rows));
+const v300 = await openRiver("Vrishabhavati Valley (V-300)", [77.545, 12.936], 14);
+if (v300) check("V-300 merges into the Kathriguppe", v300.panel.rows["Merges into"] === "Kathriguppe", JSON.stringify(v300.panel.rows));
+
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);
 check("Musi is on the map", !!mu);
