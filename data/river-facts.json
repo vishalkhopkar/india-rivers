@@ -1688,5 +1688,17 @@
     ],
     "confidence": "high",
     "region": "west"
+  },
+  "40189": {
+    "name": "Thane Creek",
+    "category": "Geography",
+    "fact": "Though drawn as a branch of the Ulhas, this creek is really an arm of the sea. A narrow channel at Kasheli, near Thane, is its only link with the river, whose flow leaves mostly through Vasai Creek, so fresh water arrives mainly in the monsoon. A 2023 study warned that silt could close the link within decades.",
+    "sources": [
+      "https://www.currentscience.ac.in/Volumes/124/03/0363.pdf",
+      "https://nopr.niscpr.res.in/bitstream/123456789/38817/1/IJMS%2013(4)%20168-171.pdf",
+      "https://www.vpmthane.org/sci/FAVEO/ko5.pdf"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
   }
 }
