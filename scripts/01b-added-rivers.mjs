@@ -320,18 +320,28 @@ function build(uid, entry, addedSoFar) {
   // Oshiwara meets the Malad Creek channel that the CWC draws as the Poisar's lower course.
   const meets = join ?? (entry.cutAt ? byUid.get(String(entry.cutAt)) : null);
   if (entry.cutAt && !meets) return { problems: [`cutAt uid ${entry.cutAt}, which is not in the data`] };
+  // A tidal creek is open water, kilometres wide. A stream that joins one ends at its own
+  // mouth on the shore: its line is not carried across the water to the creek's centre
+  // line. The creek's entry says how far from that line its shores lie (`shoreKm`: Thane
+  // Creek is 6 km wide at Belapur), and the stream's mouth must be within that distance.
+  const shoreKm = join ? list[join.uid]?.shoreKm : undefined;
+  let atShore = false;
   if (meets) {
     const snapKm = fromOsm ? JOIN_SNAP_OSM_KM : JOIN_SNAP_KM;
     let cut = line.findIndex(([x, y]) => pointToLineKm(x, y, meets.parts) <= snapKm);
     if (cut === -1) {
       const [x, y] = line[line.length - 1];
       const d = pointToLineKm(x, y, meets.parts);
-      if (d > JOIN_REACH_KM) problems.push(`ends ${d.toFixed(1)} km from ${meets.name}, which it is said to reach`);
+      if (d > (shoreKm ?? JOIN_REACH_KM)) problems.push(`ends ${d.toFixed(1)} km from ${meets.name}, which it is said to reach`);
+      atShore = !!shoreKm;
       cut = line.length;
     }
-    const tail = line[Math.min(cut, line.length - 1)];
-    line = [...line.slice(0, Math.max(cut, 1)), nearestOn(tail[0], tail[1], meets.parts)];
-    line = tidy(line.slice(0, -1)).concat([line[line.length - 1]]);
+    if (atShore) line = tidy(line);
+    else {
+      const tail = line[Math.min(cut, line.length - 1)];
+      line = [...line.slice(0, Math.max(cut, 1)), nearestOn(tail[0], tail[1], meets.parts)];
+      line = tidy(line.slice(0, -1)).concat([line[line.length - 1]]);
+    }
   } else {
     line = tidy(line);
   }

@@ -1381,5 +1381,12 @@
     "branchesAt": "East of the Deonar dumping ground, Mumbai",
     "end": "Thane Creek, 1 km north of the Trombay Creek's main mouth, Mumbai",
     "why": "Added from OSM. A distributary: the northern of the creek's two mouths on Thane Creek."
+  },
+  "40189": {
+    "name": "Thane Creek",
+    "branchedFrom": "8969",
+    "branchesAt": "Kasheli, north-east of Thane, Maharashtra",
+    "end": "Mumbai Harbour, between Trombay and Belapur",
+    "why": "Added from OSM (review/mumbai-streams.md). A tidal arm of Mumbai Harbour that meets the Ulhas at Kasheli; drawn as a branch of the Ulhas."
   }
 }

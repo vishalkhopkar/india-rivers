@@ -311,7 +311,8 @@ const un = await openRiver("Trombay Creek", [72.9175, 19.088], 14);
 check("Trombay Creek runs through Ghatkopar", !!un);
 if (un) {
   check("Origin", /Ghatkopar hills/.test(un.panel.rows["Origin"] ?? ""), un.panel.rows["Origin"]);
-  check("Mouth is the southern one, by the Vashi Bridge", /Thane Creek at Mankhurd/.test(un.panel.rows["Mouth"] ?? ""), un.panel.rows["Mouth"]);
+  check("Merges into Thane Creek", un.panel.rows["Merges into"] === "Thane Creek", JSON.stringify(un.panel.rows));
+  check("Confluence is the southern mouth, by the Vashi Bridge", /Thane Creek at Mankhurd/.test(un.panel.rows["Confluence"] ?? ""), un.panel.rows["Confluence"]);
 }
 const tcs = await openRiver("Trombay Creek", [72.95, 19.063], 14);
 check("Trombay Creek reaches its southern mouth", !!tcs);
@@ -319,9 +320,21 @@ const tcn = await openRiver("Trombay Creek (northern mouth)", [72.951, 19.0765],
 check("the northern mouth is on the map", !!tcn);
 if (tcn) {
   check("Branched off from", tcn.panel.rows["Branched off from"] === "Trombay Creek", JSON.stringify(tcn.panel.rows));
-  check("Mouth", /Thane Creek/.test(tcn.panel.rows["Mouth"] ?? ""), tcn.panel.rows["Mouth"]);
+  check("Merges into Thane Creek", tcn.panel.rows["Merges into"] === "Thane Creek", JSON.stringify(tcn.panel.rows));
   check("no Origin row", !("Origin" in tcn.panel.rows) && !("Origin near" in tcn.panel.rows), Object.keys(tcn.panel.rows).join(", "));
 }
+console.log("\nThane Creek (a branch of the Ulhas, from Kasheli to Mumbai Harbour):");
+const tk = await openRiver("Thane Creek", [72.975, 19.09], 12);
+check("Thane Creek is on the map", !!tk);
+if (tk) {
+  check("Branched off from", tk.panel.rows["Branched off from"] === "Ulhas", JSON.stringify(tk.panel.rows));
+  check("Branches off at Kasheli", /Kasheli/.test(tk.panel.rows["Branches off"] ?? ""), tk.panel.rows["Branches off"]);
+  check("Mouth", /Mumbai Harbour/.test(tk.panel.rows["Mouth"] ?? ""), tk.panel.rows["Mouth"]);
+  check("about 26 km", /^26\.\d km$/.test(tk.panel.rows["Length"]), tk.panel.rows["Length"]);
+  check("no Origin row", !("Origin" in tk.panel.rows) && !("Origin near" in tk.panel.rows), Object.keys(tk.panel.rows).join(", "));
+}
+const tku = await openRiver("Thane Creek", [72.99, 19.205], 13);
+check("Thane Creek runs up past Thane to the Ulhas", !!tku);
 console.log("\nSomaiyya Nalla (joins the Trombay Creek before Thane Creek):");
 const sn = await openRiver("Somaiyya Nalla", [72.9103, 19.07], 14);
 check("Somaiyya Nalla is on the map", !!sn);

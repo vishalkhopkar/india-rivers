@@ -235,8 +235,8 @@
   "40028": {
     "name": "Trombay Creek",
     "group": "trombay",
-    "joins": null,
-    "into": "Arabian Sea",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
     "why": "Rises in the Ghatkopar hills near R City Mall, runs through Ghatkopar East and along the north and east edges of the Deonar dumping ground, turns at Mankhurd and enters Thane Creek just north of the Vashi Bridge. The upper course is unnamed in OSM; the tidal reach is the OSM water area \"Trombay Creek\" (ways 626193633, 22824931), followed along stream way 204352219 to its southern, main mouth. A northern channel leaves it east of the dumping ground (40188).",
     "osmWays": [
       436218449,
@@ -3105,11 +3105,21 @@
   "40188": {
     "name": "Trombay Creek (northern mouth)",
     "group": "trombay",
-    "joins": null,
-    "into": "Arabian Sea",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
     "osmWays": [
       607578488
     ],
     "why": "Distributary of the Trombay Creek: OSM drain 607578488 leaves the creek east of the Deonar dumping ground and crosses the mangroves north-east to Thane Creek, about 1 km north of the main mouth. This was drawn as the creek's only mouth until the main, southern course was added."
+  },
+  "40189": {
+    "name": "Thane Creek",
+    "joins": null,
+    "into": "Arabian Sea",
+    "shoreKm": 3.5,
+    "osmWays": [
+      204365993
+    ],
+    "why": "The tidal creek between Salsette and the mainland, from the Ulhas at Kasheli to Mumbai Harbour. Upper 8.6 km, down to the Airoli Bridge, where the creek is 100-400 m wide: the OSM way \"Thane Creek\" (204365993), which starts on the OSM Ulhas line. Lower 17.7 km: the OSM way hugs the east bank as the creek widens and stops off Airoli, and below that OSM has no centre line (the water is sea inside natural=coastline), so the course is computed as the midline between the two OSM shorelines: the edges of the OSM water area (relation 8461125) down to 19.124 N, the coastline below. On each parallel it is the point equally far from the Salsette and Navi Mumbai shores, then smoothed. This is the first course on the map not taken directly from an OSM or HydroRIVERS line. Ended where the creek opens into the harbour between Trombay and Belapur, short of the Kasadi's line from Panvel Creek. shoreKm: streams that join the creek end at their mouths on its shores, up to 3 km from this line, and are not carried across the water."
   }
 }
