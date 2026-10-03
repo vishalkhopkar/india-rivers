@@ -1786,6 +1786,20 @@
     "confidence": "high",
     "region": "west (site owner)"
   },
+  "40224": {
+    "name": "Ulwe",
+    "category": "Engineering",
+    "fact": "This river used to flow north across what is now Navi Mumbai International Airport to reach Panvel Creek. To clear the site, the planning agency CIDCO cut a channel along the airport's southern edge and turned the river west into Moha Creek, near Targhar station. The work was finished in June 2019.",
+    "sources": [
+      "https://navimumbai.adaniairports.com/-/media/Images/AdaniAirNaviMumbaiAirport/Reports/Environmental-Compliances/Half-Yearly-Environment--CRZ-Compliance-Reports/NMIA_Half_Yearly_EC_Compliance_Report_Apr_2022_to_Sept_2022.pdf",
+      "https://en.wikipedia.org/wiki/Navi_Mumbai_International_Airport",
+      "https://www.airport-technology.com/projects/navi-mumbai-international-airport/",
+      "https://india.mongabay.com/2019/10/sky-bound-navi-mumbai-airport-leaves-project-affected-behind/",
+      "https://www.downtoearth.org.in/environment/navi-mumbai-airport-a-silent-conspiracy-1497"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
   "40229": {
     "name": "Nhava Creek",
     "category": "Transport",
