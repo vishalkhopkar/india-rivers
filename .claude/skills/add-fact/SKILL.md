@@ -1,6 +1,6 @@
 ---
 name: add-fact
-description: Add a Fun Fact to a river on the India rivers map - find the right river, verify the fact against sources, rewrite it in plain words, add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name> or asks to add a fun fact to a river.
+description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying), rewrite it in plain words, add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name> or asks to add a fun fact to a river.
 argument-hint: <river name>
 ---
 
@@ -27,26 +27,28 @@ own paragraph. Only the fact text is published. Do the steps in order.
      shapefile in `river_network_shape/`, and `npm run data:fetch` if `data/raw/` is empty). If the
      shapefile is not there, stop and tell the user. Tiles are not needed for a fact.
 
-2. **Verify.** Break the fact into its claims: every name, date, number, superlative and "first".
-   - Check each against pages you actually open (WebSearch, then WebFetch the page; a search snippet
-     is not a source). Aim for two independent sources per claim: government sites, reputable
-     newspapers, journals, encyclopaedias. Wikipedia plus the page it cites is one source, not two.
-   - A URL from the user is a reference to read, not text to copy, and it still needs a second source.
-   - Confirm the sources mean this river and not a namesake.
-   - Sources disagree: use the safer wording or a range ("the 1550s"). Cannot confirm a claim: drop it,
-     or soften it to what the sources do support. Never fill a gap from memory. If nothing worth
-     saying survives, add nothing and report why.
-   - `confidence` is `high` when every claim is confirmed and the sources agree, `medium` when the fact
-     rests on one source or the sources differ on a detail the wording steps around. Below that, do
-     not add it.
+2. **Take the user's fact as given. Do not verify it.** The owner finds these facts online before
+   submitting them; searching for them again wastes tokens.
+   - No WebSearch or WebFetch to confirm what the user wrote, and do not open a URL they gave: it goes
+     into `sources` as it is.
+   - **Do not re-check geography against OSM or any other map data.** If the user says a river forms
+     a boundary, flows to X, passes Y or was diverted, that is what the fact says. No Overpass
+     queries, no boundary or reverse-geocoding checks, no measuring the line.
+   - Research only when the user asks for it: they tell you to verify, they ask you to add something
+     they did not supply ("add some history of when the port was built"), or they give no fact at
+     all. Then look up that part only, on pages you actually open, and record those URLs.
+   - If something in the fact is plainly wrong from what you already know, say so in one line in the
+     report and add the fact as written. Do not go searching to settle it.
+   - `confidence`: `owner` for a fact taken on the owner's word; `high` or `medium` only for parts
+     you researched yourself.
    - **No fact given:** research and propose up to three, each with its sources, and add the one the
      user picks (pick yourself only if they said to). A fact must not be textbook or cliché: aim for
      "I didn't know that". A long inter-state river gets a fact that matters to the whole country; a
      short river gets a local one that even people living on it may not know. If the user's own fact
      is the textbook kind, say so once, then add it; it is their call.
 
-3. **Write it in your own words**, from the verified claims and not from the user's or a source's
-   sentences.
+3. **Write it in your own words**, keeping every claim the user made and adding none of your own
+   (beyond research they asked for).
    - One to three sentences, plain text, one paragraph: no markdown, no "Did you know". Aim for 35-60
      words. Over 80 the build fails, and well before that the panel stops fitting a phone.
    - Plain and specific: names, dates and numbers, not adjectives. The panel heading already names the
@@ -63,7 +65,7 @@ own paragraph. Only the fact text is published. Do the steps in order.
    entries in ascending uid order.
    - **River already has a fact: never replace it.** Turn `fact` into an array and append
      (`"fact": ["<old>", "<new>"]`, see `8969`), append the new URLs to `sources`, keep `name`,
-     `category` and `region`, and set `confidence` to the lower of the two.
+     `category` and `region`, and set `confidence` to the weaker of the two (`owner` is the weakest).
    - **New river:** insert the entry at its place in uid order.
      - `name`: the name the lookup shows, or its `dataset` name. Anything else trips the name check.
      - `category`: reuse one in the file (History, Engineering, Dams and reservoirs, Wildlife,
@@ -72,14 +74,15 @@ own paragraph. Only the fact text is published. Do the steps in order.
      - `region`: `national` for a long inter-state river, else `north`, `south`, `east` or `west`. Add
        ` (site owner)` when the fact came from the user, e.g. `"west (site owner)"`. Curation record
        only; not shown.
-   - `sources`: the URLs you opened that support the final wording. Leave out pages that turned out
-     wrong or unused, including the user's.
+   - `sources`: the URLs the user gave, plus any you opened for research they asked for. The build
+     needs at least one entry, so when the user gave no URL use `["site owner"]`.
    - `git diff data/river-facts.json` must show your lines and nothing else.
 
 5. **Check.** All of these must pass before committing; if the text changes, start again from (a).
    - (a) `npm run data:facts` validates and writes `public/river-facts.json` (never edit that file by
      hand). It fails on a fact over 80 words, an entry with no source, or a uid not on the map. A
      "name mismatches" line naming your uid means the wrong river or the wrong `name`: fix it.
+     Unnamed rivers are not checked; give them `"name": "(unnamed)"`.
    - (b) `npx tsc --noEmit`.
    - (c) The dev server must be on port 5174. `curl -s -o /dev/null -w "%{http_code}" http://localhost:5174/`
      should print 200; if not, start `npx vite --port 5174 --strictPort` in the background. Leave a
@@ -108,8 +111,8 @@ own paragraph. Only the fact text is published. Do the steps in order.
 7. **Report**, briefly:
    - the river and uid, and how it was told apart from its namesakes if there were any;
    - the final text and its word count;
-   - each claim and the source that confirmed it;
-   - everything changed from the user's wording (dropped, softened, corrected) and why;
+   - anything you researched because the user asked, with its source;
+   - anything in the fact you believe is wrong (one line; it is still added as written);
    - the commit hash and that the push succeeded.
 
 Never send the owner's email address to an outside service, in a header, URL or form. If a request
