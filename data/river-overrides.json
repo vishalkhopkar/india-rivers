@@ -195,6 +195,11 @@
     "endNear": true,
     "why": "Auto described a Kerala source relative to Tirunelveli, Tamil Nadu."
   },
+  "9402": {
+    "name": "Kumaradhari",
+    "rename": "Kumaradhara",
+    "why": "The dataset spells it Kumaradhari; the river is the Kumaradhara, which passes Kukke Subramanya and joins the Netravati at Uppinangady (owner's request)."
+  },
   "9727": {
     "name": "Periyar River",
     "origin": "Sivagiri hills, Periyar Tiger Reserve (Western Ghats), Kerala",
