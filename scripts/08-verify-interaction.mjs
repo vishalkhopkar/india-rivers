@@ -306,17 +306,26 @@ if (dk) {
   check("Formed by", dk.panel.rows["Formed by"] === "Confluence of Desai Khadi (south branch) and Desai Khadi (north branch)" || dk.panel.rows["Formed by"] === "Confluence of Desai Khadi (north branch) and Desai Khadi (south branch)", dk.panel.rows["Formed by"]);
   check("Merges into", dk.panel.rows["Merges into"] === "Ulhas", dk.panel.rows["Merges into"]);
 }
-console.log("\nUnnamed river past the Deonar dumping ground:");
-const un = await openRiver("", [72.9175, 19.088], 14);
-check("unnamed river is on the map", !!un);
+console.log("\nTrombay Creek (from Ghatkopar past the Deonar dumping ground; two mouths on Thane Creek):");
+const un = await openRiver("Trombay Creek", [72.9175, 19.088], 14);
+check("Trombay Creek runs through Ghatkopar", !!un);
 if (un) {
-  check("heading", un.panel.heading === "Unnamed river", un.panel.heading);
-  check("Mouth", /Thane Creek/.test(un.panel.rows["Mouth"] ?? ""), un.panel.rows["Mouth"]);
+  check("Origin", /Ghatkopar hills/.test(un.panel.rows["Origin"] ?? ""), un.panel.rows["Origin"]);
+  check("Mouth is the southern one, by the Vashi Bridge", /Thane Creek at Mankhurd/.test(un.panel.rows["Mouth"] ?? ""), un.panel.rows["Mouth"]);
 }
-console.log("\nSomaiyya Nalla (joins the unnamed river before Thane Creek):");
+const tcs = await openRiver("Trombay Creek", [72.95, 19.063], 14);
+check("Trombay Creek reaches its southern mouth", !!tcs);
+const tcn = await openRiver("Trombay Creek (northern mouth)", [72.951, 19.0765], 14);
+check("the northern mouth is on the map", !!tcn);
+if (tcn) {
+  check("Branched off from", tcn.panel.rows["Branched off from"] === "Trombay Creek", JSON.stringify(tcn.panel.rows));
+  check("Mouth", /Thane Creek/.test(tcn.panel.rows["Mouth"] ?? ""), tcn.panel.rows["Mouth"]);
+  check("no Origin row", !("Origin" in tcn.panel.rows) && !("Origin near" in tcn.panel.rows), Object.keys(tcn.panel.rows).join(", "));
+}
+console.log("\nSomaiyya Nalla (joins the Trombay Creek before Thane Creek):");
 const sn = await openRiver("Somaiyya Nalla", [72.9103, 19.07], 14);
 check("Somaiyya Nalla is on the map", !!sn);
-if (sn) check("Merges into", sn.panel.rows["Merges into"] === "Unnamed river", sn.panel.rows["Merges into"]);
+if (sn) check("Merges into", sn.panel.rows["Merges into"] === "Trombay Creek", sn.panel.rows["Merges into"]);
 console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
 const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
 check("Chhoti Yamuna clickable", !!cy);

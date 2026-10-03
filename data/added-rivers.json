@@ -233,10 +233,11 @@
     ]
   },
   "40028": {
-    "name": "",
+    "name": "Trombay Creek",
+    "group": "trombay",
     "joins": null,
     "into": "Arabian Sea",
-    "why": "Unnamed. Rises in the Ghatkopar hills near R City Mall, runs through Ghatkopar East and along the north edge of the Deonar dumping ground into Thane Creek. Unnamed OSM waterways.",
+    "why": "Rises in the Ghatkopar hills near R City Mall, runs through Ghatkopar East and along the north and east edges of the Deonar dumping ground, turns at Mankhurd and enters Thane Creek just north of the Vashi Bridge. The upper course is unnamed in OSM; the tidal reach is the OSM water area \"Trombay Creek\" (ways 626193633, 22824931), followed along stream way 204352219 to its southern, main mouth. A northern channel leaves it east of the dumping ground (40188).",
     "osmWays": [
       436218449,
       939595939,
@@ -244,8 +245,7 @@
       1315099371,
       1315099370,
       222971844,
-      204352219,
-      607578488
+      204352219
     ]
   },
   "40029": {
@@ -345,12 +345,12 @@
   "40037": {
     "name": "Somaiyya Nalla",
     "joins": "40028",
-    "joinsName": "",
+    "joinsName": "Trombay Creek",
     "osmWays": [
       153950472,
       841044962
     ],
-    "why": "OSM \"Somaiyya Nalla\": rises at Tilak Nagar, about 1 km from Lokmanya Tilak Terminus, runs east under the Eastern Express Highway, along the Ghatkopar-Mankhurd Link Road and east to the unnamed river at the north-west corner of the Deonar dumping ground; their joint channel reaches Thane Creek."
+    "why": "OSM \"Somaiyya Nalla\": rises at Tilak Nagar, about 1 km from Lokmanya Tilak Terminus, runs east under the Eastern Express Highway, along the Ghatkopar-Mankhurd Link Road and east to the Trombay Creek at the north-west corner of the Deonar dumping ground; the creek runs on to Thane Creek at Mankhurd."
   },
   "40038": {
     "name": "",
@@ -3101,5 +3101,15 @@
       1459250647
     ],
     "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 100%; falls 29 m."
+  },
+  "40188": {
+    "name": "Trombay Creek (northern mouth)",
+    "group": "trombay",
+    "joins": null,
+    "into": "Arabian Sea",
+    "osmWays": [
+      607578488
+    ],
+    "why": "Distributary of the Trombay Creek: OSM drain 607578488 leaves the creek east of the Deonar dumping ground and crosses the mangroves north-east to Thane Creek, about 1 km north of the main mouth. This was drawn as the creek's only mouth until the main, southern course was added."
   }
 }

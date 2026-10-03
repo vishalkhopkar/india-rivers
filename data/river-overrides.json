@@ -407,10 +407,10 @@
     "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
   },
   "40028": {
-    "name": "",
+    "name": "Trombay Creek",
     "origin": "Ghatkopar hills near R City Mall, Mumbai",
-    "end": "Thane Creek, north of the Deonar dumping ground, Mumbai",
-    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+    "end": "Thane Creek at Mankhurd, just north of the Vashi Bridge, Mumbai",
+    "why": "Added from OSM. The stream from Ghatkopar is the head of the Trombay Creek; its main mouth is the southern one, by the Vashi Bridge."
   },
   "40029": {
     "name": "Desai Khadi (north branch)",
@@ -472,7 +472,7 @@
   "40037": {
     "name": "Somaiyya Nalla",
     "origin": "Tilak Nagar, near Lokmanya Tilak Terminus, Mumbai",
-    "end": "North-west corner of the Deonar dumping ground, Mumbai",
+    "end": "The Trombay Creek at the north-west corner of the Deonar dumping ground, Mumbai",
     "why": "Added river; the automatic description reads only \"Mumbai\"."
   },
   "40038": {
@@ -1374,5 +1374,12 @@
     "origin": "Ramohalli, west of Bengaluru",
     "end": "Bidadi, south-west of Bengaluru",
     "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40188": {
+    "name": "Trombay Creek (northern mouth)",
+    "branchedFrom": "40028",
+    "branchesAt": "East of the Deonar dumping ground, Mumbai",
+    "end": "Thane Creek, 1 km north of the Trombay Creek's main mouth, Mumbai",
+    "why": "Added from OSM. A distributary: the northern of the creek's two mouths on Thane Creek."
   }
 }
