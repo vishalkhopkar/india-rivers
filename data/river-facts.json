@@ -475,6 +475,16 @@
     "confidence": "high",
     "region": "national"
   },
+  "6554": {
+    "name": "Wardha",
+    "category": "Names and etymology",
+    "fact": "The city of Wardha is named after the river although it is not situated on its banks. The town of Wardha was actually built by the British in 1862 as one of the first pre-planned cities. On the other hand, Pulgaon, which in Marathi means \"the town on the bridge\", is indeed situated on the banks of this river and was inhabited by hundreds of workers working on the railway bridge which connects Mumbai to Kolkata.",
+    "sources": [
+      "https://wardha.gov.in/en/about-district/"
+    ],
+    "confidence": "owner",
+    "region": "national (site owner)"
+  },
   "6829": {
     "name": "Palar",
     "category": "Environment",
@@ -579,7 +589,7 @@
     "category": "Pilgrimage",
     "fact": "On the banks of the river lies the samadhi of Gajanan Maharaj, a revered saint from Maharashtra. The river is almost entirely dry and the Anand Sagar reservoir on this river actually gets most of its water from the Man river, 9 km to its east. The Shri Gajanan Maharaj Sansthan also has a walkway from the samadhi temple to Anand Vihar, a recreational site just north of Anand Sagar which runs along the course of this river.",
     "sources": [
-      "site owner"
+      "https://buldhana.nic.in/en/tourist-place/anand-sagarshegaon/"
     ],
     "confidence": "owner",
     "region": "west (site owner)"
