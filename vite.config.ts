@@ -36,6 +36,10 @@ export default defineConfig(({ command, isPreview }) => ({
   // maplibre-gl into .vite/deps/ without its worker. Serving it unbundled keeps the
   // pair together.
   optimizeDeps: { exclude: ["maplibre-gl"] },
+  // A browser download in progress in the project folder is locked by the browser, and
+  // watching it crashes the dev server (EBUSY). The scratch and source data aren't served
+  // from here either.
+  server: { watch: { ignored: ["**/*.crdownload", "**/*.part", "**/build/**", "**/data/raw/**"] } },
   build: {
     target: "es2022",
     // The PMTiles archive is served as a static asset, never inlined.
