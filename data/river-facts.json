@@ -1705,6 +1705,49 @@
     "confidence": "high",
     "region": "west"
   },
+  "40027": {
+    "name": "Mahul Creek",
+    "category": "Geography",
+    "fact": "For its last 5 km, from near Sion to the harbour, this creek divides Mumbai City district on the west bank from Mumbai Suburban district on the east. It passes the Wadala truck terminal, salt pans and mangroves on its way to the refineries of Mahul; Bhakti Park is one of the few housing complexes beside it.",
+    "sources": [
+      "https://www.openstreetmap.org/relation/7964376",
+      "https://www.openstreetmap.org/relation/7964375",
+      "https://en.wikipedia.org/wiki/Chembur",
+      "https://en.wikipedia.org/wiki/Mahul",
+      "https://en.wikipedia.org/wiki/Wadala",
+      "https://zoosprint.org/index.php/zpj/article/view/6321/",
+      "https://www.businesstoday.in/latest/corporate/story/hpcl-bpcl-2-others-fined-rs-286-crore-for-polluting-mumbai-areas-270158-2020-08-15"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
+  "40031": {
+    "name": "Desai Khadi",
+    "category": "Disasters",
+    "fact": "Lodha Group's Palava City township stands along this creek. On 4 August 2019, after heavy rain, about 25 of its 400-odd buildings were flooded, mostly in the Casa Rio sector. The NGO Vanashakti blamed the reclaiming of the river's flood plain; Lodha said the design keeps a natural buffer between river and buildings and called it extreme weather.",
+    "sources": [
+      "https://www.thequint.com/news/india/maharashtra-rains-navi-mumbai-dombivli-still-waterlogged",
+      "https://www.asianage.com/metros/mumbai/070819/greens-blame-crz-norms-for-flooding.html",
+      "https://www.dnaindia.com/mumbai/report-mumbai-palava-city-mgmt-work-with-residents-to-restore-normalcy-within-24-hrs-post-unprecedented-rains-2780492",
+      "https://www.openstreetmap.org/node/8729122917"
+    ],
+    "confidence": "medium",
+    "region": "west (site owner)"
+  },
+  "40037": {
+    "name": "Somaiyya Nalla",
+    "category": "Geography",
+    "fact": "This nalla and the Trombay Creek it joins form a boundary between Mumbai's municipal wards for nearly 7 km. N ward, which covers Ghatkopar, lies to the north. To the south are first M West ward, with Tilak Nagar and Chembur, and then M East ward, with Govandi.",
+    "sources": [
+      "https://www.openstreetmap.org/relation/7885388",
+      "https://www.openstreetmap.org/relation/7885389",
+      "https://www.openstreetmap.org/relation/7885392",
+      "https://en.wikipedia.org/wiki/Chembur",
+      "https://en.wikipedia.org/wiki/Administrative_divisions_of_Mumbai"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
   "40189": {
     "name": "Thane Creek",
     "category": "Geography",
@@ -1739,6 +1782,20 @@
       "https://en.wikipedia.org/wiki/Thane",
       "https://en.wikipedia.org/wiki/Salsette_Island",
       "https://www.openstreetmap.org/way/235950468"
+    ],
+    "confidence": "high",
+    "region": "west (site owner)"
+  },
+  "40229": {
+    "name": "Nhava Creek",
+    "category": "Transport",
+    "fact": "Jawaharlal Nehru Port, better known as Nhava Sheva after two villages here, stands at this creek's mouth, about 2 km from Elephanta Island, which shelters it as a natural breakwater. It was commissioned on 26 May 1989 to take the load off the congested Mumbai Port across the harbour and is among India's largest container ports.",
+    "sources": [
+      "https://www.sebi.gov.in/sebi_data/attachdocs/1362726045137.pdf",
+      "https://en.wikipedia.org/wiki/Jawaharlal_Nehru_Port",
+      "https://vajiramandravi.com/current-affairs/jawaharlal-nehru-port/",
+      "https://www.openstreetmap.org/way/49499133",
+      "https://www.openstreetmap.org/way/22825787"
     ],
     "confidence": "high",
     "region": "west (site owner)"
