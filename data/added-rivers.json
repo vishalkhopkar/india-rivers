@@ -2323,5 +2323,492 @@
       1188439482
     ],
     "why": "Bengaluru stream network, from OSM waterways (BBMP drain MD284). Natural course: on the valley floor in elevation data for 71%; in a tank chain (Hoodi Lake); falls 11 m."
+  },
+  "40123": {
+    "name": "",
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "minKm": 1.5,
+    "osmWays": [
+      1280151232,
+      1279688012,
+      1244965475,
+      1244965480,
+      1244965477,
+      172937215,
+      1272747374,
+      172937216,
+      1435828411,
+      1435831205,
+      1279894939,
+      766396098
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 79% of its length; on the valley floor in elevation data for 58%; in a tank chain (Tarabanahalli Lake, Doddajala Kere, Buttramarennahalli Lake, Budigere Lake); falls 49 m."
+  },
+  "40124": {
+    "name": "",
+    "joins": "40123",
+    "minKm": 1.5,
+    "osmWays": [
+      1242565625,
+      1242565624,
+      1239827455,
+      1341868008,
+      1341868007,
+      1341463706,
+      1239827452,
+      1187884324,
+      1187884322,
+      765689606,
+      1285457459,
+      765689605,
+      766396096,
+      766396099,
+      766396098
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 80% of its length; on the valley floor in elevation data for 78%; in a tank chain (Bagaluru Kere, Gummanahalli Lake, Budigere Lake); falls 34 m."
+  },
+  "40125": {
+    "name": "",
+    "joins": "40123",
+    "minKm": 1.5,
+    "osmWays": [
+      1297712134,
+      1533511172,
+      1533511171
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 65%; in a tank chain (Chikkajala Lake); falls 9 m."
+  },
+  "40126": {
+    "name": "",
+    "joins": "40124",
+    "minKm": 1.5,
+    "osmWays": [
+      1318066905,
+      1092686470,
+      1234505667,
+      1234505666
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 51% of its length; on the valley floor in elevation data for 85%; in a tank chain (Gummanahalli Lake); falls 12 m."
+  },
+  "40127": {
+    "name": "",
+    "joins": "40124",
+    "minKm": 1.5,
+    "osmWays": [
+      1318777642,
+      1318777643,
+      675507288,
+      675507287
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain BD404). Natural course: on the valley floor in elevation data for 46%; in a tank chain (Bagaluru Kere); falls 13 m."
+  },
+  "40128": {
+    "name": "",
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "minKm": 1.5,
+    "osmWays": [
+      674181136,
+      674181133,
+      674181134,
+      1110957802,
+      1110957807,
+      1110957806,
+      1110957803,
+      1351749150,
+      1351749149,
+      1110957808,
+      1110957809,
+      1110957812,
+      1110957813,
+      1110957816,
+      1110957817,
+      674181137,
+      674181126,
+      1369651480,
+      1369651481,
+      1104925566,
+      1104925567,
+      674181125,
+      674181120,
+      674181119,
+      1113271758,
+      1113271759,
+      1113271756,
+      1113271757,
+      674181123
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 63% of its length; on the valley floor in elevation data for 83%; in a tank chain (Doddabidirakallu Kere); falls 74 m."
+  },
+  "40129": {
+    "name": "",
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1227969790,
+      1227969791,
+      1227969792,
+      1227969793,
+      674735136,
+      1227969789,
+      1227969788,
+      1227969787,
+      1227969786,
+      674735135,
+      674735140,
+      135267828,
+      1507512176,
+      1156552711,
+      1156552712,
+      1156552707,
+      1156552708,
+      1156552713,
+      1156552714,
+      674735142,
+      1156552721,
+      1156552718,
+      1156552717
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 51% of its length; on the valley floor in elevation data for 82%; in a tank chain (Kammagondanahalli Lake, Chikkabanavara Lake); falls 67 m."
+  },
+  "40130": {
+    "name": "",
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "minKm": 1.5,
+    "osmWays": [
+      675669763,
+      46951301,
+      675669759,
+      1109972567,
+      1109972566,
+      1109928002,
+      1109928001,
+      1383925245,
+      1383925244,
+      675669757,
+      675679603,
+      1231042087,
+      1231042088,
+      1351780141,
+      1351780140,
+      675679601
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 60% of its length; on the valley floor in elevation data for 77%; in a tank chain (Gangondanahalli Lake, Narasappanahalli Lake); falls 81 m. The line crosses the lake(s) on its way."
+  },
+  "40131": {
+    "name": "",
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1545402571,
+      1545402572,
+      1545402573,
+      1545402574,
+      1545402575,
+      675669768,
+      1157849797,
+      1157849796,
+      1157849803,
+      1157849802,
+      1227719514,
+      1227719515,
+      379036230,
+      1362783511
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 55%; in a tank chain (Byalakere Lake); falls 45 m."
+  },
+  "40132": {
+    "name": "",
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "minKm": 1.5,
+    "osmWays": [
+      1362793299
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 98% of its length; on the valley floor in elevation data for 45%; in a tank chain (Hesaraghatta Lake); falls 17 m."
+  },
+  "40133": {
+    "name": "",
+    "joins": "40130",
+    "minKm": 1.5,
+    "osmWays": [
+      1075569416,
+      1282712217,
+      1282712216,
+      1282712215,
+      1282712214,
+      1075569407,
+      1075569421,
+      1075569418,
+      1231301433,
+      1231301432
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 73%; in a tank chain (Kachohalli Kere); falls 47 m. 0.2 km of it bridges gaps in the OSM mapping. The line crosses the lake(s) on its way."
+  },
+  "40134": {
+    "name": "",
+    "joins": "40128",
+    "minKm": 1.5,
+    "osmWays": [
+      1281214407,
+      1281206624,
+      1287270771,
+      1287270770,
+      1287270763,
+      1287270762
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 67%; falls 40 m."
+  },
+  "40135": {
+    "name": "",
+    "joins": "40129",
+    "minKm": 1.5,
+    "osmWays": [
+      675686738,
+      1297584652,
+      674735132,
+      1382484875,
+      1382484876,
+      1507512144,
+      1507512143,
+      1308145206
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 81%; in a tank chain (Singapura Kere, Chikkabanavara Lake); falls 47 m. The line crosses the lake(s) on its way."
+  },
+  "40136": {
+    "name": "",
+    "joins": "40130",
+    "minKm": 1.5,
+    "osmWays": [
+      675669767
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 89%; falls 54 m."
+  },
+  "40137": {
+    "name": "",
+    "joins": "40129",
+    "minKm": 1.5,
+    "osmWays": [
+      1505643979,
+      1505643980,
+      1505643983,
+      1505643984,
+      1381021041,
+      383572769,
+      383572770,
+      674735148,
+      1200818456,
+      383572771,
+      674735146
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 90%; in a tank chain (Mallasandra Lake); falls 27 m."
+  },
+  "40138": {
+    "name": "",
+    "joins": "40128",
+    "minKm": 1.5,
+    "osmWays": [
+      1110247819,
+      1110247820,
+      1383280114,
+      1087826089
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 70%; falls 25 m."
+  },
+  "40139": {
+    "name": "",
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "minKm": 1.5,
+    "osmWays": [
+      350300586,
+      1071407126,
+      1071407125,
+      1188673752,
+      350300590,
+      1302845997,
+      1302845996,
+      1089439889,
+      1089439888,
+      1089439887,
+      1089439886,
+      1089439885,
+      1089439884,
+      1089439871,
+      1089439870,
+      1089439883,
+      1089439882,
+      1368343967,
+      1368343966,
+      1368343965,
+      1368343964,
+      1368343963,
+      1368343962,
+      350300587,
+      350304386,
+      1092941880
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 61% of its length; on the valley floor in elevation data for 54%; in a tank chain (Beratena Agrahara Lake, Rayasandra Lake, Gattahalli Lake, Huskur Lake); falls 49 m. The line crosses the lake(s) on its way."
+  },
+  "40140": {
+    "name": "",
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "minKm": 1.5,
+    "osmWays": [
+      1227736191,
+      1227736194,
+      1227736193,
+      1227736192,
+      794312129,
+      794312128,
+      794312127,
+      413020108,
+      1229014749,
+      1229014750,
+      1229014748,
+      1229014745,
+      1229014741,
+      1229014744,
+      1229014743,
+      1229014742,
+      1229014740,
+      1229014739,
+      1229014738,
+      1229014746,
+      1229014747,
+      1229014737,
+      1227770325,
+      1227770324,
+      1178403073
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 62%; in a tank chain (Bidi Lake, Nanjapura Lake); falls 43 m."
+  },
+  "40141": {
+    "name": "",
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "minKm": 1.5,
+    "osmWays": [
+      1094549438,
+      1092941871,
+      1109987982,
+      1109987981,
+      1238771676,
+      1092941870,
+      1109924343,
+      1109924342,
+      1092941869,
+      1092941868,
+      1092941866
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on a HydroRIVERS valley line for 63% of its length; on the valley floor in elevation data for 71%; in a tank chain (Hebbagodi Lake); falls 35 m. 0.4 km of it bridges gaps in the OSM mapping. The line crosses the lake(s) on its way."
+  },
+  "40142": {
+    "name": "",
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "minKm": 1.5,
+    "osmWays": [
+      1353901374,
+      1188688484
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 67%; in a tank chain (Gudahatti Lake, Bidaraguppe Lake); falls 18 m."
+  },
+  "40143": {
+    "name": "",
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "minKm": 1.5,
+    "osmWays": [
+      1266781455
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 84%; falls 3 m."
+  },
+  "40144": {
+    "name": "",
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "minKm": 1.5,
+    "osmWays": [
+      1092941862
+    ],
+    "why": "Bengaluru stream network, from OSM waterways (BBMP drain BD916). Natural course: on the valley floor in elevation data for 52%; in a tank chain (Kachanayakanahalli Lake); falls 15 m. 0.2 km of it bridges gaps in the OSM mapping."
+  },
+  "40145": {
+    "name": "",
+    "joins": "40139",
+    "minKm": 1.5,
+    "osmWays": [
+      1125378110,
+      1125378109,
+      1125378108,
+      1125378107,
+      1125378106,
+      1092941876,
+      1125378105,
+      1125378104
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: in a tank chain (Shingena Agrahara Lake); falls 12 m. The line crosses the lake(s) on its way."
+  },
+  "40146": {
+    "name": "",
+    "joins": "40139",
+    "minKm": 1.5,
+    "osmWays": [
+      1428009697
+    ],
+    "why": "Bengaluru stream network, from OSM waterways. Natural course: on the valley floor in elevation data for 68%; falls 13 m."
+  },
+  "40147": {
+    "name": "",
+    "hydroSource": 41352525,
+    "hydroOutlet": 41353536,
+    "joins": "7707",
+    "joinsName": "Vrishabhavati",
+    "why": "Bengaluru stream network: the valley of Agara Lake, west of Kanakapura Road, a HydroRIVERS drainage line with a 48 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40148": {
+    "name": "",
+    "hydroSource": 41347375,
+    "hydroOutlet": 41347782,
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "why": "Bengaluru stream network: the valley of Alur Lake, a HydroRIVERS drainage line with a 38 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40149": {
+    "name": "",
+    "hydroSource": 41347454,
+    "hydroOutlet": 41347906,
+    "joins": "7730",
+    "joinsName": "Arkavati",
+    "why": "Bengaluru stream network: the valley of Dasanapura Lake, a HydroRIVERS drainage line with a 36 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40150": {
+    "name": "",
+    "hydroSource": 41348066,
+    "hydroOutlet": 41348351,
+    "joins": "40049",
+    "why": "Bengaluru stream network: the valley of Bidarahalli Lake, a HydroRIVERS drainage line with a 19 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40151": {
+    "name": "",
+    "hydroSource": 41351178,
+    "hydroOutlet": 41352013,
+    "joins": "4132",
+    "joinsName": "Ponnaiyar/Dakshina Pinakini",
+    "why": "Bengaluru stream network: the valley of Sarjapur's Doddakere, a HydroRIVERS drainage line with a 46 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40152": {
+    "name": "",
+    "hydroSource": 41353978,
+    "hydroOutlet": 41353394,
+    "joins": "3718",
+    "joinsName": "Chinnar R",
+    "why": "Bengaluru stream network: the valley running north-east from Anekal, a HydroRIVERS drainage line with a 107 km2 catchment. OSM has no connected waterway along it, so the course is HydroRIVERS'."
   }
 }

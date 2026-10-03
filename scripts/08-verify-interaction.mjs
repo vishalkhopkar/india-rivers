@@ -433,6 +433,12 @@ if (h400) check("H-400 merges into H-300", h400.panel.rows["Merges into"] === "H
 const yj = await openRiver("", [77.588, 13.118], 14);
 check("the Yelahanka-Jakkur stream is on the map", !!yj);
 if (yj) check("it merges into H-200 below Nagavara", yj.panel.heading === "Unnamed river" && yj.panel.rows["Merges into"] === "Hebbal Valley (H-200)", JSON.stringify(yj.panel.rows));
+const ec = await openRiver("", [77.708, 12.868], 14);
+check("the Huskur lake-chain stream is on the map", !!ec);
+if (ec) check("it merges into the Chinnar", /Chinnar/.test(ec.panel.rows["Merges into"] ?? ""), JSON.stringify(ec.panel.rows));
+const dj = await openRiver("", [77.66, 13.186], 14);
+check("the Doddajala stream is on the map", !!dj);
+if (dj) check("it merges into the Dakshina Pinakini", /Dakshina Pinakini/.test(dj.panel.rows["Merges into"] ?? ""), JSON.stringify(dj.panel.rows));
 
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);

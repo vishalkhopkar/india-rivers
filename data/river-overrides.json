@@ -984,5 +984,185 @@
     "origin": "Hoodi, Bengaluru",
     "end": "Hoodi, Bengaluru",
     "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40123": {
+    "name": "",
+    "origin": "Chikkajala, north of Bengaluru",
+    "end": "The Dakshina Pinakini near Budigere, north-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40124": {
+    "name": "",
+    "origin": "Chikkajala, north of Bengaluru",
+    "end": "Budigere Lake, north-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40125": {
+    "name": "",
+    "origin": "Chikkajala, north of Bengaluru",
+    "end": "Chikkajala, north of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40126": {
+    "name": "",
+    "origin": "Bagalur, north-east of Bengaluru",
+    "end": "Gummanahalli Lake, north-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40127": {
+    "name": "",
+    "origin": "Bagalur, north of Bengaluru",
+    "end": "Bagaluru Kere, north of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40128": {
+    "name": "",
+    "origin": "Peenya, Bengaluru",
+    "end": "The Arkavati near Madanayakanahalli, north-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40129": {
+    "name": "",
+    "origin": "Jalahalli, Bengaluru",
+    "end": "The Arkavati near Chikkabanavara, north-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40130": {
+    "name": "",
+    "origin": "Laggere, Bengaluru",
+    "end": "The Arkavati near Madanayakanahalli, west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40131": {
+    "name": "",
+    "origin": "Chikkabanavara, north-west of Bengaluru",
+    "end": "The Arkavati near Hesaraghatta, north-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40132": {
+    "name": "",
+    "origin": "Hesaraghatta, north-west of Bengaluru",
+    "end": "Hesaraghatta Lake, north-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40133": {
+    "name": "",
+    "origin": "Herohalli, Bengaluru",
+    "end": "Herohalli, west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40134": {
+    "name": "",
+    "origin": "Nagasandra, Bengaluru",
+    "end": "Madanayakanahalli, north-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40135": {
+    "name": "",
+    "origin": "Vidyaranyapura, Bengaluru",
+    "end": "Chikkabanavara Lake, north-west of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40136": {
+    "name": "",
+    "origin": "Laggere, Bengaluru",
+    "end": "Herohalli, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40137": {
+    "name": "",
+    "origin": "Mallasandra Lake, Bengaluru",
+    "end": "Chikkabanavara, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40138": {
+    "name": "",
+    "origin": "Nagasandra, Bengaluru",
+    "end": "Nagasandra, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40139": {
+    "name": "",
+    "origin": "Electronic City, Bengaluru",
+    "end": "The Chinnar near Attibele, south-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40140": {
+    "name": "",
+    "origin": "Bannerghatta, south of Bengaluru",
+    "end": "The Chinnar near Jigani, south of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40141": {
+    "name": "",
+    "origin": "Hebbagodi, south-east of Bengaluru",
+    "end": "The Chinnar near Chandapura, south-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40142": {
+    "name": "",
+    "origin": "Gudahatti Lake, south-east of Bengaluru",
+    "end": "Bidaraguppe Lake, south-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40143": {
+    "name": "",
+    "origin": "Hennagara, south of Bengaluru",
+    "end": "The Chinnar near Jigani, south of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40144": {
+    "name": "",
+    "origin": "Kachanayakanahalli Lake, south-east of Bengaluru",
+    "end": "The Chinnar near Hennagara, south-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40145": {
+    "name": "",
+    "origin": "Huskur, south-east of Bengaluru",
+    "end": "Shingena Agrahara Lake, south-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40146": {
+    "name": "",
+    "origin": "Huskur, south-east of Bengaluru",
+    "end": "Huskur, south-east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40147": {
+    "name": "",
+    "origin": "Thalaghattapura, Bengaluru",
+    "end": "The Vrishabhavati above Byramangala Reservoir, near Bidadi",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40148": {
+    "name": "",
+    "origin": "Alur, north-west of Bengaluru",
+    "end": "The Arkavati near Madanayakanahalli, north-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40149": {
+    "name": "",
+    "origin": "Near Nelamangala, north-west of Bengaluru",
+    "end": "The Arkavati near Dasanapura, north-west of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40150": {
+    "name": "",
+    "origin": "Bidarahalli, north-east of Bengaluru",
+    "end": "Above Yellamallappa Chetty Lake, east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40151": {
+    "name": "",
+    "origin": "Sarjapur, south-east of Bengaluru",
+    "end": "The Dakshina Pinakini east of Sarjapur",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40152": {
+    "name": "",
+    "origin": "Anekal, south of Bengaluru",
+    "end": "The Chinnar near Attibele, south-east of Bengaluru",
+    "why": "Added from HydroRIVERS (Bengaluru stream network, review/bengaluru-streams.md)."
   }
 }
