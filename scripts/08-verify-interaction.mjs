@@ -424,6 +424,9 @@ const so = await openRiver("Sonnenahalli", [77.495, 12.955], 13);
 if (so) check("Sonnenahalli merges into the Vrishabhavati", so.panel.rows["Merges into"] === "Vrishabhavati", JSON.stringify(so.panel.rows));
 const v300 = await openRiver("Vrishabhavati Valley (V-300)", [77.545, 12.936], 14);
 if (v300) check("V-300 merges into the Kathriguppe", v300.panel.rows["Merges into"] === "Kathriguppe", JSON.stringify(v300.panel.rows));
+const k209 = await openRiver("Koramangala Valley (K-209)", [77.61, 12.915], 13);
+check("K-209 (the Madiwala lake chain) is on the map", !!k209);
+if (k209) check("K-209 merges into K-100", k209.panel.rows["Merges into"] === "Koramangala Valley (K-100)", JSON.stringify(k209.panel.rows));
 
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);

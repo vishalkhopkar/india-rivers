@@ -696,5 +696,161 @@
     "origin": "Konanakunte, Bengaluru",
     "end": "The Suvarnamukhi near Anjanapura, Bengaluru",
     "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40075": {
+    "name": "Koramangala Valley (K-209)",
+    "origin": "Jayanagar, Bengaluru",
+    "end": "Koramangala Valley (K-100) near HSR Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40076": {
+    "name": "Koramangala Valley (K-103)",
+    "origin": "Shivajinagar, Bengaluru",
+    "end": "Koramangala Valley (K-100) near Koramangala, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40077": {
+    "name": "",
+    "origin": "Bellandur, Bengaluru",
+    "end": "Koramangala Valley (K-100) near HSR Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40078": {
+    "name": "Koramangala Valley (K-110)",
+    "origin": "Basavanagudi, Bengaluru",
+    "end": "Koramangala Valley (K-100) near Shanti Nagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40079": {
+    "name": "Koramangala Valley (K-101)",
+    "origin": "Koramangala, Bengaluru",
+    "end": "Koramangala Valley (K-100) near Koramangala, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40080": {
+    "name": "Koramangala Valley (K-113)",
+    "origin": "Koramangala, Bengaluru",
+    "end": "Koramangala Valley (K-100) near Koramangala, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40081": {
+    "name": "",
+    "origin": "Begur, Bengaluru",
+    "end": "Koramangala Valley (K-209) near HSR Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40082": {
+    "name": "Koramangala Valley (K-200)",
+    "origin": "Jayanagar, Bengaluru",
+    "end": "Koramangala Valley (K-209) near BTM Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40083": {
+    "name": "",
+    "origin": "Hulimavu, Bengaluru",
+    "end": "Koramangala Valley (K-209) near BTM Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40084": {
+    "name": "",
+    "origin": "Kudlu, Bengaluru",
+    "end": "Koramangala Valley (K-209) near HSR Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40085": {
+    "name": "Challaghatta Valley (C-200)",
+    "origin": "RT Nagar, Bengaluru",
+    "end": "Challaghatta Valley (C-100) near Halasuru (Ulsoor), Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40086": {
+    "name": "Challaghatta Valley (C-105)",
+    "origin": "Byrasandra Melina Kere, Bengaluru",
+    "end": "Challaghatta Valley (C-100) near Domlur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40087": {
+    "name": "Challaghatta Valley (C-104)",
+    "origin": "Baiyappanahalli, Bengaluru",
+    "end": "Challaghatta Valley (C-100) near Halasuru (Ulsoor), Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40088": {
+    "name": "Challaghatta Valley (C-103)",
+    "origin": "Domlur, Bengaluru",
+    "end": "Challaghatta Valley (C-100) near Domlur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40089": {
+    "name": "Challaghatta Valley (C-204)",
+    "origin": "Lingarajapuram, Bengaluru",
+    "end": "Challaghatta Valley (C-200) near Halasuru (Ulsoor), Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40090": {
+    "name": "",
+    "origin": "Singasandra, Bengaluru",
+    "end": "Bellandur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40091": {
+    "name": "",
+    "origin": "Baiyappanahalli, Bengaluru",
+    "end": "Marathahalli, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40092": {
+    "name": "",
+    "origin": "Dommasandra, south-east of Bengaluru",
+    "end": "Panathur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40093": {
+    "name": "",
+    "origin": "Kundalahalli, Bengaluru",
+    "end": "Varthur, east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40094": {
+    "name": "",
+    "origin": "Kundalahalli, Bengaluru",
+    "end": "Panathur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40095": {
+    "name": "",
+    "origin": "Varthur, east of Bengaluru",
+    "end": "Varthur, east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40096": {
+    "name": "",
+    "origin": "Panathur, Bengaluru",
+    "end": "Panathur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40097": {
+    "name": "",
+    "origin": "Mahadevapura, Bengaluru",
+    "end": "Marathahalli, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40098": {
+    "name": "",
+    "origin": "Carmelaram Lake, Bengaluru",
+    "end": "Gunjur, east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40099": {
+    "name": "",
+    "origin": "C V Raman Nagar, Bengaluru",
+    "end": "Marathahalli, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40100": {
+    "name": "",
+    "origin": "Varthur, east of Bengaluru",
+    "end": "Varthur, east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
   }
 }
