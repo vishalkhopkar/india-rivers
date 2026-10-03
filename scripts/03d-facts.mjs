@@ -1,6 +1,7 @@
 // Publishes the river panel's "Fun Facts" from the curated list in data/river-facts.json:
 //   { "<uid>": { "name", "category", "fact", "sources": [urls], "confidence" } }
-// `fact` may also be a list, for a river with more than one (the Dahisar). The sources
+// `fact` may also be a list, for a river with more than one (the Dahisar). A fact can link
+// another river as [[uid|text]]. The sources
 // stay in the curated file for review; the site gets public/river-facts.json,
 // { "<uid>": ["<fact>", ...] }, fetched once by the panel.
 //
@@ -14,6 +15,7 @@ import { loadRivers } from "./lib/geo.mjs";
 const FACTS = "data/river-facts.json";
 const OUT = "public/river-facts.json";
 const MAX_WORDS = 80;
+const LINK = /\[\[(\d+)\|([^\]]+)\]\]/g;
 
 const facts = JSON.parse(readFileSync(FACTS, "utf8"));
 const overrides = JSON.parse(readFileSync("data/river-overrides.json", "utf8"));
@@ -29,7 +31,9 @@ for (const [uid, f] of Object.entries(facts)) {
   if (!names.has(uid)) { problems.push(`${uid} ${f.name}: no such river on the map`); continue; }
   const texts = [f.fact ?? ""].flat().map((t) => t.trim());
   for (const text of texts) {
-    const words = text.split(/\s+/).length;
+    // [[uid|text]] links another river; only its text is shown
+    for (const [, to] of text.matchAll(LINK)) if (!names.has(to)) problems.push(`${uid} ${f.name}: links to ${to}, which is not on the map`);
+    const words = text.replace(LINK, "$2").split(/\s+/).length;
     if (!text) problems.push(`${uid} ${f.name}: empty fact`);
     if (words > MAX_WORDS) problems.push(`${uid} ${f.name}: ${words} words (max ${MAX_WORDS})`);
   }

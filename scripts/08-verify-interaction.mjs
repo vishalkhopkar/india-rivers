@@ -526,6 +526,19 @@ if (mu) {
 }
 const dh = await openRiver("Dahisar", [72.86, 19.22], 13);
 if (dh) check("Dahisar shows two fun facts", (await page.evaluate(() => document.querySelectorAll(".panel .fact").length)) === 2);
+// a fact can link another river: the Kali's, above Gunji, names the Kuthi Yankti
+const kl = await openRiver("Kali", [80.89, 30.2], 12);
+check("the Kali above Gunji is on the map", !!kl);
+if (kl) {
+  const link = await page.evaluate(() => document.querySelector(".panel .fact a.river-link")?.textContent);
+  check("its fun fact links the Kuthi Yankti", link === "Kuthi Yankti", link);
+  await page.evaluate(() => document.querySelector(".panel .fact a.river-link")?.click());
+  await new Promise((r) => setTimeout(r, 500));
+  await settle();
+  await new Promise((r) => setTimeout(r, 800));
+  const to = await readPanel();
+  check("the link opens the Kuthi Yankti", to.heading === "Kuthi Yankti", to.heading);
+}
 check("basins switch hidden by default", await page.evaluate(() => !document.querySelector(".basins-toggle")));
 
 // --- 7. dismiss ----------------------------------------------------------------

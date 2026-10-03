@@ -1461,6 +1461,16 @@
     "confidence": "high",
     "region": "north"
   },
+  "24989": {
+    "name": "Kali",
+    "category": "Geography",
+    "fact": "Forms the internationally recognised border between India and Nepal in this area. Nepal disputes this and considers the [[26081|Kuthi Yankti]] to its west as the main Kali headstream and claims the area west of the Kalapani river.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "north (site owner)"
+  },
   "24993": {
     "name": "Kali Sindh",
     "category": "History",
@@ -1470,6 +1480,19 @@
     ],
     "confidence": "high",
     "region": "north"
+  },
+  "26081": {
+    "name": "Kuthi Yankti",
+    "category": "History",
+    "fact": [
+      "Nepal claims the area to the east of this river - Kalapani, Limpiyadhura and Lipulekh - regarding it as the primary stream for the Kali river, drawing its claims from the Treaty of Sugauli signed with the British in 1816.",
+      "The then Nepalese Prime Minister K P Sharma Oli revived this claim in May 2020 by releasing a new map of Nepal showing all these areas. This became significant as the Lipulekh pass is one of the passes used by Indian pilgrims for the Kailash Manasarovar Yatra."
+    ],
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "north (site owner)"
   },
   "26489": {
     "name": "Mandakini",

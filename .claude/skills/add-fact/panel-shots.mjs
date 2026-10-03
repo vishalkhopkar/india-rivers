@@ -32,7 +32,8 @@ if (!existsSync(CHROME)) {
   process.exit(2);
 }
 const [name, minz, w, s, e, n] = entry;
-const expected = JSON.parse(readFileSync(`${ROOT}public/river-facts.json`, "utf8"))[uid] ?? [];
+// a fact may link another river as [[uid|text]]; the panel shows only the text
+const expected = (JSON.parse(readFileSync(`${ROOT}public/river-facts.json`, "utf8"))[uid] ?? []).map((f) => f.replace(/\[\[\d+\|([^\]]+)\]\]/g, "$1"));
 console.log(`${uid} ${name || "(unnamed)"}: ${expected.length} fact(s) in public/river-facts.json`);
 if (!expected.length) {
   console.error("  nothing is published for this uid - add the fact and run `npm run data:facts` first.");

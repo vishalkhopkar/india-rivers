@@ -137,7 +137,7 @@ export class InfoPanel {
       el("h2", {}, p.name || "Unnamed river"),
       list(rows),
       ...(riverFacts.length
-        ? [el("h3", { class: "fact-heading" }, "Fun Facts"), ...riverFacts.map((f) => el("p", { class: "fact" }, f))]
+        ? [el("h3", { class: "fact-heading" }, "Fun Facts"), ...riverFacts.map((f) => el("p", { class: "fact" }, this.factText(f)))]
         : []),
       ...(extended.length ? [el("h3", {}, "More details"), list(extended)] : [])
     );
@@ -202,6 +202,18 @@ export class InfoPanel {
       if (i > 0) frag.append(i === uids.length - 1 ? " and " : ", ");
       frag.append(this.riverLink(uid, names[i] ?? ""));
     });
+    return frag;
+  }
+
+  // A fact may name another river as [[uid|text]], which becomes a link to it.
+  private factText(fact: string): Node {
+    const frag = document.createDocumentFragment();
+    let at = 0;
+    for (const m of fact.matchAll(/\[\[(\d+)\|([^\]]+)\]\]/g)) {
+      frag.append(fact.slice(at, m.index), this.riverLink(m[1], m[2]));
+      at = m.index + m[0].length;
+    }
+    frag.append(fact.slice(at));
     return frag;
   }
 

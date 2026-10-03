@@ -85,6 +85,9 @@ own paragraph. Only the fact text is published. Do the steps in order.
        only; not shown.
    - `sources`: the URLs the user gave, plus any you opened for research they asked for. The build
      needs at least one entry, so when the user gave no URL use `["site owner"]`.
+   - **Link to another river** when the user asks for one ("with link"): write the name as
+     `[[<uid>|<name>]]`, e.g. `the [[26081|Kuthi Yankti]] to its west`. The panel shows the name as
+     a link that opens that river; the build fails if the uid is not on the map.
    - `git diff data/river-facts.json` must show your lines and nothing else.
 
 5. **Check.** All of these must pass before committing; if the text changes, start again from (a).
