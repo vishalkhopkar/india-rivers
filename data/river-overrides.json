@@ -1388,5 +1388,83 @@
     "branchesAt": "Kasheli, north-east of Thane, Maharashtra",
     "end": "Mumbai Harbour, between Trombay and Belapur",
     "why": "Added from OSM (review/mumbai-streams.md). A tidal arm of Mumbai Harbour that meets the Ulhas at Kasheli; drawn as a branch of the Ulhas."
+  },
+  "40190": {
+    "name": "",
+    "origin": "Bhandup West, Mumbai",
+    "end": "Thane Creek at Bhandup East, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40191": {
+    "name": "",
+    "origin": "Hills between Bhandup West and Powai, Mumbai",
+    "end": "Thane Creek at Vikhroli East, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40192": {
+    "name": "",
+    "origin": "Yeoor hills near Upvan Lake, Thane",
+    "end": "Thane Creek by the Saket bridge, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40193": {
+    "name": "",
+    "origin": "Yeoor foothills at Manpada, Thane",
+    "end": "Thane Creek at Saket, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40194": {
+    "name": "",
+    "origin": "Mulund Check Naka, on the Thane-Mumbai boundary",
+    "end": "Thane Creek at Mulund East, north of the Airoli Bridge, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40195": {
+    "name": "Nane Pada Nalla",
+    "origin": "Mulund West, Mumbai",
+    "end": "Thane Creek at Mulund East, just south of the Airoli Bridge, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40196": {
+    "name": "",
+    "origin": "Hanuman Nagar, Wagle Estate, Thane",
+    "end": "Thane Creek, just south of the Saket bridge, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40197": {
+    "name": "",
+    "origin": "Deonar, Mumbai",
+    "end": "The Trombay Creek at Mankhurd, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40198": {
+    "name": "",
+    "origin": "Vikhroli village, Mumbai",
+    "end": "Thane Creek at the Godrej mangroves, Vikhroli, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40199": {
+    "name": "",
+    "origin": "Kanjurmarg East, by the Eastern Express Highway, Mumbai",
+    "end": "Thane Creek at Kanjurmarg, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40200": {
+    "name": "",
+    "origin": "Mangroves east of Ghatkopar, Mumbai",
+    "end": "Thane Creek, between Vikhroli and the Trombay Creek, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40201": {
+    "name": "",
+    "origin": "Mulund West, near the Goregaon-Mulund Link Road, Mumbai",
+    "end": "Mangroves east of the Bhandup pumping station, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40202": {
+    "name": "",
+    "origin": "Anushakti Nagar, Mumbai",
+    "end": "Lallubhai Compound, Mankhurd, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
   }
 }

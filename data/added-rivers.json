@@ -3121,5 +3121,272 @@
       204365993
     ],
     "why": "The tidal creek between Salsette and the mainland, from the Ulhas at Kasheli to Mumbai Harbour. Upper 8.6 km, down to the Airoli Bridge, where the creek is 100-400 m wide: the OSM way \"Thane Creek\" (204365993), which starts on the OSM Ulhas line. Lower 17.7 km: the OSM way hugs the east bank as the creek widens and stops off Airoli, and below that OSM has no centre line (the water is sea inside natural=coastline), so the course is computed as the midline between the two OSM shorelines: the edges of the OSM water area (relation 8461125) down to 19.124 N, the coastline below. On each parallel it is the point equally far from the Salsette and Navi Mumbai shores, then smoothed. This is the first course on the map not taken directly from an OSM or HydroRIVERS line. Ended where the creek opens into the harbour between Trombay and Belapur, short of the Kasadi's line from Panvel Creek. shoreKm: streams that join the creek end at their mouths on its shores, up to 3 km from this line, and are not carried across the water."
+  },
+  "40190": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      617989958,
+      431485402,
+      431485400,
+      398254366
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 58% of its 1.9 km above the coastal flats; a tidal creek arm, 61% of it in mangrove or creek water; falls from about 26 m to 0 m. 0.8 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. 0.3 km bridges gaps in the OSM mapping."
+  },
+  "40191": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      483432025,
+      1479592209,
+      1479592208,
+      1479592211,
+      1479592210,
+      787356060,
+      787356061,
+      483432026,
+      785569953,
+      785569952,
+      483179406,
+      785569951,
+      785569950,
+      639968071,
+      639968070,
+      235940609
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 75% of its 1.2 km above the coastal flats; falls from about 26 m to 0 m. 0.4 km bridges gaps in the OSM mapping."
+  },
+  "40192": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      925863865,
+      925863866,
+      925863867,
+      925863868,
+      925863869,
+      925863870,
+      925863872,
+      925863871,
+      925863873,
+      925863874,
+      925863875,
+      925863876,
+      925863878,
+      925863879,
+      925863880,
+      925863881,
+      639968066,
+      639968065,
+      204345415
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 83% of its length; on a valley floor in elevation data for 100% of its 4.3 km above the coastal flats; falls from about 50 m to 2 m."
+  },
+  "40193": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      1187581598,
+      1187581618,
+      1187581617,
+      1187581614,
+      1187581613,
+      1187581608,
+      1187581607,
+      1187581604,
+      1187581603,
+      1187581600,
+      1187581599,
+      1187581621,
+      1187581622,
+      930357890,
+      640564201,
+      640564202,
+      931695409,
+      931695408,
+      639968063,
+      639968064
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 63% of its length; on a valley floor in elevation data for 53% of its 3.4 km above the coastal flats; falls from about 50 m to 1 m."
+  },
+  "40194": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      235485185,
+      598727865
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 90% of its length; on a valley floor in elevation data for 82% of its 1.7 km above the coastal flats; a tidal creek arm, 72% of it in mangrove or creek water; falls from about 13 m to 2 m. 1.4 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w665953416). Runs along the Thane-Mumbai municipal boundary; probably the \"Boundary Nalla\" of the BMC's list of major nallas, which gives no location, so the name is not used."
+  },
+  "40195": {
+    "name": "Nane Pada Nalla",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      1161008320,
+      124864460,
+      1126750027,
+      1126750026,
+      632245760,
+      632245759,
+      537227990,
+      617794950,
+      617794949,
+      124864462,
+      598727873
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways (OSM name: Nane Pada Nalla). Natural course: within 0.5 km of a HydroRIVERS drainage line for 71% of its length; on a valley floor in elevation data for 70% of its 1 km above the coastal flats; falls from about 15 m to 2 m."
+  },
+  "40196": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      213074145,
+      1531914352,
+      1531914353,
+      638497537,
+      785569962,
+      1507898624,
+      1507898625,
+      1507898627,
+      1507898626,
+      785569963,
+      1203420517,
+      639968067,
+      775985463,
+      775985462,
+      775985461,
+      775985460,
+      93059061,
+      1509685313,
+      1509685312,
+      775985456,
+      775985457
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 73% of its length; on a valley floor in elevation data for 61% of its 3.6 km above the coastal flats; falls from about 39 m to 1 m."
+  },
+  "40197": {
+    "name": "",
+    "joins": "40028",
+    "joinsName": "Trombay Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      791245264,
+      791245263,
+      436233645,
+      436233646,
+      436233647,
+      1011460681,
+      785569973,
+      785569972,
+      785570031,
+      785570030,
+      785570011,
+      785570010,
+      276704068,
+      785570027,
+      785570026,
+      785570029,
+      785570028,
+      1179708908,
+      122284114,
+      363869160,
+      395230155,
+      363869159
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 54% of its length; runs through Trombay Creek; falls from about 21 m to 1 m."
+  },
+  "40198": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      787853026,
+      787853025,
+      436606796
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: a tidal creek arm, 75% of it in mangrove or creek water; falls from about 3 m to 0 m. Head cut by hand: Vikhroli: the OSM drain above this point doubles back on itself across the highway."
+  },
+  "40199": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [
+      779596839,
+      779596838,
+      668416743
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 69% of its length; falls from about 2 m to 0 m. Its upper 1.5 km follows the edge of the Kanjurmarg dumping ground; the lower course is a winding mangrove creek."
+  },
+  "40200": {
+    "name": "",
+    "joins": "40189",
+    "joinsName": "Thane Creek",
+    "minKm": 1.5,
+    "osmWays": [],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 88% of its length; a tidal creek arm, 100% of it in mangrove or creek water; falls from about 4 m to 0 m. 2.5 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line (w1535489273)."
+  },
+  "40201": {
+    "name": "",
+    "joins": "40190",
+    "minKm": 1.5,
+    "osmWays": [
+      1120160505,
+      1158503745,
+      1158503744,
+      1158503742,
+      1126532270,
+      1126532268,
+      1126532267,
+      1126532269,
+      1126532272,
+      1126532271,
+      617794961,
+      617794960,
+      779616748,
+      779616747,
+      617794959,
+      617794958,
+      219949130,
+      376048028,
+      257458864,
+      668808283
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 80% of its length; falls from about 15 m to 0 m. Passes Nahur and the Mulund salt pans; probably the \"Bombay Oxygen Nalla\" of BMC records, not named here for want of a reference that places it."
+  },
+  "40202": {
+    "name": "",
+    "joins": "40197",
+    "minKm": 1.5,
+    "osmWays": [
+      785569997,
+      785569996,
+      785569995,
+      785569994,
+      785569993,
+      785569992,
+      250359384,
+      250428566,
+      250428565,
+      785569989,
+      785569988,
+      363869161
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, west bank (Salsette). From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 71% of its length; runs through Trombay Creek; falls from about 20 m to 3 m."
   }
 }

@@ -339,6 +339,21 @@ console.log("\nSomaiyya Nalla (joins the Trombay Creek before Thane Creek):");
 const sn = await openRiver("Somaiyya Nalla", [72.9103, 19.07], 14);
 check("Somaiyya Nalla is on the map", !!sn);
 if (sn) check("Merges into", sn.panel.rows["Merges into"] === "Trombay Creek", sn.panel.rows["Merges into"]);
+
+// Mumbai region stream network (review/mumbai-streams.md).
+console.log("\nThane Creek, west bank (Salsette):");
+const npn = await openRiver("Nane Pada Nalla", [72.9524, 19.1639], 14);
+check("Nane Pada Nalla is on the map", !!npn);
+if (npn) {
+  check("it merges into Thane Creek", npn.panel.rows["Merges into"] === "Thane Creek", JSON.stringify(npn.panel.rows));
+  check("it meets the creek at Mulund East", /Mulund East/.test(npn.panel.rows["Confluence"] ?? ""), npn.panel.rows["Confluence"]);
+}
+const bdp = await openRiver("", [72.9356, 19.1392], 15);
+check("the Bhandup stream is on the map", !!bdp);
+if (bdp) check("it rises in Bhandup West and merges into Thane Creek", bdp.panel.heading === "Unnamed river" && /Bhandup West/.test(bdp.panel.rows["Origin"] ?? "") && bdp.panel.rows["Merges into"] === "Thane Creek", JSON.stringify(bdp.panel.rows));
+const mkd = await openRiver("", [72.9251, 19.0504], 15);
+check("the Mankhurd stream is on the map", !!mkd);
+if (mkd) check("it merges into the Trombay Creek", mkd.panel.rows["Merges into"] === "Trombay Creek", JSON.stringify(mkd.panel.rows));
 console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
 const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
 check("Chhoti Yamuna clickable", !!cy);
