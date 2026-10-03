@@ -447,7 +447,7 @@
   },
   "40033": {
     "name": "Waldhuni",
-    "origin": "Malanggad foothills above Kakuli Lake (the GIP tank), south of Ambernath, Maharashtra",
+    "origin": "Malanggad foothills above Kakuli Lake, south of Ambernath, Maharashtra",
     "end": "Shahad, Kalyan, Maharashtra",
     "endNear": true,
     "why": "Added river. Head extended from Ambernath up to the hills that feed Kakuli Lake (review/mumbai-streams.md)."
@@ -2243,6 +2243,18 @@
     "name": "",
     "origin": "Malanggad hills, near Badlapur",
     "end": "Near Badlapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40334": {
+    "name": "",
+    "origin": "Sanjay Gandhi National Park hills above Mulund, Mumbai",
+    "end": "The north-eastern arm of Vihar Lake, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40335": {
+    "name": "",
+    "origin": "Matheran hills, near Neral",
+    "end": "Near Neral, Maharashtra",
     "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
   }
 }

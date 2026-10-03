@@ -301,7 +301,7 @@
     "name": "Waldhuni",
     "joins": "8969",
     "joinsName": "Ulhas",
-    "why": "OSM \"Waldhuni River\" and \"Wadhuni\": from the Malanggad foothills south of Ambernath, through Kakuli Lake (the GIP tank), Ambernath and Ulhasnagar to the Ulhas at Shahad, Kalyan. The 5.3 km above Ambernath come from the unnamed OSM streams that feed the lake and the lake's outflow (Mumbai region stream network, review/mumbai-streams.md); the line crosses the lake.",
+    "why": "OSM \"Waldhuni River\" and \"Wadhuni\": from the Malanggad foothills south of Ambernath, through Kakuli Lake, Ambernath and Ulhasnagar to the Ulhas at Shahad, Kalyan. The 5.3 km above Ambernath come from the unnamed OSM streams that feed the lake and the lake's outflow (Mumbai region stream network, review/mumbai-streams.md); the line crosses the lake.",
     "osmWays": [
       60224181,
       60224177,
@@ -5030,5 +5030,26 @@
       1292153917
     ],
     "why": "Mumbai region stream network (review/mumbai-streams.md), the rest of the Mumbai Metropolitan Region. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 100% of its 2.7 km above the coastal flats; falls from about 334 m to 63 m."
+  },
+  "40334": {
+    "name": "",
+    "joins": "40250",
+    "minKm": 1.5,
+    "shoreKm": 1.4,
+    "osmWays": [
+      1388987681,
+      1389888722,
+      204352233
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), found on a last pass over the finished map. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 69% of its length; on a valley floor in elevation data for 73% of its 3.3 km above the coastal flats; falls from about 160 m to 57 m. 0.2 km bridges gaps in the OSM mapping. Joins the stream that feeds Vihar Lake from the north. On the earlier passes its mapped course ran on over the ridge towards Mulund and failed the downhill check; it now starts at the ridge."
+  },
+  "40335": {
+    "name": "",
+    "joins": "40319",
+    "minKm": 1.5,
+    "osmWays": [
+      199743666
+    ],
+    "why": "Mumbai region stream network (review/mumbai-streams.md), found on a last pass over the finished map. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 77% of its 3.1 km above the coastal flats; falls from about 591 m to 66 m."
   }
 }
