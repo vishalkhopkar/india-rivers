@@ -164,6 +164,11 @@
     "end": "Mahim Creek, Mumbai",
     "why": "The dataset names it after the creek at its mouth. The river leaves Vihar Lake at its dam (course redrawn from OSM, data/course-overrides.json) and reaches Mahim Creek."
   },
+  "8846": {
+    "name": "Panel",
+    "continues": "9064",
+    "why": "The Gadhe under its lower name: CWC ends the Gadhe where the Panel begins, east of Panvel. Declared by hand because a long stream added from OSM joins the Panel at Panvel, 4 km below its start, and would otherwise be taken for a second former."
+  },
   "8969": {
     "name": "Ulhas",
     "end": "Vasai, Maharashtra",
@@ -442,11 +447,10 @@
   },
   "40033": {
     "name": "Waldhuni",
-    "origin": "Ambernath, Maharashtra",
-    "originNear": true,
+    "origin": "Malanggad foothills above Kakuli Lake (the GIP tank), south of Ambernath, Maharashtra",
     "end": "Shahad, Kalyan, Maharashtra",
     "endNear": true,
-    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+    "why": "Added river. Head extended from Ambernath up to the hills that feed Kakuli Lake (review/mumbai-streams.md)."
   },
   "40034": {
     "name": "Irla Nala",
@@ -1573,6 +1577,672 @@
     "name": "",
     "origin": "Mangroves north of Gorai, Mumbai",
     "end": "Mangroves north-east of Gorai, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40221": {
+    "name": "",
+    "origin": "Tungareshwar hills, near Vasai",
+    "end": "The Ulhas (Vasai Creek) near Naigaon",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40222": {
+    "name": "",
+    "origin": "Hills above the Ransai reservoir, east of Uran",
+    "end": "Karanja Creek, south-east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40223": {
+    "name": "",
+    "origin": "Matheran hills, near Karjat",
+    "end": "The Dhavri at Chowk, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40224": {
+    "name": "",
+    "origin": "Hills south of Panvel",
+    "end": "Panvel Creek at Ulwe, Navi Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40225": {
+    "name": "",
+    "origin": "Prabalgad foothills, east of Panvel",
+    "end": "The Panel (Panvel Creek's river) at Panvel",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40226": {
+    "name": "",
+    "origin": "Prabalgad hills, near Matheran",
+    "end": "The Patalganga at Rasayani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40227": {
+    "name": "",
+    "origin": "Malanggad hills, near Badlapur",
+    "end": "The Ulhas at Badlapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40228": {
+    "name": "",
+    "origin": "Near Padgha, Maharashtra",
+    "end": "The Bhatsai near Padgha, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40229": {
+    "name": "Nhava Creek",
+    "origin": "Jasai, near Uran",
+    "end": "Mumbai Harbour at Nhava, near Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40230": {
+    "name": "",
+    "origin": "Near Vangani, Maharashtra",
+    "end": "The Ulhas near Badlapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40231": {
+    "name": "",
+    "origin": "Near Vasind, Maharashtra",
+    "end": "The Kumbheri at Padgha, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40232": {
+    "name": "",
+    "origin": "Matheran hills, near Neral",
+    "end": "The Ulhas at Vangani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40233": {
+    "name": "",
+    "origin": "Matheran hills, Maharashtra",
+    "end": "The Dhavri near Matheran, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40234": {
+    "name": "",
+    "origin": "Near Ganeshpuri, Maharashtra",
+    "end": "The Tansa near Ganeshpuri, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40235": {
+    "name": "",
+    "origin": "Malanggad hills, near Badlapur",
+    "end": "The Ulhas at Badlapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40236": {
+    "name": "",
+    "origin": "Matheran hills, Maharashtra",
+    "end": "The Ulhas near Neral, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40237": {
+    "name": "",
+    "origin": "Val, south-west of Bhiwandi",
+    "end": "The Ulhas at Kasheli, opposite Kolshet, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40238": {
+    "name": "",
+    "origin": "Shirsad, east of Virar",
+    "end": "The Tungar Nala at Waliv, Vasai East",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40239": {
+    "name": "",
+    "origin": "Near Padgha, Maharashtra",
+    "end": "The Bhatsai at Titwala, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40240": {
+    "name": "",
+    "origin": "Apta, Maharashtra",
+    "end": "The Patalganga near Apta, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40241": {
+    "name": "",
+    "origin": "Near Chowk, Maharashtra",
+    "end": "The Patalganga at Rasayani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40242": {
+    "name": "",
+    "origin": "Mahuli hills, near Atgaon",
+    "end": "The Bharangi at Shahapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40243": {
+    "name": "",
+    "origin": "Rajendra Nagar, Borivali East, Mumbai",
+    "end": "The Dahisar's tidal reach (Manori Creek) at Gorai, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40244": {
+    "name": "",
+    "origin": "Yeoor foothills above Ghodbunder Road, Thane",
+    "end": "The Ulhas at Waghbil, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40245": {
+    "name": "",
+    "origin": "Agashi, near Virar",
+    "end": "The Vaitarna estuary north of Agashi",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40246": {
+    "name": "",
+    "origin": "Malad East, below the Sanjay Gandhi National Park hills, Mumbai",
+    "end": "The Poisar's tidal reach (Malad Creek) at Malad West, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40247": {
+    "name": "",
+    "origin": "Near Titwala, Maharashtra",
+    "end": "The Kalu near Vasind, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40248": {
+    "name": "",
+    "origin": "Fields south-east of Uran",
+    "end": "The Patalganga estuary, south-east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40249": {
+    "name": "",
+    "origin": "Agashi, near Virar",
+    "end": "The Arabian Sea at Bhuigaon, north of Vasai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40250": {
+    "name": "",
+    "origin": "Sanjay Gandhi National Park hills, north of Vihar Lake, Mumbai",
+    "end": "The Mithi at the Vihar Lake dam, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40251": {
+    "name": "",
+    "origin": "Matheran hills, near Neral",
+    "end": "The Ulhas at Neral, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40252": {
+    "name": "",
+    "origin": "Vajreshwari, Maharashtra",
+    "end": "The Tansa at Ganeshpuri, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40253": {
+    "name": "",
+    "origin": "Malanggad hills, south of Ambernath",
+    "end": "The Desai Khadi (north branch), south of Ambernath",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40254": {
+    "name": "",
+    "origin": "Near Vangani, Maharashtra",
+    "end": "The Ulhas at Vangani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40255": {
+    "name": "",
+    "origin": "Fields south-east of Bhiwandi",
+    "end": "The Ulhas opposite Kalyan",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40256": {
+    "name": "",
+    "origin": "Aarey Colony hills, Goregaon, Mumbai",
+    "end": "The Oshiwara at Goregaon East, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40257": {
+    "name": "",
+    "origin": "Dombivli East",
+    "end": "The Ulhas at Kopar, Dombivli West",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40258": {
+    "name": "",
+    "origin": "Jogeshwari East, near the Jogeshwari-Vikhroli Link Road, Mumbai",
+    "end": "The Oshiwara at Goregaon West, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40259": {
+    "name": "",
+    "origin": "Ambernath",
+    "end": "The Waldhuni at Ulhasnagar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40260": {
+    "name": "",
+    "origin": "Near Matheran, Maharashtra",
+    "end": "The Gadhe near New Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40261": {
+    "name": "",
+    "origin": "Kalyan East",
+    "end": "The Waldhuni at Vitthalwadi, Ulhasnagar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40262": {
+    "name": "",
+    "origin": "Matheran hills, near Karjat",
+    "end": "The Ulhas at Karjat, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40263": {
+    "name": "",
+    "origin": "Fields east of Uran",
+    "end": "Karanja Creek, south-east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40264": {
+    "name": "",
+    "origin": "Yeoor hills, Sanjay Gandhi National Park, Thane",
+    "end": "The Chena in the Yeoor hills, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40265": {
+    "name": "",
+    "origin": "Vasind, Maharashtra",
+    "end": "The Bhatsai at Vasind, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40266": {
+    "name": "",
+    "origin": "Near New Panvel, Maharashtra",
+    "end": "The Gadhe near New Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40267": {
+    "name": "",
+    "origin": "Near Vasind, Maharashtra",
+    "end": "The Kumbheri near Vasind, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40268": {
+    "name": "",
+    "origin": "Dive Anjur, across the Ulhas from Thane",
+    "end": "The Ulhas at Alimgarh, opposite Mumbra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40269": {
+    "name": "",
+    "origin": "Sanjay Gandhi National Park hills, Mumbai",
+    "end": "The Dahisar in the national park, above Borivali, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40270": {
+    "name": "",
+    "origin": "Chandivali, Powai, Mumbai",
+    "end": "The Mithi at Jarimari, near Saki Naka, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40271": {
+    "name": "",
+    "origin": "Ambernath MIDC",
+    "end": "The Waldhuni at Ulhasnagar",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40272": {
+    "name": "",
+    "origin": "Bhuigaon, north of Vasai",
+    "end": "The Arabian Sea north of Vasai Fort",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40273": {
+    "name": "",
+    "origin": "Nalasopara, Vasai-Virar",
+    "end": "The Tungar Nala at Vasai Road",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40274": {
+    "name": "",
+    "origin": "Malanggad hills, near Badlapur",
+    "end": "The Kasadi near Taloja, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40275": {
+    "name": "",
+    "origin": "Kharbav, west of Bhiwandi",
+    "end": "The Varna near Kharbav, west of Bhiwandi",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40276": {
+    "name": "",
+    "origin": "Uran",
+    "end": "Karanja Creek at Karanja, near Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40277": {
+    "name": "",
+    "origin": "Virar, Maharashtra",
+    "end": "The Vaitarna near Virar, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40278": {
+    "name": "",
+    "origin": "Dindoshi, Goregaon East, Mumbai",
+    "end": "The Poisar's tidal reach (Malad Creek) at Goregaon West, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40279": {
+    "name": "",
+    "origin": "Matheran hills, Maharashtra",
+    "end": "The Gadhe near Matheran, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40280": {
+    "name": "",
+    "origin": "Shil, near Mumbra, Thane",
+    "end": "The Desai Khadi near Diva, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40281": {
+    "name": "",
+    "origin": "Vaitarna station, north of Virar",
+    "end": "The Vaitarna at Vaitarna station, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40282": {
+    "name": "",
+    "origin": "Vaitarna station, north of Virar",
+    "end": "The Vaitarna at Vaitarna station, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40283": {
+    "name": "",
+    "origin": "MIDC area, Dombivli East",
+    "end": "The Ulhas at Thakurli, between Dombivli and Kalyan",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40284": {
+    "name": "",
+    "origin": "Near Vangani, Maharashtra",
+    "end": "The Barvi near Badlapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40285": {
+    "name": "",
+    "origin": "Shil Phata, Thane",
+    "end": "The Desai Khadi at Nilaje, south of Dombivli",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40286": {
+    "name": "",
+    "origin": "Mogharpada, Ghodbunder Road, Thane",
+    "end": "The Ulhas near Gaimukh, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40287": {
+    "name": "",
+    "origin": "Near Vasind, Maharashtra",
+    "end": "The Bhatsai at Vasind, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40288": {
+    "name": "",
+    "origin": "Matheran hills, Maharashtra",
+    "end": "The Dhavri at Matheran, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40289": {
+    "name": "",
+    "origin": "Near Vajreshwari, Maharashtra",
+    "end": "The Tansa near Vajreshwari, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40290": {
+    "name": "",
+    "origin": "Narpoli, Bhiwandi",
+    "end": "The Kamvadi at Bhiwandi",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40291": {
+    "name": "",
+    "origin": "Fields south-east of Uran",
+    "end": "The Patalganga estuary, south-east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40292": {
+    "name": "",
+    "origin": "Kondivita, Andheri East, Mumbai",
+    "end": "The Mithi at Marol, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40293": {
+    "name": "",
+    "origin": "Vashi Naka, below the Trombay hills, Mumbai",
+    "end": "Mumbai Harbour at Mahul, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40294": {
+    "name": "",
+    "origin": "Manpada, Thane",
+    "end": "The Ulhas at Kolshet, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40295": {
+    "name": "",
+    "origin": "Anik, Chembur, Mumbai",
+    "end": "The Mahul Creek at Wadala, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40296": {
+    "name": "",
+    "origin": "Santacruz West, Mumbai",
+    "end": "The Irla Nala at Vile Parle West, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40297": {
+    "name": "",
+    "origin": "Kurla East, Mumbai",
+    "end": "The Mahul Creek at Kurla East, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40298": {
+    "name": "",
+    "origin": "Padle, near Diva, Thane",
+    "end": "The Desai Khadi near Diva, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40299": {
+    "name": "",
+    "origin": "Near Vaitarna station, Maharashtra",
+    "end": "The Vaitarna at Vaitarna station, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40300": {
+    "name": "",
+    "origin": "Near Kasarvadavali, Thane",
+    "end": "The Kamvadi near Kasarvadavali, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40301": {
+    "name": "",
+    "origin": "Vitthalwadi, Ulhasnagar",
+    "end": "The Waldhuni at Shahad, Kalyan",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40302": {
+    "name": "",
+    "origin": "Karanja, near Uran",
+    "end": "Karanja Creek at Karanja, near Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40303": {
+    "name": "",
+    "origin": "Uran",
+    "end": "Mumbai Harbour north of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40304": {
+    "name": "",
+    "origin": "Mangroves at Gaimukh, Thane",
+    "end": "The Ulhas at Gaimukh, Thane",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40306": {
+    "name": "",
+    "origin": "Malanggad hills, near Taloja",
+    "end": "The Bava Malang near Taloja, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40308": {
+    "name": "",
+    "origin": "Near Rasayani, Maharashtra",
+    "end": "The Patalganga near Apta, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40309": {
+    "name": "",
+    "origin": "Neral, Maharashtra",
+    "end": "The Ulhas at Neral, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40310": {
+    "name": "",
+    "origin": "Neral, Maharashtra",
+    "end": "The Ulhas at Neral, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40311": {
+    "name": "",
+    "origin": "Santacruz West, Mumbai",
+    "end": "The Arabian Sea at Khar Danda, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40312": {
+    "name": "",
+    "origin": "Tungareshwar hills, near Vasai",
+    "end": "Kaman, near Vasai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40313": {
+    "name": "",
+    "origin": "Kalambusare, east of Uran",
+    "end": "Mangroves south-east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40314": {
+    "name": "",
+    "origin": "Near Panvel, Maharashtra",
+    "end": "Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40315": {
+    "name": "",
+    "origin": "Near New Panvel, Maharashtra",
+    "end": "Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40316": {
+    "name": "",
+    "origin": "Malanggad hills, near Badlapur",
+    "end": "Near Badlapur, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40317": {
+    "name": "",
+    "origin": "Near Khalapur, Maharashtra",
+    "end": "Chowk, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40318": {
+    "name": "",
+    "origin": "Jasai, near Uran",
+    "end": "Dighode, east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40319": {
+    "name": "",
+    "origin": "Matheran hills, near Neral",
+    "end": "Neral, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40320": {
+    "name": "",
+    "origin": "Near New Panvel, Maharashtra",
+    "end": "Near New Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40321": {
+    "name": "",
+    "origin": "Mankoli, south of Bhiwandi",
+    "end": "Dive Anjur, south-west of Bhiwandi",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40322": {
+    "name": "",
+    "origin": "Near Karjat, Maharashtra",
+    "end": "Near Karjat, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40323": {
+    "name": "",
+    "origin": "Prabalgad hills, near Matheran",
+    "end": "Near Rasayani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40324": {
+    "name": "",
+    "origin": "Matheran hills, near Neral",
+    "end": "Neral, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40325": {
+    "name": "",
+    "origin": "Near Vangani, Maharashtra",
+    "end": "Vangani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40326": {
+    "name": "",
+    "origin": "Near Rasayani, Maharashtra",
+    "end": "Near New Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40327": {
+    "name": "",
+    "origin": "Matheran hills, Maharashtra",
+    "end": "Matheran, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40328": {
+    "name": "",
+    "origin": "Near Shil Phata, Thane",
+    "end": "Nilaje, south of Dombivli",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40329": {
+    "name": "",
+    "origin": "Hills east of Vihar Lake, towards Bhandup, Mumbai",
+    "end": "Vihar Lake, Mumbai",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40330": {
+    "name": "",
+    "origin": "Near Rasayani, Maharashtra",
+    "end": "Rasayani, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40331": {
+    "name": "",
+    "origin": "Near Rasayani, Maharashtra",
+    "end": "Panvel, Maharashtra",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40332": {
+    "name": "",
+    "origin": "Koproli, east of Uran",
+    "end": "Kalambusare, east of Uran",
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40333": {
+    "name": "",
+    "origin": "Malanggad hills, near Badlapur",
+    "end": "Near Badlapur, Maharashtra",
     "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
   }
 }

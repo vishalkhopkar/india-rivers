@@ -189,6 +189,10 @@ for (const [u, t] of Object.entries(out)) {
 }
 
 let formed = 0, continued = 0, branched = 0;
+// Rivers whose formers were all found short of the start, none on it. For a big river
+// digitised short that is the Wainganga; for a city stream it is two tributaries that join
+// in its first few kilometres.
+const formedShort = new Set();
 for (const r of rivers) {
   const [ox, oy] = r.origin;
   const near = (feeders.get(r.uid) ?? [])
@@ -207,6 +211,7 @@ for (const r of rivers) {
     // phrasing: "Bhagirathi and Alaknanda", "Mula and Mutha", "Wardha and Wainganga".
     const exact = (c) => (c.d <= FORMED_EXACT_KM ? 0 : 1);
     out[r.uid].formedBy = formers.sort((a, b) => exact(a) - exact(b) || b.len - a.len).map((c) => c.u);
+    if (formers.every((c) => exact(c))) formedShort.add(r.uid);
     formed++;
   } else if (formers.length === 1 && formers[0].d <= FORMED_EXACT_KM) {
     out[r.uid].continues = formers[0].u;
@@ -310,6 +315,12 @@ for (const [uid, ov] of Object.entries(overrides)) {
   if (!ov.origin || !out[uid]) continue;
   delete out[uid].continues;
   delete out[uid].branchedFrom;
+  // ...and so are formers that only end near its start: they are tributaries (the two
+  // creek arms that join the Gorai stream 2.8 km below its head).
+  if (formedShort.has(uid) && !ov.formedBy) {
+    delete out[uid].formedBy;
+    formed--;
+  }
 }
 const badFormers = [];
 for (const [uid, ov] of Object.entries(overrides)) {

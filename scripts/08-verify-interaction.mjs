@@ -260,7 +260,7 @@ check("no displayed name ends in 'River'", withSuffix === 0, `${withSuffix} feat
 // data/river-overrides.json.
 for (const [name, center, origin, mouth] of [
   ["Poisar", [72.865, 19.2], "Sanjay Gandhi National Park, Mumbai", "Malad Creek, opening to the sea at Versova, Mumbai"],
-  ["Mithi", [72.88, 19.1], "Vihar Lake, Sanjay Gandhi National Park, Mumbai", "Mahim Creek, Mumbai"],
+  ["Mithi", [72.8587, 19.0578], "Vihar Lake, Sanjay Gandhi National Park, Mumbai", "Mahim Creek, Mumbai"],
 ]) {
   console.log(`\n${name} (renamed from the dataset):`);
   const r = await openRiver(name, center, 13);
@@ -300,7 +300,7 @@ const vk = await openRiver("Vakola Nala", [72.848, 19.085], 14);
 check("Vakola Nala is on the map", !!vk);
 if (vk) check("Merges into", vk.panel.rows["Merges into"] === "Mithi", vk.panel.rows["Merges into"]);
 console.log("\nDesai Khadi (formed by two branches south of Ambernath):");
-const dk = await openRiver("Desai Khadi", [73.079, 19.143], 13);
+const dk = await openRiver("Desai Khadi", [73.106, 19.1554], 13);
 check("Desai Khadi is on the map", !!dk);
 if (dk) {
   check("Formed by", dk.panel.rows["Formed by"] === "Confluence of Desai Khadi (south branch) and Desai Khadi (north branch)" || dk.panel.rows["Formed by"] === "Confluence of Desai Khadi (north branch) and Desai Khadi (south branch)", dk.panel.rows["Formed by"]);
@@ -368,6 +368,25 @@ if (kmr) check("it merges into the Ulhas at Vasai Creek", kmr.panel.rows["Merges
 const byr = await openRiver("", [72.8519, 19.2799], 15);
 check("the Bhayandar stream is on the map", !!byr);
 if (byr) check("it merges into the Dahisar at Manori Creek", byr.panel.rows["Merges into"] === "Dahisar" && /Manori Creek/.test(byr.panel.rows["Confluence"] ?? ""), JSON.stringify(byr.panel.rows));
+console.log("\nThe rest of the Mumbai region:");
+const osb = await openRiver("", [72.8578, 19.1372], 15);
+check("the Oshiwara's southern branch is on the map", !!osb);
+if (osb) check("it merges into the Oshiwara", osb.panel.rows["Merges into"] === "Oshiwara", JSON.stringify(osb.panel.rows));
+const kam = await openRiver("", [72.9012, 19.3582], 14);
+check("the river through Kaman is on the map", !!kam);
+if (kam) check("it rises in the Tungareshwar hills and merges into the Ulhas at Vasai Creek", /Tungareshwar/.test(kam.panel.rows["Origin"] ?? "") && kam.panel.rows["Merges into"] === "Ulhas" && /Vasai Creek/.test(kam.panel.rows["Confluence"] ?? ""), JSON.stringify(kam.panel.rows));
+const wal = await openRiver("Waldhuni", [73.188, 19.1427], 14);
+check("the Waldhuni runs up to the hills above Kakuli Lake", !!wal);
+if (wal) check("the Waldhuni rises in the Malanggad foothills", /Malanggad foothills/.test(wal.panel.rows["Origin"] ?? "") && wal.panel.rows["Merges into"] === "Ulhas", JSON.stringify(wal.panel.rows));
+const kye = await openRiver("", [73.1479, 19.2195], 15);
+check("the Kalyan East stream is on the map", !!kye);
+if (kye) check("it merges into the Waldhuni", kye.panel.rows["Merges into"] === "Waldhuni", JSON.stringify(kye.panel.rows));
+const nhv = await openRiver("Nhava Creek", [72.9925, 18.9482], 14);
+check("Nhava Creek is on the map", !!nhv);
+if (nhv) check("Nhava Creek reaches Mumbai Harbour", nhv.panel.rows["Mouth into"] === "Arabian Sea" && /Mumbai Harbour/.test(nhv.panel.rows["Mouth"] ?? ""), JSON.stringify(nhv.panel.rows));
+const val = await openRiver("", [73.0276, 19.242], 15);
+check("the stream from Val, south-west of Bhiwandi, is on the map", !!val);
+if (val) check("it merges into the Ulhas", val.panel.rows["Merges into"] === "Ulhas", JSON.stringify(val.panel.rows));
 console.log("\nChhoti Yamuna (leaves the Yamuna and rejoins it):");
 const cy = await openRiver("Chhoti Yamuna", [77.0638, 29.4398], 11);
 check("Chhoti Yamuna clickable", !!cy);
