@@ -345,7 +345,11 @@ const results = [];
 // Added rivers that others join (the unnamed river the Somaiyya Nalla flows into), built
 // first so the tributary can be cut and snapped onto them.
 const addedRivers = new Map();
-const order = Object.keys(list).sort((a, b) => (list[a].joins in list ? 1 : 0) - (list[b].joins in list ? 1 : 0));
+// Ordered by depth of the join chain (Hebbal H-200 -> H-300 -> ... -> BD-423), deepest
+// target first.
+const depth = (uid, seen = new Set()) =>
+  list[uid]?.joins in list && !seen.has(uid) ? 1 + depth(list[uid].joins, seen.add(uid)) : 0;
+const order = Object.keys(list).sort((a, b) => depth(a) - depth(b));
 const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: e.osmWays ? osmGeometry[uid]?.[0] ?? [0, 0] : reaches.get(e.hydroSource)?.c[0] ?? [0, 0] }]));
 for (const uid of order) {
   const entry = list[uid];

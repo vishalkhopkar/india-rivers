@@ -499,5 +499,47 @@
     "origin": "Near Mullakathuva Cheruvu, Hyderabad",
     "end": "Bharath Nagar, north of Sanathnagar station, Hyderabad",
     "why": "Added from HydroRIVERS. Runs through Mullakathuva, Kamuni and Chinna Maisamma Cheruvus."
+  },
+  "40044": {
+    "name": "Koramangala Valley (K-100)",
+    "origin": "Majestic, Bengaluru",
+    "end": "Bellandur Lake, Bengaluru",
+    "why": "Added from OSM. The Koramangala valley main drain; its water continues below Bellandur Lake."
+  },
+  "40045": {
+    "name": "Challaghatta Valley (C-100)",
+    "end": "Bellandur Lake, Bengaluru",
+    "why": "Added from OSM. The Challaghatta valley main drain.",
+    "origin": "Vasanth Nagar, Bengaluru"
+  },
+  "40046": {
+    "name": "",
+    "continues": "40044",
+    "why": "Added from OSM. Bellandur Lake overflow through Varthur Lake to the Dakshina Pinakini.",
+    "end": "The Dakshina Pinakini near Channasandra, east of Varthur"
+  },
+  "40047": {
+    "name": "Hebbal Valley (H-200)",
+    "origin": "Yeshwanthpur, Bengaluru",
+    "end": "Below Nagavara Lake, Bengaluru",
+    "why": "Added from OSM. Runs through Hebbal and Nagavara lakes; Nagavara outflow joins H-300."
+  },
+  "40048": {
+    "name": "Hebbal Valley (H-300)",
+    "why": "Added from OSM. Continues past Kalkere towards Yellamallappa Chetty Lake.",
+    "origin": "Cooke Town, Bengaluru",
+    "end": "Near Bileshivale, Bengaluru"
+  },
+  "40049": {
+    "name": "",
+    "continues": "40048",
+    "end": "Yellamallappa Chetty Lake, Medahalli, Bengaluru",
+    "why": "Added from OSM. The Hebbal valley between H-300 and Yellamallappa Chetty Lake."
+  },
+  "40050": {
+    "name": "Hebbal Valley (BD-423)",
+    "continues": "40049",
+    "why": "Added from OSM. Yellamallappa Chetty Lake outflow to the Dakshina Pinakini.",
+    "end": "The Dakshina Pinakini near Koralur, east of Bengaluru"
   }
 }

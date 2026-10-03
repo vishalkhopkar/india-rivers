@@ -394,6 +394,15 @@ if (hsn) check("Surplus Nala merges into the Musi", hsn.panel.rows["Merges into"
 const pk = await openRiver("Picket Nala", [78.49, 17.465], 13);
 if (pk) check("Picket Nala merges into the Surplus Nala", pk.panel.rows["Merges into"] === "Hussain Sagar Surplus Nala", JSON.stringify(pk.panel.rows));
 
+console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
+const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);
+check("K-100 is on the map", !!k100);
+if (k100) check("K-100 continues below Bellandur", k100.panel.rows["Continues to"] === "Unnamed river", JSON.stringify(k100.panel.rows));
+const c100 = await openRiver("Challaghatta Valley (C-100)", [77.635, 12.975], 13);
+if (c100) check("C-100 merges into the Bellandur outflow", c100.panel.rows["Merges into"] === "Unnamed river", JSON.stringify(c100.panel.rows));
+const bd = await openRiver("Hebbal Valley (BD-423)", [77.755, 13.008], 13);
+if (bd) check("BD-423 merges into the Dakshina Pinakini", /Dakshina Pinakini/.test(bd.panel.rows["Merges into"] ?? ""), JSON.stringify(bd.panel.rows));
+
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);
 check("Musi is on the map", !!mu);
