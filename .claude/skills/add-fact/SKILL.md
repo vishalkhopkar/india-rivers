@@ -1,6 +1,6 @@
 ---
 name: add-fact
-description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying), rewrite it in plain words, add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name> or asks to add a fun fact to a river.
+description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying) and in their own wording (spelling and grammar fixes only), add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name> or asks to add a fun fact to a river.
 argument-hint: <river name>
 ---
 
@@ -47,8 +47,17 @@ own paragraph. Only the fact text is published. Do the steps in order.
      short river gets a local one that even people living on it may not know. If the user's own fact
      is the textbook kind, say so once, then add it; it is their call.
 
-3. **Write it in your own words**, keeping every claim the user made and adding none of your own
-   (beyond research they asked for).
+3. **Keep the user's wording. Correct spelling and grammar only.** The fact goes in as the user wrote
+   it.
+   - Allowed: spelling, capitalisation, punctuation, a missing word that grammar needs, and one
+     spelling of a name used throughout. Nothing else: do not swap words for "better" ones, shorten,
+     reorder, merge sentences, drop a term or change the tone, and do not apply the style points
+     below.
+   - If the fact is over 80 words (the build fails) or does not fit the panel in step 5, do not trim
+     it yourself: stop, say by how much, and ask the user how they want it shortened.
+   - List every correction you made in the report.
+
+   **Only for a fact you write yourself** (no fact given, or a part the user asked you to research):
    - One to three sentences, plain text, one paragraph: no markdown, no "Did you know". Aim for 35-60
      words. Over 80 the build fails, and well before that the panel stops fitting a phone.
    - Plain and specific: names, dates and numbers, not adjectives. The panel heading already names the
@@ -110,7 +119,8 @@ own paragraph. Only the fact text is published. Do the steps in order.
 
 7. **Report**, briefly:
    - the river and uid, and how it was told apart from its namesakes if there were any;
-   - the final text and its word count;
+   - the final text and its word count, and each spelling or grammar correction made to the user's
+     wording;
    - anything you researched because the user asked, with its source;
    - anything in the fact you believe is wrong (one line; it is still added as written);
    - the commit hash and that the push succeeded.
