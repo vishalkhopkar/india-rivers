@@ -427,6 +427,12 @@ if (v300) check("V-300 merges into the Kathriguppe", v300.panel.rows["Merges int
 const k209 = await openRiver("Koramangala Valley (K-209)", [77.61, 12.915], 13);
 check("K-209 (the Madiwala lake chain) is on the map", !!k209);
 if (k209) check("K-209 merges into K-100", k209.panel.rows["Merges into"] === "Koramangala Valley (K-100)", JSON.stringify(k209.panel.rows));
+const h400 = await openRiver("Hebbal Valley (H-400)", [77.645, 13.02], 13);
+check("H-400 is on the map", !!h400);
+if (h400) check("H-400 merges into H-300", h400.panel.rows["Merges into"] === "Hebbal Valley (H-300)", JSON.stringify(h400.panel.rows));
+const yj = await openRiver("", [77.588, 13.118], 14);
+check("the Yelahanka-Jakkur stream is on the map", !!yj);
+if (yj) check("it merges into H-200 below Nagavara", yj.panel.heading === "Unnamed river" && yj.panel.rows["Merges into"] === "Hebbal Valley (H-200)", JSON.stringify(yj.panel.rows));
 
 console.log("\nFun facts and feature switches:");
 const mu = await openRiver("Musi", [78.47, 17.37], 10);

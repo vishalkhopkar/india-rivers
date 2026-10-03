@@ -852,5 +852,137 @@
     "origin": "Varthur, east of Bengaluru",
     "end": "Varthur, east of Bengaluru",
     "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40101": {
+    "name": "",
+    "origin": "Chikkajala, north of Bengaluru",
+    "end": "Hebbal Valley (H-200) near Nagavara, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40102": {
+    "name": "",
+    "origin": "Vidyaranyapura, Bengaluru",
+    "end": "Hebbal Valley (H-200) near Sahakara Nagar, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40103": {
+    "name": "",
+    "origin": "RT Nagar, Bengaluru",
+    "end": "Hebbal Valley (H-200) near Hebbal, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40104": {
+    "name": "Hebbal Valley (H-201)",
+    "origin": "Sadashivanagar, Bengaluru",
+    "end": "Hebbal Valley (H-200) near Mathikere, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40105": {
+    "name": "Hebbal Valley (H-205)",
+    "origin": "Jalahalli, Bengaluru",
+    "end": "Hebbal Valley (H-200) near Mathikere, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40106": {
+    "name": "",
+    "origin": "Hebbal, Bengaluru",
+    "end": "Hebbal Valley (H-200) near Hebbal, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40107": {
+    "name": "",
+    "origin": "Yelahanka, Bengaluru",
+    "end": "Yelahanka, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40108": {
+    "name": "",
+    "origin": "Yelahanka, north of Bengaluru",
+    "end": "Yelahanka, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40109": {
+    "name": "",
+    "origin": "Jakkur, Bengaluru",
+    "end": "Jakkur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40110": {
+    "name": "",
+    "origin": "Jalahalli, Bengaluru",
+    "end": "Vidyaranyapura, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40111": {
+    "name": "Hebbal Valley (H-101)",
+    "origin": "RT Nagar, Bengaluru",
+    "end": "Hebbal, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40112": {
+    "name": "",
+    "origin": "Sahakara Nagar, Bengaluru",
+    "end": "Jakkur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40113": {
+    "name": "Hebbal Valley (BP-191)",
+    "origin": "Jakkur, Bengaluru",
+    "end": "Hebbal Valley (H-300) near Hennur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40114": {
+    "name": "Hebbal Valley (H-400)",
+    "origin": "Banaswadi, Bengaluru",
+    "end": "Hebbal Valley (H-300) near Hennur, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40115": {
+    "name": "",
+    "origin": "Frazer Town, Bengaluru",
+    "end": "Hebbal Valley (H-300) near HBR Layout, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40116": {
+    "name": "",
+    "origin": "Bagalur, north-east of Bengaluru",
+    "end": "Horamavu, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40117": {
+    "name": "",
+    "origin": "Ramamurthy Nagar, Bengaluru",
+    "end": "Yellamallappa Chetty Lake, east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40118": {
+    "name": "",
+    "origin": "Ramamurthy Nagar, Bengaluru",
+    "end": "Horamavu, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40119": {
+    "name": "",
+    "origin": "Horamavu, Bengaluru",
+    "end": "Horamavu, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40120": {
+    "name": "",
+    "origin": "KR Puram, Bengaluru",
+    "end": "KR Puram, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40121": {
+    "name": "",
+    "origin": "Hoodi, Bengaluru",
+    "end": "Hebbal Valley (BD-423) near Kadugodi, east of Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
+  },
+  "40122": {
+    "name": "Hebbal Valley (MD-284)",
+    "origin": "Hoodi, Bengaluru",
+    "end": "Hoodi, Bengaluru",
+    "why": "Added from OSM (Bengaluru stream network, review/bengaluru-streams.md)."
   }
 }
