@@ -334,6 +334,20 @@
     "confidence": "medium",
     "region": "south"
   },
+  "3723": {
+    "name": "Cooum Or Kuvam",
+    "category": "History",
+    "fact": "Fort St George was built on a sandbank between the sea, the Cooum to the south and a second river to the west, the Elambore or North River, which joined the Cooum at its mouth. A cut joining the two rivers turned the marsh between them into today's Island Grounds. The Elambore was diverted westwards in the 1750s to enlarge the fort, and the Buckingham Canal now follows its old course.",
+    "sources": [
+      "https://sriramv.com/2023/12/13/elambore-the-river-we-lost/",
+      "https://madrasmusings.com/vol-33-no-16/lost-landmarks-of-chennai-106/",
+      "https://sriramv.com/2015/06/08/know-fort-st-george-4-the-moat/",
+      "https://en.wikipedia.org/wiki/Cooum_River",
+      "https://en.wikipedia.org/wiki/Buckingham_Canal"
+    ],
+    "confidence": "high",
+    "region": "owner request"
+  },
   "4073": {
     "name": "Vaigai",
     "category": "History",
@@ -1051,6 +1065,18 @@
     ],
     "confidence": "high",
     "region": "national"
+  },
+  "16609": {
+    "name": "Saraswati",
+    "category": "Culture and mythology",
+    "fact": "Tradition treats this river as the sacred Sarasvati: Siddhpur on its banks is revered as Matru Gaya, held to be the only place in India for a mother's shraddha rites. But a 2017 study that drilled the Rann of Kutch for the lost Vedic Sarasvati, which some scholars trace through the Ghaggar-Hakra towards the Rann, found this Aravalli stream has \"no connection with the Vedic counterpart\".",
+    "sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5511136/",
+      "https://sprf.in/remnants-of-the-lost-river-documenting-the-cultural-landscape-and-ecological-heritage-of-river-saraswati-in-siddhpur/",
+      "https://en.wikipedia.org/wiki/Siddhpur"
+    ],
+    "confidence": "high",
+    "region": "owner request"
   },
   "16669": {
     "name": "Banas",
