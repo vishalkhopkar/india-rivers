@@ -410,6 +410,20 @@
     "confidence": "medium",
     "region": "south"
   },
+  "4132": {
+    "name": "Ponnaiyar/Dakshina Pinakini",
+    "category": "History",
+    "fact": [
+      "At Tirukoilur a rock stands in the middle of this river. The Tamil poet Kapilar is said to have fasted to death on it after his friend, the chieftain Vel Pari, was killed in battle. The rock, Kabilar Kundru, is now a protected monument.",
+      "While the Kaveri dispute is well known, a second river dispute between Karnataka and Tamil Nadu is over this river. Karnataka's dam on the Markandeya, a tributary, at Yargol near Kolar supplies drinking water to Kolar and KGF. Tamil Nadu, downstream, went to the Supreme Court against it in 2019. Talks ordered by the court in 2024 failed, with Tamil Nadu insisting on a tribunal."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kabilar_Kundru",
+      "https://thesouthfirst.com/karnataka/talks-over-pennar-water-sharing-fail-centre-likely-to-set-up-tribunal/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "4946": {
     "name": "Godavari River",
     "category": "Engineering",
