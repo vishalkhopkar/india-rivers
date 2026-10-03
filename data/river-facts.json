@@ -210,6 +210,16 @@
     "confidence": "high",
     "region": "west (site owner)"
   },
+  "2807": {
+    "name": "Nira",
+    "category": "History",
+    "fact": "For a significant course, it forms the boundary between the Pune-Satara and Pune-Solapur districts. On the banks of this river in Bhor lies the Bhor Palace, the seat of the erstwhile princely state of Bhor. It meets the Bhima near Akluj, a town with more interesting history. In 1679, Sambhaji joined hands with Diler Khan of the Mughals and stayed here in the Akluj Fort with him. Whether this was intentional or Shivaji Maharaj's tactic is debated.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Akluj"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
+  },
   "2821": {
     "name": "Panchganga",
     "category": "Names and etymology",
