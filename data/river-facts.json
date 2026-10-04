@@ -1969,6 +1969,97 @@
     "confidence": "high",
     "region": "south"
   },
+  "40059": {
+    "name": "Vrishabhavati Valley (V-120)",
+    "category": "History",
+    "fact": "It passes Kempambudhi Lake, a tank built by Kempe Gowda I in the 16th century and named after his family goddess, Kempamma. The western one of the four watchtowers that marked the limits of old Bengaluru stands near the tank at Gavipuram.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kempe_Gowda_I",
+      "https://bpac.in/a-dive-into-bengalurus-lakes/",
+      "https://www.iiacd.org/projects/vernacular/history_gv.html"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40075": {
+    "name": "Koramangala Valley (K-209)",
+    "category": "History",
+    "fact": "It links two old tanks. Madiwala Lake, 114 hectares, is said in legend to have been built by the Cholas in a single day, and spot-billed pelicans arrive there each winter. Agara Lake downstream dates to at least the 8th or 9th century, and its surplus traditionally drained on to Bellandur Lake.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Madiwala_Lake",
+      "https://en.wikipedia.org/wiki/Agara_Lake",
+      "https://bpac.in/a-dive-into-bengalurus-lakes/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40076": {
+    "name": "Koramangala Valley (K-103)",
+    "category": "Sport",
+    "fact": "It runs past the Bangalore Football Stadium, built from 1967 on the bed of the old Shoolay tank. Two other city stadiums also stand on tank beds: Sree Kanteerava, opened in 1946 on Sampangi tank, and the hockey stadium on Akkithimmanahalli tank.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lakes_in_Bengaluru",
+      "https://en.wikipedia.org/wiki/Bangalore_Football_Stadium",
+      "https://bpac.in/a-dive-into-bengalurus-lakes/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40078": {
+    "name": "Koramangala Valley (K-110)",
+    "category": "History",
+    "fact": "It runs through the lake in Lalbagh, the garden Hyder Ali began in 1760. James Cameron, then the garden's superintendent, had the lake's bund built in 1890. The Lalbagh rock in the same garden is peninsular gneiss about 3,000 million years old, declared a national geological monument.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lal_Bagh",
+      "https://bpac.in/a-dive-into-bengalurus-lakes/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40081": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "It flows past Begur, where a hero stone of about 890-900 CE in the Nageshvara temple complex records a 'battle of Bengaluru', the earliest known written mention of the city's name. The epigraphist R. Narasimhachar found it in 1914. A 12th-century Tamil inscription calls Begur's lake 'Veppur Periya Eri', Veppur's big tank.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Begur_inscriptions_and_hero_stones",
+      "https://en.wikipedia.org/wiki/Nageshvara_Temple,_Begur",
+      "https://bpac.in/bengaluru-heritage-nageshwara-temple-begur/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40083": {
+    "name": "(unnamed)",
+    "category": "Disasters",
+    "fact": "It flows through Hulimavu Lake. On 24 November 2019 the lake's bund gave way after an earthmover was used beside it to lay a pipe. Within hours water had flooded Hulimavu and BTM Layout, affecting more than 1,000 families, and the National Disaster Response Force was called in.",
+    "sources": [
+      "https://www.thenewsminute.com/article/lake-bund-breached-bengaluru-scores-houses-flooded-hulimavu-and-btm-layout-112869",
+      "https://science.thewire.in/society/urban/karnataka-over-1000-families-affected-by-hulimavu-lake-breach/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40085": {
+    "name": "Challaghatta Valley (C-200)",
+    "category": "History",
+    "fact": "It runs through Halasuru (Ulsoor) Lake, 50 hectares, part of which is controlled by the Army's Madras Engineer Group. A watchtower on the lake once held a Chinese bell cast in 1741 and taken from a hill temple in Nanking by a troop of the Madras Regiment; it is now in the Madras Sappers Museum.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Ulsoor_Lake"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40090": {
+    "name": "(unnamed)",
+    "category": "Environment",
+    "fact": "It passes through Kaikondrahalli Lake on Sarjapur Road, which by 2009 was nearly dry and reduced to a swamp. Residents and villagers worked with BBMP to drain, desilt and replant it over about two years, at a cost of Rs 2.7 crore. Birdwatchers counted over 55 species afterwards, against about 40 before.",
+    "sources": [
+      "https://citizenmatters.in/5317-kaikondrahalli-kere-a-success-story-of-lake-rejuvenation",
+      "https://wgbis.ces.iisc.ac.in/energy/water/paper/ETR85/sec6.html"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
   "40189": {
     "name": "Thane Creek",
     "category": "Geography",
