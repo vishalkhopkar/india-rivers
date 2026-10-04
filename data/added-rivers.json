@@ -3434,15 +3434,15 @@
   },
   "40205": {
     "name": "",
-    "joins": "8607",
-    "joinsName": "Bava Malang",
+    "joins": "8764",
+    "joinsName": "Kasadi",
     "minKm": 1.5,
     "osmWays": [
       1152273615,
       1152273617,
       39963836
     ],
-    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 64% of its length; on a valley floor in elevation data for 75% of its 2.8 km above the coastal flats; runs through a lake; falls from about 48 m to 0 m. 1.0 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. Head cut by hand: Kharghar hills: above this point OSM draws the descent in straight lines and right angles."
+    "why": "Mumbai region stream network (review/mumbai-streams.md), Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 64% of its length; on a valley floor in elevation data for 75% of its 2.8 km above the coastal flats; runs through a lake; falls from about 48 m to 0 m. 1.0 km of it is the computed centre line of OSM water areas, where OSM maps the channel as an area without a line. Head cut by hand: Kharghar hills: above this point OSM draws the descent in straight lines and right angles. Joined to the Bava Malang (8607) while CWC's line for that river ran down the creek to the Kasadi; that stretch is now the Taloje (40450). The stream's own mouth is on the creek 0.3 km below the meeting of the Taloje and the Kasadi, so it joins the Kasadi."
   },
   "40206": {
     "name": "",
@@ -6066,5 +6066,34 @@
     "joins": "40426",
     "minKm": 1.5,
     "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), Outer areas: the Manjira side, the Aler and the far south. A HydroRIVERS drainage line (18 km2 catchment) with no drawn river along it; tank chain: Gangaram Cheruvu; falls 12 m. OSM has no connected waterway along it, so the course is HydroRIVERS'. Listed in review/hyderabad-low-confidence.md."
+  },
+  "40450": {
+    "name": "Taloje",
+    "group": "taloje",
+    "joins": "8764",
+    "joinsName": "Kasadi",
+    "snapKm": 0.03,
+    "osmWays": [
+      55447672,
+      778610884,
+      204366000,
+      204365994
+    ],
+    "why": "The Taloje River, also called Taloje Creek: given by the owner, whose screenshot (Taloje.png) was used only to tell which watercourses are meant. Rises east of Taloja MIDC, runs west through the estate, takes in its northern branch (40451) just east of MIDC Road and the Bava Malang (8607) at Taloja, and runs on south as a tidal creek to the Kasadi between Kharghar and Kalamboli. Course from OSM: the stream ways named \"Taloje Creek\" (55447672, 778610884), the unnamed river way 204366000 below the meeting of the branches, and the tidal channel 204365994 as far as the node where OSM's Kasardi River joins it. OSM's water area along the creek from the meeting of the branches to the Kasadi (way 55445826) is named \"Taloje Creek\" too. This, the southern branch, carries the name: it is the longer of the two (4.1 km against 3.0 km) and the one OSM names. CWC drew the lowest 6 km as the end of its Bava Malang (data/course-overrides.json)."
+  },
+  "40451": {
+    "name": "Taloje (northern branch)",
+    "group": "taloje",
+    "joins": "40450",
+    "joinsName": "Taloje",
+    "snapKm": 0.02,
+    "osmWays": [
+      777633653,
+      777633652,
+      778610883,
+      778610882,
+      55447676
+    ],
+    "why": "The northern of the Taloje's two branches, given by the owner: from the north-eastern edge of Taloja MIDC west along the estate's northern side, under the Taloja Bypass, then south under MIDC Road to the main stream just east of where that passes under MIDC Road. OSM stream ways, unnamed in OSM; 3.0 km against the southern branch's 4.1 km, so the southern one is the main stem."
   }
 }

@@ -86,6 +86,11 @@ console.log(`HydroRIVERS reaches in the India window: ${reaches.size.toLocaleStr
 //     Malleshwaram. `tailFrom` appends another river's course below this one's mouth, and
 //     `endsAt` stops a river at another's (CWC) mouth: CWC carries the Suvarnamukhi on to
 //     the Arkavati with the Vrishabhavati as its tributary, where it is the other way round.
+//   - `endsOnAdded`: CWC carries a river on down a course that belongs to a river it lacks,
+//     one added here from OSM. The line is cut where it first reaches that river's course
+//     (in data/added-rivers-osm.json) and ended on it, the way an added tributary is
+//     (`snapKm` sets how close counts as reaching it). CWC runs the Bava Malang down the
+//     creek to the Kasadi; the creek is the Taloje, which the Bava Malang joins at Taloja.
 const courseOverrides = JSON.parse(readFileSync(COURSES, "utf8"));
 const lineKm = (line) => line.slice(1).reduce((s, c, i) => s + distKm(line[i][0], line[i][1], c[0], c[1]), 0);
 const cwcByUid = new Map(cwc.map((f) => [String(f.properties.UID_River), f]));
@@ -104,7 +109,7 @@ const END_PROPS = ["en_pt_long", "en_pt_lat", "en_loc_ste", "en_loc_dst", "en_lo
 const START_PROPS = ["st_pt_long", "st_pt_lat"];
 const cwcCourse = new Map();
 for (const [uid, o] of Object.entries(courseOverrides)) {
-  if (!(o.head || o.tailFrom || o.endsAt)) continue;
+  if (!(o.head || o.tailFrom || o.endsAt || o.endsOnAdded)) continue;
   for (const u of [uid, o.tailFrom, o.endsAt].filter(Boolean).map(String)) {
     const f = cwcByUid.get(u);
     if (!f) throw new Error(`${COURSES}: ${uid} refers to ${u}, which is not a CWC river`);
@@ -128,7 +133,7 @@ for (const f of cwc) {
   const o = courseOverrides[uid];
   if (!o) continue;
   const p = f.properties;
-  if (o.head || o.tailFrom || o.endsAt) {
+  if (o.head || o.tailFrom || o.endsAt || o.endsOnAdded) {
     let line = cwcCourse.get(uid).line;
     const changed = { length_km: p.length_km };
     const keep = (keys) => keys.forEach((k) => (changed[k] = p[k]));
@@ -152,10 +157,22 @@ for (const f of cwc) {
       keep(END_PROPS);
       Object.assign(p, Object.fromEntries(END_PROPS.map((k) => [k, other.props[k]])));
     }
+    if (o.endsOnAdded) {
+      const to = String(o.endsOnAdded);
+      const course = osmGeometry[to];
+      if (!list[to] || !course) throw new Error(`${COURSES}: ${uid} ends on ${to}, which is not an added river with an OSM course`);
+      const snapKm = o.snapKm ?? JOIN_SNAP_OSM_KM;
+      const cut = line.findIndex(([x, y]) => pointToLineKm(x, y, [course]) <= snapKm);
+      if (cut < 1) throw new Error(`${COURSES}: ${uid} never comes within ${snapKm} km of ${to}`);
+      const mouth = nearestOn(line[cut][0], line[cut][1], [course]).map((v) => Math.round(v * 1e6) / 1e6);
+      line = [...line.slice(0, cut), mouth];
+      keep(END_PROPS);
+      Object.assign(p, { en_pt_long: mouth[0], en_pt_lat: mouth[1], Confluence: list[to].name, join_uid: to });
+    }
     p.cwc_course = { geometry: f.geometry, props: changed };
     f.geometry = { type: "LineString", coordinates: line };
     p.length_km = lineKm(line);
-    console.log(`  ${uid} ${p.rivname}: ${changed.length_km.toFixed(1)} km -> ${p.length_km.toFixed(1)} km (${["head", "endsAt", "tailFrom"].filter((k) => o[k]).join(", ")})`);
+    console.log(`  ${uid} ${p.rivname}: ${changed.length_km.toFixed(1)} km -> ${p.length_km.toFixed(1)} km (${["head", "endsAt", "tailFrom", "endsOnAdded"].filter((k) => o[k]).join(", ")})`);
   } else if (o.osmWays) {
     const line = osmGeometry[uid];
     if (!line) throw new Error(`no course for ${uid} in ${OSM_GEOMETRY}`);
@@ -329,7 +346,11 @@ function build(uid, entry, addedSoFar) {
   const shoreKm = entry.shoreKm ?? (join ? list[join.uid]?.shoreKm : undefined);
   let atShore = false;
   if (meets) {
-    const snapKm = fromOsm ? JOIN_SNAP_OSM_KM : JOIN_SNAP_KM;
+    // The cut leaves a straight stub of up to the snap distance. Where both lines are known
+    // to meet at one point (the Taloje's branches share an OSM node; the Taloje's creek and
+    // the Kasadi run side by side for 200 m before they meet), an entry can ask for a
+    // tighter cut with `snapKm`, so its course is followed right to the confluence.
+    const snapKm = entry.snapKm ?? (fromOsm ? JOIN_SNAP_OSM_KM : JOIN_SNAP_KM);
     let cut = line.findIndex(([x, y]) => pointToLineKm(x, y, meets.parts) <= snapKm);
     if (cut === -1) {
       const [x, y] = line[line.length - 1];

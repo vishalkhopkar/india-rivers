@@ -423,7 +423,26 @@ check("the Rabale-Ghansoli stream is on the map", !!gh);
 if (gh) check("it rises below the Parsik hills and merges into Thane Creek", /Parsik hills/.test(gh.panel.rows["Origin"] ?? "") && gh.panel.rows["Merges into"] === "Thane Creek" && /Ghansoli/.test(gh.panel.rows["Confluence"] ?? ""), JSON.stringify(gh.panel.rows));
 const khg = await openRiver("", [73.0642, 19.0499], 15);
 check("the Kharghar stream is on the map", !!khg);
-if (khg) check("it merges into the Bava Malang", khg.panel.rows["Merges into"] === "Bava Malang", JSON.stringify(khg.panel.rows));
+if (khg) check("it merges into the Kasadi, just below the Taloje", khg.panel.rows["Merges into"] === "Kasadi" && /Kasadi at Kharghar/.test(khg.panel.rows["Confluence"] ?? ""), JSON.stringify(khg.panel.rows));
+console.log("\nTaloje (two branches in Taloja MIDC; takes in the Bava Malang; joins the Kasadi):");
+const tlj = await openRiver("Taloje", [73.1431, 19.0861], 15);
+check("the Taloje runs through Taloja MIDC", !!tlj);
+if (tlj) {
+  check("it rises east of Taloja MIDC", /east of Taloja MIDC/.test(tlj.panel.rows["Origin"] ?? ""), tlj.panel.rows["Origin"]);
+  check("it merges into the Kasadi", tlj.panel.rows["Merges into"] === "Kasadi" && /Kharghar and Kalamboli/.test(tlj.panel.rows["Confluence"] ?? ""), JSON.stringify(tlj.panel.rows));
+}
+const tljLow = await openRiver("Taloje", [73.0903, 19.0599], 15);
+check("the creek below Taloja, down to the Kasadi, is the Taloje", !!tljLow && tljLow.panel.heading === "Taloje", tljLow?.panel.heading);
+check("the Bava Malang no longer runs down that creek", !(await pixelOf("Bava Malang")));
+const tljN = await openRiver("Taloje (northern branch)", [73.1323, 19.0953], 15);
+check("the Taloje's northern branch is on the map", !!tljN);
+if (tljN) check("it merges into the Taloje, east of MIDC Road", tljN.panel.rows["Merges into"] === "Taloje" && /just east of MIDC Road/.test(tljN.panel.rows["Confluence"] ?? ""), JSON.stringify(tljN.panel.rows));
+const bvm = await openRiver("Bava Malang", [73.1191, 19.1116], 14);
+check("the Bava Malang is clickable above Taloja", !!bvm);
+if (bvm) {
+  check("it merges into the Taloje at Taloja", bvm.panel.rows["Merges into"] === "Taloje" && /Taloje at Taloja/.test(bvm.panel.rows["Confluence"] ?? ""), JSON.stringify(bvm.panel.rows));
+  check("it keeps its fun fact", (await page.evaluate(() => document.querySelectorAll(".panel .fact").length)) === 1);
+}
 console.log("\nMira-Bhayandar (to Vasai Creek and Manori Creek):");
 const kmr = await openRiver("", [72.8826, 19.2804], 15);
 check("the Kashimira stream is on the map", !!kmr);

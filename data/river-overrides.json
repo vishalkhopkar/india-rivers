@@ -156,6 +156,11 @@
     "end": "The Arkavati near Kanakapura, Karnataka",
     "why": "Head redrawn along the eastern branch from Malleshwaram and the lower course carried on to the Arkavati (data/course-overrides.json)."
   },
+  "8607": {
+    "name": "Bava Malang",
+    "end": "The Taloje at Taloja, Navi Mumbai",
+    "why": "Joins the Taloje at Taloja; the creek from there to the Kasadi, which the dataset draws as the Bava Malang's own end, is the Taloje (data/course-overrides.json)."
+  },
   "8654": {
     "name": "Dahisar",
     "origin": "Tulsi Lake, Sanjay Gandhi National Park, Mumbai",
@@ -1496,7 +1501,7 @@
   "40205": {
     "name": "",
     "origin": "Foot of the Kharghar hills, Navi Mumbai",
-    "end": "The Bava Malang (Taloja River) at Kharghar, Navi Mumbai",
+    "end": "The Kasadi at Kharghar, Navi Mumbai, just below where the Taloje joins it",
     "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
   },
   "40206": {
@@ -2950,5 +2955,17 @@
     "origin": "Gangaram Cheruvu, Madinaguda, Hyderabad",
     "end": "Chandanagar, Hyderabad",
     "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40450": {
+    "name": "Taloje",
+    "origin": "Near the Enkay Garden complex, east of Taloja MIDC, Navi Mumbai",
+    "end": "The Kasadi between Kharghar and Kalamboli, Navi Mumbai",
+    "why": "Added from OSM at the owner's word. The southern, longer branch is the main stem; the northern branch (40451) and the Bava Malang (8607) join it."
+  },
+  "40451": {
+    "name": "Taloje (northern branch)",
+    "origin": "North-eastern edge of Taloja MIDC, Navi Mumbai",
+    "end": "The Taloje in Taloja MIDC, just east of MIDC Road, Navi Mumbai",
+    "why": "Added from OSM at the owner's word. The shorter of the Taloje's two branches."
   }
 }

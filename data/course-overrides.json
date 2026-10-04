@@ -33,6 +33,12 @@
     "tailFrom": "7599",
     "why": "CWC starts the Vrishabhavati in Peenya, along the Nagarbhavi stream. The river rises at the Nandi Teertha temple by Sankey Tank in Malleshwaram (Paani.Earth; the district gazetteer and IISc also place the source in the old city) and meets the Nagarbhavi near Bangalore University: head redrawn from the OSM \"Vrishabhavathi\" ways. Below the Suvarnamukhi confluence it runs on to the Arkavati near Kanakapura, a stretch CWC gives to the Suvarnamukhi."
   },
+  "8607": {
+    "name": "Bava Malang",
+    "endsOnAdded": "40450",
+    "snapKm": 0.03,
+    "why": "CWC runs the Bava Malang on down the tidal creek to the Kasadi. From Taloja down, that creek is the Taloje (40450), which CWC lacks and which the Bava Malang joins at Taloja: the owner's correction, and OSM names the creek's water area \"Taloje Creek\" all the way from Taloja MIDC to the Kasadi. Ended at the confluence; above it CWC's line is the river's real course (within 60 m of OSM river way 777633651)."
+  },
   "8809": {
     "name": "Mithi",
     "osmWays": [

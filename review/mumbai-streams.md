@@ -1,6 +1,6 @@
 # Mumbai Metropolitan Region streams
 
-Updated 2026-10-03. The same job as for Bengaluru (`review/bengaluru-streams.md`), for the Mumbai Metropolitan Region, in these steps:
+Updated 2026-10-04. The same job as for Bengaluru (`review/bengaluru-streams.md`), for the Mumbai Metropolitan Region, in these steps:
 
 1. The Trombay Creek: the unnamed stream from Ghatkopar was named, run to its southern mouth, and given its northern mouth as a distributary.
 2. Thane Creek itself, as a branch of the Ulhas.
@@ -8,8 +8,9 @@ Updated 2026-10-03. The same job as for Bengaluru (`review/bengaluru-streams.md`
 4. Thane Creek, east bank (Navi Mumbai) and the Panvel Creek side: 7 streams, 31 km.
 5. Mira-Bhayandar, Gorai and Manori Creek: 11 streams, 37 km.
 6. The rest of the region: 113 streams, 566 km.
+7. The Taloje (2026-10-04, at the owner's word): the river and its northern branch added, and the Bava Malang ended on it.
 
-In all 144 streams and 699 km were added, besides Thane Creek (26.4 km), the Trombay Creek's northern mouth (3.3 km) and 5.3 km on the head of the Waldhuni. The area covered is the box the data was fetched for: 18.80-19.55 N, 72.70-73.35 E.
+In all 144 streams and 699 km were added, besides Thane Creek (26.4 km), the Trombay Creek's northern mouth (3.3 km), 5.3 km on the head of the Waldhuni, and the Taloje with its northern branch (13.5 km and 3.0 km). The area covered is the box the data was fetched for: 18.80-19.55 N, 72.70-73.35 E.
 
 ## References used
 
@@ -63,6 +64,30 @@ How the network was assembled:
 
 OSM's "Trombay Creek" water areas also run up the Somaiyya Nalla as far as Tilak Nagar. On the map the creek's head is the Ghatkopar stream, as the owner said, and the Somaiyya Nalla joins it.
 
+## The Taloje and the Bava Malang
+
+Added on 2026-10-04. The owner reported the Taloje River (also Taloje Creek) missing at Taloja: a northern branch rising in Taloja MIDC, a southern branch rising near the Enkay Garden complex in the far east of Taloja, the two meeting in the MIDC just east of where the river passes under MIDC Road, and the river then taking in the Bava Malang and keeping the name Taloje down to the Kasadi. The owner's screenshot was used only to tell which watercourses are meant; every course is from OpenStreetMap, fetched through Overpass on 2026-10-04. As the owner states it is a river, the natural test of this file was not run on it.
+
+| River | What was done | Why |
+|---|---|---|
+| Taloje (40450) | New. Near the Enkay Garden complex, east of Taloja MIDC → west through the MIDC, under MIDC Road, past Ghot Road → the Bava Malang's confluence at Taloja → south as a tidal creek to the Kasadi between Kharghar and Kalamboli. 13.5 km. | OSM stream ways named "Taloje Creek" (55447672, 778610884; the southern branch, 4.1 km), the unnamed river way 204366000 (3.3 km, from the meeting of the branches to the Bava Malang) and the tidal channel 204365994 (6.1 km of it, to the node where OSM's "Kasardi River" joins). OSM's water area along the creek from the meeting of the branches to the Kasadi (way 55445826) is named "Taloje Creek" as well. None of it is tagged as a canal or drain. |
+| Taloje (northern branch) (40451) | New. North-eastern edge of Taloja MIDC → west along the estate's northern side, under the Taloja Bypass → south under MIDC Road → the Taloje just east of MIDC Road. 3.0 km. | OSM stream ways 777633653, 777633652, 778610883, 778610882, 55447676, unnamed in OSM. OSM carries it about 1 km further up than the owner's screenshot shows, to the edge of the estate; the whole OSM course is drawn. |
+| Bava Malang (8607) | Ended at the Taloje at Taloja. 18.8 km → 13.2 km. Its fun fact stays with it. | CWC ran its line on down the creek to the Kasadi. That stretch is now the Taloje's (`endsOnAdded` in `data/course-overrides.json`). |
+| Unnamed (40205), Kharghar | Now joins the Kasadi, not the Bava Malang. | Its own mouth is on the creek 0.3 km below the meeting of the Taloje and the Kasadi. It had been tied to the end point of CWC's Bava Malang line, which was that same meeting point, by a 0.3 km straight stub. |
+| Unnamed (40306), Malanggad hills | No change: it joins the Bava Malang about 9.5 km above Taloja. | |
+
+**Which branch is the main stem.** The southern one: it is the longer (4.1 km against 3.0 km to the meeting point) and it is the one OSM names "Taloje Creek". The northern one is "Taloje (northern branch)", in the style of "Trombay Creek (northern mouth)".
+
+**What CWC's line was.** An earlier version of this file said CWC's "Bava Malang" was the Taloja River under another name, lying 1.8 km off the river's real course north of Taloja MIDC. That was a misreading. CWC's line follows OSM's unnamed river way 777633651 from the Malanggad foothills to Taloja (within 60 m of it from 2 km below the source), and from Taloja down it follows the tidal channel to the Kasadi (within 60 m again). So the line was on course; it was two rivers drawn as one. The river that comes down from Malanggad is the Bava Malang, the creek below Taloja is the Taloje, and the Taloje's own upper course through the MIDC, about 2 km east of the Bava Malang, was not on the map at all.
+
+Considered and left as it is:
+
+- **The creek below the Kasadi's confluence.** OSM names the tidal creek "Taloje Creek" for about 3 km more below the point where the Kasadi comes in (water relation 13327872, towards Belapur). On the map that stretch stays the Kasadi, which is CWC's line to the sea and what the owner describes (the Taloje "meets the Kasadi").
+- **The Bava Malang's first 2 km.** CWC starts it 1.3 km south-east of where OSM's river way starts; the two meet 2 km down. Not touched: nobody has said which head is the river's.
+- **The channel along the Taloja Jail Road, Kharghar** (3.7 km, OSM drain 940795151), which reaches the Taloje at Taloja: still left out by eye (section 2), now listed as joining the Taloje.
+- **Canal ways from Kharghar to the creek** (OSM 712427901, 731910218, 731910217; 1.4 km): tagged `waterway=canal`.
+- **A stream through a pond at Taloja Phase-I** (OSM 786149543, 604555768, 786149542; 0.3 km): far under 2 km.
+
 ## Drawn
 
 **Thane Creek, west bank (Salsette) (13 streams, 65 km):**
@@ -93,7 +118,7 @@ OSM's "Trombay Creek" water areas also run up the Somaiyya Nalla as far as Tilak
 |---|---|---|---|---|---|
 | 40203 | Unnamed | Foot of the Parsik hills at Rabale MIDC, Navi Mumbai → Thane Creek at Ghansoli, Navi Mumbai | 7.7 | HydroRIVERS 75%; valley floor 79% of 1.9 km upland; lake on its course; 1.5 km on the centre line of water areas | Thane Creek (40189) |
 | 40204 | Unnamed | Parsik hills above Mahape, Navi Mumbai → Thane Creek between Kopar Khairane and Vashi, Navi Mumbai | 7.2 | HydroRIVERS 100%; valley floor 97% of 3.4 km upland; tidal creek 59% | Thane Creek (40189) |
-| 40205 | Unnamed | Foot of the Kharghar hills, Navi Mumbai → The Bava Malang (Taloja River) at Kharghar, Navi Mumbai | 5.1 | HydroRIVERS 64%; valley floor 75% of 2.8 km upland; lake on its course; 1.0 km on the centre line of water areas | Bava Malang (8607) |
+| 40205 | Unnamed | Foot of the Kharghar hills, Navi Mumbai → The Kasadi at Kharghar, Navi Mumbai, just below where the Taloje joins it | 5.1 | HydroRIVERS 64%; valley floor 75% of 2.8 km upland; lake on its course; 1.0 km on the centre line of water areas | Kasadi (8764) |
 | 40206 | Unnamed | Parsik hills above Digha, Navi Mumbai → Thane Creek at Digha, Navi Mumbai | 3.4 | valley floor 70% of 2 km upland; lake on its course | Thane Creek (40189) |
 | 40207 | Unnamed | CBD Belapur, Navi Mumbai → Mumbai Harbour at Belapur, where Thane Creek opens into it, Navi Mumbai | 2.8 | HydroRIVERS 98%; tidal creek 72%; lake on its course; 2.1 km on the centre line of water areas | the sea |
 | 40208 | Unnamed | Mangroves south of Airoli, Navi Mumbai → Thane Creek, between Airoli and Ghansoli, Navi Mumbai | 2.1 | HydroRIVERS 80%; tidal creek 88%; 2.1 km on the centre line of water areas | Thane Creek (40189) |
@@ -214,6 +239,8 @@ OSM's "Trombay Creek" water areas also run up the Somaiyya Nalla as far as Tilak
 
 **Panvel, Taloja and Uran (26 streams, 155 km):**
 
+The Taloje (40450) and its northern branch (40451), at Taloja, are in their own section above and are not counted here.
+
 | UID | Name | From → to | km | Evidence | Joins |
 |---|---|---|---|---|---|
 | 40222 | Unnamed | Hills above the Ransai reservoir, east of Uran → Karanja Creek, south-east of Uran | 15.9 | HydroRIVERS 79%; valley floor 74% of 4.3 km upland; tidal creek 56%; lake on its course; OSM river/stream | the sea |
@@ -318,7 +345,7 @@ These pass the test on paper (mostly on HydroRIVERS, which is a weak test on fla
 | Unnamed, Kalamboli → Kalamboli (19.022 N, 73.116 E) | 4.4 | Panel (8846) | Runs in straight lines and right angles along Kalamboli's sector roads: a planned-city drain, no valley and no creek (by eye). |
 | Unnamed, Dadar, Mumbai → Bandra (19.019 N, 72.844 E) | 4.0 | Mithi (8809) | A dead-straight drain beside the Western Railway line from Dadar to Mahim: no valley and no creek (by eye). |
 | Unnamed, Karanja, near Uran → Karanja (18.861 N, 72.979 E) | 4.0 | unnamed (40222) | Runs round the edge of a reclaimed block south of Uran in straight lines: a boundary channel (by eye), though OSM tags it as a tidal channel. |
-| Unnamed, Kharghar, Navi Mumbai → Taloja (19.073 N, 73.070 E) | 3.7 | Bava Malang (8607) | Follows the Taloja Jail Road and a sector road in a straight line along the edge of Kharghar: a planned-city channel (by eye). |
+| Unnamed, Kharghar, Navi Mumbai → Taloja (19.073 N, 73.070 E) | 3.7 | Taloje (40450) | Follows the Taloja Jail Road and a sector road in a straight line along the edge of Kharghar: a planned-city channel (by eye). |
 | Unnamed, Turbhe, Navi Mumbai → Vashi (19.074 N, 73.012 E) | 3.1 | unnamed (40204) | A straight drain along a sector road in Vashi, on reclaimed land: a planned-city storm drain to the holding pond, with no valley and no creek (by eye). |
 | Unnamed, Vikhroli, Mumbai → Ghatkopar (19.093 N, 72.933 E) | 2.4 | Trombay Creek (40028) | A straight cut across the mangroves north of the Deonar dumping ground, beside the Ghatkopar sewage lagoons: no valley and no creek arm (by eye). |
 | Unnamed, Vashi, Navi Mumbai → Sanpada (19.071 N, 73.003 E) | 2.3 | Thane Creek (40189) | A straight channel between Vashi and Sanpada, on reclaimed land: a planned-city storm channel with no stream mapped above it (by eye). |
@@ -350,7 +377,6 @@ OSM ways taken out of the network by hand, for the same kind of reason:
 
 | Stream | km | Reason |
 |---|---|---|
-| Unnamed, north of Taloja MIDC (19.099 N, 73.139 E) | 2.9 | joins the Taloja River north of Taloja MIDC, where the map's line for that river (CWC's "Bava Malang") lies 1.8 km from the river's real course: it could only be joined by a 1.8 km straight stub. |
 | Unnamed, Near Khalapur (18.741 N, 73.259 E) | 4.7 | Mostly outside the area the data covers. |
 | Unnamed, Near Atgaon (19.585 N, 73.380 E) | 2.9 | Mostly outside the area the data covers. |
 | Unnamed, Aarey Colony, Goregaon, Mumbai (19.141 N, 72.894 E) | 2.2 | Starts within 150 m of the Mithi just below the Vihar Lake dam and runs beside it to Marol: the pipeline's confluence check cuts it at its first point. |
@@ -364,6 +390,8 @@ OSM ways taken out of the network by hand, for the same kind of reason:
 | Unnamed, Near Badlapur (19.158 N, 73.192 E) | 2.1 | A 1.3 km stream into Kakuli Lake: under 2 km once the lake crossing, now part of the Waldhuni, is left out. |
 
 The two tributaries of the Gadhe headstream above (2.2 km each, on Matheran's west face) go with it.
+
+A 2.9 km stream north of Taloja MIDC (19.099 N, 73.139 E) was listed here until 2026-10-04 as joining a river the map drew 1.8 km away. It is the Taloje's northern branch and is now drawn (40451).
 
 ### 6. OSM has no channel linking them to a drawn river or the shore
 
@@ -388,7 +416,7 @@ The references name nallas without saying where they run, and OSM leaves almost 
 
 ### 8. Under 2 km
 
-The 2 km minimum was kept. Of the streams of 1-2 km, **74 are complete**: they pass the natural test and reach a drawn river, a creek or the sea. Their courses, test results, OSM way ids and proposed origin and end texts are kept (in the working files of this job, `build/view/mmr-under2km.json`, not in the repository), so they can be added without redoing the network. A further 26 streams of 1-2 km reach the network but fail the test or join a stream that is not drawn, and 5 pieces of 1-2 km are unconnected fragments.
+The 2 km minimum was kept. Of the streams of 1-2 km, **73 are complete**: they pass the natural test and reach a drawn river, a creek or the sea. Their courses, test results, OSM way ids and proposed origin and end texts are kept (in the working files of this job, `build/view/mmr-under2km.json`, not in the repository), so they can be added without redoing the network. A further 26 streams of 1-2 km reach the network but fail the test or join a stream that is not drawn, and 5 pieces of 1-2 km are unconnected fragments.
 
 | Area | Complete streams | km | Fail the test | Unconnected fragments |
 |---|---|---|---|---|
@@ -399,10 +427,10 @@ The 2 km minimum was kept. Of the streams of 1-2 km, **74 are complete**: they p
 | Thane, Ghodbunder Road and Bhiwandi (to the Ulhas) | 3 | 3.9 | 0 | 1 |
 | Vasai-Virar, Kaman and the Tansa side | 5 | 6.6 | 1 | 0 |
 | Kalyan-Dombivli, Ulhasnagar, Ambernath and Badlapur | 9 | 12.4 | 2 | 0 |
-| Panvel, Taloja and Uran | 8 | 10.8 | 9 | 1 |
+| Panvel, Taloja and Uran | 7 | 9.1 | 9 | 1 |
 | The north-east: Padgha, Vasind and Shahapur | 5 | 7.3 | 0 | 1 |
 | The east and south-east: Vangani, Neral, Matheran, Karjat, Khalapur and Rasayani | 8 | 11.6 | 1 | 0 |
-| **Total** | **74** | **103.8** | **26** | **5** |
+| **Total** | **73** | **102.1** | **26** | **5** |
 
 The complete ones:
 
@@ -462,7 +490,6 @@ The complete ones:
 | Kalyan-Dombivli, Ulhasnagar, Ambernath and Badlapur | Dombivli, Maharashtra → The Ulhas at Dombivli, Maharashtra (19.214 N, 73.078 E) | 1.1 | HydroRIVERS 50%; OSM river/stream | Ulhas (8969) |
 | Kalyan-Dombivli, Ulhasnagar, Ambernath and Badlapur | Badlapur, Maharashtra → Badlapur, Maharashtra (19.176 N, 73.227 E) | 1.1 | HydroRIVERS 100% | unnamed (40227) |
 | Panvel, Taloja and Uran | Near Jasai, Maharashtra → Near Jasai, Maharashtra (18.920 N, 73.032 E) | 2.0 | HydroRIVERS 83%; tidal creek 98%; OSM river/stream | unnamed (40222) |
-| Panvel, Taloja and Uran | Near Taloja, Maharashtra → The Kasadi near Taloja, Maharashtra (19.086 N, 73.136 E) [OSM: Taloje Creek] | 1.7 | HydroRIVERS 92%; OSM river/stream | Kasadi (8764) |
 | Panvel, Taloja and Uran | Near Taloja, Maharashtra → The Kasadi near Taloja, Maharashtra (19.098 N, 73.177 E) | 1.5 | HydroRIVERS 51%; valley floor 82% of 1.7 km upland; OSM river/stream | Kasadi (8764) |
 | Panvel, Taloja and Uran | Near Panvel, Maharashtra → The Ulwe near Ulwe, Navi Mumbai (18.944 N, 73.076 E) | 1.2 | HydroRIVERS 100%; valley floor 100% of 1.1 km upland; OSM river/stream | Ulwe (40224) |
 | Panvel, Taloja and Uran | Kharghar, Navi Mumbai → Kharghar, Navi Mumbai (19.040 N, 73.058 E) | 1.2 | OSM river/stream | unnamed (40205) |
@@ -485,11 +512,13 @@ The complete ones:
 
 Below 1 km there are several hundred more stubs; they were not looked at.
 
+A 1.7 km piece of the OSM stream "Taloje Creek" was in this list until 2026-10-04. It is part of the Taloje's southern branch, now drawn whole (40450).
+
 ## Where this stopped, and open questions
 
 - **Area.** Everything inside the box the data was fetched for (18.80-19.55 N, 72.70-73.35 E) was tested, with no administrative limit. That takes in Mumbai, Thane, Navi Mumbai, Mira-Bhayandar, Vasai-Virar, Bhiwandi, Kalyan-Dombivli, Ulhasnagar, Ambernath, Badlapur, Panvel, Uran, and the country out to Vasind, Neral, Matheran and Rasayani. Streams lying mostly outside the box (Khopoli, Karjat's east, Alibag, Pen, Palghar) were not looked at.
 - **Navi Mumbai is thin.** Four streams reach Thane Creek from the east bank, against 10 from Salsette. That is the state of OSM there, not of the ground (section 6).
 - **By-eye exclusions** (section 2) are judgement: the Vashi and Kalamboli channels in particular carry the water of natural streams in channels built with the city.
 - **Tidal channels between two creeks** (Murdha and Morva, in Mira-Bhayandar) are drawn as two arms meeting in the middle, since water leaves them both ways.
-- **CWC lines off course.** Six streams could not be joined because the map's line for the river they flow into (the Taloja River as "Bava Malang", the upper Gadhe, the upper Patalganga) lies 1-2 km from the river's real course. Correcting those CWC courses from OSM would let them in.
+- **CWC lines off course.** Five streams could not be joined because the map's line for the river they flow into (the upper Gadhe, the upper Patalganga) lies 1-2 km from the river's real course. Correcting those CWC courses from OSM would let them in. A sixth case listed here earlier, at Taloja, was not one: CWC's Bava Malang line is on course, and what was missing was the Taloje, the river that stream flows into (see "The Taloje and the Bava Malang").
 - **Names.** Section 7: a ward-wise BMC or NMMC nalla map would let the unnamed streams be named.
