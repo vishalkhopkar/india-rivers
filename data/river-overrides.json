@@ -85,6 +85,11 @@
     "end": "Krishna delta, south of Repalle, Andhra Pradesh",
     "why": "Auto end '90 km S of Vijayawada' was technically right but unhelpful. Origin left automatic: matches source text."
   },
+  "3219": {
+    "name": "Mosi",
+    "rename": "Esi",
+    "why": "The dataset's \"Mosi\" is the Esi (Isa, Musa's twin): it runs through Himayat Sagar, which was built on the Esi in 1927, and meets the Musi at Langar Houz (Bapu Ghat)."
+  },
   "4946": {
     "name": "Godavari River",
     "origin": "Brahmagiri hills (Western Ghats) near Trimbakeshwar, Maharashtra",
@@ -2284,6 +2289,192 @@
     "name": "",
     "origin": "Ramaram Cheruvu, Gajularamaram, Hyderabad",
     "end": "Jagadgirigutta, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40340": {
+    "name": "",
+    "origin": "Near Shadnagar, south-west of Hyderabad",
+    "end": "The Esi near Moinabad, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40341": {
+    "name": "",
+    "origin": "Near Shabad, south-west of Hyderabad",
+    "end": "The Esi near Chevella, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40342": {
+    "name": "",
+    "origin": "Near Shamshabad, south-west of Hyderabad",
+    "end": "Himayat Sagar, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40343": {
+    "name": "",
+    "origin": "Near Shabad, south-west of Hyderabad",
+    "end": "The Esi near Chevella, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40344": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Musi near Shankarpally, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40345": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Musi at Mokila, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40346": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Musi near Mokila, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40347": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Musi near Shankarpally, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40348": {
+    "name": "",
+    "origin": "Near Shamshabad, south-west of Hyderabad",
+    "end": "The Esi near Shamshabad, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40349": {
+    "name": "",
+    "origin": "Financial District, Hyderabad",
+    "end": "The Musi at Manchirevula, west of Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40350": {
+    "name": "",
+    "origin": "Manikonda Cheruvu, Khajaguda, Hyderabad",
+    "end": "The Musi near Narsingi, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40351": {
+    "name": "",
+    "origin": "Near Moinabad, west of Hyderabad",
+    "end": "Osman Sagar (Gandipet), west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40352": {
+    "name": "",
+    "origin": "Near Shabad, south-west of Hyderabad",
+    "end": "The Esi near Chevella, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40353": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Esi near Chevella, west of Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40354": {
+    "name": "",
+    "origin": "Near Shankarpally, west of Hyderabad",
+    "end": "The Musi near Shankarpally, west of Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40355": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Esi near Chevella, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40356": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "The Esi near Chevella, west of Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40357": {
+    "name": "",
+    "origin": "Near Moinabad, west of Hyderabad",
+    "end": "The Esi near Moinabad, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40358": {
+    "name": "",
+    "origin": "Mulagund Lake, Rajendra Nagar, Hyderabad",
+    "end": "The Esi at Kismatpur, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40359": {
+    "name": "",
+    "origin": "Near Kothur, south-west of Hyderabad",
+    "end": "The Esi near Moinabad, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40360": {
+    "name": "",
+    "origin": "Near Maheshwaram, south of Hyderabad",
+    "end": "Near Kothur, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40361": {
+    "name": "",
+    "origin": "Near Shabad, south-west of Hyderabad",
+    "end": "Near Kothur, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40362": {
+    "name": "",
+    "origin": "Near Shadnagar, south-west of Hyderabad",
+    "end": "Near Nandigama, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40363": {
+    "name": "",
+    "origin": "Near Nandigama, south-west of Hyderabad",
+    "end": "Nandigama, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40364": {
+    "name": "",
+    "origin": "Near Shamshabad, south-west of Hyderabad",
+    "end": "Shamshabad, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40365": {
+    "name": "",
+    "origin": "Near Chevella, west of Hyderabad",
+    "end": "Near Chevella, west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40366": {
+    "name": "",
+    "origin": "Kothur, south-west of Hyderabad",
+    "end": "Near Kothur, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40367": {
+    "name": "",
+    "origin": "Near Maheshwaram, south of Hyderabad",
+    "end": "Near Maheshwaram, south of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40368": {
+    "name": "",
+    "origin": "Near Kothur, south-west of Hyderabad",
+    "end": "Near Kothur, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40369": {
+    "name": "",
+    "origin": "Near Maheshwaram, south of Hyderabad",
+    "end": "Near Kothur, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40370": {
+    "name": "",
+    "origin": "Near Kothur, south-west of Hyderabad",
+    "end": "Near Kothur, south-west of Hyderabad",
     "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
   }
 }

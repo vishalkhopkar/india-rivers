@@ -537,6 +537,19 @@ if (bkp) check("it ends at Hussain Sagar and merges into the Kukatpally Nala", b
 const fxs = await openRiver("", [78.471, 17.535], 14);
 check("the stream that feeds Fox Sagar is on the map", !!fxs);
 if (fxs) check("it ends at Fox Sagar and merges into the Kukatpally Nala", fxs.panel.heading === "Unnamed river" && fxs.panel.rows["Merges into"] === "Kukatpally Nala" && /Fox Sagar/.test(fxs.panel.rows["Confluence"] ?? ""), JSON.stringify(fxs.panel.rows));
+console.log("\nGreater Hyderabad: the Musi and Esi headwaters and the west:");
+const esi = await openRiver("Esi", [78.1711, 17.2459], 11);
+check("the Esi (the dataset's \"Mosi\") is on the map under its own name", !!esi);
+if (esi) check("the Esi merges into the Musi", esi.panel.rows["Merges into"] === "Musi", JSON.stringify(esi.panel.rows));
+const kkp = await openRiver("", [78.3275, 17.3988], 14);
+check("the Kokapet stream is on the map", !!kkp);
+if (kkp) check("it rises in the Financial District and merges into the Musi", /Financial District/.test(kkp.panel.rows["Origin"] ?? "") && kkp.panel.rows["Merges into"] === "Musi", JSON.stringify(kkp.panel.rows));
+const ktr = await openRiver("", [78.2648, 17.1609], 12);
+check("the river through Kothur, from HydroRIVERS, is on the map", !!ktr);
+if (ktr) check("it merges into the Esi", ktr.panel.rows["Merges into"] === "Esi", JSON.stringify(ktr.panel.rows));
+const osv = await openRiver("", [78.2555, 17.3609], 13);
+check("a stream that ends in Osman Sagar is on the map", !!osv);
+if (osv) check("it merges into the Musi at Osman Sagar", osv.panel.rows["Merges into"] === "Musi" && /Osman Sagar/.test(osv.panel.rows["Confluence"] ?? ""), JSON.stringify(osv.panel.rows));
 
 console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
 const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);
