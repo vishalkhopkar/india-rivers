@@ -2261,5 +2261,29 @@
     "origin": "Matheran hills, near Neral",
     "end": "Near Neral, Maharashtra",
     "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+  },
+  "40336": {
+    "name": "Balkapur Nala",
+    "origin": "Mehdipatnam, Hyderabad",
+    "end": "Hussain Sagar at Khairatabad, Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40337": {
+    "name": "",
+    "origin": "Near Kompally, north of Hyderabad",
+    "end": "Fox Sagar, Jeedimetla, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40338": {
+    "name": "",
+    "origin": "Ram Nagar, Hyderabad",
+    "end": "The Hussain Sagar Surplus Nala at Nallakunta, Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40339": {
+    "name": "",
+    "origin": "Ramaram Cheruvu, Gajularamaram, Hyderabad",
+    "end": "Jagadgirigutta, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
   }
 }

@@ -5051,5 +5051,50 @@
       199743666
     ],
     "why": "Mumbai region stream network (review/mumbai-streams.md), found on a last pass over the finished map. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 77% of its 3.1 km above the coastal flats; falls from about 591 m to 66 m."
+  },
+  "40336": {
+    "name": "Balkapur Nala",
+    "joins": "40039",
+    "joinsName": "Kukatpally Nala",
+    "minKm": 1.5,
+    "shoreKm": 2.3,
+    "osmWays": [
+      209298790,
+      209298781,
+      209298783
+    ],
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), Hussain Sagar catchment. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 52% of its length; falls from about 542 m to 519 m. 3.3 km is mapped as covered (tunnel). Listed in review/hyderabad-low-confidence.md."
+  },
+  "40337": {
+    "name": "",
+    "hydroSource": 41256717,
+    "hydroOutlet": 41256717,
+    "joins": "40039",
+    "joinsName": "Kukatpally Nala",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), Hussain Sagar catchment. A HydroRIVERS drainage line (84 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 56% of its length; tank chain: Fox Sagar and 2 unnamed tanks; falls 17 m. OSM has no connected waterway along it, so the course is HydroRIVERS'. Listed in review/hyderabad-low-confidence.md."
+  },
+  "40338": {
+    "name": "",
+    "joins": "40040",
+    "joinsName": "Hussain Sagar Surplus Nala",
+    "minKm": 1.5,
+    "osmWays": [
+      319567755,
+      363724306,
+      363724308,
+      319567760,
+      363724302,
+      363724310,
+      319567758
+    ],
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), Hussain Sagar catchment. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 81% of its length; tank chain: 1 tank of 2 ha or more; falls from about 507 m to 490 m. 0.5 km bridges gaps in the OSM mapping. Listed in review/hyderabad-low-confidence.md."
+  },
+  "40339": {
+    "name": "",
+    "hydroSource": 41255864,
+    "hydroOutlet": 41255864,
+    "joins": "40042",
+    "minKm": 1.5,
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), Hussain Sagar catchment. A HydroRIVERS drainage line (25 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 70% of its length; tank chain: Ramaram Cheruvu; falls 10 m. OSM has no connected waterway along it, so the course is HydroRIVERS'. Listed in review/hyderabad-low-confidence.md."
   }
 }

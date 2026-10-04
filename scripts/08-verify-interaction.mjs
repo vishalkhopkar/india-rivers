@@ -529,6 +529,14 @@ const hsn = await openRiver("Hussain Sagar Surplus Nala", [78.497, 17.405], 14);
 if (hsn) check("Surplus Nala merges into the Musi", hsn.panel.rows["Merges into"] === "Musi", JSON.stringify(hsn.panel.rows));
 const pk = await openRiver("Picket Nala", [78.49, 17.465], 13);
 if (pk) check("Picket Nala merges into the Surplus Nala", pk.panel.rows["Merges into"] === "Hussain Sagar Surplus Nala", JSON.stringify(pk.panel.rows));
+// Greater Hyderabad stream network (review/hyderabad-streams.md).
+console.log("\nGreater Hyderabad stream network: the Hussain Sagar catchment:");
+const bkp = await openRiver("Balkapur Nala", [78.452, 17.408], 14);
+check("Balkapur Nala is on the map", !!bkp);
+if (bkp) check("it ends at Hussain Sagar and merges into the Kukatpally Nala", bkp.panel.rows["Merges into"] === "Kukatpally Nala" && /Hussain Sagar at Khairatabad/.test(bkp.panel.rows["Confluence"] ?? ""), JSON.stringify(bkp.panel.rows));
+const fxs = await openRiver("", [78.471, 17.535], 14);
+check("the stream that feeds Fox Sagar is on the map", !!fxs);
+if (fxs) check("it ends at Fox Sagar and merges into the Kukatpally Nala", fxs.panel.heading === "Unnamed river" && fxs.panel.rows["Merges into"] === "Kukatpally Nala" && /Fox Sagar/.test(fxs.panel.rows["Confluence"] ?? ""), JSON.stringify(fxs.panel.rows));
 
 console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
 const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);
