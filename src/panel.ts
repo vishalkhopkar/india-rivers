@@ -75,6 +75,21 @@ function loadFacts(): Promise<void> {
   return factsRequest;
 }
 
+// Rivers tagged "Doubtful naturality", and why: public/river-naturality.json, built by
+// scripts/03e-naturality.mjs. `rivers` maps a uid to its explanation in `texts`, which
+// many rivers share. Fetched like the facts; none is tagged if the file is missing.
+let naturality: { texts: string[]; rivers: Record<string, number> } | null = null;
+let naturalityRequest: Promise<void> | null = null;
+function loadNaturality(): Promise<void> {
+  naturalityRequest ??= fetch(`${import.meta.env.BASE_URL}river-naturality.json`)
+    .then((r) => (r.ok ? r.json() : {}))
+    .catch(() => ({}))
+    .then((json: { texts?: string[]; rivers?: Record<string, number> } | null) => {
+      naturality = { texts: json?.texts ?? [], rivers: json?.rivers ?? {} };
+    });
+  return naturalityRequest;
+}
+
 export class InfoPanel {
   private el: HTMLElement;
   private body: HTMLElement;
@@ -90,6 +105,11 @@ export class InfoPanel {
     this.el.querySelector(".panel-close")?.addEventListener("click", () => {
       this.hide();
       this.onClose?.();
+    });
+    // A tap or click anywhere else closes the "Doubtful naturality" tooltip.
+    document.addEventListener("pointerdown", (ev) => {
+      const tip = this.body.querySelector<HTMLElement>(".naturality-tip");
+      if (tip && !(ev.target as Element | null)?.closest?.(".naturality")) tip.hidden = true;
     });
     parent.appendChild(this.el);
   }
@@ -110,7 +130,8 @@ export class InfoPanel {
 
   show(p: RiverProps) {
     this.shown = p;
-    if (!facts) void loadFacts().then(() => this.shown === p && !this.el.hidden && this.show(p));
+    if (!facts || !naturality)
+      void Promise.all([loadFacts(), loadNaturality()]).then(() => this.shown === p && !this.el.hidden && this.show(p));
     const labels = END_LABELS[p.kind] ?? END_LABELS.trib;
 
     const rows: Row[] = [
@@ -133,8 +154,10 @@ export class InfoPanel {
       : [];
 
     const riverFacts = facts?.[p.uid] ?? [];
+    const doubt = naturality?.texts[naturality.rivers[p.uid]];
     this.body.replaceChildren(
       el("h2", {}, p.name || "Unnamed river"),
+      ...(doubt ? [this.naturalityTag(doubt)] : []),
       list(rows),
       ...(riverFacts.length
         ? [el("h3", { class: "fact-heading" }, "Fun Facts"), ...riverFacts.map((f) => el("p", { class: "fact" }, this.factText(f)))]
@@ -203,6 +226,32 @@ export class InfoPanel {
       frag.append(this.riverLink(uid, names[i] ?? ""));
     });
     return frag;
+  }
+
+  // The "Doubtful naturality" tag under the name, and a "?" button whose tooltip says why.
+  // The tooltip opens on hover and on keyboard focus, and stays while the pointer is on the
+  // row or on the tooltip itself. A phone has no hover: there a tap opens it, and a second
+  // tap, or a tap anywhere else, closes it.
+  private naturalityTag(why: string): HTMLElement {
+    const row = el("div", { class: "naturality" });
+    const help = el("button", { type: "button", class: "naturality-help", "aria-label": "About doubtful naturality", "aria-describedby": "naturality-tip" }, "?");
+    const tip = el("div", { id: "naturality-tip", class: "naturality-tip", role: "tooltip", hidden: "" }, why);
+    const open = (on: boolean) => (tip.hidden = !on);
+    help.addEventListener("pointerenter", (ev) => ev.pointerType === "mouse" && open(true));
+    row.addEventListener("pointerleave", (ev) => ev.pointerType === "mouse" && document.activeElement !== help && open(false));
+    help.addEventListener("focus", () => open(true));
+    help.addEventListener("blur", () => open(false));
+    help.addEventListener("keydown", (ev) => ev.key === "Escape" && open(false));
+    // A tap is a focus and then a click: the click closes the tooltip only if it was
+    // already open before the tap.
+    let wasOpen = false;
+    help.addEventListener("pointerdown", (ev) => (wasOpen = ev.pointerType !== "mouse" && !tip.hidden));
+    help.addEventListener("click", () => {
+      open(!wasOpen);
+      wasOpen = false;
+    });
+    row.append(el("span", { class: "naturality-tag" }, "Doubtful naturality"), help, tip);
+    return row;
   }
 
   // A fact may name another river as [[uid|text]], which becomes a link to it.
