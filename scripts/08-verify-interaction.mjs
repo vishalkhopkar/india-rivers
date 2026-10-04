@@ -563,6 +563,16 @@ if (srn) check("it merges into the Musi at Chaitanyapuri", srn.panel.rows["Merge
 const abd = await openRiver("", [78.6885, 17.2992], 13);
 check("the Abdullapurmet stream is on the map", !!abd);
 if (abd) check("it merges into the Chinna Musi", /Chinna Musi/.test(abd.panel.rows["Merges into"] ?? ""), JSON.stringify(abd.panel.rows));
+console.log("\nGreater Hyderabad: north and north-east:");
+const chp = await openRiver("", [78.6123, 17.4752], 13);
+check("the Cherlapally-Rampally tank chain is on the map", !!chp);
+if (chp) check("it merges into the Ermulli Vagu at Ghatkesar", chp.panel.rows["Merges into"] === "Ermulli Vagu" && /Ghatkesar/.test(chp.panel.rows["Confluence"] ?? ""), JSON.stringify(chp.panel.rows));
+const kpr = await openRiver("", [78.5615, 17.4901], 14);
+check("the Kapra valley, from HydroRIVERS, is on the map", !!kpr);
+if (kpr) check("it rises at Yapral and merges into the Cherlapally stream", /Yapral/.test(kpr.panel.rows["Origin"] ?? "") && kpr.panel.rows["Merges into"] === "Unnamed river", JSON.stringify(kpr.panel.rows));
+const mdc = await openRiver("", [78.4852, 17.6596], 13);
+check("the valley north of Medchal is on the map", !!mdc);
+if (mdc) check("it merges into the Shamirpet Vagu", mdc.panel.rows["Merges into"] === "Shamirpet Vagu", JSON.stringify(mdc.panel.rows));
 
 console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
 const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);

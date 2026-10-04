@@ -5633,5 +5633,186 @@
     "joins": "40396",
     "minKm": 1.5,
     "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), East and south: to the Musi in and below the city. A HydroRIVERS drainage line (17 km2 catchment) with no drawn river along it; tank chain: Injapur Cheruvu; falls 5 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40399": {
+    "name": "",
+    "joins": "2478",
+    "joinsName": "Ermulli Vagu",
+    "minKm": 1.5,
+    "osmWays": [
+      318619691,
+      361860134,
+      1302495714,
+      1302495715,
+      361860135,
+      318619693
+    ],
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. From OSM waterways, unnamed in OSM. Natural course: within 0.5 km of a HydroRIVERS drainage line for 100% of its length; on a valley floor in elevation data for 61% of its length; tank chain: 1 tank of 2 ha or more; mapped in OSM as a river or stream throughout; falls from about 517 m to 477 m."
+  },
+  "40400": {
+    "name": "",
+    "hydroSource": 41256618,
+    "hydroOutlet": 41256501,
+    "joins": "2441",
+    "joinsName": "Chinnaeru R",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (64 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 59% of its length; tank chain: 3 tanks of 2 ha or more; falls 55 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40401": {
+    "name": "",
+    "hydroSource": 41252410,
+    "hydroOutlet": 41252410,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (50 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 57% of its length; falls 28 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40402": {
+    "name": "",
+    "hydroSource": 41253785,
+    "hydroOutlet": 41253785,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (42 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 84% of its length; tank chain: 2 tanks of 2 ha or more; falls 58 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40403": {
+    "name": "",
+    "hydroSource": 41252728,
+    "hydroOutlet": 41252728,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (47 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 61% of its length; tank chain: Lalgadi Malakpet Lake; falls 43 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40404": {
+    "name": "",
+    "hydroSource": 41252115,
+    "hydroOutlet": 41252620,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (65 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 56% of its length; falls 40 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40405": {
+    "name": "",
+    "hydroSource": 41254126,
+    "hydroOutlet": 41254126,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (43 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 64% of its length; falls 30 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40406": {
+    "name": "",
+    "hydroSource": 41252729,
+    "hydroOutlet": 41252729,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (37 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 56% of its length; falls 32 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40407": {
+    "name": "",
+    "hydroSource": 41255722,
+    "hydroOutlet": 41255722,
+    "joins": "2441",
+    "joinsName": "Chinnaeru R",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (24 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 71% of its length; falls 37 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40408": {
+    "name": "",
+    "hydroSource": 41254344,
+    "hydroOutlet": 41254344,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (24 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 64% of its length; falls 32 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40409": {
+    "name": "",
+    "hydroSource": 41253387,
+    "hydroOutlet": 41253387,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (26 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 59% of its length; falls 23 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40410": {
+    "name": "",
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "minKm": 1.5,
+    "osmWays": [
+      796306177,
+      808252162,
+      808252161,
+      808240515,
+      808240514,
+      796306207,
+      796306206,
+      1019072742,
+      1019072737,
+      1019072726,
+      1019072747,
+      1019072724,
+      1019072745
+    ],
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. From OSM waterways, unnamed in OSM. Natural course: on a valley floor in elevation data for 50% of its length; tank chain: 1 tank of 2 ha or more; mapped in OSM as a river or stream throughout; falls from about 588 m to 568 m."
+  },
+  "40411": {
+    "name": "",
+    "hydroSource": 41254345,
+    "hydroOutlet": 41254345,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (20 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 69% of its length; falls 18 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40412": {
+    "name": "",
+    "hydroSource": 41256617,
+    "hydroOutlet": 41256617,
+    "joins": "2478",
+    "joinsName": "Ermulli Vagu",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (23 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 72% of its length; falls 19 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40413": {
+    "name": "",
+    "hydroSource": 41252310,
+    "hydroOutlet": 41252310,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "minKm": 1.5,
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (23 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 50% of its length; tank chain: 1 tank of 2 ha or more; falls 10 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40414": {
+    "name": "",
+    "hydroSource": 41254444,
+    "hydroOutlet": 41254444,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "minKm": 1.5,
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (19 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 89% of its length; falls 12 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40415": {
+    "name": "",
+    "hydroSource": 41253495,
+    "hydroOutlet": 41253495,
+    "joins": "2874",
+    "joinsName": "Shamirpet Vagu",
+    "minKm": 1.5,
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (19 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 73% of its length; falls 11 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40416": {
+    "name": "",
+    "hydroSource": 41257122,
+    "hydroOutlet": 41257122,
+    "joins": "40399",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (74 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 73% of its length; tank chain: Kapra lake and 2 unnamed tanks; falls 45 m. OSM has no connected waterway along it, so the course is HydroRIVERS'. Listed in review/hyderabad-low-confidence.md."
+  },
+  "40417": {
+    "name": "",
+    "hydroSource": 41252116,
+    "hydroOutlet": 41252620,
+    "joins": "40404",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (29 km2 catchment) with no drawn river along it; on a valley floor in elevation data for 80% of its length; falls 27 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
+  },
+  "40418": {
+    "name": "",
+    "hydroSource": 41256500,
+    "hydroOutlet": 41256501,
+    "joins": "40400",
+    "why": "Greater Hyderabad stream network (review/hyderabad-streams.md), North and north-east: the Shamirpet Vagu, Ermulli Vagu and Chinnaeru. A HydroRIVERS drainage line (23 km2 catchment) with no drawn river along it; tank chain: 1 tank of 2 ha or more; falls 23 m. OSM has no connected waterway along it, so the course is HydroRIVERS'."
   }
 }
