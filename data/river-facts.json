@@ -467,6 +467,16 @@
     "confidence": "high",
     "region": "south"
   },
+  "6016": {
+    "name": "Penganga",
+    "category": "History",
+    "fact": "Historically, the river formed a boundary between Berar and Hyderabad state, then becoming a boundary between Hyderabad and British India, and finally Marathwada and Vidarbha in Maharashtra. Today, Yavatmal district's southern and eastern boundaries are just rivers, with the Penganga to its south.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
+  },
   "6072": {
     "name": "Pranhitha",
     "category": "Pilgrimage",
