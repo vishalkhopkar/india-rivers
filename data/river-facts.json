@@ -1938,6 +1938,16 @@
     "confidence": "high",
     "region": "south"
   },
+  "40049": {
+    "name": "(unnamed)",
+    "category": "Environment",
+    "fact": "This stretch runs down the Rampura valley to Yele Mallappa Shetty Lake, carrying a mix of treated and untreated sewage from a 40 million litres a day treatment plant. A 2016 report found farmers along it pumping the water to vegetable fields a couple of kilometres away; from the lake it is pumped on to the big tank at Hoskote.",
+    "sources": [
+      "https://citizenmatters.in/bangalore-suburbs-sewage-flow-mechanism"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "40050": {
     "name": "Hebbal Valley (BD-423)",
     "category": "History",
@@ -2071,6 +2081,26 @@
     "confidence": "high",
     "region": "south"
   },
+  "40091": {
+    "name": "(unnamed)",
+    "category": "Wildlife",
+    "fact": "It runs through Doddanekundi Lake, where a birdwatcher counted over 50 species in 2016, painted storks and spot-billed pelicans among them. In 2021, after record rain, the drain feeding the lake overflowed with untreated sewage, and weeds went on to cover the whole lake.",
+    "sources": [
+      "https://citizenmatters.in/doddanekundi-lake-birds-fish-habitat-nature-bird-watching-biodiversity-2021-floods-soup-bowl-development/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40098": {
+    "name": "(unnamed)",
+    "category": "Names and etymology",
+    "fact": "It starts at Carmelaram Lake. The name is recent: in 1969 Carmelite priests from Kerala bought land here and built a theology college, and called the place Carmelaram, 'Garden of Carmel'. The railway station on the Bengaluru-Salem line now carries the name too.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Carmelaram"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "40101": {
     "name": "(unnamed)",
     "category": "Environment",
@@ -2105,6 +2135,16 @@
     "confidence": "high",
     "region": "south"
   },
+  "40128": {
+    "name": "(unnamed)",
+    "category": "Disasters",
+    "fact": "It runs through Doddabidarakallu Lake. At about 2 a.m. on 10 October 2019, after 110 mm of rain, a corner of the lake's bund gave way. About 500 houses in the layouts below were flooded, with water rising to nearly six feet.",
+    "sources": [
+      "https://citizenmatters.in/?p=8932"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "40132": {
     "name": "(unnamed)",
     "category": "Wildlife",
@@ -2113,6 +2153,17 @@
       "https://india.mongabay.com/2025/10/a-grassland-gets-a-lifeline-offers-a-lesson/",
       "https://scroll.in/article/1087735/from-wasteland-to-conservation-reserve-a-grassland-on-bengalurus-outskirts-is-a-biodiversity-hub",
       "https://en.wikipedia.org/wiki/Hesaraghatta_Lake"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40139": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "It rises in Electronic City, the idea of R. K. Baliga, first chairman and managing director of the state electronics corporation Keonics, who proposed it in the late 1970s. It began on about 300 acres of village land at Konappana Agrahara, on the road to Hosur, and had almost 90 companies by 1991.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Electronic_City",
+      "https://connect.iisc.ac.in/2023/12/electronic-city-was-not-built-in-a-day/"
     ],
     "confidence": "high",
     "region": "south"
@@ -2126,6 +2177,28 @@
       "https://thelogicalindian.com/latest-news/hebbagodi-lake-bengaluru"
     ],
     "confidence": "high",
+    "region": "south"
+  },
+  "40151": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "It runs through the big tank at Sarjapur, a town once known for its muslin. An 1887 gazetteer recorded 'muslins of various patterns, turbans, and small cotton carpets' being made here, and raw silk since Tipu Sultan's reign. Sarjapur was a jagir in the 18th century and the headquarters of its own taluk until 1873.",
+    "sources": [
+      "https://citizenmatters.in/silks-to-substations-sarjapur-through-the-years/",
+      "https://citizenmatters.in/once-upon-a-time-when-sarjapur-meant-muslin-cloth/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40152": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "It rises at Anekal, whose name means 'elephant rock' in Kannada. The town was founded in about 1603 by Chikka Thimme Gowda of the Sugatur family, who built a fort and a temple and made a large tank. Hyder Ali later expelled his descendants and Anekal passed to Mysore.",
+    "sources": [
+      "https://en.bharatpedia.org/wiki/Anekal",
+      "https://en.wikipedia.org/wiki/Anekal"
+    ],
+    "confidence": "medium",
     "region": "south"
   },
   "40155": {
