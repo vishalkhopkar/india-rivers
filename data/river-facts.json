@@ -554,6 +554,17 @@
     "confidence": "high",
     "region": "south"
   },
+  "7304": {
+    "name": "Kumudvati",
+    "category": "Environment",
+    "fact": "It is traced to Kumbha Thirtha in the Shivagange hills and meets the [[7730|Arkavati]] at the Thippagondanahalli reservoir, which once supplied about 30 per cent of Bengaluru's drinking water. Since 2013 volunteers have worked to revive the river across 278 villages with boulder checks, recharge wells and desilted stepwells.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kumudvathi_River",
+      "https://www.thenewsminute.com/article/if-all-goes-well-kumudavathi-river-may-help-tackling-bengaluru-s-water-woes-42950"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
   "7443": {
     "name": "Noyyal",
     "category": "Environment",
@@ -2056,6 +2067,85 @@
     "sources": [
       "https://citizenmatters.in/5317-kaikondrahalli-kere-a-success-story-of-lake-rejuvenation",
       "https://wgbis.ces.iisc.ac.in/energy/water/paper/ETR85/sec6.html"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40101": {
+    "name": "(unnamed)",
+    "category": "Environment",
+    "fact": "It links Yelahanka, Jakkur and Rachenahalli lakes in a chain. At Jakkur a sewage treatment plant with a capacity of 10 million litres a day sends its water through a man-made wetland before it reaches the lake. The lake supports about 70 fishing families, and some 197 bird species have been recorded there.",
+    "sources": [
+      "https://citizenmatters.in/en-route-to-a-water-sensitive-city-the-story-of-jakkur-lake/",
+      "https://india.mongabay.com/2021/04/the-story-of-jakkur-lake-sets-an-example-for-inclusive-rejuvenation-projects/",
+      "https://www.indiawaterportal.org/articles/jakkur-lake-potential-model-urban-water-sustainability"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40112": {
+    "name": "(unnamed)",
+    "category": "Environment",
+    "fact": "It passes Amruthahalli Lake and ends at Rachenahalli Lake, which also takes the monsoon overflow of Jakkur Lake. The 128.6-acre lake was revived for the Bangalore Development Authority at a cost of Rs 19 crore. In 2015 residents led by Dr Shobha Ananda Reddy formed the Jalmitra trust to look after it.",
+    "sources": [
+      "https://thelogicalindian.com/rachenahalli-lake-bengaluru/",
+      "https://citizenmatters.in/articles/bda-develops-lakes-but-bbmp-yet-to-take-them-back"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40125": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "It passes Chikkajala Fort on the road to Bengaluru's airport: a walled compound around a temple pond, with pillared stone halls and a Hanuman temple. One archaeologist holds that it was never a fort but a walled temple complex, its walls too thin for defence. Road widening took away part of it around 2011.",
+    "sources": [
+      "https://www.outlooktraveller.com/experiences/heritage/offbeat-gems-all-about-the-chikkajala-fort-near-bengaluru",
+      "https://en.wikipedia.org/wiki/Chikkajala"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40132": {
+    "name": "(unnamed)",
+    "category": "Wildlife",
+    "fact": "It ends in Hesaraghatta Lake, built in 1894 as Bengaluru's first planned source of drinking water. In 2025 over 5,000 acres of the lake bed and the grassland around it were notified as the Greater Hesaraghatta Grassland Conservation Reserve, home to around 235 bird species, the lesser florican among them, and to the lilac silverline butterfly.",
+    "sources": [
+      "https://india.mongabay.com/2025/10/a-grassland-gets-a-lifeline-offers-a-lesson/",
+      "https://scroll.in/article/1087735/from-wasteland-to-conservation-reserve-a-grassland-on-bengalurus-outskirts-is-a-biodiversity-hub",
+      "https://en.wikipedia.org/wiki/Hesaraghatta_Lake"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40141": {
+    "name": "(unnamed)",
+    "category": "Environment",
+    "fact": "It runs through Hebbagodi Lake near Electronic City, once a sink of sewage and garbage. Biocon and Syngene took up its revival, signing an agreement with the state in October 2017, and floated some 400 wetland rafts on it. In December 2018 the lake entered the Limca Book of Records for India's largest floating island.",
+    "sources": [
+      "https://www.thenewsminute.com/karnataka/bengaluru-lake-enters-record-books-largest-floating-island-post-rejuvenation-92680",
+      "https://thelogicalindian.com/latest-news/hebbagodi-lake-bengaluru"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40155": {
+    "name": "(unnamed)",
+    "category": "Wildlife",
+    "fact": "It ends in Hoskote Lake on the [[4132|Dakshina Pinakini]], a tank of about 808 acres where a bird census found 227 species, 40 per cent of them migratory. Hoskote was the site of the Battle of Ooscata on the night of 22-23 August 1768, in the First Anglo-Mysore War.",
+    "sources": [
+      "https://bangalorerural.nic.in/en/tourist-place/hosakote-lake-2/",
+      "https://en.wikipedia.org/wiki/Hoskote"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40165": {
+    "name": "(unnamed)",
+    "category": "History",
+    "fact": "It flows past Devanahalli Fort, begun as a mud fort in 1501 by Malla Byre Gowda, a chieftain under Vijayanagara, and rebuilt in stone by Hyder Ali. A small memorial just outside the 20-acre fort marks the place where Tipu Sultan was born in 1751. Lord Cornwallis took the fort in 1791.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Devanahalli_Fort",
+      "https://bangalorerural.nic.in/en/tourist-place/devanahalli-fort-tippus-birth-place/"
     ],
     "confidence": "high",
     "region": "south"
