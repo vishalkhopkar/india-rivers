@@ -7,7 +7,9 @@ import { gunzipSync } from "node:zlib";
 import { VectorTile } from "@mapbox/vector-tile";
 import { PbfReader } from "pbf";
 
-const db = new DatabaseSync("build/rivers.mbtiles", { readOnly: true });
+// The MBTiles lives in build/, which a git worktree does not have: pass the main
+// checkout's file as an argument there (node scripts/05-verify-tiles.mjs <path>).
+const db = new DatabaseSync(process.argv[2] ?? "build/rivers.mbtiles", { readOnly: true });
 
 const lonToX = (lon, z) => Math.floor(((lon + 180) / 360) * 2 ** z);
 const latToY = (lat, z) => {
