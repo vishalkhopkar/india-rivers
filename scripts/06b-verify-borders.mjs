@@ -116,7 +116,7 @@ for (const id of ids) {
     continue;
   }
   decoded++;
-  const s = perZoom.get(z) ?? { tiles: 0, km: new Map(), kinds: new Set(), rivers: new Map(), vertices: 0 };
+  const s = perZoom.get(z) ?? { tiles: 0, km: new Map(), kinds: new Set(), rivers: new Map(), vertices: 0, ramps: 0 };
   s.tiles++;
   for (let i = 0; i < layer.length; i++) {
     const f = layer.feature(i);
@@ -125,6 +125,9 @@ for (const id of ids) {
     if (!BORDER_KINDS.includes(pr.kind) || !pr.name) bad.push(`${z}/${x}/${y}: bad properties ${JSON.stringify(pr)}`);
     if ("src" in pr) bad.push(`${z}/${x}/${y}: src should not be in the tiles`);
     if ("river" in pr !== "rlen" in pr) bad.push(`${z}/${x}/${y}: river without rlen`);
+    // `of` marks a ramp piece at the end of a river stretch: a fraction of the full offset
+    if ("of" in pr && !(pr.river && pr.of > 0 && pr.of < 1)) bad.push(`${z}/${x}/${y}: bad offset fraction ${JSON.stringify(pr)}`);
+    if ("of" in pr) s.ramps++;
     const key = `${pr.kind}|${pr.name}`;
     s.kinds.add(pr.kind);
     if (pr.river) s.rivers.set(`${key}|${pr.river}`, pr.rlen);
@@ -180,6 +183,7 @@ for (let z = header.minZoom; z <= header.maxZoom; z++) {
 }
 
 const top = perZoom.get(header.maxZoom);
+check("river stretches are ramped onto the plain borders they meet", !expectRiver.size || top.ramps > 0, `${top?.ramps} ramp pieces at z${header.maxZoom}`);
 const present = [...BORDER_KINDS].filter((k) => top?.kinds.has(k));
 check("all three kinds are present", present.length === BORDER_KINDS.length, present.join(", "));
 

@@ -298,35 +298,108 @@ if (!features.length) {
 // rivers do the same from z11; one zoom deeper puts the borders on a finer grid than the
 // river they may be drawn beside (about 2 m), and a river-border stretch, which is the
 // river's own vertices, lands on the river's line at every zoom.
-const index = new geojsonvt(
-  {
-    type: "FeatureCollection",
-    features: features.map((f) => ({
+
+// A river stretch is drawn a few pixels to one side of its own geometry (beside the
+// river), but the plain border it joins is drawn where it lies, and ends on the river's
+// centre line. Left alone, the two would end side by side with a step between them. So
+// each end of a river stretch that meets a plain border is cut into a few short pieces
+// carrying `of`, the fraction of the full offset to use: the line walks in from the bank
+// to the river's centre over a couple of pixels and meets the plain border there.
+// Pixels differ by zoom, so the pieces are cut afresh for each zoom's tiles.
+// Three pieces of a pixel and a half are enough to join the lines at a zoom that has its
+// own tiles. The top zoom's tiles are also what the map magnifies up to sixteen times, so
+// there the ramp is cut finer, or its steps would show as a staircase.
+const rampAt = (zoom) => (zoom === BORDER_MAX_ZOOM ? { steps: 7, piecePx: 1 } : { steps: 3, piecePx: 1.5 });
+const metresPerPixel = (zoom, lat) => (78271.517 * Math.cos((lat * Math.PI) / 180)) / 2 ** zoom;
+
+// What else ends at each coordinate: a ramp is only wanted where a plain border arrives.
+const plainEnds = new Set();
+for (const f of features)
+  if (!f.river) for (const c of [f.coords[0], f.coords[f.coords.length - 1]]) plainEnds.add(`${c[0]},${c[1]}`);
+
+// The part of a line between two distances (km) from its start.
+function sliceLine(coords, cum, from, to) {
+  const out = [];
+  const at = (d, i) => {
+    const seg = cum[i + 1] - cum[i];
+    const t = seg ? (d - cum[i]) / seg : 0;
+    return [coords[i][0] + t * (coords[i + 1][0] - coords[i][0]), coords[i][1] + t * (coords[i + 1][1] - coords[i][1])];
+  };
+  for (let i = 0; i < coords.length - 1; i++) {
+    if (cum[i + 1] <= from) continue;
+    if (cum[i] >= to) break;
+    if (!out.length) out.push(cum[i] >= from ? coords[i] : at(from, i));
+    out.push(cum[i + 1] <= to ? coords[i + 1] : at(to, i));
+  }
+  return out;
+}
+
+function featuresAt(zoom) {
+  const { steps: RAMP_STEPS, piecePx: RAMP_PIECE_PX } = rampAt(zoom);
+  const out = [];
+  const push = (f, coords, of) => {
+    if (coords.length < 2) return;
+    out.push({
       type: "Feature",
       // `src` stays in the repo's GeoJSON; the map has no use for it.
-      properties: { kind: f.kind, name: f.name, ...(f.river ? { river: f.river, rlen: f.rlen } : {}) },
-      geometry: { type: "LineString", coordinates: f.coords },
-    })),
-  },
-  { maxZoom: BORDER_MAX_ZOOM, indexMaxZoom: 5, tolerance: 3, extent: EXTENT, buffer: 64, generateId: false }
-);
+      properties: { kind: f.kind, name: f.name, ...(f.river ? { river: f.river, rlen: f.rlen } : {}), ...(of ? { of } : {}) },
+      geometry: { type: "LineString", coordinates: coords },
+    });
+  };
+  for (const f of features) {
+    const first = f.coords[0], last = f.coords[f.coords.length - 1];
+    // The dotted lines are left whole: a dot pattern restarts in every piece.
+    const rampStart = f.river && f.kind !== "line" && plainEnds.has(`${first[0]},${first[1]}`);
+    const rampEnd = f.river && f.kind !== "line" && plainEnds.has(`${last[0]},${last[1]}`);
+    if (!rampStart && !rampEnd) {
+      push(f, f.coords);
+      continue;
+    }
+    const cum = [0];
+    for (let i = 1; i < f.coords.length; i++) cum.push(cum[i - 1] + distKm(f.coords[i - 1][0], f.coords[i - 1][1], f.coords[i][0], f.coords[i][1]));
+    const total = cum[cum.length - 1];
+    const piece = (RAMP_PIECE_PX * metresPerPixel(zoom, first[1])) / 1000;
+    // A stretch too short at this zoom to hold its ramps and still run beside the river
+    // stays whole: pieces cut any finer would fall below a pixel and be dropped.
+    if (total < (2 * RAMP_STEPS + 2) * piece) {
+      push(f, f.coords);
+      continue;
+    }
+    const head = rampStart ? RAMP_STEPS * piece : 0;
+    const tail = rampEnd ? RAMP_STEPS * piece : 0;
+    for (let i = 0; rampStart && i < RAMP_STEPS; i++) push(f, sliceLine(f.coords, cum, i * piece, (i + 1) * piece), (i + 1) / (RAMP_STEPS + 1));
+    push(f, sliceLine(f.coords, cum, head, total - tail));
+    for (let i = 0; rampEnd && i < RAMP_STEPS; i++)
+      push(f, sliceLine(f.coords, cum, total - tail + i * piece, total - tail + (i + 1) * piece), (RAMP_STEPS - i) / (RAMP_STEPS + 1));
+  }
+  return out;
+}
 
 const tiles = [];
 const perZoom = new Map();
-function walk(z, x, y) {
-  const tile = index.getTile(z, x, y);
-  if (!tile || !tile.features.length) return;
-  if (z >= BORDER_MIN_ZOOM) {
+for (let zoom = BORDER_MIN_ZOOM; zoom <= BORDER_MAX_ZOOM; zoom++) {
+  // geojson-vt leaves its top zoom unsimplified, so an index for a lower zoom is built one
+  // level deeper than the tiles taken from it.
+  const top = zoom === BORDER_MAX_ZOOM ? zoom : zoom + 1;
+  const index = new geojsonvt(
+    { type: "FeatureCollection", features: featuresAt(zoom) },
+    { maxZoom: top, indexMaxZoom: Math.min(5, top), tolerance: 3, extent: EXTENT, buffer: 64, generateId: false }
+  );
+  const walk = (z, x, y) => {
+    const tile = index.getTile(z, x, y);
+    if (!tile || !tile.features.length) return;
+    if (z < zoom) {
+      for (let dx = 0; dx < 2; dx++) for (let dy = 0; dy < 2; dy++) walk(z + 1, x * 2 + dx, y * 2 + dy);
+      return;
+    }
     const data = gzipSync(vtpbf.fromGeojsonVt({ [BORDER_LAYER]: tile }, { version: 2, extent: EXTENT }), { level: 9 });
     tiles.push({ z, x, y, data });
     const s = perZoom.get(z) ?? { n: 0, b: 0, max: 0 };
     s.n++; s.b += data.length; s.max = Math.max(s.max, data.length);
     perZoom.set(z, s);
-  }
-  if (z >= BORDER_MAX_ZOOM) return;
-  for (let dx = 0; dx < 2; dx++) for (let dy = 0; dy < 2; dy++) walk(z + 1, x * 2 + dx, y * 2 + dy);
+  };
+  walk(0, 0, 0);
 }
-walk(0, 0, 0);
 
 const bbox = bboxOf(features.map((f) => f.coords));
 const archive = buildPMTiles(tiles, {
@@ -345,7 +418,7 @@ const archive = buildPMTiles(tiles, {
         id: BORDER_LAYER,
         minzoom: BORDER_MIN_ZOOM,
         maxzoom: BORDER_MAX_ZOOM,
-        fields: { kind: "String", name: "String", river: "String", rlen: "Number" },
+        fields: { kind: "String", name: "String", river: "String", rlen: "Number", of: "Number" },
       },
     ],
   },

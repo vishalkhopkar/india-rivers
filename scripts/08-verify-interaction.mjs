@@ -660,6 +660,11 @@ await setSwitch("states", true);
   check("all border layers shown", sw.extShown.length === BORDER_LAYERS.external.length && sw.stShown.length === BORDER_LAYERS.states.length);
 }
 await drawnAtZooms("border-state", "state");
+// The basemap's own state lines would show as a second border beside a river; they are
+// filtered out while ours are on, and only then.
+const basemapStatesHidden = () =>
+  page.evaluate(() => JSON.stringify(window.__map.getFilter("boundary_3") ?? null).includes('["!=",["get","admin_level"],4]'));
+check("the basemap's own state lines are hidden while ours are on", await basemapStatesHidden());
 await page.evaluate(() => window.__map.jumpTo({ center: [80, 23], zoom: 4 }));
 await settle();
 await page.screenshot({ path: `${OUT}/41-borders-both.png` });
@@ -702,6 +707,7 @@ await setSwitch("external", false);
   const sw = await switches();
   check("turning external off turns state/UT off", !sw.ext && !sw.st);
   check("state/UT switch is disabled again", sw.stDisabled);
+  check("the basemap's own state lines are back", !(await basemapStatesHidden()));
   check("no border is drawn", sw.extShown.length === 0 && sw.stShown.length === 0 && (await rendered("border-intl")).n === 0 && (await rendered("border-state")).n === 0);
 }
 // keyboard: Space flips the focused switch, Tab reaches the next one, Enter flips it too

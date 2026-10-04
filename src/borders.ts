@@ -1,4 +1,10 @@
-import type { ExpressionSpecification, IControl, LayerSpecification, Map as MapLibreMap } from "maplibre-gl";
+import type {
+  ExpressionSpecification,
+  FilterSpecification,
+  IControl,
+  LayerSpecification,
+  Map as MapLibreMap,
+} from "maplibre-gl";
 import { PMTiles, type Protocol } from "pmtiles";
 import { RIVER_WIDTH_STOPS, riverWidthAt } from "./river-width";
 
@@ -17,6 +23,14 @@ const SOURCE_LAYER = "borders";
 
 export const EXTERNAL_BORDER_LAYERS = ["border-intl-casing", "border-line-casing", "border-intl", "border-line"];
 export const STATE_BORDER_LAYERS = ["border-state-casing", "border-state"];
+
+// The basemap draws faint dotted lines of its own for states and districts. Along a
+// river our state border is drawn beside the river as this map draws it, while the
+// basemap's keeps to the surveyed line some way off, so the two would show as two
+// borders. While our state borders are on, the basemap's state lines (admin level 4, in
+// every country, as its tiles do not say whose they are) are filtered out of this layer;
+// its district lines stay, and its country lines are not touched at all.
+const BASEMAP_STATE_LAYER = "boundary_3";
 
 // The reference map's stroke widths: 2.4 for the external boundary, 2.2 for the dotted
 // lines, 0.9 for state borders. The first two are kept as they are. A state border at
@@ -56,6 +70,9 @@ const widthAt = (kind: Kind, zoom: number) => REF_WIDTH[kind] * SCALE[zoom];
 // own geometry. It is pushed sideways so the two run side by side: half the river's
 // width, a gap, half the border's own width. The build turns every such stretch to run
 // downstream, so the offset always lands on the same bank (the right bank).
+// Where such a stretch meets a plain border, which lies on the river's centre line, the
+// build cuts its end into short pieces carrying `of`, a fraction of the full offset, so
+// the line steps in from the bank and the two join.
 const riverOffset = (kind: Kind): ExpressionSpecification =>
   [
     "interpolate", ["linear"], ["zoom"],
@@ -64,7 +81,11 @@ const riverOffset = (kind: Kind): ExpressionSpecification =>
       [
         "case",
         ["has", "rlen"],
-        ["+", ["/", riverWidthAt(stop, "rlen"), 2], RIVER_GAP[stop.zoom] + widthAt(kind, stop.zoom) / 2],
+        [
+          "*",
+          ["coalesce", ["get", "of"], 1],
+          ["+", ["/", riverWidthAt(stop, "rlen"), 2], RIVER_GAP[stop.zoom] + widthAt(kind, stop.zoom) / 2],
+        ],
         0,
       ],
     ]),
@@ -118,6 +139,9 @@ export class BordersControl implements IControl {
   private el?: HTMLElement;
   private map?: MapLibreMap;
   private ready = false;
+  // The basemap layer's own filter, kept to put back when state borders are switched off.
+  private basemapFilter?: FilterSpecification | null;
+  private basemapStatesHidden = false;
   private switches: BorderSwitches = { external: false, states: false };
 
   onAdd(map: MapLibreMap): HTMLElement {
@@ -193,6 +217,7 @@ export class BordersControl implements IControl {
     const line = layersFor("line", "#000");
     for (const casing of [state[0], intl[0], line[0]]) map.addLayer(casing, underRivers);
     for (const top of [state[1], intl[1], line[1]]) map.addLayer(top, underLabels);
+    if (map.getLayer(BASEMAP_STATE_LAYER)) this.basemapFilter = map.getFilter(BASEMAP_STATE_LAYER) ?? null;
     this.ready = true;
     this.apply();
   }
@@ -203,6 +228,13 @@ export class BordersControl implements IControl {
       for (const id of ids) this.map!.setLayoutProperty(id, "visibility", on ? "visible" : "none");
     };
     show(EXTERNAL_BORDER_LAYERS, this.switches.external);
-    show(STATE_BORDER_LAYERS, this.switches.external && this.switches.states);
+    const states = this.switches.external && this.switches.states;
+    show(STATE_BORDER_LAYERS, states);
+    if (this.basemapFilter !== undefined && states !== this.basemapStatesHidden) {
+      this.basemapStatesHidden = states;
+      const notStates: FilterSpecification = ["!=", ["get", "admin_level"], 4];
+      const hidden = this.basemapFilter ? (["all", this.basemapFilter, notStates] as FilterSpecification) : notStates;
+      this.map.setFilter(BASEMAP_STATE_LAYER, states ? hidden : this.basemapFilter);
+    }
   }
 }
