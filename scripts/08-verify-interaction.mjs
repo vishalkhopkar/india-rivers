@@ -550,6 +550,19 @@ if (ktr) check("it merges into the Esi", ktr.panel.rows["Merges into"] === "Esi"
 const osv = await openRiver("", [78.2555, 17.3609], 13);
 check("a stream that ends in Osman Sagar is on the map", !!osv);
 if (osv) check("it merges into the Musi at Osman Sagar", osv.panel.rows["Merges into"] === "Musi" && /Osman Sagar/.test(osv.panel.rows["Confluence"] ?? ""), JSON.stringify(osv.panel.rows));
+console.log("\nGreater Hyderabad: east and south, to the Musi in and below the city:");
+const ocn = await openRiver("", [78.4911, 17.3434], 14);
+check("the old city's nala through Yakutpura is on the map", !!ocn);
+if (ocn) check("it merges into the Musi at Chaderghat", ocn.panel.rows["Merges into"] === "Musi" && /Chaderghat/.test(ocn.panel.rows["Confluence"] ?? ""), JSON.stringify(ocn.panel.rows));
+const nch = await openRiver("", [78.5652, 17.4078], 14);
+check("the Nacharam tank chain is on the map", !!nch);
+if (nch) check("it rises at Nacharam Cheruvu and merges into the Musi", /Nacharam Cheruvu/.test(nch.panel.rows["Origin"] ?? "") && nch.panel.rows["Merges into"] === "Musi", JSON.stringify(nch.panel.rows));
+const srn = await openRiver("", [78.5279, 17.3482], 14);
+check("the Saroornagar valley, from HydroRIVERS, is on the map", !!srn);
+if (srn) check("it merges into the Musi at Chaitanyapuri", srn.panel.rows["Merges into"] === "Musi" && /Chaitanyapuri/.test(srn.panel.rows["Confluence"] ?? ""), JSON.stringify(srn.panel.rows));
+const abd = await openRiver("", [78.6885, 17.2992], 13);
+check("the Abdullapurmet stream is on the map", !!abd);
+if (abd) check("it merges into the Chinna Musi", /Chinna Musi/.test(abd.panel.rows["Merges into"] ?? ""), JSON.stringify(abd.panel.rows));
 
 console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
 const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);
