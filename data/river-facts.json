@@ -1881,6 +1881,94 @@
     "confidence": "high",
     "region": "west (site owner)"
   },
+  "40044": {
+    "name": "Koramangala Valley (K-100)",
+    "category": "Beautification",
+    "fact": "This drain begins near the Kempegowda Bus Station, which stands on the bed of the Dharmambudhi tank dug by Kempe Gowda I in 1537, and ends in Bellandur Lake. In March 2021 work began to turn it into the 'Citizens' Waterway', a Rs 175 crore project modelled on Seoul's Cheonggyecheon stream.",
+    "sources": [
+      "https://citizenmatters.in/all-about-k100-stormwater-drain-citizens-waterway-project/",
+      "https://citizenmatters.in/the-beautification-in-isolation-questions-on-the-facelift-of-rajakaluve-73582",
+      "https://bpac.in/a-dive-into-bengalurus-lakes/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40045": {
+    "name": "Challaghatta Valley (C-100)",
+    "category": "Sport",
+    "fact": "It rises near Bangalore Palace and later runs through the Karnataka Golf Association course, laid out on the disused bed of the Challaghatta tank. The state handed over about 125 acres there in May 1980; the first nine holes opened on 28 December 1986 and the full 18-hole course on 28 May 1989.",
+    "sources": [
+      "https://kga.in/kga-history/",
+      "https://en.wikipedia.org/wiki/Lakes_in_Bengaluru"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40046": {
+    "name": "(unnamed)",
+    "category": "Environment",
+    "fact": "This channel carries the overflow of Bellandur Lake, Bengaluru's largest at about 890 acres, through Varthur Lake to the [[4132|Dakshina Pinakini]]. In the 1940s Catalina seaplanes landed on Bellandur. In recent years the lake has frothed with sewage foam and caught fire, including in 2015, 2017 and 2018.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Bellandur_Lake",
+      "https://citizenmatters.in/all-you-need-to-know-about-bellandur-lake-and-its-problems/",
+      "https://en.wikipedia.org/wiki/Varthur_Lake"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40047": {
+    "name": "Hebbal Valley (H-200)",
+    "category": "History",
+    "fact": "This drain feeds Hebbal Lake, one of the tanks Kempe Gowda is credited with creating in 1537. Between 1998 and 2003 an Indo-Norwegian project used dredged silt to build two islands there, which became roosts for waterbirds such as spot-billed pelicans. A later lease of the lake to a hotel group drew protests from citizen groups.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Hebbal_Lake,_Bengaluru",
+      "https://bpac.in/a-dive-into-bengalurus-lakes/"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
+  "40050": {
+    "name": "Hebbal Valley (BD-423)",
+    "category": "History",
+    "fact": "It starts from Yele Mallappa Shetty Lake, one of Bengaluru's largest. The tank is named after a betel-leaf merchant (1815-1887) who gave much of his wealth to build it when the region's lakes dried up in the famine of 1876-78. He also helped fund the city's first government maternity hospital, opened in 1880.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Yele_Mallappa_Shetty_Lake",
+      "https://en.wikipedia.org/wiki/Yele_Mallappa_Shetty"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40051": {
+    "name": "Nagarbhavi Thorai",
+    "category": "Names and etymology",
+    "fact": "Nagarabhavi means 'a well of snakes' in Kannada. One explanation ties the name to a stream here that was once full of snakes; another to the hillocks that used to ring the area like a well. The stream passes the National Law School of India University before joining the [[7707|Vrishabhavati]] near Bangalore University.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Nagarbhavi"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40053": {
+    "name": "Sonnenahalli",
+    "category": "Wildlife",
+    "fact": "It flows through Mallathahalli Lake, where birdwatchers have recorded black-headed ibis, garganey, northern shoveler and lesser whistling duck. In 2021 plans to develop the lake with a toy train track and a glass house drew objections that it would be turned into an amusement park.",
+    "sources": [
+      "https://citizenmatters.in/what-we-lose-when-we-lose-a-lake-mallathahalli-lake-experience"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "40055": {
+    "name": "Kathriguppe",
+    "category": "Environment",
+    "fact": "It runs through Hosakerehalli Lake, listed at just over 59 acres. In March 2023 residents found a 25-foot-wide road being laid across the lake with dumped debris. BBMP said it was a temporary track for desilting trucks that would be removed, and assured campaigners the work would stop.",
+    "sources": [
+      "https://thesouthfirst.com/karnataka/bbmp-says-road-across-bangalore-hoskerehalli-lake-is-temporary-but-citizens-suspect-something-fishy/",
+      "https://citizenmatters.in/hoskerehalli-lake-status-report"
+    ],
+    "confidence": "high",
+    "region": "south"
+  },
   "40189": {
     "name": "Thane Creek",
     "category": "Geography",
