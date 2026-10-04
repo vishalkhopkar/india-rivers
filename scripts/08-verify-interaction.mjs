@@ -573,6 +573,16 @@ if (kpr) check("it rises at Yapral and merges into the Cherlapally stream", /Yap
 const mdc = await openRiver("", [78.4852, 17.6596], 13);
 check("the valley north of Medchal is on the map", !!mdc);
 if (mdc) check("it merges into the Shamirpet Vagu", mdc.panel.rows["Merges into"] === "Shamirpet Vagu", JSON.stringify(mdc.panel.rows));
+console.log("\nGreater Hyderabad: outer areas (the Manjira side):");
+const amp = await openRiver("", [78.326, 17.5177], 14);
+check("the stream from Ameenpur Lake is on the map", !!amp);
+if (amp) check("it rises at Ameenpur Lake", /Ameenpur Lake/.test(amp.panel.rows["Origin"] ?? "") && amp.panel.rows["Merges into"] === "Unnamed river", JSON.stringify(amp.panel.rows));
+const sul = await openRiver("", [78.3069, 17.5513], 14);
+check("the Sultanpur stream is on the map", !!sul);
+if (sul) check("it merges into the Pamla Vagu", sul.panel.rows["Merges into"] === "Pamla Vagu", JSON.stringify(sul.panel.rows));
+const nsp = await openRiver("", [78.2286, 17.737], 12);
+check("the valley from Narsapur, beyond the metro area, is on the map", !!nsp);
+if (nsp) check("it merges into the Manjra", /Manj/.test(nsp.panel.rows["Merges into"] ?? ""), JSON.stringify(nsp.panel.rows));
 
 console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
 const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);

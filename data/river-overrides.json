@@ -2764,5 +2764,191 @@
     "origin": "Near Bibinagar, east of Hyderabad",
     "end": "Bibinagar, east of Hyderabad",
     "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40419": {
+    "name": "",
+    "origin": "Near Narsapur, north-west of Hyderabad",
+    "end": "The Manjra near Sangareddy, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40420": {
+    "name": "",
+    "origin": "Near Narsapur, north-west of Hyderabad",
+    "end": "The Manjra near Sangareddy, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40421": {
+    "name": "",
+    "origin": "Near Shankarpally, west of Hyderabad",
+    "end": "The Nakka Vagu near Rudraram, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40422": {
+    "name": "",
+    "origin": "Near Medchal, north of Hyderabad",
+    "end": "The Haldi near Mulugu, north of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40423": {
+    "name": "",
+    "origin": "Near Jinnaram, north-west of Hyderabad",
+    "end": "The Nakka Vagu near Rudraram, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40424": {
+    "name": "",
+    "origin": "Near Narsapur, north-west of Hyderabad",
+    "end": "The Nakka Vagu near Rudraram, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40425": {
+    "name": "",
+    "origin": "Near Isnapur, north-west of Hyderabad",
+    "end": "The Nakka Vagu near Patancheru, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40426": {
+    "name": "",
+    "origin": "Lingampally, Hyderabad",
+    "end": "The Pamla Vagu near Patancheru, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40427": {
+    "name": "",
+    "origin": "Near Kandi, north-west of Hyderabad",
+    "end": "The Sovati Vagu at Kandi, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40428": {
+    "name": "",
+    "origin": "Near Medchal, north of Hyderabad",
+    "end": "The Haldi near Mulugu, north of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40429": {
+    "name": "",
+    "origin": "Near Mulugu, north of Hyderabad",
+    "end": "The Haldi near Mulugu, north of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40430": {
+    "name": "",
+    "origin": "Near Shabad, south-west of Hyderabad",
+    "end": "The Bhimawaram near Shadnagar, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40431": {
+    "name": "",
+    "origin": "Near Sangareddy, north-west of Hyderabad",
+    "end": "The Manjra near Sangareddy, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40432": {
+    "name": "",
+    "origin": "Near Mokila, west of Hyderabad",
+    "end": "The Maisamma Vagu near Patancheru, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40433": {
+    "name": "",
+    "origin": "Near Ameenpur, north-west of Hyderabad",
+    "end": "The Pamla Vagu near Patancheru, Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40434": {
+    "name": "",
+    "origin": "Near Narsapur, north-west of Hyderabad",
+    "end": "The Manjra near Sangareddy, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40435": {
+    "name": "",
+    "origin": "Near Sangareddy, north-west of Hyderabad",
+    "end": "The Manjra near Sangareddy, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40436": {
+    "name": "",
+    "origin": "Near Kandi, north-west of Hyderabad",
+    "end": "The Nakka Vagu near Rudraram, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40437": {
+    "name": "",
+    "origin": "Near Shabad, south-west of Hyderabad",
+    "end": "The Bhimawaram near Shabad, south-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40438": {
+    "name": "",
+    "origin": "Near Bhongir, east of Hyderabad",
+    "end": "The Aler near Bhongir, east of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40439": {
+    "name": "",
+    "origin": "Near Mulugu, north of Hyderabad",
+    "end": "The Kodil near Mulugu, north of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40440": {
+    "name": "",
+    "origin": "Near Jinnaram, north-west of Hyderabad",
+    "end": "The Pamla Vagu near Patancheru, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40441": {
+    "name": "",
+    "origin": "Patancheru, Hyderabad",
+    "end": "The Nakka Vagu near Patancheru, Hyderabad",
+    "why": "Added from OSM (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40442": {
+    "name": "",
+    "origin": "Near Bommalaramaram, north-east of Hyderabad",
+    "end": "The Aler near Bommalaramaram, north-east of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40443": {
+    "name": "",
+    "origin": "Near Bommalaramaram, north-east of Hyderabad",
+    "end": "The Kandukura Vagu near Bhongir, east of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40444": {
+    "name": "",
+    "origin": "Bowrampet, Hyderabad",
+    "end": "Near Ameenpur, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40445": {
+    "name": "",
+    "origin": "Near Mulugu, north of Hyderabad",
+    "end": "Near Mulugu, north of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40446": {
+    "name": "",
+    "origin": "Near Narsapur, north-west of Hyderabad",
+    "end": "Near Narsapur, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40447": {
+    "name": "",
+    "origin": "Ameenpur Lake, north-west of Hyderabad",
+    "end": "Ameenpur, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40448": {
+    "name": "",
+    "origin": "Near Isnapur, north-west of Hyderabad",
+    "end": "Isnapur, north-west of Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
+  },
+  "40449": {
+    "name": "",
+    "origin": "Gangaram Cheruvu, Madinaguda, Hyderabad",
+    "end": "Chandanagar, Hyderabad",
+    "why": "Added from HydroRIVERS (Greater Hyderabad stream network, review/hyderabad-streams.md)."
   }
 }
