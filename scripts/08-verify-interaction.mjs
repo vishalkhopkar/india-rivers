@@ -93,6 +93,69 @@ async function openRiver(name, center, zoom) {
   return { pt, panel: await readPanel() };
 }
 
+// --- 0. the border switches, as the page loads ------------------------------------
+const BORDER_LAYERS = {
+  external: ["border-intl-casing", "border-line-casing", "border-intl", "border-line"],
+  states: ["border-state-casing", "border-state"],
+};
+const switches = () =>
+  page.evaluate((layers) => {
+    const box = document.querySelector(".borders-toggle");
+    const ext = box?.querySelector('[data-border="external"]');
+    const st = box?.querySelector('[data-border="states"]');
+    if (!ext || !st) return null;
+    const m = window.__map;
+    const shown = (ids) => ids.filter((id) => m.getLayer(id) && m.getLayoutProperty(id, "visibility") !== "none");
+    return {
+      labels: [...box.querySelectorAll("label")].map((l) => l.textContent.trim()),
+      roles: [ext.getAttribute("role"), st.getAttribute("role")],
+      ext: ext.checked,
+      st: st.checked,
+      stDisabled: st.disabled,
+      layersAdded: [...layers.external, ...layers.states].every((id) => !!m.getLayer(id)),
+      extShown: shown(layers.external),
+      stShown: shown(layers.states),
+    };
+  }, BORDER_LAYERS);
+const setSwitch = async (which, on) => {
+  const is = await page.$eval(`.borders-toggle [data-border="${which}"]`, (el) => el.checked);
+  if (is !== on) await page.click(`.borders-toggle [data-border="${which}"]`);
+  await new Promise((r) => setTimeout(r, 200));
+};
+// What assistive technology is told about a switch, from the browser's accessibility tree.
+const axOf = async (which) => {
+  const el = await page.$(`.borders-toggle [data-border="${which}"]`);
+  const node = await page.accessibility.snapshot({ root: el, interestingOnly: false });
+  return node ? { role: node.role, name: node.name, disabled: !!node.disabled, checked: node.checked } : null;
+};
+
+console.log("\nBorder switches at load:");
+await page.waitForFunction(() => !!window.__map.getLayer("border-intl"), { timeout: 15000 }).catch(() => {});
+{
+  const sw = await switches();
+  check("both switches are in the top-right corner", !!sw && (await page.evaluate(() => !!document.querySelector(".maplibregl-ctrl-top-right .borders-toggle"))));
+  if (sw) {
+    check("labels", sw.labels.join(" | ") === "Show external borders | Show state/UT borders", sw.labels.join(" | "));
+    check("both are off", !sw.ext && !sw.st);
+    check("state/UT switch is disabled while external is off", sw.stDisabled);
+    const axE = await axOf("external"), axS = await axOf("states");
+    check("assistive tech sees a labelled switch, off", axE?.role === "switch" && axE.name === "Show external borders" && !axE.disabled && !axE.checked, JSON.stringify(axE));
+    check("assistive tech sees the state/UT switch as disabled", axS?.role === "switch" && axS.name === "Show state/UT borders" && axS.disabled, JSON.stringify(axS));
+    check("border layers are in the map", sw.layersAdded);
+    check("no border is drawn", sw.extShown.length === 0 && sw.stShown.length === 0, [...sw.extShown, ...sw.stShown].join(", "));
+    const above = await page.evaluate(() => {
+      const box = document.querySelector(".borders-toggle").getBoundingClientRect();
+      const zoom = document.querySelector(".maplibregl-ctrl-zoom-in").getBoundingClientRect();
+      return box.bottom <= zoom.top;
+    });
+    check("the switches sit above the zoom buttons", above);
+    // a click on the disabled switch must do nothing
+    await page.click('.borders-toggle [data-border="states"]').catch(() => {});
+    const after = await switches();
+    check("clicking the disabled switch does nothing", !after.st && !after.ext && after.stShown.length === 0);
+  }
+}
+
 // --- 1. the user's worked example ----------------------------------------------
 console.log("\nUlhas (sea-bound, the worked example):");
 const ulhas = await openRiver("Ulhas", [73.15, 19.15], 9);
@@ -541,7 +604,194 @@ if (kl) {
 }
 check("basins switch hidden by default", await page.evaluate(() => !document.querySelector(".basins-toggle")));
 
+// --- 6c. borders ----------------------------------------------------------------
+// Border features of one kind actually on screen, plus a vertex of one of them (the one
+// nearest the centre) to zoom in on next: the lines are found from the data itself, so
+// this does not depend on where any border happens to run.
+async function rendered(layer) {
+  return page.evaluate((layer) => {
+    const m = window.__map;
+    const c = m.getCanvas().getBoundingClientRect();
+    const feats = m.getLayer(layer) ? m.queryRenderedFeatures({ layers: [layer] }) : [];
+    let best = null, bestD = Infinity;
+    for (const f of feats) {
+      const parts = f.geometry.type === "LineString" ? [f.geometry.coordinates] : f.geometry.coordinates;
+      for (const part of parts)
+        for (const pt of part) {
+          const p = m.project(pt);
+          const d = Math.hypot(p.x - c.width / 2, p.y - c.height / 2);
+          if (d < bestD) { bestD = d; best = pt; }
+        }
+    }
+    return { n: feats.length, kinds: [...new Set(feats.map((f) => f.properties.kind))].sort().join(","), near: best };
+  }, layer);
+}
+async function drawnAtZooms(layer, kind) {
+  let center = [80, 23];
+  for (const zoom of [4, 8, 12]) {
+    await page.evaluate(({ center, zoom }) => window.__map.jumpTo({ center, zoom }), { center, zoom });
+    await settle();
+    const r = await rendered(layer);
+    check(`${kind} borders drawn at z${zoom}`, r.n > 0 && r.kinds === kind, `${r.n} features${r.kinds && r.kinds !== kind ? `, kinds ${r.kinds}` : ""}`);
+    if (!r.near) break;
+    center = r.near;
+  }
+}
+
+console.log("\nBorders, external switch on:");
+await page.evaluate(() => document.querySelector(".panel-close")?.click());
+await setSwitch("external", true);
+{
+  const sw = await switches();
+  check("external switch is on, state/UT still off", sw.ext && !sw.st);
+  check("state/UT switch is now enabled", !sw.stDisabled && !(await axOf("states")).disabled);
+  check("external layers shown, state layers hidden", sw.extShown.length === BORDER_LAYERS.external.length && sw.stShown.length === 0, `${sw.extShown.length}+${sw.stShown.length}`);
+}
+await drawnAtZooms("border-intl", "intl");
+await drawnAtZooms("border-line", "line");
+check("no state border is drawn", (await rendered("border-state")).n === 0);
+await page.screenshot({ path: `${OUT}/40-borders-external.png` });
+
+console.log("\nBorders, both switches on:");
+await setSwitch("states", true);
+{
+  const sw = await switches();
+  check("both switches are on", sw.ext && sw.st);
+  check("all border layers shown", sw.extShown.length === BORDER_LAYERS.external.length && sw.stShown.length === BORDER_LAYERS.states.length);
+}
+await drawnAtZooms("border-state", "state");
+await page.evaluate(() => window.__map.jumpTo({ center: [80, 23], zoom: 4 }));
+await settle();
+await page.screenshot({ path: `${OUT}/41-borders-both.png` });
+
+// Rivers must answer to the pointer exactly as before: borders take no events.
+const borderOrder = await page.evaluate(() => {
+  const layers = window.__map.getStyle().layers ?? [];
+  const firstSymbol = layers.findIndex((l) => l.type === "symbol");
+  const ours = layers.map((l, i) => (l.source === "borders" ? i : -1)).filter((i) => i >= 0);
+  return { n: ours.length, below: ours.every((i) => i < firstSymbol) };
+});
+check("border lines sit below the place names", borderOrder.n === 6 && borderOrder.below);
+const ulhasB = await openRiver("Ulhas", [73.15, 19.15], 9);
+check("river click opens the panel with both switches on", !!ulhasB && ulhasB.panel.visible && ulhasB.panel.heading === "Ulhas", ulhasB?.panel.heading);
+// The Sharda (Kali) is the India-Nepal border: the border is drawn right beside it.
+const kaliB = await openRiver("Sharda or Kali", [80.3, 29.3], 12);
+check("a river with the border drawn beside it is still clickable", !!kaliB && kaliB.panel.heading === "Sharda or Kali", kaliB?.panel.heading);
+if (kaliB) {
+  const st = await page.evaluate((uid) => window.__map.getFeatureState({ source: "rivers", sourceLayer: "rivers", id: uid }), kaliB.pt.uid);
+  check("and it highlights as selected", st.selected === true, JSON.stringify(st));
+  const beside = await page.evaluate(
+    () => window.__map.queryRenderedFeatures({ layers: ["border-intl"] }).filter((f) => f.properties.river === "29696").length
+  );
+  check("the border beside it is a river stretch (drawn offset from the river)", beside > 0, `${beside} features`);
+  await page.screenshot({ path: `${OUT}/42-border-beside-kali.png` });
+  // hovering the river still sets the hover state
+  await page.evaluate(() => document.querySelector(".panel-close")?.click());
+  await page.mouse.move(5, 400);
+  await new Promise((r) => setTimeout(r, 300));
+  const pt = await pixelOf("Sharda or Kali");
+  await page.mouse.move(pt.x, pt.y);
+  await new Promise((r) => setTimeout(r, 400));
+  const hv = await page.evaluate((uid) => window.__map.getFeatureState({ source: "rivers", sourceLayer: "rivers", id: uid }), pt.uid);
+  check("river hover works with both switches on", hv.hover === true, JSON.stringify(hv));
+}
+
+console.log("\nBorders, external switch off again:");
+await setSwitch("external", false);
+{
+  const sw = await switches();
+  check("turning external off turns state/UT off", !sw.ext && !sw.st);
+  check("state/UT switch is disabled again", sw.stDisabled);
+  check("no border is drawn", sw.extShown.length === 0 && sw.stShown.length === 0 && (await rendered("border-intl")).n === 0 && (await rendered("border-state")).n === 0);
+}
+// keyboard: Space flips the focused switch, Tab reaches the next one, Enter flips it too
+await page.focus('.borders-toggle [data-border="external"]');
+await page.keyboard.press("Space");
+check("Space turns the external switch on", (await switches()).ext);
+await page.keyboard.press("Tab");
+check("Tab moves to the state/UT switch", await page.evaluate(() => document.activeElement?.getAttribute("data-border") === "states"));
+await page.keyboard.press("Enter");
+check("Enter turns the state/UT switch on", (await switches()).st);
+await setSwitch("external", false);
+const kaliOff = await openRiver("Sharda or Kali", [80.3, 29.3], 12);
+check("river click works with the switches off again", !!kaliOff && kaliOff.panel.heading === "Sharda or Kali");
+
+// --- 6d. a phone: switches, zoom buttons and the river panel keep clear of each other --
+console.log("\nPhone layout (375 px wide):");
+await page.evaluate(() => document.querySelector(".panel-close")?.click());
+await page.setViewport({ width: 375, height: 667, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+await new Promise((r) => setTimeout(r, 600));
+await settle();
+await setSwitch("external", true);
+await setSwitch("states", true);
+await page.evaluate(() => window.__map.jumpTo({ center: [84.5, 25.4], zoom: 6 }));
+await settle();
+{
+  const pt = await pixelOf("Ganga");
+  check("Ganga is on screen", !!pt);
+  if (pt) {
+    await page.touchscreen.tap(pt.x, pt.y);
+    await new Promise((r) => setTimeout(r, 700));
+    const lay = await page.evaluate(() => {
+      const r = (sel) => {
+        const b = document.querySelector(sel).getBoundingClientRect();
+        return { l: b.left, t: b.top, r: b.right, b: b.bottom };
+      };
+      const hit = (a, b) => a.l < b.r && b.l < a.r && a.t < b.b && b.t < a.b;
+      const sw = r(".borders-toggle"), zoom = r(".maplibregl-ctrl-top-right .maplibregl-ctrl-group"), panel = r(".panel");
+      return {
+        open: !document.querySelector(".panel").hidden,
+        heading: document.querySelector(".panel h2")?.textContent,
+        swZoom: hit(sw, zoom), swPanel: hit(sw, panel), zoomPanel: hit(zoom, panel),
+        inView: [sw, zoom, panel].every((b) => b.l >= 0 && b.r <= innerWidth && b.t >= 0 && b.b <= innerHeight),
+        boxes: JSON.stringify({ sw, zoom, panel }, (k, v) => (typeof v === "number" ? Math.round(v) : v)),
+      };
+    });
+    check("a tap on the Ganga opens its panel", lay.open && lay.heading === "Ganga", lay.heading);
+    check("switches and zoom buttons do not overlap", !lay.swZoom, lay.boxes);
+    check("panel does not cover the switches", !lay.swPanel, lay.boxes);
+    check("panel does not cover the zoom buttons", !lay.zoomPanel, lay.boxes);
+    check("all three fit the screen", lay.inView, lay.boxes);
+    await page.screenshot({ path: `${OUT}/43-phone-borders-panel.png` });
+  }
+}
+await page.evaluate(() => document.querySelector(".panel-close")?.click());
+await setSwitch("external", false);
+await page.setViewport({ width: 1280, height: 860 });
+await new Promise((r) => setTimeout(r, 600));
+await settle();
+
+// --- 6e. the borders archive is missing: the app carries on ---------------------------
+console.log("\nWithout borders.pmtiles:");
+{
+  const bare = await browser.newPage();
+  await bare.setViewport({ width: 1280, height: 860 });
+  const bareErrors = [];
+  bare.on("pageerror", (e) => bareErrors.push(String(e).slice(0, 180)));
+  const cdp = await bare.createCDPSession();
+  await cdp.send("Network.enable");
+  await cdp.send("Network.setBlockedURLs", { urls: ["*borders.pmtiles*"] });
+  await bare.goto(BASE, { waitUntil: "networkidle2", timeout: 60000 });
+  await bare.waitForFunction(() => !!window.__map && window.__map.loaded(), { timeout: 45000, polling: 250 }).catch(() => {});
+  await new Promise((r) => setTimeout(r, 1500));
+  await bare.click('.borders-toggle [data-border="external"]');
+  await bare.click('.borders-toggle [data-border="states"]');
+  await new Promise((r) => setTimeout(r, 500));
+  const res = await bare.evaluate(() => ({
+    rivers: window.__map.queryRenderedFeatures({ layers: ["river-lines"] }).length,
+    borderLayers: (window.__map.getStyle().layers ?? []).filter((l) => l.source === "borders").length,
+    ext: document.querySelector('[data-border="external"]').checked,
+    st: document.querySelector('[data-border="states"]').checked,
+  }));
+  check("rivers still draw", res.rivers > 0, `${res.rivers} features`);
+  check("no border layers were added", res.borderLayers === 0);
+  check("the switches still flip, and do nothing", res.ext && res.st);
+  check("no page errors", bareErrors.length === 0, bareErrors.join(" | "));
+  await bare.close();
+}
+
 // --- 7. dismiss ----------------------------------------------------------------
+await openRiver("Ulhas", [73.15, 19.15], 9);
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));
 check("close hides the panel", await page.evaluate(() => !!document.querySelector(".panel")?.hidden));

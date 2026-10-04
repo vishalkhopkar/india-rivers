@@ -120,17 +120,29 @@ body {
   color: #1c2530;
 }
 
-/* "Show river basins" switch, styled to sit with MapLibre's own control buttons. The
-   whole pill is the label, so tapping anywhere on it flips the switch. */
-.basins-toggle {
+/* Switches in the top-right corner, styled to sit with MapLibre's own control buttons:
+   "Show river basins" (one pill) and the two border switches (one box, two rows). Each
+   row is a label, so tapping anywhere on it flips its switch. */
+.basins-toggle,
+.borders-toggle {
   background: #fff;
-  border-radius: 999px;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-.basins-toggle label {
+.basins-toggle {
+  border-radius: 999px;
+}
+
+.borders-toggle {
+  border-radius: 14px;
+  padding: 2px 0;
+}
+
+.basins-toggle label,
+.borders-toggle label {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   padding: 5px 6px 5px 12px;
   font-size: 12px;
@@ -142,7 +154,8 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.basins-toggle input {
+.basins-toggle input,
+.borders-toggle input {
   appearance: none;
   -webkit-appearance: none;
   position: relative;
@@ -156,7 +169,8 @@ body {
   transition: background 0.15s;
 }
 
-.basins-toggle input::after {
+.basins-toggle input::after,
+.borders-toggle input::after {
   content: "";
   position: absolute;
   top: 2px;
@@ -169,31 +183,69 @@ body {
   transition: transform 0.15s;
 }
 
-.basins-toggle input:checked {
+.basins-toggle input:checked,
+.borders-toggle input:checked {
   background: #14557f;
 }
 
-.basins-toggle input:checked::after {
+.basins-toggle input:checked::after,
+.borders-toggle input:checked::after {
   transform: translateX(14px);
 }
 
-.basins-toggle input:focus-visible {
+.basins-toggle input:focus-visible,
+.borders-toggle input:focus-visible {
   outline: 2px solid #14557f;
   outline-offset: 2px;
 }
 
-/* Touch screens: a taller pill makes a comfortable tap target. */
+/* State/UT borders cannot be shown without the external ones: until those are on, the
+   row is greyed out and its switch does not respond. */
+.borders-toggle label.is-disabled {
+  color: #8a94a0;
+  cursor: not-allowed;
+}
+
+.borders-toggle input:disabled {
+  background: #e3e7eb;
+  cursor: not-allowed;
+}
+
+.borders-toggle input:disabled::after {
+  box-shadow: none;
+  background: #f6f7f8;
+}
+
+/* Touch screens: taller rows make comfortable tap targets. */
 @media (pointer: coarse) {
-  .basins-toggle label {
+  .basins-toggle label,
+  .borders-toggle label {
     padding: 8px 8px 8px 14px;
     font-size: 13px;
   }
 }
 
-/* Narrow screens: the panel spans the width, so start it below the basins switch
-   instead of covering it (only when the switch is shown - it is behind a flag). */
+/* Narrow screens: the panel would span the full width and cover the corner controls.
+   Start it level with the zoom buttons, which sit under the border switches, and stop
+   it short of them (10px margin + 29px buttons + 10px clear on the right). The basins
+   switch, when its flag is on, is one more row above the zoom buttons. */
 @media (max-width: 600px) {
+  .panel {
+    top: 80px;
+    width: calc(100vw - 12px - 49px);
+  }
+
   body:has(.basins-toggle) .panel {
-    top: 58px;
+    top: 118px;
+  }
+}
+
+@media (max-width: 600px) and (pointer: coarse) {
+  .panel {
+    top: 96px;
+  }
+
+  body:has(.basins-toggle) .panel {
+    top: 140px;
   }
 }

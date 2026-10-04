@@ -9,7 +9,9 @@ import {
 } from "maplibre-gl";
 import { Protocol } from "pmtiles";
 import { BasinsToggle } from "./basins-toggle";
+import { BordersControl } from "./borders";
 import { FEATURES } from "./config";
+import { RIVER_WIDTH_STOPS, riverWidthAt } from "./river-width";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 export const RIVER_SOURCE = "rivers";
@@ -41,13 +43,10 @@ const widthBoost: ExpressionSpecification = [
 // at every zoom rather than every line converging on the same weight.
 // The boost is applied inside each zoom stop, not around the whole expression:
 // MapLibre only accepts a "zoom" expression at the top level of a paint property.
-const lineWidth: ExpressionSpecification = [
+const lineWidth = [
   "interpolate", ["linear"], ["zoom"],
-  4, ["*", ["interpolate", ["linear"], ["get", "len"], 500, 0.6, 3100, 1.8], widthBoost],
-  7, ["*", ["interpolate", ["linear"], ["get", "len"], 100, 0.8, 3100, 2.8], widthBoost],
-  10, ["*", ["interpolate", ["linear"], ["get", "len"], 15, 1, 3100, 5], widthBoost],
-  14, ["*", ["interpolate", ["linear"], ["get", "len"], 5, 1.8, 3100, 10], widthBoost],
-];
+  ...RIVER_WIDTH_STOPS.flatMap((stop) => [stop.zoom, ["*", riverWidthAt(stop, "len"), widthBoost]]),
+] as ExpressionSpecification;
 
 // Smaller streams sit lighter so the trunk network stays legible when everything is on.
 const restColor: ExpressionSpecification = [
@@ -68,7 +67,8 @@ export function createMap(container: HTMLElement): MapLibreMap {
   // Production copies MapLibre's worker into the build (see vite.config.ts); dev serves
   // it straight from node_modules, where MapLibre finds it unaided.
   if (import.meta.env.PROD) setWorkerUrl(`${import.meta.env.BASE_URL}maplibre/maplibre-gl-worker.mjs`);
-  addProtocol("pmtiles", new Protocol().tile);
+  const pmtiles = new Protocol();
+  addProtocol("pmtiles", pmtiles.tile);
 
   const map = new MapLibreMap({
     container,
@@ -88,7 +88,9 @@ export function createMap(container: HTMLElement): MapLibreMap {
     attributionControl: { compact: true },
   });
 
-  // Added first so it sits above the zoom buttons in the same corner.
+  // Added first so they sit above the zoom buttons in the same corner.
+  const borders = new BordersControl();
+  map.addControl(borders, "top-right");
   if (FEATURES.showBasinsToggle) map.addControl(new BasinsToggle(), "top-right");
   map.addControl(new NavigationControl({ visualizePitch: true }), "top-right");
   map.addControl(new ScaleControl({ maxWidth: 120, unit: "metric" }), "bottom-left");
@@ -158,6 +160,11 @@ export function createMap(container: HTMLElement): MapLibreMap {
       },
       firstSymbol
     );
+
+    // Borders go above the rivers and below the place names; they stay hidden until one
+    // of the switches is turned on, and take no pointer events (those are the hit
+    // layer's alone).
+    void borders.addLayers(pmtiles, RIVER_LAYER, firstSymbol);
   });
 
   return map;
