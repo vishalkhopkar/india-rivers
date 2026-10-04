@@ -565,6 +565,16 @@
     "confidence": "high",
     "region": "south"
   },
+  "7707": {
+    "name": "Vrishabhavati",
+    "category": "History",
+    "fact": "The Dakshinamukhi Nandi Tirtha temple, where the river originates as an excess outflow from the Sankey Tank, was rediscovered only in 1997 after it was buried under mud and dirt for 400 years. The river is shown flowing out of Nandi's mouth. As the river flows south, the Nandi also faces south and thus the name Dakshinamukhi.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "south (site owner)"
+  },
   "7714": {
     "name": "Coleroon",
     "category": "Engineering",
