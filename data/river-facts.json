@@ -30,6 +30,16 @@
     "confidence": "high",
     "region": "east"
   },
+  "817": {
+    "name": "Umiam",
+    "category": "Culture and mythology",
+    "fact": "In Khasi folklore two sisters set out from heaven for these hills. Only one arrived; she waited, then wept for days for the sister who never came, and her tears are said to have formed Umiam Lake. The Khymdeit clan regards the river as its deity.",
+    "sources": [
+      "https://www.indiawaterportal.org/articles/lake-umiam"
+    ],
+    "confidence": "medium",
+    "region": "east"
+  },
   "859": {
     "name": "Subansiri",
     "category": "Dams and reservoirs",
