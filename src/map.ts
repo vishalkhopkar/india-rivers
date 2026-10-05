@@ -12,6 +12,7 @@ import { BasinsToggle } from "./basins-toggle";
 import { BordersControl } from "./borders";
 import { FEATURES } from "./config";
 import { RIVER_WIDTH_STOPS, riverWidthAt } from "./river-width";
+import { SourcesControl } from "./sources";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 export const RIVER_SOURCE = "rivers";
@@ -85,7 +86,8 @@ export function createMap(container: HTMLElement): MapLibreMap {
       [45, -5],
       [120, 50],
     ],
-    attributionControl: { compact: true },
+    // Credits are listed behind the "Sources" button instead (src/sources.ts).
+    attributionControl: false,
   });
 
   // Added first so they sit above the zoom buttons in the same corner.
@@ -94,6 +96,7 @@ export function createMap(container: HTMLElement): MapLibreMap {
   if (FEATURES.showBasinsToggle) map.addControl(new BasinsToggle(), "top-right");
   map.addControl(new NavigationControl({ visualizePitch: true }), "top-right");
   map.addControl(new ScaleControl({ maxWidth: 120, unit: "metric" }), "bottom-left");
+  map.addControl(new SourcesControl(), "bottom-right");
 
   map.on("load", () => {
     map.addSource("dem", {
@@ -102,15 +105,11 @@ export function createMap(container: HTMLElement): MapLibreMap {
       encoding: "terrarium",
       tileSize: 256,
       maxzoom: 13,
-      attribution: "Elevation: <a href='https://registry.opendata.aws/terrain-tiles/'>Terrain Tiles</a>",
     });
 
     map.addSource(RIVER_SOURCE, {
       type: "vector",
       url: `pmtiles://${location.origin}${import.meta.env.BASE_URL}rivers.pmtiles`,
-      attribution:
-        "Rivers: CWC / India-WRIS | Places: <a href='https://www.geonames.org/'>GeoNames</a> | " +
-        "Courses abroad and added rivers: <a href='https://www.hydrosheds.org/'>HydroSHEDS</a>, <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
       // Vector tiles carry no feature id, so setFeatureState has nothing to key on
       // until uid is promoted into that slot.
       promoteId: { rivers: "uid" },

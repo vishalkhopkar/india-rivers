@@ -210,7 +210,6 @@ export class BordersControl implements IControl {
     map.addSource(BORDER_SOURCE, {
       type: "vector",
       url: `pmtiles://${url}`,
-      attribution: "Borders: <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     });
     const state = layersFor("state", "#9a9a9a");
     const intl = layersFor("intl", "#000");

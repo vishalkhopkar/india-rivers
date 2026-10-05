@@ -876,6 +876,42 @@ console.log("\nWithout borders.pmtiles:");
   await bare.close();
 }
 
+// --- 6f. sources: one "Sources" button in place of the attribution line -------------
+console.log("\nSources button:");
+const srcState = () =>
+  page.evaluate(() => {
+    const btn = document.querySelector(".sources-button");
+    const pop = document.querySelector(".sources-popup");
+    return {
+      attribLine: !!document.querySelector(".maplibregl-ctrl-attrib"),
+      label: btn?.textContent?.trim(),
+      expanded: btn?.getAttribute("aria-expanded"),
+      open: !!pop && !pop.hidden && pop.getBoundingClientRect().height > 0,
+      first: pop?.querySelector("li")?.textContent ?? "",
+      text: pop?.textContent ?? "",
+    };
+  });
+let src = await srcState();
+check("MapLibre's attribution line is gone", !src.attribLine);
+check('the corner reads "Sources" with an i icon', src.label === "Sourcesi", src.label);
+check("the list starts closed", !src.open && src.expanded === "false");
+await page.click(".sources-button");
+await new Promise((r) => setTimeout(r, 300));
+src = await srcState();
+check("clicking the icon opens the list", src.open && src.expanded === "true");
+check("it starts with the government data", /^Central Water Commission/.test(src.first), src.first.slice(0, 60));
+check("it credits OpenStreetMap, HydroSHEDS, GeoNames and the base map", ["OpenStreetMap", "HydroRIVERS", "GeoNames", "OpenMapTiles", "OpenFreeMap", "Terrain Tiles"].every((s) => src.text.includes(s)));
+check("it lists the Bengaluru references", /Paani\.Earth/.test(src.text) && /Lake Development Authority/.test(src.text));
+check("it lists no fun-fact sources", !/site owner|wikipedia\.org\/wiki\/Akluj/i.test(src.text));
+await page.keyboard.press("Escape");
+await new Promise((r) => setTimeout(r, 200));
+check("Escape closes it", !(await srcState()).open);
+await page.click(".sources-button");
+await new Promise((r) => setTimeout(r, 200));
+await page.mouse.click(640, 430);
+await new Promise((r) => setTimeout(r, 300));
+check("a click on the map closes it", !(await srcState()).open);
+
 // --- 7. dismiss ----------------------------------------------------------------
 await openRiver("Ulhas", [73.15, 19.15], 9);
 await page.evaluate(() => document.querySelector(".panel-close")?.click());
