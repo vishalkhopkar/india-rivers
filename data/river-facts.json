@@ -1867,6 +1867,16 @@
     "confidence": "high",
     "region": "east"
   },
+  "30280": {
+    "name": "Bagmati",
+    "category": "Geography",
+    "fact": "Kathmandu, the capital of Nepal, lies on this river upstream. It lies on the confluence of a bunch of rivers, namely Bishnumati, Manohara, Ichu, etc.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "east (site owner)"
+  },
   "30282": {
     "name": "Ramganga River",
     "category": "Wildlife",
