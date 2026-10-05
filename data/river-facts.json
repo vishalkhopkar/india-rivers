@@ -488,6 +488,24 @@
     "confidence": "high",
     "region": "south"
   },
+  "6073": {
+    "name": "Pravara",
+    "category": "History",
+    "fact": [
+      "Daimabad, on the left bank near Shrirampur, is a Late Harappan site discovered in 1958. In 1974 a farmer, Chhabu Laxman Bhil, dug up four bronzes there: a chariot drawn by oxen, a water buffalo, an elephant and a rhinoceros. The chariot is now in the National Museum, New Delhi; the others are in Mumbai's Chhatrapati Shivaji Maharaj Vastu Sangrahalaya.",
+      "At Nevasa, shortly before the river meets the Godavari, Dnyaneshwar composed the Dnyaneshwari, his Marathi commentary on the Bhagavad Gita, in 1290 while still in his teens; a pillar called the Pais Khamb marks the spot. The Pais Khamb also has a Dnyaneshwar temple. Excavations there by H. D. Sankalia in the 1950s found settlement layers running from the Palaeolithic to the Middle Ages.",
+      "The famous Bhandardara dam is also on this river in the Western Ghats near Igatpuri."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Daimabad",
+      "https://en.wikipedia.org/wiki/Dnyaneshwari",
+      "https://en.wikipedia.org/wiki/Nevasa",
+      "https://drramani.com/latest/2025/05/12/dr-p-s-ramani-visited-pais-khamb-in-nevasa/",
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "west"
+  },
   "6541": {
     "name": "Wainganga River",
     "category": "Literature",
