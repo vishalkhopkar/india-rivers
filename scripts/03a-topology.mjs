@@ -135,22 +135,87 @@ for (const r of rivers) {
 // meeting at the same point so distance cannot tell them apart. The longest river in
 // the loop is the one that carries on downstream, so its link is the bad one.
 let cyclesBroken = 0;
-for (const r of rivers) {
-  const seen = [];
-  let cur = r.uid;
-  while (cur && out[cur]?.down) {
-    const at = seen.indexOf(cur);
-    if (at !== -1) {
-      const loop = seen.slice(at);
-      const weakest = loop.reduce((a, b) => (byUid.get(a).len >= byUid.get(b).len ? a : b));
-      out[weakest].down = null;
-      out[weakest].cycle = true;
-      cyclesBroken++;
-      break;
+function breakCycles() {
+  for (const r of rivers) {
+    const seen = [];
+    let cur = r.uid;
+    while (cur && out[cur]?.down) {
+      const at = seen.indexOf(cur);
+      if (at !== -1) {
+        const loop = seen.slice(at);
+        const weakest = loop.reduce((a, b) => (byUid.get(a).len >= byUid.get(b).len ? a : b));
+        out[weakest].down = null;
+        out[weakest].cycle = true;
+        cyclesBroken++;
+        break;
+      }
+      seen.push(cur);
+      cur = out[cur].down;
     }
-    seen.push(cur);
-    cur = out[cur].down;
   }
+}
+breakCycles();
+
+// --- tributaries still without a downstream uid -------------------------------------
+// The panel links "Merges into" by uid, so a tributary left with only a name (its
+// Confluence spelt differently, its end digitised short, or its link cut out of a loop)
+// shows an unlinked name. Fall back, in order, to: a river of the same name, loosely
+// spelt, within LINK_MAX_KM; the river line the end actually sits on; a river of the same
+// name further off. Never a river upstream of it, which would make a loop.
+const FALLBACK_ON_KM = 0.5;
+const FALLBACK_NAME_KM = 25;
+const loose = (s) =>
+  s.toLowerCase().replace(/\b(river|nadi|nala|nallah|nalla|n|drain)\b/g, "").replace(/h/g, "").replace(/[^a-z]/g, "");
+const fallback = { name: 0, line: 0, far: 0, none: [], display: 0 };
+{
+  const feeders = new Map();
+  for (const [u, t] of Object.entries(out)) if (t.down) (feeders.get(t.down) ?? feeders.set(t.down, []).get(t.down)).push(u);
+  const upstreamOf = (uid) => {
+    const seen = new Set([uid]);
+    const stack = [uid];
+    while (stack.length) for (const f of feeders.get(stack.pop()) ?? []) if (!seen.has(f)) { seen.add(f); stack.push(f); }
+    return seen;
+  };
+  for (const r of rivers) {
+    const t = out[r.uid];
+    if (t.kind !== "trib" || t.down) continue;
+    const up = upstreamOf(r.uid);
+    const want = loose(t.into);
+    const [lon, lat] = r.end;
+    const near = [];
+    for (const c of rivers) {
+      if (up.has(c.uid) || pointToBboxKm(lon, lat, c.bbox) > FALLBACK_NAME_KM) continue;
+      const same = !!want && loose(c.name) === want;
+      if (!same && pointToBboxKm(lon, lat, c.bbox) > FALLBACK_ON_KM) continue;
+      near.push({ c, d: pointToLineKm(lon, lat, c.parts), same });
+    }
+    near.sort((a, b) => a.d - b.d);
+    let pick = near.find((n) => n.same && n.d <= LINK_MAX_KM);
+    let how = "name";
+    if (!pick) { pick = near.find((n) => n.d <= FALLBACK_ON_KM); how = "line"; }
+    if (!pick) { pick = near.find((n) => n.same); how = "far"; }
+    if (!pick) { fallback.none.push(`${r.uid} ${r.name} -> ${t.into}`); continue; }
+    Object.assign(t, { into: pick.c.name, down: pick.c.uid, d: +pick.d.toFixed(2), fallback: how });
+    delete t.cycle;
+    fallback[how]++;
+    (feeders.get(pick.c.uid) ?? feeders.set(pick.c.uid, []).get(pick.c.uid)).push(r.uid);
+  }
+}
+breakCycles();
+// What is left is pairs that each name the other as their parent, with no other river
+// there (the Jamuna and the Panga). `down` stays empty so chains cannot loop, but the
+// panel still links the named river by uid: `link`, used for display only.
+for (const r of rivers) {
+  const t = out[r.uid];
+  if (t.kind !== "trib" || t.down) continue;
+  const want = loose(t.into);
+  let best = null, bestD = FALLBACK_NAME_KM;
+  for (const c of rivers) {
+    if (c.uid === r.uid || !want || loose(c.name) !== want || pointToBboxKm(r.end[0], r.end[1], c.bbox) > bestD) continue;
+    const d = pointToLineKm(r.end[0], r.end[1], c.parts);
+    if (d <= bestD) { bestD = d; best = c; }
+  }
+  if (best) { t.link = best.uid; fallback.display++; }
 }
 
 // --- how each river begins -------------------------------------------------------
@@ -381,6 +446,7 @@ for (const [k, arr] of Object.entries(dists)) {
   );
 }
 console.log(`cycles broken: ${cyclesBroken}`);
+console.log(`unlinked tributaries given a uid: ${fallback.name} by a loosely matching name, ${fallback.line} by the line they end on, ${fallback.far} by a name further off; left in loops ${fallback.none.length}, of which ${fallback.display} link the river they name for display only`);
 const largest = (key, n = 12) => rivers.filter((r) => out[r.uid][key]).sort((a, b) => b.len - a.len).slice(0, n);
 const nm = (u) => byUid.get(u).name;
 console.log(`\nformed by a confluence: ${formed} rivers. Largest:`);

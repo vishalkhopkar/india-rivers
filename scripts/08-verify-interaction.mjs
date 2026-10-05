@@ -932,6 +932,40 @@ await page.mouse.click(640, 430);
 await new Promise((r) => setTimeout(r, 300));
 check("a click on the map closes it", !(await srcState()).open);
 
+// --- 6g. every "Merges into" is a link by uid; a #river-<uid> address opens the river --
+console.log("\nLinks by uid and #river-<uid> addresses:");
+const deep = await browser.newPage();
+await deep.setViewport({ width: 1280, height: 860 });
+const deepPanel = async (uid) => {
+  // A fresh load each time: going from one #river- address to another is only a hash change.
+  await deep.goto("about:blank");
+  await deep.goto(`${BASE}#river-${uid}`, { waitUntil: "networkidle2", timeout: 60000 });
+  await deep.waitForFunction(() => !!window.__map, { timeout: 30000 });
+  await deep.waitForFunction(() => document.querySelector(".panel") && !document.querySelector(".panel").hidden, { timeout: 60000, polling: 250 }).catch(() => {});
+  return deep.evaluate(() => {
+    const p = document.querySelector(".panel");
+    if (!p || p.hidden) return null;
+    const rows = {};
+    p.querySelectorAll("dt").forEach((dt) => {
+      const dd = dt.nextElementSibling;
+      rows[dt.textContent] = { text: dd?.textContent ?? "", link: dd?.querySelector("a.river-link")?.getAttribute("href") ?? null };
+    });
+    return { heading: p.querySelector("h2")?.textContent, rows, hash: location.hash };
+  });
+};
+// The Rongni's confluence name ("Teesta") was 18.7 km from the Teesta line: once an unlinked name.
+const rongni = await deepPanel("952");
+check("#river-952 opens the Rongni Chu's panel", rongni?.heading === "Rongni Chu Or Rani Khola", rongni?.heading);
+check("its 'Merges into' links the Teesta by uid", rongni?.rows["Merges into"]?.link === "#river-863", JSON.stringify(rongni?.rows["Merges into"]));
+check("the address keeps the river's uid", rongni?.hash === "#river-952", rongni?.hash);
+// The Jamuna and the Panga each name the other: the link is for display, the chain stays open.
+const jamuna = await deepPanel("929");
+check("the Jamuna, in a naming loop with the Panga, still links it", jamuna?.rows["Merges into"]?.link === "#river-935", JSON.stringify(jamuna?.rows["Merges into"]));
+await deep.evaluate(() => document.querySelector(".panel-close")?.click());
+await new Promise((r) => setTimeout(r, 300));
+check("closing the panel clears the address", (await deep.evaluate(() => location.hash)) === "");
+await deep.close();
+
 // --- 7. dismiss ----------------------------------------------------------------
 await openRiver("Ulhas", [73.15, 19.15], 9);
 await page.evaluate(() => document.querySelector(".panel-close")?.click());

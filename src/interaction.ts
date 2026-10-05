@@ -30,15 +30,24 @@ export function wireInteraction(map: MapLibreMap) {
     hovered = null;
   };
 
+  // The selected river's uid rides in the address (#river-<uid>), so a river can be
+  // linked to, shared and reopened. replaceState fires no hashchange, so this never loops.
+  const setHash = (uid: string | null) => {
+    const url = `${location.pathname}${location.search}${uid ? `#river-${uid}` : ""}`;
+    if (url !== `${location.pathname}${location.search}${location.hash}`) history.replaceState(null, "", url);
+  };
+
   const clearSelection = () => {
     if (selected !== null) setState(selected, "selected", false);
     selected = null;
+    setHash(null);
   };
 
   const select = (props: RiverProps) => {
     clearSelection();
     selected = String(props.uid);
     setState(selected, "selected", true);
+    setHash(selected);
     panel.show(props);
     // Warm the index now so a "Merges into" click does not wait on a download.
     loadIndex().catch(() => {});
@@ -108,6 +117,14 @@ export function wireInteraction(map: MapLibreMap) {
   panel.onRiverLink((uid) => {
     navigateTo(uid).catch((err) => console.error("navigate failed", err));
   });
+
+  // Opening a #river-<uid> address, or editing the hash, goes to that river.
+  const fromHash = () => {
+    const uid = /^#river-(\d+)$/.exec(location.hash)?.[1];
+    if (uid && uid !== selected) navigateTo(uid).catch((err) => console.error("navigate failed", err));
+  };
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
 
   return { getSelected: () => selected, clearSelection, navigateTo };
 }

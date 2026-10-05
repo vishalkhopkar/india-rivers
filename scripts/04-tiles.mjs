@@ -89,8 +89,10 @@ for (const line of raw) {
     minz,
     // Shown in the panel.
     kind: topo.kind, // trib | sea | border | inland
-    into: topo.down ? displayName(topo.down, topo.into) : plain(topo.into),
-    down: topo.down ?? "",
+    // `link`: a river caught in a naming loop still links the river it names, though its
+    // `down` is left empty so chains (and the index's downstream uid) cannot loop.
+    into: topo.down || topo.link ? displayName(topo.down ?? topo.link, topo.into) : plain(topo.into),
+    down: topo.down ?? topo.link ?? "",
     ct: !!topo.down && topology[topo.down]?.continues === uid, // continues to, under a new name
     o: sp.o,
     on: sp.on,
