@@ -477,8 +477,7 @@
   },
   "40035": {
     "name": "Mogara Nallah",
-    "origin": "Andheri West, Mumbai",
-    "originNear": true,
+    "origin": "Azad Nagar, Andheri West, Mumbai",
     "end": "Malad Creek near Lokhandwala, Mumbai",
     "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
   },

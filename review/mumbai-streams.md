@@ -416,21 +416,23 @@ The references name nallas without saying where they run, and OSM leaves almost 
 
 ### 8. Under 2 km
 
-The 2 km minimum was kept. Of the streams of 1-2 km, **73 are complete**: they pass the natural test and reach a drawn river, a creek or the sea. Their courses, test results, OSM way ids and proposed origin and end texts are kept (in the working files of this job, `build/view/mmr-under2km.json`, not in the repository), so they can be added without redoing the network. A further 26 streams of 1-2 km reach the network but fail the test or join a stream that is not drawn, and 5 pieces of 1-2 km are unconnected fragments.
+One stream from this list has since been drawn at the owner's request: the 1.7 km head of the Mogara Nallah (40035), from Azad Nagar, Andheri West, down to where OSM's "Mogara Nallah" ways begin (OSM ways 74865706, 1175540317, 1175540316, 979860986, 979860985, 979860988, 979860987, which OSM names "Malad Creek"). It is part of 40035, now 4.1 km, not a separate stream.
+
+The 2 km minimum was kept. Of the streams of 1-2 km, **72 are complete**: they pass the natural test and reach a drawn river, a creek or the sea. Their courses, test results, OSM way ids and proposed origin and end texts are kept (in the working files of this job, `build/view/mmr-under2km.json`, not in the repository), so they can be added without redoing the network. A further 26 streams of 1-2 km reach the network but fail the test or join a stream that is not drawn, and 5 pieces of 1-2 km are unconnected fragments.
 
 | Area | Complete streams | km | Fail the test | Unconnected fragments |
 |---|---|---|---|---|
 | Thane Creek, west bank | 6 | 8.7 | 1 | 1 |
 | Thane Creek, east bank | 12 | 17.6 | 2 | 1 |
 | Mira-Bhayandar, Gorai and Manori Creek | 3 | 3.9 | 2 | 0 |
-| Mumbai: the western suburbs, the Mithi and the harbour side | 15 | 21.0 | 8 | 0 |
+| Mumbai: the western suburbs, the Mithi and the harbour side | 14 | 19.3 | 8 | 0 |
 | Thane, Ghodbunder Road and Bhiwandi (to the Ulhas) | 3 | 3.9 | 0 | 1 |
 | Vasai-Virar, Kaman and the Tansa side | 5 | 6.6 | 1 | 0 |
 | Kalyan-Dombivli, Ulhasnagar, Ambernath and Badlapur | 9 | 12.4 | 2 | 0 |
 | Panvel, Taloja and Uran | 7 | 9.1 | 9 | 1 |
 | The north-east: Padgha, Vasind and Shahapur | 5 | 7.3 | 0 | 1 |
 | The east and south-east: Vangani, Neral, Matheran, Karjat, Khalapur and Rasayani | 8 | 11.6 | 1 | 0 |
-| **Total** | **73** | **102.1** | **26** | **5** |
+| **Total** | **72** | **100.4** | **26** | **5** |
 
 The complete ones:
 
@@ -459,7 +461,6 @@ The complete ones:
 | Mira-Bhayandar, Gorai and Manori Creek | Near Bhayandar, Maharashtra → Dahisar, Mumbai (19.276 N, 72.834 E) | 1.1 | OSM river/stream | unnamed (40214) |
 | Mumbai: the western suburbs, the Mithi and the harbour side | Chembur, Mumbai → The Somaiyya Nalla at Govandi, Mumbai (19.051 N, 72.904 E) | 2.0 | HydroRIVERS 84%; valley floor 71% of 0.7 km upland; lake on its course | Somaiyya Nalla (40037) |
 | Mumbai: the western suburbs, the Mithi and the harbour side | Mahul, Mumbai → The Mahul Creek at Mahul, Mumbai (19.021 N, 72.896 E) | 1.7 | HydroRIVERS 80%; tidal creek 56% | Mahul Creek (40027) |
-| Mumbai: the western suburbs, the Mithi and the harbour side | Andheri, Mumbai → The Mogara Nallah at Jogeshwari, Mumbai (19.126 N, 72.842 E) [OSM: Malad Creek] | 1.7 | HydroRIVERS 100%; valley floor 54% of 1.3 km upland; OSM river/stream | Mogara Nallah (40035) |
 | Mumbai: the western suburbs, the Mithi and the harbour side | Bandra, Mumbai → The Mithi at Bandra, Mumbai (19.064 N, 72.842 E) | 1.6 | HydroRIVERS 100% | Mithi (8809) |
 | Mumbai: the western suburbs, the Mithi and the harbour side | Yeoor hills, Sanjay Gandhi National Park, near Mulund, Mumbai → The Dahisar near Mulund, Mumbai (19.210 N, 72.923 E) | 1.6 | OSM river/stream | Dahisar (8654) |
 | Mumbai: the western suburbs, the Mithi and the harbour side | Yeoor hills, Sanjay Gandhi National Park, near Mulund, Mumbai → The Dahisar near Mulund, Mumbai (19.204 N, 72.934 E) | 1.5 | valley floor 59% of 1.7 km upland; OSM river/stream | Dahisar (8654) |

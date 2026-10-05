@@ -336,10 +336,17 @@
     "name": "Mogara Nallah",
     "joins": null,
     "into": "Arabian Sea",
-    "why": "OSM \"Mogara Nallah\": through Andheri West to Malad Creek near Lokhandwala.",
+    "why": "OSM \"Mogara Nallah\": through Andheri West to Malad Creek near Lokhandwala. Carried upstream 1.7 km to its head in Azad Nagar along the connected OSM stream ways (which OSM names \"Malad Creek\"), at the owner's request: the nalla rises at Azad Nagar, east of where the \"Mogara Nallah\" ways begin.",
     "osmWays": [
-      291430561,
-      1170462403
+      74865706,
+      1175540317,
+      1175540316,
+      979860986,
+      979860985,
+      979860988,
+      979860987,
+      1170462403,
+      291430561
     ]
   },
   "40036": {

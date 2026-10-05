@@ -443,6 +443,13 @@ if (bvm) {
   check("it merges into the Taloje at Taloja", bvm.panel.rows["Merges into"] === "Taloje" && /Taloje at Taloja/.test(bvm.panel.rows["Confluence"] ?? ""), JSON.stringify(bvm.panel.rows));
   check("it keeps its fun fact", (await page.evaluate(() => document.querySelectorAll(".panel .fact").length)) === 1);
 }
+console.log("\nMogara Nallah (carried up to its head in Azad Nagar, Andheri West):");
+const mog = await openRiver("Mogara Nallah", [72.8391, 19.1273], 15);
+check("the Mogara Nallah runs through Azad Nagar", !!mog);
+if (mog) {
+  check("it rises at Azad Nagar", mog.panel.rows["Origin"] === "Azad Nagar, Andheri West, Mumbai", JSON.stringify(mog.panel.rows));
+  check("about 4 km", /^4\.[12] km$/.test(mog.panel.rows["Length"]), mog.panel.rows["Length"]);
+}
 console.log("\nMira-Bhayandar (to Vasai Creek and Manori Creek):");
 const kmr = await openRiver("", [72.8826, 19.2804], 15);
 check("the Kashimira stream is on the map", !!kmr);
