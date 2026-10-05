@@ -1,5 +1,6 @@
 import type { Map as MapLibreMap, MapMouseEvent, MapGeoJSONFeature } from "maplibre-gl";
 import { RIVER_SOURCE, RIVER_HIT_LAYER } from "./map";
+import { isHidden, loadHidden } from "./hidden";
 import { InfoPanel, type RiverProps } from "./panel";
 
 // uid -> [name, minzoom, west, south, east, north, downstreamUid]
@@ -77,8 +78,9 @@ export function wireInteraction(map: MapLibreMap) {
   // Following a "Merges into" link: fly to the downstream river, then select it once
   // its tiles have loaded, so its own panel (and its own onward link) appears.
   async function navigateTo(uid: string) {
+    await loadHidden();
     const entry = (await loadIndex())[uid];
-    if (!entry) return;
+    if (!entry || isHidden(uid)) return;
     const [, minz, w, s, e, n] = entry;
 
     const pad = 48;

@@ -1,4 +1,5 @@
 import { FEATURES } from "./config";
+import { hiddenLoaded, isHidden, loadHidden } from "./hidden";
 
 export type EndKind = "trib" | "sea" | "border" | "inland";
 
@@ -130,8 +131,8 @@ export class InfoPanel {
 
   show(p: RiverProps) {
     this.shown = p;
-    if (!facts || !naturality)
-      void Promise.all([loadFacts(), loadNaturality()]).then(() => this.shown === p && !this.el.hidden && this.show(p));
+    if (!facts || !naturality || !hiddenLoaded())
+      void Promise.all([loadFacts(), loadNaturality(), loadHidden()]).then(() => this.shown === p && !this.el.hidden && this.show(p));
     const labels = END_LABELS[p.kind] ?? END_LABELS.trib;
 
     const rows: Row[] = [
@@ -266,7 +267,9 @@ export class InfoPanel {
     return frag;
   }
 
-  private riverLink(uid: string, text: string): HTMLAnchorElement {
+  // A hidden river is not on the map, so it is named but not linked.
+  private riverLink(uid: string, text: string): Node {
+    if (isHidden(uid)) return document.createTextNode(text || "Unnamed river");
     const a = el("a", { href: `#river-${uid}`, class: "river-link" }, text || "Unnamed river") as HTMLAnchorElement;
     a.addEventListener("click", (ev) => {
       ev.preventDefault();
