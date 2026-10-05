@@ -6,6 +6,7 @@ import type {
   Map as MapLibreMap,
 } from "maplibre-gl";
 import { PMTiles, type Protocol } from "pmtiles";
+import { FEATURES } from "./config";
 import { RIVER_WIDTH_STOPS, riverWidthAt } from "./river-width";
 
 // India's borders, drawn from public/borders.pmtiles (built by scripts/04b-borders.mjs
@@ -15,13 +16,15 @@ import { RIVER_WIDTH_STOPS, riverWidthAt } from "./river-width";
 //   line   Line of Control, Line of Actual        black, dotted
 //          Control, Shaksgam Valley boundary
 //   state  state / union territory borders        grey, solid, thin
-// "Show external borders" shows intl and line; "Show state/UT borders" adds state and
-// can only be on while the first one is.
+// "Show external borders" shows intl, and line too when the showLocLac feature flag is on
+// (src/config.ts); "Show state/UT borders" adds state and can only be on while the first
+// one is.
 
 export const BORDER_SOURCE = "borders";
 const SOURCE_LAYER = "borders";
 
-export const EXTERNAL_BORDER_LAYERS = ["border-intl-casing", "border-line-casing", "border-intl", "border-line"];
+export const EXTERNAL_BORDER_LAYERS = ["border-intl-casing", "border-intl"];
+export const LOC_LAC_BORDER_LAYERS = ["border-line-casing", "border-line"];
 export const STATE_BORDER_LAYERS = ["border-state-casing", "border-state"];
 
 // The basemap draws faint dotted lines of its own for states and districts. Along a
@@ -227,6 +230,7 @@ export class BordersControl implements IControl {
       for (const id of ids) this.map!.setLayoutProperty(id, "visibility", on ? "visible" : "none");
     };
     show(EXTERNAL_BORDER_LAYERS, this.switches.external);
+    show(LOC_LAC_BORDER_LAYERS, this.switches.external && FEATURES.showLocLac);
     const states = this.switches.external && this.switches.states;
     show(STATE_BORDER_LAYERS, states);
     if (this.basemapFilter !== undefined && states !== this.basemapStatesHidden) {

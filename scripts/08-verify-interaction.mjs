@@ -98,7 +98,9 @@ async function openRiver(name, center, zoom) {
 
 // --- 0. the border switches, as the page loads ------------------------------------
 const BORDER_LAYERS = {
-  external: ["border-intl-casing", "border-line-casing", "border-intl", "border-line"],
+  external: ["border-intl-casing", "border-intl"],
+  // the dotted LoC / LAC lines: only with the showLocLac feature flag (src/config.ts)
+  locLac: ["border-line-casing", "border-line"],
   states: ["border-state-casing", "border-state"],
 };
 const switches = () =>
@@ -115,8 +117,9 @@ const switches = () =>
       ext: ext.checked,
       st: st.checked,
       stDisabled: st.disabled,
-      layersAdded: [...layers.external, ...layers.states].every((id) => !!m.getLayer(id)),
+      layersAdded: [...layers.external, ...layers.locLac, ...layers.states].every((id) => !!m.getLayer(id)),
       extShown: shown(layers.external),
+      locShown: shown(layers.locLac),
       stShown: shown(layers.states),
     };
   }, BORDER_LAYERS);
@@ -748,7 +751,15 @@ await setSwitch("external", true);
   check("external layers shown, state layers hidden", sw.extShown.length === BORDER_LAYERS.external.length && sw.stShown.length === 0, `${sw.extShown.length}+${sw.stShown.length}`);
 }
 await drawnAtZooms("border-intl", "intl");
-await drawnAtZooms("border-line", "line");
+// showLocLac is off by default: the dotted LoC / LAC lines stay hidden with the switch on.
+{
+  const sw = await switches();
+  check("the LoC / LAC lines are not shown without the showLocLac flag", sw.locShown.length === 0, sw.locShown.join(","));
+  await page.evaluate(() => window.__map.jumpTo({ center: [77, 34.5], zoom: 6 }));
+  await settle();
+  check("no dotted line is drawn over Kashmir", (await rendered("border-line")).n === 0);
+  check("the solid external border is drawn there", (await rendered("border-intl")).n > 0);
+}
 check("no state border is drawn", (await rendered("border-state")).n === 0);
 await page.screenshot({ path: `${OUT}/40-borders-external.png` });
 
@@ -984,6 +995,34 @@ check("the Ganga continues to the Padma", gangaP?.rows["Continues to"]?.text ===
 const padma = await deepPanel("29309");
 check("the Padma continues from the Ganga, not branches off it", padma?.heading === "Padma" && padma?.rows["Continues from"]?.link === "#river-23685" && !padma?.rows["Branched off from"], JSON.stringify(padma?.rows));
 await deep.close();
+
+// --- 6i. the showLocLac feature flag: LoC / LAC lines ride on the external switch -----
+console.log("\nBorders with ?features=showLocLac:");
+{
+  const flagged = await browser.newPage();
+  await flagged.setViewport({ width: 1280, height: 860 });
+  await flagged.goto(`${BASE.replace(/\/$/, "")}/?features=showLocLac`, { waitUntil: "networkidle2", timeout: 60000 });
+  await flagged.waitForFunction(() => !!window.__map && !!window.__map.getLayer("border-line"), { timeout: 60000, polling: 250 });
+  const state = async () => {
+    await flagged.waitForFunction(() => window.__map.loaded() && !window.__map.isMoving(), { timeout: 45000, polling: 250 }).catch(() => {});
+    await new Promise((r) => setTimeout(r, 1200));
+    return flagged.evaluate(() => {
+      const m = window.__map;
+      const vis = (id) => m.getLayoutProperty(id, "visibility") !== "none";
+      return { line: vis("border-line") && vis("border-line-casing"), intl: vis("border-intl"), drawn: m.queryRenderedFeatures({ layers: ["border-line"] }).length };
+    });
+  };
+  await flagged.evaluate(() => window.__map.jumpTo({ center: [77, 34.5], zoom: 6 }));
+  let st = await state();
+  check("with the flag but the external switch off, nothing is shown", !st.line && !st.intl && st.drawn === 0, JSON.stringify(st));
+  await flagged.click('.borders-toggle [data-border="external"]');
+  st = await state();
+  check("with the flag and the external switch on, the LoC / LAC lines are drawn", st.line && st.intl && st.drawn > 0, JSON.stringify(st));
+  await flagged.click('.borders-toggle [data-border="external"]');
+  st = await state();
+  check("switching external borders off hides them again", !st.line && !st.intl && st.drawn === 0, JSON.stringify(st));
+  await flagged.close();
+}
 
 // --- 7. dismiss ----------------------------------------------------------------
 await openRiver("Ulhas", [73.15, 19.15], 9);

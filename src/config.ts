@@ -7,6 +7,10 @@ const DEFAULTS = {
   showExtendedAttributes: false,
   // "Show river basins" switch in the top-right corner. Basins aren't drawn yet.
   showBasinsToggle: false,
+  // The dotted Line of Control, Line of Actual Control and Shaksgam Valley boundary. When
+  // on, they are drawn with the external borders ("Show external borders"); when off they
+  // are never drawn, whatever that switch says.
+  showLocLac: false,
 };
 
 const fromUrl = new Set(
