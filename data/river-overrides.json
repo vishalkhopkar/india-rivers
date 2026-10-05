@@ -102,6 +102,11 @@
     "end": "Bhopalpatnam, Chhattisgarh",
     "endNear": true
   },
+  "5426": {
+    "name": "Kolab / Sabari",
+    "origin": "Sinkaram hill, Eastern Ghats near Koraput, Odisha",
+    "why": "The automatic origin named the nearest gazetteer town, Kantabamsuguda, which lies just across the state line in Andhra Pradesh; the river rises at Sinkaram hill in Koraput, Odisha (Vizagapatam district gazetteer; owner approved)."
+  },
   "5657": {
     "name": "Manjra River",
     "origin": "Balaghat Range near Patoda, Beed district, Maharashtra",
