@@ -57,7 +57,7 @@ jobs:
           BASE_PATH: /india-rivers/
         run: npm ci && npm run build
       - name: Check the map data made it into the production build
-        run: test -s prod/dist/rivers.pmtiles && test -s prod/dist/rivers-index.json && test -s prod/dist/maplibre/maplibre-gl-worker.mjs
+        run: test -s prod/dist/rivers.pmtiles && test -s prod/dist/rivers-index.json && test -s prod/dist/borders.pmtiles && test -s prod/dist/maplibre/maplibre-gl-worker.mjs
 
       - name: Does a dev branch exist?
         id: dev
@@ -79,7 +79,7 @@ jobs:
         run: npm ci && npm run build
       - name: Check the map data made it into the dev build
         if: steps.dev.outputs.exists == 'true'
-        run: test -s dev/dist/rivers.pmtiles && test -s dev/dist/rivers-index.json && test -s dev/dist/maplibre/maplibre-gl-worker.mjs
+        run: test -s dev/dist/rivers.pmtiles && test -s dev/dist/rivers-index.json && test -s dev/dist/borders.pmtiles && test -s dev/dist/maplibre/maplibre-gl-worker.mjs
 
       - name: Combine both builds into one site
         run: |
