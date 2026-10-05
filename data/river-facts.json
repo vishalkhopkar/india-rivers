@@ -52,6 +52,16 @@
     "confidence": "high",
     "region": "east"
   },
+  "861": {
+    "name": "Raidak",
+    "category": "Geography",
+    "fact": "Upstream in Bhutan, this river is known as the Thimphu Chu or Wang Chu. The Tashichho Dzong, the seat of the Druk Gyalpo (king of Bhutan), lies on its banks in Thimphu.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "east (site owner)"
+  },
   "863": {
     "name": "Teesta",
     "category": "Disasters",
