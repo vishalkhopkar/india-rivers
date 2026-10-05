@@ -30,6 +30,16 @@
     "confidence": "high",
     "region": "east"
   },
+  "651": {
+    "name": "Sankosh",
+    "category": "Geography",
+    "fact": "Upstream in Bhutan, this river is known as the Puna Tsang Chhu, itself formed by the confluence of rivers Pho Chhu and Mo Chhu at Punakha. The Punakha Dzong, which served as Bhutan's capital till 1955, is located at this confluence; and Wangdue Phodrang Dzong, the administrative centre of the synonymous dzongkhag (district), is located downstream.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "east (site owner)"
+  },
   "817": {
     "name": "Umiam",
     "category": "Culture and mythology",
