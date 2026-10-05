@@ -17,7 +17,7 @@ Most of what the panel shows is worked out by the build, from the river lines an
 | Formed by a confluence, or continues another river under a new name | The rivers that end where this one starts. | `formedBy` (a list of uids) and `formedAt` (the place), or `continues` (a uid), in `data/river-overrides.json`. |
 | Origin and end place | The nearest well-known town, from a gazetteer (GeoNames), with the mountain range in front of an origin. | `origin` and `end` in `data/river-overrides.json`. |
 | Enters India at, flows through | The river's course beyond the border, traced in HydroRIVERS. | `entersAt` and `via` (a list of countries) in `data/river-overrides.json`; the source abroad goes in `origin`. `"abroad": false` says the river does not come from abroad. |
-| Fun facts | Nothing: they are written by hand. | `data/river-facts.json`. |
+| Fun facts | Some of them are my personal research. Others are AI generated, approved by me. | `data/river-facts.json`. |
 | Length | The dataset's own length field. For a river we added or re-routed, it is measured from the line. | Nothing. It changes only if the route does. |
 | "Doubtful naturality" tag | Nothing: it is set by hand. | `doubtfulNaturality` and `naturalityInfo` in `data/river-overrides.json`; see the last section. |
 
