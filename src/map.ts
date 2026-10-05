@@ -11,6 +11,7 @@ import { Protocol } from "pmtiles";
 import { BasinsToggle } from "./basins-toggle";
 import { BordersControl } from "./borders";
 import { FEATURES } from "./config";
+import { loadHidden, notHiddenFilter } from "./hidden";
 import { RIVER_WIDTH_STOPS, riverWidthAt } from "./river-width";
 import { SourcesControl } from "./sources";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -68,6 +69,7 @@ export function createMap(container: HTMLElement): MapLibreMap {
   // Production copies MapLibre's worker into the build (see vite.config.ts); dev serves
   // it straight from node_modules, where MapLibre finds it unaided.
   if (import.meta.env.PROD) setWorkerUrl(`${import.meta.env.BASE_URL}maplibre/maplibre-gl-worker.mjs`);
+  const hiddenRequest = loadHidden();
   const pmtiles = new Protocol();
   addProtocol("pmtiles", pmtiles.tile);
 
@@ -164,6 +166,13 @@ export function createMap(container: HTMLElement): MapLibreMap {
     // of the switches is turned on, and take no pointer events (those are the hit
     // layer's alone).
     void borders.addLayers(pmtiles, RIVER_LAYER, firstSymbol);
+
+    // Hidden rivers (public/river-hidden.json) are filtered out of both river layers.
+    // The request started with the map, so it has normally arrived by now.
+    void hiddenRequest.then(() => {
+      const filter = notHiddenFilter();
+      for (const id of [RIVER_LAYER, RIVER_HIT_LAYER]) map.setFilter(id, filter);
+    });
   });
 
   return map;

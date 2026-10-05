@@ -17,9 +17,10 @@ Most of what the panel shows is worked out by the build, from the river lines an
 | Formed by a confluence, or continues another river under a new name | The rivers that end where this one starts. | `formedBy` (a list of uids) and `formedAt` (the place), or `continues` (a uid), in `data/river-overrides.json`. |
 | Origin and end place | The nearest well-known town, from a gazetteer (GeoNames), with the mountain range in front of an origin. | `origin` and `end` in `data/river-overrides.json`. |
 | Enters India at, flows through | The river's course beyond the border, traced in HydroRIVERS. | `entersAt` and `via` (a list of countries) in `data/river-overrides.json`; the source abroad goes in `origin`. `"abroad": false` says the river does not come from abroad. |
-| Fun facts | Nothing: they are written by hand. | `data/river-facts.json`. |
+| Fun facts | Some of them are my personal research. Others are AI generated, approved by me. | `data/river-facts.json`. |
 | Length | The dataset's own length field. For a river we added or re-routed, it is measured from the line. | Nothing. It changes only if the route does. |
-| "Doubtful naturality" tag | Nothing: it is set by hand. | `doubtfulNaturality` and `naturalityInfo` in `data/river-overrides.json`; see the last section. |
+| "Doubtful naturality" tag | Nothing: it is set by hand. | `doubtfulNaturality` and `naturalityInfo` in `data/river-overrides.json`; see "Doubtful naturality" below. |
+| Hidden river | Nothing: it is set by hand. | `hidden` in `data/river-overrides.json`; see "Hiding a river" at the end. |
 
 More about these files:
 
@@ -40,12 +41,13 @@ More about these files:
 3. Re-run the build steps for what you changed:
    - a fun fact: `npm run data:facts`
    - a naturality tag or text: `npm run data:naturality`
+   - hiding a river: `npm run data:hidden`
    - anything else in `data/river-overrides.json`: `npm run data:tier && npm run data:topology && npm run data:abroad && npm run data:places && npm run data:facts && npm run data:tiles`
    - an added river or a course correction: `npm run data:added` first, then the line above.
 4. Run the checks: `npm run verify:data`, then `npm run verify:ui`. The second needs the dev server on port 5174 (`npm run dev -- --port 5174`).
 5. Commit the file you edited together with the regenerated files in `public/`. The deploy does not rebuild the map data; it publishes what is committed.
 
-All the steps in 3 except `data:naturality` read `build/`, which is not in git. On a fresh checkout `npm run data:all` creates it; that needs the source shapefile in `river_network_shape/` and the go-pmtiles binary in `tools/`.
+All the steps in 3 except `data:naturality` and `data:hidden` read `build/`, which is not in git. On a fresh checkout `npm run data:all` creates it; that needs the source shapefile in `river_network_shape/` and the go-pmtiles binary in `tools/`.
 
 ## Doubtful naturality
 
@@ -77,3 +79,24 @@ To tag a river, add two attributes to its entry in `data/river-overrides.json` (
 A river with `naturalityInfo` but without `"doubtfulNaturality": true` only gets a warning, and is not tagged.
 
 `node scripts/08b-verify-naturality.mjs` checks the tag and its tooltip in the panel; it is part of `npm run verify:ui`.
+
+## Hiding a river
+
+A river can be taken off the map without deleting anything. Set `hidden` on its entry in `data/river-overrides.json` (if it has no entry, add one with `name` and `why`):
+
+```json
+"<uid>": {
+  "name": "<the river's name in the dataset>",
+  "why": "<why it is hidden>",
+  "hidden": true
+}
+```
+
+- `"hidden": true` hides the river. Missing, `null` and `false` all mean it is shown, which is the default. No river is hidden yet.
+- A hidden river is not drawn, cannot be hovered or clicked, and is not reachable from another river's panel: where a panel names it ("Merges into", "Formed by", a fun fact), the name is plain text, not a link. The rivers around it are not changed.
+- It is a flag of its own: it does not depend on any other attribute, and sets none.
+- The tiles are not rebuilt, so this needs no long build. To show the river again, remove the line or set it to `false`.
+
+`npm run data:hidden` checks the file and writes `public/river-hidden.json` (the uids of the hidden rivers). `npm run build` runs it first, so the deploy runs it too, and a mistake stops the build. It fails if `hidden` is anything other than `true`, `false` or `null`, or if the uid is not on the map. Commit the regenerated `public/river-hidden.json` with the edit.
+
+`node scripts/08c-verify-hidden.mjs` checks the build step and the map; it is part of `npm run verify:ui`.
