@@ -301,6 +301,21 @@
     "end": "Rameshwar, on the Rajasthan-Madhya Pradesh border",
     "endNear": true
   },
+  "22335": {
+    "name": "Bidyadhari",
+    "down": "26630",
+    "why": "Joins the Matla at Canning; CWC names the stretch \"Malta\" (29679), now part of the Matla."
+  },
+  "22336": {
+    "name": "Bidyadhari( Batagachi Gang)",
+    "rename": "Bidyadhari (Batagachi Gang)",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
+  "22337": {
+    "name": "Bidydhari Or Hatgacha Khal",
+    "rename": "Bidyadhari or Hatgacha Khal",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
   "22590": {
     "name": "Chambal River",
     "origin": "Janapav hills (Vindhya Range) near Mhow, Madhya Pradesh",
@@ -308,11 +323,33 @@
     "endNear": true,
     "why": "Source text: near Mhow. End point is Bhareh, by the Pachnada confluence."
   },
+  "22951": {
+    "name": "Curjon Creek",
+    "rename": "Curzon Creek",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
   "23685": {
     "name": "Ganga River",
-    "end": "Via the Padma in Bangladesh; leaves India near Dhulian, West Bengal",
-    "why": "The dataset's Ganga line starts at Devprayag (the Bhagirathi is its own feature) and stops at the Bangladesh border, though Confluence says Bay of Bengal.",
-    "formedAt": "Devprayag, Uttarakhand"
+    "end": "Jangipur, West Bengal, where the river runs along the Bangladesh border",
+    "why": "The dataset's Ganga line starts at Devprayag (the Bhagirathi is its own feature) and stops at the Bangladesh border, though Confluence says Bay of Bengal. It carries on as the Padma (29309).",
+    "formedAt": "Devprayag, Uttarakhand",
+    "down": "29309",
+    "endNear": true
+  },
+  "23824": {
+    "name": "Gauri Kha",
+    "rename": "Gauri Khal",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
+  "24333": {
+    "name": "Haribhanga",
+    "rename": "Hariabhanga",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
+  "26046": {
+    "name": "Kuria",
+    "down": "26630",
+    "why": "Joins the Matla near Canning; CWC names the stretch \"Malta\" (29679), now part of the Matla."
   },
   "26420": {
     "name": "Main Drain No 8",
@@ -320,10 +357,20 @@
     "down": "26906",
     "why": "Digitised mouth-first: its recorded start is exactly where the Najafgarh Drain begins. It flows south into the Najafgarh Drain, which continues it under a new name."
   },
+  "26803": {
+    "name": "Muri Ganga Or Bartala",
+    "rename": "Muri Ganga or Baratala",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
   "26906": {
     "name": "Najafgarh Drain",
     "continues": "26420",
     "why": "Continues Main Drain No 8; there is no confluence where the name changes."
+  },
+  "28169": {
+    "name": "Saptmukhi",
+    "rename": "Saptamukhi",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
   },
   "29220": {
     "name": "Gomati River",
@@ -378,6 +425,28 @@
     "endNear": true,
     "why": "The recorded end point (Kalyani) is not the mouth; Damodar joins this line near Diamond Harbour, so it runs to the sea.",
     "formedAt": "Nabadwip, West Bengal"
+  },
+  "29309": {
+    "name": "Ganga or Padma",
+    "rename": "Padma",
+    "continues": "23685",
+    "why": "The Padma is the Ganga under another name below the point where the Bhagirathi leaves it, not a branch: shown as continuing the Ganga (owner's request)."
+  },
+  "29461": {
+    "name": "Thankuran",
+    "rename": "Thakuran",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
+  "29483": {
+    "name": "Piali",
+    "rename": "Piyali",
+    "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
+  "29679": {
+    "name": "Malta",
+    "rename": "Matla",
+    "hidden": true,
+    "why": "CWC's misspelling of the Matla's upper half. Its course is now the head of the Matla (26630, data/course-overrides.json), so it is hidden as a separate river."
   },
   "29696": {
     "name": "Sharda or Kali River",
@@ -2971,5 +3040,36 @@
     "origin": "North-eastern edge of Taloja MIDC, Navi Mumbai",
     "end": "The Taloje in Taloja MIDC, just east of MIDC Road, Navi Mumbai",
     "why": "Added from OSM at the owner's word. The shorter of the Taloje's two branches."
+  },
+  "40452": {
+    "name": "",
+    "origin": "The Ichamati near Taki, West Bengal",
+    "end": "The Bara Kalagachi east of Sandeshkhali, West Bengal",
+    "why": "Added river: place texts written by hand, since the automatic ones name towns across the estuary."
+  },
+  "40453": {
+    "name": "Dansa",
+    "branchesAt": "South of Taki, West Bengal",
+    "end": "The Chhota Kalagachi north of Sandeshkhali, West Bengal",
+    "why": "Added river: place texts written by hand, since the automatic ones name towns across the estuary."
+  },
+  "40454": {
+    "name": "",
+    "branchedFrom": "24333",
+    "branchesAt": "The Hariabhanga in the Sundarbans forest, West Bengal",
+    "end": "The Bay of Bengal, between the Gosaba and Hariabhanga estuaries",
+    "why": "Added from OSM. A distributary of the Hariabhanga; its head lies 0.6 km from CWC's centre line of that wide estuary, too far for the automatic check."
+  },
+  "40461": {
+    "name": "",
+    "branchesAt": "The Sundarika Khal between Namkhana and Bakkhali, West Bengal",
+    "end": "The Bay of Bengal near Bakkhali, West Bengal",
+    "why": "Added river: place texts written by hand, since the automatic ones name towns across the estuary."
+  },
+  "40462": {
+    "name": "",
+    "origin": "South of Kulpi, West Bengal",
+    "end": "The Hooghly estuary south of Kulpi, West Bengal",
+    "why": "Added river: place texts written by hand, since the automatic ones name towns across the estuary."
   }
 }

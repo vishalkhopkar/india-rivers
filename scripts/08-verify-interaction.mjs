@@ -964,6 +964,25 @@ check("the Jamuna, in a naming loop with the Panga, still links it", jamuna?.row
 await deep.evaluate(() => document.querySelector(".panel-close")?.click());
 await new Promise((r) => setTimeout(r, 300));
 check("closing the panel clears the address", (await deep.evaluate(() => location.hash)) === "");
+
+// --- 6h. the Sundarbans: one Matla, the Dansa, corrected spellings; the Ganga and the Padma --
+console.log("\nSundarbans, and the Ganga's continuation as the Padma:");
+const matla = await deepPanel("26630");
+check("the Matla is one river, past Canning to the sea", matla?.heading === "Matla" && /^11[0-9]\.\d km$/.test(matla?.rows["Length"]?.text ?? ""), JSON.stringify(matla?.rows["Length"]));
+// CWC's misspelt upper half is hidden: its address opens nothing.
+await deep.goto("about:blank");
+await deep.goto(`${BASE}#river-29679`, { waitUntil: "networkidle2", timeout: 60000 });
+await new Promise((r) => setTimeout(r, 6000));
+check('"Malta", now the head of the Matla, no longer opens as a river', await deep.evaluate(() => !document.querySelector(".panel") || document.querySelector(".panel").hidden));
+const dansa = await deepPanel("40453");
+check("the Dansa is on the map", dansa?.heading === "Dansa", dansa?.heading);
+check("it merges into the Chhota Kalagachi", dansa?.rows["Merges into"]?.link === "#river-22786", JSON.stringify(dansa?.rows["Merges into"]));
+const thakuran = await deepPanel("29461");
+check('"Thankuran" is spelt Thakuran', thakuran?.heading === "Thakuran", thakuran?.heading);
+const gangaP = await deepPanel("23685");
+check("the Ganga continues to the Padma", gangaP?.rows["Continues to"]?.text === "Padma" && gangaP?.rows["Continues to"]?.link === "#river-29309", JSON.stringify(gangaP?.rows["Continues to"]));
+const padma = await deepPanel("29309");
+check("the Padma continues from the Ganga, not branches off it", padma?.heading === "Padma" && padma?.rows["Continues from"]?.link === "#river-23685" && !padma?.rows["Branched off from"], JSON.stringify(padma?.rows));
 await deep.close();
 
 // --- 7. dismiss ----------------------------------------------------------------

@@ -71,5 +71,10 @@
       "joins": "16577"
     },
     "why": "The Jojari flows through Jodhpur, past Doli and Dhawa, and joins the Luni near Balotra (Mongabay, 2025; Wikipedia). CWC stops the line short and records it as inland drainage. Continued down the HydroRIVERS reaches to the Luni."
+  },
+  "26630": {
+    "name": "Matla",
+    "headFrom": "29679",
+    "why": "CWC cut the Matla in two where the Piyali joins and misspelt the upper 41 km, past Canning, \"Malta\". The two are one river (OSM \"Matla\" runs along both; Port Canning stands on the Matla): the upper half becomes the Matla's head, and 29679 is hidden as a river of its own."
   }
 }

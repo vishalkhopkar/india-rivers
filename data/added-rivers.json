@@ -5826,5 +5826,147 @@
       55447676
     ],
     "why": "The northern of the Taloje's two branches, given by the owner: from the north-eastern edge of Taloja MIDC west along the estate's northern side, under the Taloja Bypass, then south under MIDC Road to the main stream just east of where that passes under MIDC Road. OSM stream ways, unnamed in OSM; 3.0 km against the southern branch's 4.1 km, so the southern one is the main stem."
+  },
+  "40452": {
+    "name": "",
+    "joins": "30033",
+    "snapKm": 0.3,
+    "osmWays": [
+      102147643
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. Leaves the Ichamati (CWC's \"Jamuna\") south of Hasnabad and runs south past the east side of Sandeshkhali to the Bara Kalagachi. Unnamed in OSM; no reference found that names it, so it is left unnamed."
+  },
+  "40453": {
+    "name": "Dansa",
+    "joins": "22786",
+    "osmWays": [
+      102147642
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. OSM \"Dansa\": leaves the channel above (40452) and runs south-west to the Chhota Kalagachi north of Sandeshkhali. The district lists the Dansa among North 24 Parganas' main rivers."
+  },
+  "40454": {
+    "name": "",
+    "joins": null,
+    "into": "Bay of Bengal",
+    "osmWays": [
+      1494539169
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A 43 km channel through the Sundarbans forest between the Gosaba and the Hariabhanga estuaries, from the Hariabhanga to the sea. Unnamed in OSM."
+  },
+  "40455": {
+    "name": "",
+    "joins": "22337",
+    "osmWays": [
+      759147886
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek west of the Bidyadhari, joining it near Malancha. Unnamed in OSM."
+  },
+  "40456": {
+    "name": "",
+    "joins": "40455",
+    "osmWays": [
+      759147883
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining 40455 from the north. Unnamed in OSM."
+  },
+  "40457": {
+    "name": "",
+    "joins": "40455",
+    "osmWays": [
+      759147878
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining 40455 from the south. Unnamed in OSM."
+  },
+  "40458": {
+    "name": "",
+    "joins": "40455",
+    "osmWays": [
+      759147881
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining 40455 from the south-west. Unnamed in OSM."
+  },
+  "40459": {
+    "name": "",
+    "joins": "26630",
+    "osmWays": [
+      397632801
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A side channel west of the Matla below Canning, rejoining it. Unnamed in OSM."
+  },
+  "40460": {
+    "name": "",
+    "joins": "29582",
+    "snapKm": 0.25,
+    "osmWays": [
+      836662385
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Bidya from the north-west. Unnamed in OSM."
+  },
+  "40461": {
+    "name": "",
+    "joins": null,
+    "into": "Bay of Bengal",
+    "osmWays": [
+      611319307
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A channel from the Sundarika Khal south to the sea west of the Saptamukhi, between Namkhana and Bakkhali. Unnamed in OSM."
+  },
+  "40462": {
+    "name": "",
+    "joins": "29296",
+    "shoreKm": 1,
+    "osmWays": [
+      815090525
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek flowing west into the Hooghly estuary near Kulpi. Unnamed in OSM."
+  },
+  "40463": {
+    "name": "",
+    "joins": "25020",
+    "osmWays": [
+      859823410
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Kalnagini from the north. Unnamed in OSM."
+  },
+  "40464": {
+    "name": "",
+    "joins": "24914",
+    "osmWays": [
+      1441696417
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek west of Kakdwip, by the Muriganga, joining the Kailapara Khal. Unnamed in OSM."
+  },
+  "40465": {
+    "name": "",
+    "joins": "27445",
+    "snapKm": 0.25,
+    "osmWays": [
+      815695835
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Pathan Khali. Unnamed in OSM."
+  },
+  "40466": {
+    "name": "",
+    "joins": "22669",
+    "osmWays": [
+      758770811
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Charisa Khal near Hingalganj. Unnamed in OSM."
+  },
+  "40467": {
+    "name": "",
+    "joins": "25172",
+    "osmWays": [
+      1338565743
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Kapura Gang from the east. Unnamed in OSM."
+  },
+  "40468": {
+    "name": "",
+    "joins": "25172",
+    "osmWays": [
+      1338565744
+    ],
+    "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Kapura Gang from the east, north of 40467. Unnamed in OSM."
   }
 }

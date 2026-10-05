@@ -86,6 +86,10 @@ console.log(`HydroRIVERS reaches in the India window: ${reaches.size.toLocaleStr
 //     Malleshwaram. `tailFrom` appends another river's course below this one's mouth, and
 //     `endsAt` stops a river at another's (CWC) mouth: CWC carries the Suvarnamukhi on to
 //     the Arkavati with the Vrishabhavati as its tributary, where it is the other way round.
+//     `headFrom` is the mirror of `tailFrom`: it puts another river's whole course above this
+//     one's start. CWC cut the Matla in two at the Piyali and misspelt the upper half "Malta";
+//     that half, past Canning, becomes the head of the Matla (and is hidden as a river of
+//     its own in data/river-overrides.json).
 //   - `endsOnAdded`: CWC carries a river on down a course that belongs to a river it lacks,
 //     one added here from OSM. The line is cut where it first reaches that river's course
 //     (in data/added-rivers-osm.json) and ended on it, the way an added tributary is
@@ -109,8 +113,8 @@ const END_PROPS = ["en_pt_long", "en_pt_lat", "en_loc_ste", "en_loc_dst", "en_lo
 const START_PROPS = ["st_pt_long", "st_pt_lat"];
 const cwcCourse = new Map();
 for (const [uid, o] of Object.entries(courseOverrides)) {
-  if (!(o.head || o.tailFrom || o.endsAt || o.endsOnAdded)) continue;
-  for (const u of [uid, o.tailFrom, o.endsAt].filter(Boolean).map(String)) {
+  if (!(o.head || o.headFrom || o.tailFrom || o.endsAt || o.endsOnAdded)) continue;
+  for (const u of [uid, o.headFrom, o.tailFrom, o.endsAt].filter(Boolean).map(String)) {
     const f = cwcByUid.get(u);
     if (!f) throw new Error(`${COURSES}: ${uid} refers to ${u}, which is not a CWC river`);
     const parts = partsOf(f.geometry);
@@ -133,7 +137,7 @@ for (const f of cwc) {
   const o = courseOverrides[uid];
   if (!o) continue;
   const p = f.properties;
-  if (o.head || o.tailFrom || o.endsAt || o.endsOnAdded) {
+  if (o.head || o.headFrom || o.tailFrom || o.endsAt || o.endsOnAdded) {
     let line = cwcCourse.get(uid).line;
     const changed = { length_km: p.length_km };
     const keep = (keys) => keys.forEach((k) => (changed[k] = p[k]));
@@ -143,6 +147,12 @@ for (const f of cwc) {
       line = [...head, ...line.slice(vertexAt(line, head[head.length - 1], `the new head of ${uid}`) + 1)];
       keep(START_PROPS);
       Object.assign(p, { st_pt_long: head[0][0], st_pt_lat: head[0][1] });
+    }
+    if (o.headFrom) {
+      const other = cwcCourse.get(String(o.headFrom));
+      line = [...other.line.slice(0, vertexAt(other.line, line[0], `the start of ${uid}`)), ...line];
+      keep(START_PROPS);
+      Object.assign(p, { st_pt_long: line[0][0], st_pt_lat: line[0][1] });
     }
     if (o.endsAt) {
       const other = cwcCourse.get(String(o.endsAt));
@@ -172,7 +182,7 @@ for (const f of cwc) {
     p.cwc_course = { geometry: f.geometry, props: changed };
     f.geometry = { type: "LineString", coordinates: line };
     p.length_km = lineKm(line);
-    console.log(`  ${uid} ${p.rivname}: ${changed.length_km.toFixed(1)} km -> ${p.length_km.toFixed(1)} km (${["head", "endsAt", "tailFrom", "endsOnAdded"].filter((k) => o[k]).join(", ")})`);
+    console.log(`  ${uid} ${p.rivname}: ${changed.length_km.toFixed(1)} km -> ${p.length_km.toFixed(1)} km (${["head", "headFrom", "endsAt", "tailFrom", "endsOnAdded"].filter((k) => o[k]).join(", ")})`);
   } else if (o.osmWays) {
     const line = osmGeometry[uid];
     if (!line) throw new Error(`no course for ${uid} in ${OSM_GEOMETRY}`);

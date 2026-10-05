@@ -167,12 +167,12 @@ const panelState = (page) =>
 const KOYNA_VIEW = [[73.85, 17.4], 9], VR_VIEW = [[77.565, 12.985], 13], ARKA_VIEW = [[77.45, 12.75], 10], NAG_VIEW = [[77.51, 12.95], 13];
 
 // Where the rivers are on the real map, to click on the same pixels once they are hidden.
-console.log("\nThe real (empty) river-hidden.json:");
+console.log("\nThe real river-hidden.json (it hides none of the rivers used here):");
 const spots = {};
 {
   const { page, errors } = await openPage();
   const served = await page.evaluate((url) => fetch(url).then((r) => (r.ok ? r.text() : `HTTP ${r.status}`)), `${BASE}/river-hidden.json`);
-  check("the site serves the published file, which hides nothing", served === readFileSync("public/river-hidden.json", "utf8") && JSON.parse(served).hidden.length === 0, served.slice(0, 60));
+  check("the site serves the published file, a list of uids", served === readFileSync("public/river-hidden.json", "utf8") && JSON.parse(served).hidden.every((u) => /^\d+$/.test(u)), served.slice(0, 60));
   await view(page, ...KOYNA_VIEW);
   const k = await rendered(page, KOYNA);
   check("the Koyna is drawn on both layers", k.lines > 0 && k.hit > 0, JSON.stringify(k));
