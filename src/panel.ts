@@ -156,7 +156,7 @@ export class InfoPanel {
     const riverFacts = facts?.[p.uid] ?? [];
     const doubt = naturality?.texts[naturality.rivers[p.uid]];
     this.body.replaceChildren(
-      el("h2", {}, p.name || "Unnamed river"),
+      el("h2", {}, p.name || unnamedLabel(p.uid)),
       ...(doubt ? [this.naturalityTag(doubt)] : []),
       list(rows),
       ...(riverFacts.length
@@ -267,7 +267,7 @@ export class InfoPanel {
   }
 
   private riverLink(uid: string, text: string): HTMLAnchorElement {
-    const a = el("a", { href: `#river-${uid}`, class: "river-link" }, text || "Unnamed river") as HTMLAnchorElement;
+    const a = el("a", { href: `#river-${uid}`, class: "river-link" }, text || unnamedLabel(uid)) as HTMLAnchorElement;
     a.addEventListener("click", (ev) => {
       ev.preventDefault();
       this.onNavigate?.(uid);
@@ -290,4 +290,9 @@ function el(tag: string, attrs: Record<string, string>, child?: string | Node): 
   for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
   if (child != null) node.append(child);
   return node;
+}
+
+// How a river with no name is shown everywhere: its uid, the same key as the tiles and data files.
+function unnamedLabel(uid: string | number): string {
+  return `Unnamed river ${uid}`;
 }
