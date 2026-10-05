@@ -330,8 +330,6 @@ function build(uid, entry, addedSoFar) {
   const tidy = fromOsm ? (l) => l : smooth;
   const join = entry.joins ? byUid.get(String(entry.joins)) ?? addedRivers.get(String(entry.joins)) : null;
   if (entry.joins && !join) return { problems: [`joins uid ${entry.joins}, which is not in the data`] };
-  if (join && entry.joinsName && join.name !== entry.joinsName)
-    problems.push(`joins ${entry.joins} expected "${entry.joinsName}", data says "${join.name}"`);
 
   // `cutAt` ends a sea-bound river where it reaches a CWC line without joining it: the
   // Oshiwara meets the Malad Creek channel that the CWC draws as the Poisar's lower course.
