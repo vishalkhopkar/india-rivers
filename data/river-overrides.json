@@ -547,7 +547,8 @@
     "originNear": true,
     "end": "Juhu, Mumbai",
     "endNear": true,
-    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city."
+    "why": "Added river; the automatic description reads only \"Mumbai\" or a wrong Western Ghats prefix in the city. Hidden at the owner's request (2026-10-06).",
+    "hidden": true
   },
   "40035": {
     "name": "Mogara Nallah",
@@ -2121,7 +2122,8 @@
     "name": "",
     "origin": "Santacruz West, Mumbai",
     "end": "The Irla Nala at Vile Parle West, Mumbai",
-    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md). Hidden at the owner's request (2026-10-06).",
+    "hidden": true
   },
   "40297": {
     "name": "",
@@ -2199,7 +2201,8 @@
     "name": "",
     "origin": "Santacruz West, Mumbai",
     "end": "The Arabian Sea at Khar Danda, Mumbai",
-    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md)."
+    "why": "Added from OSM (Mumbai region stream network, review/mumbai-streams.md). Hidden at the owner's request (2026-10-06).",
+    "hidden": true
   },
   "40312": {
     "name": "",
