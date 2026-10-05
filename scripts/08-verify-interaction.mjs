@@ -48,7 +48,7 @@ async function pixelOf(name) {
     let best = null, bestD = Infinity, uid = null;
     for (const f of m.queryRenderedFeatures({ layers: ["river-hit"] })) {
       if (f.properties.name !== name) continue;
-      uid = f.properties.uid;
+      const fuid = f.properties.uid;
       const parts = f.geometry.type === "LineString" ? [f.geometry.coordinates] : f.geometry.coordinates;
       for (const part of parts)
         for (const c of part) {
@@ -56,12 +56,15 @@ async function pixelOf(name) {
           if (p.x < 20 || p.y < 20 || p.x > canvas.width - 20 || p.y > canvas.height - 20) continue;
           if (pr && p.x <= pr.right + 10 && p.y <= pr.bottom + 10) continue;
           const d = Math.hypot(p.x - cx, p.y - cy);
-          if (d < bestD) { bestD = d; best = p; }
+          if (d < bestD) { bestD = d; best = p; uid = fuid; }
         }
     }
     return best ? { x: Math.round(best.x), y: Math.round(best.y), uid } : null;
   }, name);
 }
+
+// An unnamed river is shown as "Unnamed river" and its uid.
+const UNNAMED = /^Unnamed river \d+$/;
 
 const readPanel = () =>
   page.evaluate(() => {
@@ -413,7 +416,7 @@ if (npn) {
 }
 const bdp = await openRiver("", [72.9356, 19.1392], 15);
 check("the Bhandup stream is on the map", !!bdp);
-if (bdp) check("it rises in Bhandup West and merges into Thane Creek", bdp.panel.heading === "Unnamed river" && /Bhandup West/.test(bdp.panel.rows["Origin"] ?? "") && bdp.panel.rows["Merges into"] === "Thane Creek", JSON.stringify(bdp.panel.rows));
+if (bdp) check("it rises in Bhandup West and merges into Thane Creek", bdp.panel.heading === `Unnamed river ${bdp.pt.uid}` && /Bhandup West/.test(bdp.panel.rows["Origin"] ?? "") && bdp.panel.rows["Merges into"] === "Thane Creek", JSON.stringify(bdp.panel.rows));
 const mkd = await openRiver("", [72.9251, 19.0504], 15);
 check("the Mankhurd stream is on the map", !!mkd);
 if (mkd) check("it merges into the Trombay Creek", mkd.panel.rows["Merges into"] === "Trombay Creek", JSON.stringify(mkd.panel.rows));
@@ -562,7 +565,7 @@ check("Balkapur Nala is on the map", !!bkp);
 if (bkp) check("it ends at Hussain Sagar and merges into the Kukatpally Nala", bkp.panel.rows["Merges into"] === "Kukatpally Nala" && /Hussain Sagar at Khairatabad/.test(bkp.panel.rows["Confluence"] ?? ""), JSON.stringify(bkp.panel.rows));
 const fxs = await openRiver("", [78.471, 17.535], 14);
 check("the stream that feeds Fox Sagar is on the map", !!fxs);
-if (fxs) check("it ends at Fox Sagar and merges into the Kukatpally Nala", fxs.panel.heading === "Unnamed river" && fxs.panel.rows["Merges into"] === "Kukatpally Nala" && /Fox Sagar/.test(fxs.panel.rows["Confluence"] ?? ""), JSON.stringify(fxs.panel.rows));
+if (fxs) check("it ends at Fox Sagar and merges into the Kukatpally Nala", fxs.panel.heading === `Unnamed river ${fxs.pt.uid}` && fxs.panel.rows["Merges into"] === "Kukatpally Nala" && /Fox Sagar/.test(fxs.panel.rows["Confluence"] ?? ""), JSON.stringify(fxs.panel.rows));
 console.log("\nGreater Hyderabad: the Musi and Esi headwaters and the west:");
 const esi = await openRiver("Esi", [78.1711, 17.2459], 11);
 check("the Esi (the dataset's \"Mosi\") is on the map under its own name", !!esi);
@@ -595,14 +598,31 @@ check("the Cherlapally-Rampally tank chain is on the map", !!chp);
 if (chp) check("it merges into the Ermulli Vagu at Ghatkesar", chp.panel.rows["Merges into"] === "Ermulli Vagu" && /Ghatkesar/.test(chp.panel.rows["Confluence"] ?? ""), JSON.stringify(chp.panel.rows));
 const kpr = await openRiver("", [78.5615, 17.4901], 14);
 check("the Kapra valley, from HydroRIVERS, is on the map", !!kpr);
-if (kpr) check("it rises at Yapral and merges into the Cherlapally stream", /Yapral/.test(kpr.panel.rows["Origin"] ?? "") && kpr.panel.rows["Merges into"] === "Unnamed river", JSON.stringify(kpr.panel.rows));
+if (kpr) check("it rises at Yapral and merges into the Cherlapally stream", /Yapral/.test(kpr.panel.rows["Origin"] ?? "") && UNNAMED.test(kpr.panel.rows["Merges into"]), JSON.stringify(kpr.panel.rows));
+if (kpr) {
+  // the "Merges into" link to an unnamed river carries that river's uid, in its text too
+  const l = await page.evaluate(() => {
+    const a = document.querySelector(".panel .river-link");
+    return a ? { text: a.textContent, uid: a.getAttribute("href").replace("#river-", "") } : null;
+  });
+  check("a link to an unnamed river reads Unnamed river <its uid>", !!l && l.text === `Unnamed river ${l.uid}`, JSON.stringify(l));
+  check("the unnamed river's own heading reads Unnamed river <its uid>", kpr.panel.heading === `Unnamed river ${kpr.pt.uid}`, kpr.panel.heading);
+  await page.click(".panel .river-link");
+  await new Promise((r) => setTimeout(r, 500));
+  await settle();
+  await new Promise((r) => setTimeout(r, 800));
+  const to = await readPanel();
+  check("following it opens a panel headed the same way", to.heading === l.text, to.heading);
+}
+const khd = await openRiver("Koyna", [73.85, 17.4], 9);
+if (khd) check("a named river's heading is unchanged", khd.panel.heading === "Koyna", khd.panel.heading);
 const mdc = await openRiver("", [78.4852, 17.6596], 13);
 check("the valley north of Medchal is on the map", !!mdc);
 if (mdc) check("it merges into the Shamirpet Vagu", mdc.panel.rows["Merges into"] === "Shamirpet Vagu", JSON.stringify(mdc.panel.rows));
 console.log("\nGreater Hyderabad: outer areas (the Manjira side):");
 const amp = await openRiver("", [78.326, 17.5177], 14);
 check("the stream from Ameenpur Lake is on the map", !!amp);
-if (amp) check("it rises at Ameenpur Lake", /Ameenpur Lake/.test(amp.panel.rows["Origin"] ?? "") && amp.panel.rows["Merges into"] === "Unnamed river", JSON.stringify(amp.panel.rows));
+if (amp) check("it rises at Ameenpur Lake", /Ameenpur Lake/.test(amp.panel.rows["Origin"] ?? "") && UNNAMED.test(amp.panel.rows["Merges into"]), JSON.stringify(amp.panel.rows));
 const sul = await openRiver("", [78.3069, 17.5513], 14);
 check("the Sultanpur stream is on the map", !!sul);
 if (sul) check("it merges into the Pamla Vagu", sul.panel.rows["Merges into"] === "Pamla Vagu", JSON.stringify(sul.panel.rows));
@@ -613,9 +633,9 @@ if (nsp) check("it merges into the Manjra", /Manj/.test(nsp.panel.rows["Merges i
 console.log("\nBengaluru valleys (KC to Bellandur and Varthur; Hebbal to Yellamallappa Chetty):");
 const k100 = await openRiver("Koramangala Valley (K-100)", [77.615, 12.94], 13);
 check("K-100 is on the map", !!k100);
-if (k100) check("K-100 continues below Bellandur", k100.panel.rows["Continues to"] === "Unnamed river", JSON.stringify(k100.panel.rows));
+if (k100) check("K-100 continues below Bellandur", UNNAMED.test(k100.panel.rows["Continues to"]), JSON.stringify(k100.panel.rows));
 const c100 = await openRiver("Challaghatta Valley (C-100)", [77.635, 12.975], 13);
-if (c100) check("C-100 merges into the Bellandur outflow", c100.panel.rows["Merges into"] === "Unnamed river", JSON.stringify(c100.panel.rows));
+if (c100) check("C-100 merges into the Bellandur outflow", UNNAMED.test(c100.panel.rows["Merges into"]), JSON.stringify(c100.panel.rows));
 const bd = await openRiver("Hebbal Valley (BD-423)", [77.755, 13.008], 13);
 if (bd) check("BD-423 merges into the Dakshina Pinakini", /Dakshina Pinakini/.test(bd.panel.rows["Merges into"] ?? ""), JSON.stringify(bd.panel.rows));
 
@@ -648,7 +668,7 @@ check("H-400 is on the map", !!h400);
 if (h400) check("H-400 merges into H-300", h400.panel.rows["Merges into"] === "Hebbal Valley (H-300)", JSON.stringify(h400.panel.rows));
 const yj = await openRiver("", [77.588, 13.118], 14);
 check("the Yelahanka-Jakkur stream is on the map", !!yj);
-if (yj) check("it merges into H-200 below Nagavara", yj.panel.heading === "Unnamed river" && yj.panel.rows["Merges into"] === "Hebbal Valley (H-200)", JSON.stringify(yj.panel.rows));
+if (yj) check("it merges into H-200 below Nagavara", yj.panel.heading === `Unnamed river ${yj.pt.uid}` && yj.panel.rows["Merges into"] === "Hebbal Valley (H-200)", JSON.stringify(yj.panel.rows));
 const ec = await openRiver("", [77.708, 12.868], 14);
 check("the Huskur lake-chain stream is on the map", !!ec);
 if (ec) check("it merges into the Chinnar", /Chinnar/.test(ec.panel.rows["Merges into"] ?? ""), JSON.stringify(ec.panel.rows));
