@@ -466,6 +466,20 @@
     "confidence": "high",
     "region": "south"
   },
+  "5426": {
+    "name": "Kolab / Sabari",
+    "category": "History",
+    "fact": [
+      "For most of the way from Konta northwards this river is the Chhattisgarh-Odisha border, the old line between Bastar State and the Jeypore estate of Madras Presidency. Around Sukma it is not: the old Vizagapatam gazetteer already describes the river flowing \"into Bastar, past Sunkam\" before dividing the two again. Sukma was the seat of a Bastar zamindari of 128 villages.",
+      "Rising near Sinkaram hill in Odisha's Eastern Ghats, it is the Kolab for most of its course and takes the name Sabari, or Saveri, only on its last stretch along the Chhattisgarh border. The old gazetteer of Bastar State still described Sukma as a village of 1,279 people \"on the Kolab river\"."
+    ],
+    "sources": [
+      "https://en.wikisource.org/wiki/Vizagapatam/Chapter_1",
+      "https://sites.google.com/view/la-cg/cg-public-libraries-act-2008/chhattisgarh-feudatory-state"
+    ],
+    "confidence": "medium",
+    "region": "national"
+  },
   "5657": {
     "name": "Manjra River",
     "category": "Wildlife",
