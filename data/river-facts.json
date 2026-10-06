@@ -690,6 +690,20 @@
     "confidence": "medium",
     "region": "west"
   },
+  "8655": {
+    "category": "History",
+    "fact": [
+      "If sailing upstream from Daman, one can reach the exclaves of Dadra and Nagar Haveli, all of which was Portuguese territory. The volunteers who ended Portuguese rule in Dadra and Nagar Haveli in 1954 chose the monsoon on purpose, because the swollen river would cut Naroli off from help. They took Naroli on 28 July, and on 10 August crossed the flooded river on local ferries to defeat the last Portuguese force at Khanvel.",
+      "The river splits Daman city into two parts: Nani Daman on the northern bank and Moti Daman, the old city, on the southern. Two forts face each other at the mouth: Moti Daman fort on the south and Fort St. Jerome on the north."
+    ],
+    "sources": [
+      "site owner",
+      "https://en.wikipedia.org/wiki/Annexation_of_Dadra_and_Nagar_Haveli",
+      "https://en.wikipedia.org/wiki/Dadra_and_Nagar_Haveli_district"
+    ],
+    "confidence": "owner",
+    "region": "west (site owner)"
+  },
   "8744": {
     "category": "Engineering",
     "fact": "The Kaiga nuclear power station stands near the Kali, inland from Karwar. In December 2018 one of its units set a world record of 962 days of continuous operation among all nuclear power plants. Upstream, the river's rapids near Dandeli are a popular white-water rafting spot from October to March.",
