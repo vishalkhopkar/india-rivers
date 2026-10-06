@@ -1211,6 +1211,15 @@
     "confidence": "high",
     "region": "west"
   },
+  "16252": {
+    "category": "Wildlife",
+    "fact": "One of seven rivers that flow through the Gir forest, this one rises in its western hills and holds water all year, which makes it a main source for the forest's wildlife. The Kamleshwar dam, officially Hiran-1, stands on it inside the forest.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Hiran_River"
+    ],
+    "confidence": "medium",
+    "region": "west"
+  },
   "16499": {
     "category": "Wildlife",
     "fact": "Asiatic lions that have spread out of Gir now use the Shetrunji's banks as a corridor, and some live near its dam at Palitana. Pilgrims on the steps of the Jain holy hill of Shatrunjaya filmed a lion there in October 2025, and three were seen there in 2020.",
