@@ -850,6 +850,20 @@
     "confidence": "medium",
     "region": "west (site owner)"
   },
+  "9082": {
+    "category": "History",
+    "fact": [
+      "Bilimora, near the river's mouth, was the naval station of the Gaekwads of Baroda, known as Bunder Bilimora Suba Armar. About 50 vessels, trading boats and warships alike, were kept here to guard the coast against the Portuguese, Dutch and French; by 1813 the fleet included four frigates.",
+      "Vansda National Park, 23.99 sq km of teak and bamboo forest on the river's bank, was once the Maharaja of Vansda's forest, and no tree has been felled in it since 1952. In 2020 camera traps there recorded dholes, the first confirmed in Gujarat in 50 years."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Bilimora",
+      "https://historyofvadodara.in/baroda-state-navy",
+      "https://en.wikipedia.org/wiki/Vansda_National_Park"
+    ],
+    "confidence": "medium",
+    "region": "west"
+  },
   "9155": {
     "category": "History",
     "fact": "Every 12 years until 1755, Thirunavaya on the banks of the Nila hosted the Mamankam, a great fair presided over by the Zamorin of Kozhikode. Warriors from leading Nair families of rival Valluvanad came on suicide missions to try to kill him.",
