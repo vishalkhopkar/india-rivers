@@ -39,7 +39,7 @@ const places = json("build/places.json") ?? {};
 const topology = json("build/topology.json") ?? {};
 const facts = json("data/river-facts.json") ?? {};
 
-// Same folding as scripts/03d-facts.mjs, so a name that matches here passes its check.
+// Folds a name down to its letters, dropping "River" and "Nadi".
 const norm = (s) => (s ?? "").toLowerCase().replace(/\briver\b|\bnadi\b|[^a-z]/g, "");
 // Looser: spelling variants of one name fold together (Vrishabhavathi / Vrishabhavati).
 const loose = (s) => norm(s).replace(/h/g, "").replace(/w/g, "v").replace(/ee/g, "i").replace(/oo/g, "u").replace(/(.)\1+/g, "$1");
@@ -91,6 +91,10 @@ if (haveBuild) {
 }
 
 const matches = [];
+if (/^\d+$/.test(query) && !index[query]) {
+  console.log(`no river with uid ${query} on the map`);
+  process.exit(1);
+}
 for (const [uid, e] of Object.entries(index)) {
   const r = !query ? 9 : uid === query ? 0 : Math.min(rank(e[0]), rank(props.get(uid)?.rivname));
   if (query ? r < 9 : distance.get(uid) <= NEAR_KM) matches.push({ uid, r });
@@ -118,7 +122,7 @@ for (const { uid, r } of matches.slice(0, MAX_SHOWN)) {
   ].filter(Boolean).join("  ");
   console.log(head + (RANK[r] ?? ""));
   const row = (k, v) => v && console.log(`        ${k.padEnd(8)}${v}`);
-  if (p && p.rivname !== name) row("dataset", `"${p.rivname ?? ""}"  (use the shown name, or this one, as the fact's "name")`);
+  if (p && p.rivname !== name) row("dataset", `"${p.rivname ?? ""}"  (the dataset's own name; the map shows the other)`);
   row("rises", pl.o && `${pl.on ? "near " : ""}${pl.o}`);
   const into = down
     ? `${index[down]?.[0] || "unnamed river"} (uid ${down})`

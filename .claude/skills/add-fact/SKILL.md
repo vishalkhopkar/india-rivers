@@ -1,21 +1,27 @@
 ---
 name: add-fact
-description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying) and in their own wording (spelling and grammar fixes only), add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name> or asks to add a fun fact to a river.
-argument-hint: <river name>
+description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying) and in their own wording (spelling and grammar fixes only), add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name or uid> or asks to add a fun fact to a river.
+argument-hint: <river name or uid>
 ---
 
 River: **$ARGUMENTS**
 
 The fact is whatever came with the command: text in the message, a file the user points to (often
 `new_facts.txt` in the repo root), or a URL given "for reference". If the argument carries more than a
-name, the leading name is the river and the rest is the fact. If there is no fact at all, propose one
-(step 2, last point).
+name, the leading name is the river and the rest is the fact. The river may be given by its name or by
+its uid (the number the site's panel and the lookup show), and a leading uid works the same way as a
+leading name: "<uid> : <fact>". An unnamed river can only be addressed by its uid; the site shows it
+as "Unnamed river <uid>". If there is no fact at all, propose one (step 2, last point).
 
 Clicking a river opens a panel; under its rows a **Fun Facts** heading is followed by each fact as its
 own paragraph. Only the fact text is published. Do the steps in order.
 
-1. **Find the river.** `node .claude/skills/add-fact/find-river.mjs "<river name>"` prints every match
-   with its uid, length, where it rises, what it joins, where it ends, and any facts it already has.
+1. **Find the river.** `node .claude/skills/add-fact/find-river.mjs "<river name or uid>"` prints every
+   match with its uid, length, where it rises, what it joins, where it ends, and any facts it already
+   has.
+   - A uid goes straight to that one river, with no namesake question. Still read the output and
+     confirm it is the river the fact is about, because a uid is easy to mistype. A uid that is not on
+     the map is reported as such and the lookup exits with an error.
    - Names repeat (four Suvarnamukhis, dozens of Kharis). Pick the one the fact is about by where it is
      and what it joins. Add `--near <lat>,<lon>` (a town the fact mentions) to put the nearest first.
    - No match does not mean no river: some are recorded under another name (the Poisar was "Malad
@@ -70,13 +76,12 @@ own paragraph. Only the fact text is published. Do the steps in order.
    - House style: Indian English, "27 July 2019", "620 sq km", straight quotes.
 
 4. **Add it to `data/river-facts.json`** with the Edit tool. Shape:
-   `"<uid>": { "name", "category", "fact", "sources", "confidence", "region" }`, two-space indent,
-   entries in ascending uid order.
+   `"<uid>": { "category", "fact", "sources", "confidence", "region" }`, two-space indent, entries in
+   ascending uid order. An entry has no `name` field and the build fails if one is added.
    - **River already has a fact: never replace it.** Turn `fact` into an array and append
-     (`"fact": ["<old>", "<new>"]`, see `8969`), append the new URLs to `sources`, keep `name`,
-     `category` and `region`, and set `confidence` to the weaker of the two (`owner` is the weakest).
+     (`"fact": ["<old>", "<new>"]`, see `8969`), append the new URLs to `sources`, keep `category`
+     and `region`, and set `confidence` to the weaker of the two (`owner` is the weakest).
    - **New river:** insert the entry at its place in uid order.
-     - `name`: the name the lookup shows, or its `dataset` name. Anything else trips the name check.
      - `category`: reuse one in the file (History, Engineering, Dams and reservoirs, Wildlife,
        Disasters, Names and etymology, Pilgrimage, Culture, Geography, Geology, Transport, Sport, Film,
        Literature, Science, Environment, Beautification, Myth busters, Culture and mythology).
@@ -92,9 +97,9 @@ own paragraph. Only the fact text is published. Do the steps in order.
 
 5. **Check.** All of these must pass before committing; if the text changes, start again from (a).
    - (a) `npm run data:facts` validates and writes `public/river-facts.json` (never edit that file by
-     hand). It fails on a fact over 80 words, an entry with no source, or a uid not on the map. A
-     "name mismatches" line naming your uid means the wrong river or the wrong `name`: fix it.
-     Unnamed rivers are not checked; give them `"name": "(unnamed)"`.
+     hand). It fails on a fact over 80 words, an entry with no source, an entry with a `name` field,
+     or a uid not on the map. It cannot tell whether the uid is the right river, so step (d) is the
+     check for that.
    - (b) `npx tsc --noEmit`.
    - (c) The dev server must be on port 5174. `curl -s -o /dev/null -w "%{http_code}" http://localhost:5174/`
      should print 200; if not, start `npx vite --port 5174 --strictPort` in the background. Leave a
@@ -103,7 +108,9 @@ own paragraph. Only the fact text is published. Do the steps in order.
      375x740 phone, checks it shows exactly the published facts, and checks it fits. The panel is
      sized to its content and never scrolls, so "fits" means the whole panel is on screen at both
      sizes. Then Read both screenshots (`build/shots/fact-<uid>-desktop.png`, `-phone.png`) and read
-     the fact as a visitor would. If it does not fit, shorten the fact.
+     the fact as a visitor would. The heading in the screenshot shows the river's name (or "Unnamed
+     river <uid>"), and it must be the river the fact is about; if not, the uid is wrong, so fix it
+     and start again from (a). If it does not fit, shorten the fact.
    - (e) `node scripts/08-verify-interaction.mjs` must end with `ALL CHECKS PASSED`. It asserts that
      the Dahisar (8654) shows exactly two facts; a third there needs that check updated in the same
      commit.

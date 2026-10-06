@@ -1,7 +1,7 @@
 ---
 name: find-fact
-description: Research 3-5 candidate Fun Facts for one or more rivers on the India rivers map and show them in the chat for the owner's approval. Changes no files, commits nothing. Use when the user invokes /find-fact <river name>[, <river name> ...] or asks to find candidate facts for a river.
-argument-hint: <river name>[, <river name> ...]
+description: Research 3-5 candidate Fun Facts for one or more rivers on the India rivers map and show them in the chat for the owner's approval. Changes no files, commits nothing. Use when the user invokes /find-fact <river name or uid>[, <river name or uid> ...] or asks to find candidate facts for a river.
+argument-hint: <river name or uid>[, <river name or uid> ...]
 ---
 
 Rivers: **$ARGUMENTS**
@@ -9,11 +9,16 @@ Rivers: **$ARGUMENTS**
 Find candidate facts and show them here. **Do not change any file, run the build, commit or push.**
 Every candidate needs the owner's approval first; adding an approved one is step 6.
 
-The argument holds one river or several (separated by commas, "and", or new lines). Do steps 1-4 for
-each river, then give one reply covering all of them.
+The argument holds one river or several (separated by commas, "and", or new lines), each given by its
+name or its uid, and the two can be mixed. An unnamed river can only be given by its uid; the site
+shows it as "Unnamed river <uid>". Do steps 1-4 for each river, then give one reply covering all of
+them.
 
-1. **Find the river.** `node .claude/skills/add-fact/find-river.mjs "<river name>"` prints every match
-   with its uid, length, where it rises, what it joins, where it ends, and the facts it already has.
+1. **Find the river.** `node .claude/skills/add-fact/find-river.mjs "<river name or uid>"` prints every
+   match with its uid, length, where it rises, what it joins, where it ends, and the facts it already
+   has.
+   - A uid goes straight to that one river, with no namesake question. Still read the output and
+     confirm it is the river the request is about, because a uid is easy to mistype.
    - Names repeat. Pick by where the river is and what it joins; add `--near <lat>,<lon>` to put the
      nearest first. If two candidates remain that the request cannot separate, say which one you
      took and why, and carry on.

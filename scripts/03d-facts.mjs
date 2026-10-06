@@ -1,13 +1,13 @@
 // Publishes the river panel's "Fun Facts" from the curated list in data/river-facts.json:
-//   { "<uid>": { "name", "category", "fact", "sources": [urls], "confidence" } }
+//   { "<uid>": { "category", "fact", "sources": [urls], "confidence", "region" } }
+// An entry carries no river name: the uid is enough, and the name lives in the river data.
 // `fact` may also be a list, for a river with more than one (the Dahisar). A fact can link
 // another river as [[uid|text]]. The sources
 // stay in the curated file for review; the site gets public/river-facts.json,
 // { "<uid>": ["<fact>", ...] }, fetched once by the panel.
 //
-// Fails if a fact points at a uid that isn't on the map, has no source, or runs long. Warns
-// when the name recorded with the fact doesn't match the river's name, which usually means
-// the fact is attached to a different river of the same name.
+// Fails if a fact points at a uid that isn't on the map, has no source, runs long, or still
+// carries a "name" field. Error messages show the river's name from the map data.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { loadRivers } from "./lib/geo.mjs";
@@ -25,28 +25,24 @@ for (const f of await loadRivers()) {
   names.set(uid, [f.properties.rivname ?? "", overrides[uid]?.rename ?? ""]);
 }
 
-const norm = (s) => s.toLowerCase().replace(/\briver\b|\bnadi\b|[^a-z]/g, "");
-const problems = [], warnings = [], out = {};
+// the river's name for messages: its rename, else the dataset's name
+const label = (uid) => `${uid} ${names.get(uid)?.[1] || names.get(uid)?.[0] || "(unnamed)"}`;
+const problems = [], out = {};
 for (const [uid, f] of Object.entries(facts)) {
-  if (!names.has(uid)) { problems.push(`${uid} ${f.name}: no such river on the map`); continue; }
+  if ("name" in f) problems.push(`${label(uid)}: "name" is no longer used in ${FACTS}; remove it (the river's name comes from the map data)`);
+  if (!names.has(uid)) { problems.push(`${uid}: no such river on the map`); continue; }
   const texts = [f.fact ?? ""].flat().map((t) => t.trim());
   for (const text of texts) {
     // [[uid|text]] links another river; only its text is shown
-    for (const [, to] of text.matchAll(LINK)) if (!names.has(to)) problems.push(`${uid} ${f.name}: links to ${to}, which is not on the map`);
+    for (const [, to] of text.matchAll(LINK)) if (!names.has(to)) problems.push(`${label(uid)}: links to ${to}, which is not on the map`);
     const words = text.replace(LINK, "$2").split(/\s+/).length;
-    if (!text) problems.push(`${uid} ${f.name}: empty fact`);
-    if (words > MAX_WORDS) problems.push(`${uid} ${f.name}: ${words} words (max ${MAX_WORDS})`);
+    if (!text) problems.push(`${label(uid)}: empty fact`);
+    if (words > MAX_WORDS) problems.push(`${label(uid)}: ${words} words (max ${MAX_WORDS})`);
   }
-  if (!f.sources?.length) problems.push(`${uid} ${f.name}: no source`);
-  const known = names.get(uid).filter(Boolean).map(norm);
-  const given = norm(f.name ?? "");
-  // an unnamed river has no name to mismatch
-  if (known.length && !known.some((n) => n.includes(given) || given.includes(n)))
-    warnings.push(`${uid}: fact names "${f.name}", map has "${names.get(uid).filter(Boolean).join('" / "')}"`);
+  if (!f.sources?.length) problems.push(`${label(uid)}: no source`);
   out[uid] = texts;
 }
 
-if (warnings.length) console.log(`name mismatches (check the uid):\n  ${warnings.join("\n  ")}`);
 if (problems.length) {
   console.error(`FAIL - ${problems.length} problem(s) in ${FACTS}:\n  ${problems.join("\n  ")}`);
   process.exit(1);
