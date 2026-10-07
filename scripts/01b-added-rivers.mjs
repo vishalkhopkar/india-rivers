@@ -5,6 +5,10 @@
 //     no elevation-derived network resolves. Their traced courses are stored in
 //     data/added-rivers-osm.json, keyed by uid, with the OSM way ids in the entry.
 //   - HydroRIVERS, as below.
+//   - The CWC dataset itself (`cwcHeadOf`): the stretch of a CWC river that a `head`
+//     correction in data/course-overrides.json took away from it, drawn as the river it
+//     really is. CWC runs the Khan (Kanh) up the Saraswati to Rau; with the Kanh's own head
+//     drawn from OSM, that stretch becomes the Saraswati.
 //
 // HydroRIVERS (HydroSHEDS) has courses CWC does not, the Bhogawati through Barshi among
 // them, but no names. Each entry therefore names a river by hand and points at its
@@ -33,7 +37,7 @@ const LIST = "data/added-rivers.json";
 const OSM_GEOMETRY = "data/added-rivers-osm.json";
 const COURSES = "data/course-overrides.json";
 const RIVERS = "build/rivers.ndjson";
-const SOURCES = { hydro: "HydroSHEDS", osm: "OpenStreetMap" };
+const SOURCES = { hydro: "HydroSHEDS", osm: "OpenStreetMap", cwc: "CWC" };
 
 const JOIN_SNAP_KM = 0.5; // cut the course where it first comes this close to the river it joins
 const JOIN_SNAP_OSM_KM = 0.15; // OSM courses are surveyed, so they can run closer before the cut
@@ -108,7 +112,8 @@ for (const f of cwc) {
   }
 }
 // CWC's own courses for the overrides that move a stretch between two rivers, read before
-// any of them is changed. Parts must run on from one another, source to mouth.
+// any of them is changed. Parts must run on from one another, source to mouth (CWC stores
+// the Khan's two parts mouth half first, so the reverse order is tried too).
 const END_PROPS = ["en_pt_long", "en_pt_lat", "en_loc_ste", "en_loc_dst", "en_loc_sb_", "en_loc_vil", "Confluence"];
 const START_PROPS = ["st_pt_long", "st_pt_lat"];
 const cwcCourse = new Map();
@@ -117,11 +122,10 @@ for (const [uid, o] of Object.entries(courseOverrides)) {
   for (const u of [uid, o.headFrom, o.tailFrom, o.endsAt].filter(Boolean).map(String)) {
     const f = cwcByUid.get(u);
     if (!f) throw new Error(`${COURSES}: ${uid} refers to ${u}, which is not a CWC river`);
-    const parts = partsOf(f.geometry);
-    for (let i = 1; i < parts.length; i++) {
-      const [a, b] = [parts[i - 1][parts[i - 1].length - 1], parts[i][0]];
-      if (distKm(a[0], a[1], b[0], b[1]) > 0.05) throw new Error(`${COURSES}: the parts of ${u} do not run on from one another`);
-    }
+    let parts = partsOf(f.geometry);
+    const runOn = (ps) => ps.every((q, i) => !i || distKm(...ps[i - 1][ps[i - 1].length - 1], ...q[0]) <= 0.05);
+    if (!runOn(parts)) parts = [...parts].reverse();
+    if (!runOn(parts)) throw new Error(`${COURSES}: the parts of ${u} do not run on from one another`);
     cwcCourse.set(u, { line: parts.flatMap((q, i) => (i ? q.slice(1) : q)), props: { ...f.properties } });
   }
 }
@@ -132,6 +136,8 @@ function vertexAt(line, [x, y], what) {
   if (bd > 0.1) throw new Error(`${COURSES}: ${what} is ${bd.toFixed(2)} km off the line it should meet`);
   return bi;
 }
+// The CWC stretch each `head` correction replaced, for added rivers that take it (`cwcHeadOf`).
+const replacedHead = new Map();
 for (const f of cwc) {
   const uid = String(f.properties.UID_River);
   const o = courseOverrides[uid];
@@ -144,7 +150,9 @@ for (const f of cwc) {
     if (o.head) {
       const head = osmGeometry[uid];
       if (!head) throw new Error(`no head course for ${uid} in ${OSM_GEOMETRY}`);
-      line = [...head, ...line.slice(vertexAt(line, head[head.length - 1], `the new head of ${uid}`) + 1)];
+      const at = vertexAt(line, head[head.length - 1], `the new head of ${uid}`);
+      replacedHead.set(uid, line.slice(0, at + 1));
+      line = [...head, ...line.slice(at + 1)];
       keep(START_PROPS);
       Object.assign(p, { st_pt_long: head[0][0], st_pt_lat: head[0][1] });
     }
@@ -333,9 +341,12 @@ function stateAt(lon, lat) {
 // --- build each river --------------------------------------------------------------------
 function build(uid, entry, addedSoFar) {
   const problems = [];
-  const fromOsm = !!entry.osmWays;
-  if (fromOsm && !osmGeometry[uid]) return { problems: [`no course for ${uid} in ${OSM_GEOMETRY}`] };
-  let line = fromOsm ? osmGeometry[uid] : chain(entry.hydroSource, entry.hydroOutlet);
+  const fromCwc = entry.cwcHeadOf != null;
+  if (fromCwc && !replacedHead.has(String(entry.cwcHeadOf))) return { problems: [`${entry.cwcHeadOf} has no head correction in ${COURSES}, so no stretch of it is free`] };
+  // A CWC stretch is a surveyed line like an OSM course, and is cut and checked like one.
+  const fromOsm = !!entry.osmWays || fromCwc;
+  if (entry.osmWays && !osmGeometry[uid]) return { problems: [`no course for ${uid} in ${OSM_GEOMETRY}`] };
+  let line = fromCwc ? replacedHead.get(String(entry.cwcHeadOf)) : fromOsm ? osmGeometry[uid] : chain(entry.hydroSource, entry.hydroOutlet);
   // OSM courses are surveyed lines; only the stair-stepped HydroRIVERS ones need smoothing.
   const tidy = fromOsm ? (l) => l : smooth;
   const join = entry.joins ? byUid.get(String(entry.joins)) ?? addedRivers.get(String(entry.joins)) : null;
@@ -438,7 +449,7 @@ function build(uid, entry, addedSoFar) {
       state_al: stateAt(sx, sy),
       st_pt_lat: sy, st_pt_long: sx, st_loc_ste: stateAt(sx, sy),
       en_pt_lat: my, en_pt_long: mx, en_loc_ste: stateAt(mx, my),
-      src: SOURCES[fromOsm ? "osm" : "hydro"],
+      src: SOURCES[fromCwc ? "cwc" : fromOsm ? "osm" : "hydro"],
       join_uid: join ? join.uid : "",
     },
     geometry: { type: "LineString", coordinates: line },
@@ -455,7 +466,7 @@ const addedRivers = new Map();
 const depth = (uid, seen = new Set()) =>
   list[uid]?.joins in list && !seen.has(uid) ? 1 + depth(list[uid].joins, seen.add(uid)) : 0;
 const order = Object.keys(list).sort((a, b) => depth(a) - depth(b));
-const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: e.osmWays ? osmGeometry[uid]?.[0] ?? [0, 0] : reaches.get(e.hydroSource)?.c[0] ?? [0, 0] }]));
+const addedSoFar = new Map(Object.entries(list).map(([uid, e]) => [uid, { name: e.name, at: (e.cwcHeadOf != null ? replacedHead.get(String(e.cwcHeadOf))?.[0] : e.osmWays ? osmGeometry[uid]?.[0] : reaches.get(e.hydroSource)?.c[0]) ?? [0, 0] }]));
 for (const uid of order) {
   const entry = list[uid];
   if (!checkMode && byUid.has(uid)) throw new Error(`uid ${uid} is already a CWC river`);

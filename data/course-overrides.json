@@ -72,6 +72,27 @@
     },
     "why": "The Jojari flows through Jodhpur, past Doli and Dhawa, and joins the Luni near Balotra (Mongabay, 2025; Wikipedia). CWC stops the line short and records it as inland drainage. Continued down the HydroRIVERS reaches to the Luni."
   },
+  "25543": {
+    "name": "Khan",
+    "head": {
+      "osmWays": [
+        852094968,
+        852094970,
+        852094969,
+        852094972,
+        852094971,
+        727699484,
+        727699485,
+        727699488,
+        728003580,
+        728003579,
+        738163674,
+        738163673,
+        191817154
+      ]
+    },
+    "why": "CWC runs the Khan (Kanh) up the western of Indore's two rivers, past Rajwada to Rau. That river is the Saraswati; the Kanh is the eastern one, from Limbodi lake through Musakhedi, and the two meet at Krishnapura, by Rajwada, below which the river is the Kanh (owner, 2026-10-06; Google Maps; OSM \"Khan River\"/\"Kanh River\"). Head redrawn from the OSM ways, from the lake's outlet to the confluence. The stretch it replaces is the Saraswati (40469 in data/added-rivers.json)."
+  },
   "26630": {
     "name": "Matla",
     "headFrom": "29679",

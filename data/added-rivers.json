@@ -5968,5 +5968,34 @@
       1338565744
     ],
     "why": "Sundarbans pass (OSM waterway=river, Overpass data of 2026-10-05): a tidal channel the CWC dataset lacks. A creek joining the Kapura Gang from the east, north of 40467. Unnamed in OSM."
+  },
+  "40469": {
+    "name": "Saraswati",
+    "joins": "25543",
+    "cwcHeadOf": "25543",
+    "snapKm": 0.02,
+    "distinctFrom": [
+      "28179"
+    ],
+    "why": "Indore: the western of the city's two rivers, from Rau past Foota Talab, Chhatribagh and Harsiddhi to the Kanh at Krishnapura, by Rajwada. CWC drew it as the head of the Khan (Kanh); Google Maps and OSM (ways \"Saraswati\"/\"Saraswathi\") name it the Saraswati, and the Kanh is the eastern river (owner, 2026-10-06). The course is CWC's own, the stretch the Kanh's new head replaced. CWC's short \"Saraswati\" (28179), through Pipliyapala, joins it and keeps its name."
+  },
+  "40470": {
+    "name": "",
+    "joins": "25543",
+    "snapKm": 0.02,
+    "osmWays": [
+      1027657750
+    ],
+    "why": "Indore (OSM waterway=stream, Overpass data of 2026-10-07): the eastern of the Kanh's two branches from Limbodi lake, leaving the lake's north-east corner and meeting the Kanh 2.5 km north, near the Bypass (owner, 2026-10-06: two branches from Limbodi lake). Runs downhill, 574 m to 562 m (SRTM). Unnamed in OSM."
+  },
+  "40471": {
+    "name": "",
+    "joins": "25543",
+    "osmWays": [
+      729003618,
+      729003619,
+      728945839
+    ],
+    "why": "Indore (OSM waterway=river, Overpass data of 2026-10-07): the Kanh's branch from the east through Musakhedi (owner, 2026-10-06). OSM draws the three ways mouth first; walked the other way, downhill from 564 m to 557 m (SRTM). OSM stops 270 m short of the Kanh, so the last stretch is a straight line. Unnamed in OSM."
   }
 }
