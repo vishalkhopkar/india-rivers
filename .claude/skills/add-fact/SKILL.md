@@ -1,6 +1,6 @@
 ---
 name: add-fact
-description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying) and in their own wording (spelling and grammar fixes only), add it to data/river-facts.json, check the panel, then commit and push. Use when the user invokes /add-fact <river name or uid> or asks to add a fun fact to a river.
+description: Add a Fun Fact to a river on the India rivers map - find the right river, take the user's fact as given (no searching or re-verifying) and in their own wording (spelling and grammar fixes only), add it to data/river-facts.json, regenerate the published file, then commit and push (no testing). Use when the user invokes /add-fact <river name or uid> or asks to add a fun fact to a river.
 argument-hint: <river name or uid>
 ---
 
@@ -59,7 +59,7 @@ own paragraph. Only the fact text is published. Do the steps in order.
      spelling of a name used throughout. Nothing else: do not swap words for "better" ones, shorten,
      reorder, merge sentences, drop a term or change the tone, and do not apply the style points
      below.
-   - If the fact is over 80 words (the build fails) or does not fit the panel in step 5, do not trim
+   - If the fact is over 80 words (the build fails) do not trim
      it yourself: stop, say by how much, and ask the user how they want it shortened.
    - List every correction you made in the report.
 
@@ -95,28 +95,15 @@ own paragraph. Only the fact text is published. Do the steps in order.
      a link that opens that river; the build fails if the uid is not on the map.
    - `git diff data/river-facts.json` must show your lines and nothing else.
 
-5. **Check.** All of these must pass before committing; if the text changes, start again from (a).
-   - (a) `npm run data:facts` validates and writes `public/river-facts.json` (never edit that file by
-     hand). It fails on a fact over 80 words, an entry with no source, an entry with a `name` field,
-     or a uid not on the map. It cannot tell whether the uid is the right river, so step (d) is the
-     check for that.
-   - (b) `npx tsc --noEmit`.
-   - (c) The dev server must be on port 5174. `curl -s -o /dev/null -w "%{http_code}" http://localhost:5174/`
-     should print 200; if not, start `npx vite --port 5174 --strictPort` in the background. Leave a
-     server that is already running alone.
-   - (d) `node .claude/skills/add-fact/panel-shots.mjs <uid>` opens the panel at 1280x860 and on a
-     375x740 phone, checks it shows exactly the published facts, and checks it fits. The panel is
-     sized to its content and never scrolls, so "fits" means the whole panel is on screen at both
-     sizes. Then Read both screenshots (`build/shots/fact-<uid>-desktop.png`, `-phone.png`) and read
-     the fact as a visitor would. The heading in the screenshot shows the river's name (or "Unnamed
-     river <uid>"), and it must be the river the fact is about; if not, the uid is wrong, so fix it
-     and start again from (a). If it does not fit, shorten the fact.
-   - (e) `node scripts/08-verify-interaction.mjs` must end with `ALL CHECKS PASSED`. It asserts that
-     the Dahisar (8654) shows exactly two facts; a third there needs that check updated in the same
-     commit.
+5. **Generate. Do not test.** `npm run data:facts 2>&1 | tail -3` validates and writes
+   `public/river-facts.json` (never edit that file by hand). It fails on a fact over 80 words, an
+   entry with no source, an entry with a `name` field, or a uid not on the map. That is the only
+   check: no `tsc`, no dev server, no panel screenshots, no `verify` scripts (see `CLAUDE.md`). Run
+   the old checks (`panel-shots.mjs <uid>`, `scripts/08-verify-interaction.mjs`) only if the owner
+   asks for them.
 
 6. **Commit and push** without asking: the owner's standing rule is to commit and push after every
-   verified change. Follow the `/git` skill, with one difference: stage by path, not `git add -A`.
+   change. Follow the `/git` skill, with one difference: stage by path, not `git add -A`.
    - `git add data/river-facts.json public/river-facts.json`, then `git diff --cached --stat` must
      list only those two files. Reference files in the repo root (`new_facts.txt`, PDFs, images) stay
      untracked; other modified files are someone else's work in progress, so leave them.
@@ -134,6 +121,8 @@ own paragraph. Only the fact text is published. Do the steps in order.
    - anything you researched because the user asked, with its source;
    - anything in the fact you believe is wrong (one line; it is still added as written);
    - the commit hash and that the push succeeded.
+
+   Do not check the deploy or the live site after pushing.
 
 Never send the owner's email address to an outside service, in a header, URL or form. If a request
 needs a User-Agent, use `india-rivers-map/0.1 (static map build)`.
