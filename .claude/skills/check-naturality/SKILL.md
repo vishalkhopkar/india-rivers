@@ -6,8 +6,15 @@ argument-hint: <river name or uid>[, <river name or uid> ...]
 
 Rivers: **$ARGUMENTS**
 
-Decide for each river whether it is natural and show the verdicts here. **Do not change any file, run
-the build, commit or push.** What to do with a verdict is the owner's call (step 4).
+Decide for each river whether it is natural and show the verdicts here. A verdict is exactly one of
+three values: **Natural**, **Doubtful** or **Man made**. **Do not change any file, run the build,
+commit or push.** What to do with a verdict is the owner's call (step 4).
+
+If a CartoDEM elevation tile covering a river has been supplied (step 2.6 says where they are kept),
+run the terrain script on that river whatever step settles the verdict, and give its three results
+in the report:
+
+    node .claude/skills/check-naturality/follows-terrain.mjs [<dem.tif> ...] <uid> [<uid> ...]
 
 The site draws only natural rivers and streams. City drains, canals and built channels are left out or
 flagged. The argument holds one river or several (separated by commas, "and", or new lines), each a
@@ -63,24 +70,48 @@ river, then give one reply covering all of them.
         supply it, say the verdict rests on steps 1 to 5.
       - These tiles are reference files: read them locally, never commit them, and publish nothing
         derived from them.
-      - Reading one: `node .claude/skills/check-naturality/elevation-profile.mjs <uid>` finds the
-        tiles in the repo root by itself and prints the elevation at about 30 points along the
-        river's line, the ground 150 m and 300 m to each side of every point, and a summary: how far
-        the line falls, how many steps climb, and at how many points the line is the low point of
-        its cross-line. For a candidate that is not on the map give its points in order, source
-        first: `... elevation-profile.mjs --line <lat,lon> <lat,lon> ...`. `--step <km>` sets the
-        spacing and `--tile <file.tif>` names a tile kept somewhere else. If part of the line has no
-        tile, the last line of the output names the squares to ask the owner for. A uid needs
-        `build/rivers.ndjson` (`npm run data:extract && npm run data:added` recreates it).
-      - The script reads only what these tiles are: an uncompressed, single-band GeoTIFF in latitude
-        and longitude. If the owner supplies a tile it cannot read, it says why; tell the owner. Do
-        not install anything into the repo or add a dependency to read it.
+      - **The terrain script**, to run whenever a tile covers the river:
+        `node .claude/skills/check-naturality/follows-terrain.mjs <uid> [<uid> ...]` finds the tiles
+        in the repo root by itself; a tile kept somewhere else is given first, as
+        `... follows-terrain.mjs <file.tif> <uid>`. For a candidate that is not on the map give its
+        points in order, source first: `... follows-terrain.mjs --line <lat,lon> <lat,lon> ...`.
+        `--json` prints the same as JSON. For each river it prints three results:
+        - **Follows terrain**: `true` or `false` (`unknown` if the tiles cover less than nine tenths
+          of the line). True means the line ends lower than it starts, runs downhill at 70% or more
+          of its points, never climbs more than 12 m (or a tenth of its whole drop, if that is more)
+          above the lowest point reached so far, and at half or more of its points has no lower
+          ground within 300 m to either side. Under them it lists which of the four tests passed
+          and failed.
+        - **Drop in elevation**: metres from the first point of the line to the last.
+        - **Rate of drop**: that drop per kilometre of line.
+      - How to read it. `false` is a strong sign of a built channel: a line that climbs, cuts across
+        a slope or runs along a ridge was not laid out by water. Before leaning on it, look at
+        which test failed: a river that fails only the climb test may cross a dam, or be drawn a
+        little off its channel in steep ground. `true` shows the valley is there, which is what
+        step 7 needs, but it is not the verdict: a channel built along a natural valley passes too
+        (the rajakaluves of 2.4). Where the rate of drop is under 0.5 m per km the script says the ground is flat;
+        treat the result as weak evidence there.
+      - How far to trust it. On the Bengaluru tiles (N12 and N13 E077) it says `true` for 367 of the
+        374 rivers of 2 km or more that the map draws there, and for 1 of 140 random straight lines,
+        none of 57 rivers turned round, and 1 of 57 rivers moved 1 km sideways. A river moved only
+        300 m still passes about one time in six, so it cannot tell a channel from the valley floor
+        right beside it. It has not been tried on real canals.
+      - For the detail behind a result, `node .claude/skills/check-naturality/elevation-profile.mjs
+        <uid>` prints the elevation at about 30 points along the river's line and the ground 150 m
+        and 300 m to each side of every point. It takes `--line` the same way; `--step <km>` sets
+        the spacing and `--tile <file.tif>` names a tile kept somewhere else.
+      - If part of a line has no tile, the last line of either script's output names the squares to
+        ask the owner for. A uid needs `build/rivers.ndjson` (`npm run data:extract && npm run
+        data:added` recreates it).
+      - The scripts read only what these tiles are: an uncompressed, single-band GeoTIFF in latitude
+        and longitude. If the owner supplies a tile they cannot read, they say why; tell the owner.
+        Do not install anything into the repo or add a dependency to read it.
       - The heights are above the WGS 84 ellipsoid, not above sea level: in Bengaluru they come out
         about 90 m lower than the sea-level heights other sources give. Only the differences along
         and across the line matter here, so do not quote these numbers as altitudes.
-      - Look at three things: the elevation from source to mouth falls, with few climbs; the river
-        sits at the low point of a few cross-lines taken across it; and the valley it follows is
-        there without the river. A 30 m grid cannot see a channel a few metres wide, so treat a
+      - The script answers the first two of three questions: does the elevation fall from source to
+        mouth, with few climbs, and does the river sit at the low point of the ground across it?
+        The third is yours to judge: is the valley it follows there without the river? A 30 m grid cannot see a channel a few metres wide, so treat a
         small drop in a flat city as weak evidence.
       - Fallback only, when the owner cannot supply a tile: the Open-Meteo elevation API answered on
         2026-10-05 with a 90 m grid, for example
@@ -97,7 +128,11 @@ river, then give one reply covering all of them.
    Maps; do not trace from copyrighted maps.
 
 3. **Report.** For each river give its name and uid (or the description, for a candidate) and then:
-   - the verdict: **natural**, **doubtful** or **not natural**, with a one-line reason;
+   - the verdict, exactly one of **Natural**, **Doubtful** or **Man made**, with a one-line reason.
+     Use these three words and no others: not "not natural", "probably natural" or "leaning built".
+     A lean goes in the reason, and the verdict stays Doubtful;
+   - if a tile covered the river, the terrain script's three results: Follows terrain, Drop in
+     elevation, Rate of drop;
    - what each step you actually used found, with the URLs you opened, and which step settled it;
    - if steps 5 to 7 were used, say that 1 to 4 were not conclusive and why.
 
