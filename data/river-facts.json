@@ -943,6 +943,21 @@
     "confidence": "medium",
     "region": "south"
   },
+  "9342": {
+    "category": "History",
+    "fact": [
+      "Swathi Thirunal laid the foundation stone of the old stone bridge at Karamana in the 1840s but did not live to see it finished. Built by Lieutenant Horsley at a cost of over a lakh of rupees, it was opened by his successor in mid-December 1853 with a procession of elephants, and still stands on its original foundation.",
+      "Visakham Thirunal, the ruler credited with introducing tapioca to Travancore, kept a small experimental farm on the river bank near the Karamana bridge. A. Padmanabha Iyer's 1941 handbook on Travancore recalls him planting tobacco there and watching its growth under scientific treatment; he ruled only from 1880 to 1885."
+    ],
+    "sources": [
+      "https://www.thehindu.com/features/friday-review/history-and-culture/and-quiet-flows-the-karamana-bridging-past-and-present/article3892830.ece",
+      "https://archive.org/download/ahistorytravanc00menogoog/ahistorytravanc00menogoog_djvu.txt",
+      "https://www.thehindu.com/sci-tech/energy-and-environment/and-quiet-flows-the-karamana-the-river-wild/article4077504.ece",
+      "https://www.thehindu.com/life-and-style/food/how-tapioca-came-to-travancore/article28181288.ece"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "9402": {
     "category": "Names and etymology",
     "fact": "In the temple's legend this river was once simply the Dhara. Subrahmanya, also called Kumara, washed his weapons in it after killing the demon Tarakasura, and it became the Kumara-dhara. Pilgrims to the Kukke Subramanya temple still bathe in the river before going in for darshan.",
@@ -950,6 +965,24 @@
       "https://imvoyager.com/kukke-subramanya-temple-karnataka",
       "https://en.wikipedia.org/wiki/Kumaradhara_River",
       "https://karnatakatourism.org/tour-item/kukke-subramanya-temple/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "9439": {
+    "category": "History",
+    "fact": [
+      "The river is often called India's English Channel because it divided French Mahe from British Malabar, but French territory lay on both sides. The town stood on the south bank, while the enclaves of Kallayi and Naluthara lay to the north, beyond a strip of British land. Naluthara's four villages were handed to the French only on 14 November 1853.",
+      "The Mahajana Sabha chose Bastille Day, 14 July 1954, to march into French Mahe, after its blockade had left the town short of daily supplies. Two days later, on 16 July, the French Administrator Deschamps handed power to the Sabha's president I.K. Kumaran at Government House, beside the river mouth, where Kumaran hoisted the Indian flag."
+    ],
+    "sources": [
+      "https://archive.org/download/dli.ministry.08195/GR368_djvu.txt",
+      "https://en.wikipedia.org/wiki/Mah%C3%A9_River",
+      "https://www.addastories.org/the-river-here/",
+      "https://en.wikipedia.org/wiki/Naluthara",
+      "https://mahe.gov.in/history/",
+      "https://mahe.gov.in/places-of-interest/",
+      "https://openthemagazine.com/voices/mahe-un-pur-esprit"
     ],
     "confidence": "medium",
     "region": "south"
@@ -1088,6 +1121,18 @@
     "fact": "It is named after Ghulam Rasool Galwan (1878-1925), a Ladakhi caravan leader who guided European explorers. His memoir, 'Servant of Sahibs', written in English he had picked up on his travels, was published in Cambridge in 1923 with an introduction by Francis Younghusband.",
     "sources": [
       "https://en.wikipedia.org/wiki/Rasool_Galwan"
+    ],
+    "confidence": "high",
+    "region": "north"
+  },
+  "12645": {
+    "category": "History",
+    "fact": "In 1931 cattle grazers at Naupur, near Gilgit town, found a wooden box of 5th-6th century Buddhist texts written on birch bark, among them the Lotus Sutra. Regarded as the subcontinent's oldest surviving collection of religious texts, they joined UNESCO's Memory of the World register in 2017; most are kept in the National Archives in New Delhi.",
+    "sources": [
+      "https://www.unesco.org/en/memory-world/gilgit-manuscript",
+      "https://www.historyofinformation.com/detail.php?id=4213",
+      "https://www.thenews.pk/tns/detail/558086-exploring-the-buddhist-treasure",
+      "https://en.wikipedia.org/wiki/Gilgit_manuscripts"
     ],
     "confidence": "high",
     "region": "north"
