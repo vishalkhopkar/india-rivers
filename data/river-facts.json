@@ -1524,6 +1524,15 @@
     "confidence": "high",
     "region": "east"
   },
+  "26660": {
+    "category": "Geography",
+    "fact": "Mechi is the easternmost river in Nepal which forms its eastern frontier with India. Its national anthem also mentions \"सार्वभौम भई फैलिएका, मेची-महाकाली\" which means that its sovereignty extends from Mechi to Mahakali.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "east (site owner)"
+  },
   "27548": {
     "category": "Pilgrimage",
     "fact": "At Gaya it is usually a wide bed of sand: legend says Sita cursed it to run dry after it lied about her pind offering to Dasharatha. Since 2022 the 411-metre Gayaji Dam, India's longest rubber dam, holds water near the Vishnupad temple all year for pind daan.",

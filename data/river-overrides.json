@@ -357,6 +357,14 @@
     "down": "26906",
     "why": "Digitised mouth-first: its recorded start is exactly where the Najafgarh Drain begins. It flows south into the Najafgarh Drain, which continues it under a new name."
   },
+  "26660": {
+    "name": "Mechi",
+    "origin": "Mahabharat Range, Nepal",
+    "via": [],
+    "entersAt": "Mirik, West Bengal",
+    "entersAtNear": true,
+    "why": "Rises in the Mahabharat Range of Nepal; the CWC line starts near Mirik, where the river reaches India and becomes the India-Nepal border (owner's correction)."
+  },
   "26803": {
     "name": "Muri Ganga Or Bartala",
     "rename": "Muri Ganga or Baratala",

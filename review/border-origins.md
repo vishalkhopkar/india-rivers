@@ -7,6 +7,7 @@ The audit compared each river with the HydroRIVERS network upstream of its start
 Fixed already (for reference):
 - Tsari Chu, Jaldhaka, Manas, Burisuti, Bari Gandak and Tangtsa were corrected by hand.
 - The Sharda keeps its Kalapani source.
+- The Mechi rises in the Mahabharat Range of Nepal and enters India near Mirik (owner's correction, 2026-10-06).
 - Hardi, Sihula Dhar, Bharahar and 20 other Nepal terai streams are now marked as rising in Nepal, because the data's own start point lies inside Nepal.
 - The uid clash that showed Kankai Nadi rising near Dehradun is fixed.
 
@@ -54,7 +55,6 @@ Fixed already (for reference):
 | 901 | Dhansiri | 16 km N of Udalguri, Assam | Formed by the Bhairabkunda (Arunachal) and the Khaluba, the larger arm, which comes from Bhutan. Could be shown as "Formed by" |
 | 22345 | Bihul | 25 km N of Nirmali, Bihar | Possibly from Nepal; weak evidence |
 | 1002 | Langnyu | Naga Hills, 30 km E of Tuensang | Rises in Nagaland and dips about 12 km into Myanmar. Could show "Flows through Myanmar" |
-| 26660 | Mechi | Mirik, West Bengal | Wikipedia says it rises in Nepal. The data has no foreign catchment above its start, and it is the India–Nepal border river |
 | 16190 | Dharo Puran | 65 km N of Dayapar, Gujarat | An old Indus channel in the Rann |
 
 ## Lines that start just inside another country (outside Nepal)
