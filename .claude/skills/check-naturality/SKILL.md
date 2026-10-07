@@ -10,11 +10,17 @@ Decide for each river whether it is natural and show the verdicts here. A verdic
 three values: **Natural**, **Doubtful** or **Man made**. **Do not change any file, run the build,
 commit or push.** What to do with a verdict is the owner's call (step 4).
 
-If a CartoDEM elevation tile covering a river has been supplied (step 2.6 says where they are kept),
-run the terrain script on that river whatever step settles the verdict, and give its three results
-in the report:
+Two scripts give evidence from the terrain. Run them whatever step settles the verdict, and give
+their results in the report (step 2.6 says how to read them):
 
-    node .claude/skills/check-naturality/follows-terrain.mjs [<dem.tif> ...] <uid> [<uid> ...]
+- **The HydroRIVERS check**, for every river. It needs no tile:
+
+      node .claude/skills/check-naturality/on-hydrorivers.mjs <uid> [<uid> ...]
+
+- **The terrain script**, if a CartoDEM elevation tile covering the river has been supplied (step 2.6
+  says where they are kept):
+
+      node .claude/skills/check-naturality/follows-terrain.mjs [<dem.tif> ...] <uid> [<uid> ...]
 
 The site draws only natural rivers and streams. City drains, canals and built channels are left out or
 flagged. The argument holds one river or several (separated by commas, "and", or new lines), each a
@@ -70,6 +76,32 @@ river, then give one reply covering all of them.
         supply it, say the verdict rests on steps 1 to 5.
       - These tiles are reference files: read them locally, never commit them, and publish nothing
         derived from them.
+      - **The HydroRIVERS check**, to run for every river, tile or no tile:
+        `node .claude/skills/check-naturality/on-hydrorivers.mjs <uid> [<uid> ...]`. For a candidate
+        that is not on the map: `... on-hydrorivers.mjs --line <lat,lon> <lat,lon> ...`, source
+        first, or several at once with `--lines <file.json>` (`{ "<name>": [[lat, lon], ...] }`).
+        `--json` prints the same as JSON. It reads `data/raw/HydroRIVERS_v10_as.shp` (`npm run
+        data:fetch` downloads it) and takes about half a minute however many rivers it is given,
+        so give it all of them in one run. HydroRIVERS is not a survey of channels: each of its
+        lines is worked out from elevation data, as the path water takes downhill once about
+        10 km² of ground drains into it. For each river the script prints:
+        - **On a HydroRIVERS line**: `true` when half or more of the river's points lie within
+          0.5 km of a HydroRIVERS line and the river runs the same way as it, downstream.
+        - **Share on the line**: that share.
+        - **Drains**: the ground draining to the line where the river leaves it, in km².
+      - How to read it. It is a one-sided test. `true` is good evidence that the river lies in a
+        valley the terrain made and is not a channel built across the terrain: on the Bengaluru
+        tiles it says `true` for 4 of 140 random straight lines, 16 of 136 rivers moved 1 or 2 km
+        sideways and none of 68 rivers turned round. `false` proves nothing: HydroRIVERS has no
+        line where less than about 10 km² drains, so most small streams and the head of every
+        river are off it. Of the rivers the map draws there from other sources, it says `true`
+        for 116 of 206 that are 5 km or longer and for 10 of 132 shorter ones. Never give Man made
+        on a `false` from this script alone.
+      - Two more limits. `true` shows where water would collect, not that a stream is there today,
+        and a drain built along a natural valley is on these lines too (the rajakaluves of 2.4):
+        it is a reason towards Natural, not the verdict. And a river the map itself drew from
+        HydroRIVERS (the panel says "Course from HydroSHEDS") is on the line by construction; the
+        script says so, and for such a river the result is no extra evidence.
       - **The terrain script**, to run whenever a tile covers the river:
         `node .claude/skills/check-naturality/follows-terrain.mjs <uid> [<uid> ...]` finds the tiles
         in the repo root by itself; a tile kept somewhere else is given first, as
@@ -131,6 +163,7 @@ river, then give one reply covering all of them.
    - the verdict, exactly one of **Natural**, **Doubtful** or **Man made**, with a one-line reason.
      Use these three words and no others: not "not natural", "probably natural" or "leaning built".
      A lean goes in the reason, and the verdict stays Doubtful;
+   - the HydroRIVERS check's results: On a HydroRIVERS line, Share on the line, Drains;
    - if a tile covered the river, the terrain script's three results: Follows terrain, Drop in
      elevation, Rate of drop;
    - what each step you actually used found, with the URLs you opened, and which step settled it;
