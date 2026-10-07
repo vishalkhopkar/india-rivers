@@ -578,6 +578,22 @@
     "confidence": "high",
     "region": "south"
   },
+  "7152": {
+    "category": "History",
+    "fact": [
+      "The forests of Kakanakote on its banks were the site of the Mysore khedda, in which wild elephant herds were driven into stockades. In 1891 G.P. Sanderson devised the \"river drive\", herding elephants across the Kabini for the visiting Grand Duke of Russia. The last khedda was held in 1971, just before the Kabini dam was built.",
+      "Near Pulpally in Wayanad the river is the Kerala-Karnataka boundary, and people cross by ferry between Perikkalloor and Bairakuppa. The two chief ministers laid the foundation stone of a 184-metre bridge here in September 1994. As of October 2026, it remains unbuilt, though Karnataka gave its no-objection certificate in August 2026."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Khedda",
+      "https://evolveback.com/blogs/the-mysore-khedda.html",
+      "https://news.mongabay.com/2013/10/photo-essay-notes-from-indias-kabini-river/",
+      "https://www.onmanorama.com/news/kerala/2026/09/24/bairakuppa-bridge-project0.html",
+      "https://www.deccanchronicle.com/southern-states/kerala/long-pending-bairakuppa-bridge-project-gets-karnataka-nod-kerala-pwd-minister-1977037"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "7304": {
     "category": "Environment",
     "fact": "It is traced to Kumbha Thirtha in the Shivagange hills and meets the [[7730|Arkavati]] at the Thippagondanahalli reservoir, which once supplied about 30 per cent of Bengaluru's drinking water. Since 2013 volunteers have worked to revive the river across 278 villages with boulder checks, recharge wells and desilted stepwells.",
@@ -900,6 +916,23 @@
     "confidence": "high",
     "region": "south"
   },
+  "9238": {
+    "category": "History",
+    "fact": [
+      "Basrur, the old port on the river just above Kundapura, appears in Ibn Battuta's 14th-century travels as Abu-Sarur, a small place on a large inlet with many coconut palms. The Portuguese called it Barcelor, and through the 16th and early 17th centuries it was the leading rice port of the Kanara coast.",
+      "The Portuguese built a fort at Kundapura in 1570, with trading posts at Basrur and at Gangolli on the estuary mouth. In 1652 Keladi's Shivappa Nayaka took the fort and destroyed their fleet at Gangolli.",
+      "Thirteen years later, in February 1665, Shivaji sailed from Sindhudurg near Malvan with about 85 ships and raided the Portuguese trading post at Basrur on 13 February, returning with a large booty that helped pay for his navy and forts. A century on, after Hyder Ali overran Keladi, he built a redoubt at Kundapura to command the river entrance."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Basrur",
+      "https://www.jetir.org/papers/JETIR2005189.pdf",
+      "https://en.wikipedia.org/wiki/Kundapura",
+      "https://www.theweek.in/theweek/cover/2020/12/17/warships-on-the-west-coast.html",
+      "https://organiser.org/2021/02/13/108623/bharat/battle-of-basrur-356th-anniversary-of-chatrapati-shivaji-maharajs-first-and-only-naval-expedition-to-free-basrur/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "9293": {
     "category": "Engineering",
     "fact": "Punalur's suspension bridge over the Kallada, built in 1877 under the Travancore government, is called South India's first motorable bridge. It was designed to sway so that wild animals from the forest would not cross into town. Local lore says its engineer rowed under it with his family while six elephants walked across, to prove it was safe.",
@@ -939,6 +972,21 @@
       "https://en.wikipedia.org/wiki/Aranmula_Boat_Race"
     ],
     "confidence": "high",
+    "region": "south"
+  },
+  "9642": {
+    "category": "History",
+    "fact": [
+      "On the south bank at Kallianpur stands Milagres Cathedral, founded in 1678 under a treaty between the Portuguese of Goa and the Keladi Nayakas of Bednore. The church was destroyed in 1784 during Tipu Sultan's rule, later rebuilt, and on 15 October 2012 became the cathedral of the new Diocese of Udupi.",
+      "T.M.A. Pai, who founded Manipal University upstream of here, came from Kallianpur."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kallianpur",
+      "https://en.wikipedia.org/wiki/Our_Lady_of_the_Miracles_Cathedral,_Kallianpur_(Milagres_Cathedral)",
+      "https://www.thehindu.com/news/cities/Mangalore/Milagres-Cathedral-to-celebrate-platinum-jubilee-of-its-building-from-today/article16780226.ece",
+      "https://en.wikipedia.org/wiki/T._M._A._Pai"
+    ],
+    "confidence": "medium",
     "region": "south"
   },
   "9687": {
