@@ -5997,5 +5997,12 @@
       728945839
     ],
     "why": "Indore (OSM waterway=river, Overpass data of 2026-10-07): the Kanh's branch from the east through Musakhedi (owner, 2026-10-06). OSM draws the three ways mouth first; walked the other way, downhill from 564 m to 557 m (SRTM). OSM stops 270 m short of the Kanh, so the last stretch is a straight line. Unnamed in OSM."
+  },
+  "40472": {
+    "name": "Ghizer",
+    "hydroSource": 40473725,
+    "hydroOutlet": 40468201,
+    "joins": "12645",
+    "why": "Upper Gilgit basin (owner, 2026-10-07: the undrawn western branch of the Gilgit): the river from Shandur lake through Phander to Gupis, which the CWC dataset lacks. CWC's Gilgit (12645) turns north at Gupis and runs up the Yasin valley; nothing was drawn west of Gupis. This is the larger of the two branches that meet there (HydroRIVERS catchment 4,519 km2, against 2,275 km2 on the Yasin side). Name: the river above Gupis is known as the Ghizer (Ghizar); OpenStreetMap names it \"Gilgit River\" up to Langar and names the northern branch \"Yasin River\" (Overpass data of 2026-10-07). Course: HydroRIVERS, a median 0.13 km and at most 0.8 km from the OSM river line below Langar. Head: the one HydroRIVERS reach from the east shore of Shandur lake down to Langar, where the larger Khukush stream comes in from the south (OSM carries its \"Gilgit River\" up that stream instead)."
   }
 }

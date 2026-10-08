@@ -3111,5 +3111,12 @@
     "origin": "East of Musakhedi, Indore, Madhya Pradesh",
     "end": "Musakhedi, Indore, Madhya Pradesh",
     "why": "Added river: place texts written by hand, since the automatic ones read only \"Indore\"."
+  },
+  "40472": {
+    "name": "Ghizer",
+    "origin": "Shandur lake, at the Shandur pass, Gilgit-Baltistan",
+    "end": "Gupis, Gilgit-Baltistan",
+    "endNear": true,
+    "why": "Added river: place texts written by hand, since the gazetteer has no town to place it by (the automatic origin read only \"Jammu and Kashmir\" and the end was empty). Worded like the ends of the Shyok (15534) and the Indus (15535) in Gilgit-Baltistan. The line starts on the lake's east shore and meets the Gilgit 3 km west of Gupis."
   }
 }
