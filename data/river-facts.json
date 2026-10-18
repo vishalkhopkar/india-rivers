@@ -356,6 +356,15 @@
     "confidence": "high",
     "region": "east"
   },
+  "3578": {
+    "category": "Names and etymology",
+    "fact": "The word Mahendratanaya in Sanskrit means daughter of the Mahendra mountain from where it originates. Far away in Maharashtra, the mangalashtak shlokas sung during weddings feature a stanza \"गंगा सिंधु सरस्वती च यमुना, गोदावरी नर्मदा । कावेरी शरयू महेंद्रतनया\" which refers to the Mahendratanaya here.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "east (site owner)"
+  },
   "3669": {
     "category": "Sport",
     "fact": "The Madras Boat Club has rowed on the Adyar since 1892, and its Madras-Colombo Regatta, held since 1898, is thought to be among the world's oldest inter-club regattas. The river also named the Adyar neighbourhood, and through it the Adyar Ananda Bhavan (A2B) chain: K.S. Thirupathi Raja's restaurant was simply Ananda Bhavan until a branch opened in Adyar in 1988.",
@@ -567,6 +576,22 @@
       "https://www.outlooktraveller.com/experiences/places-of-interest/did-you-know-about-the-submerged-church-of-karnataka"
     ],
     "confidence": "high",
+    "region": "south"
+  },
+  "7152": {
+    "category": "History",
+    "fact": [
+      "The forests of Kakanakote on its banks were the site of the Mysore khedda, in which wild elephant herds were driven into stockades. In 1891 G.P. Sanderson devised the \"river drive\", herding elephants across the Kabini for the visiting Grand Duke of Russia. The last khedda was held in 1971, just before the Kabini dam was built.",
+      "Near Pulpally in Wayanad the river is the Kerala-Karnataka boundary, and people cross by ferry between Perikkalloor and Bairakuppa. The two chief ministers laid the foundation stone of a 184-metre bridge here in September 1994. As of October 2026, it remains unbuilt, though Karnataka gave its no-objection certificate in August 2026."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Khedda",
+      "https://evolveback.com/blogs/the-mysore-khedda.html",
+      "https://news.mongabay.com/2013/10/photo-essay-notes-from-indias-kabini-river/",
+      "https://www.onmanorama.com/news/kerala/2026/09/24/bairakuppa-bridge-project0.html",
+      "https://www.deccanchronicle.com/southern-states/kerala/long-pending-bairakuppa-bridge-project-gets-karnataka-nod-kerala-pwd-minister-1977037"
+    ],
+    "confidence": "medium",
     "region": "south"
   },
   "7304": {
@@ -891,12 +916,44 @@
     "confidence": "high",
     "region": "south"
   },
+  "9238": {
+    "category": "History",
+    "fact": [
+      "Basrur, the old port on the river just above Kundapura, appears in Ibn Battuta's 14th-century travels as Abu-Sarur, a small place on a large inlet with many coconut palms. The Portuguese called it Barcelor, and through the 16th and early 17th centuries it was the leading rice port of the Kanara coast.",
+      "The Portuguese built a fort at Kundapura in 1570, with trading posts at Basrur and at Gangolli on the estuary mouth. In 1652 Keladi's Shivappa Nayaka took the fort and destroyed their fleet at Gangolli.",
+      "Thirteen years later, in February 1665, Shivaji sailed from Sindhudurg near Malvan with about 85 ships and raided the Portuguese trading post at Basrur on 13 February, returning with a large booty that helped pay for his navy and forts. A century on, after Hyder Ali overran Keladi, he built a redoubt at Kundapura to command the river entrance."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Basrur",
+      "https://www.jetir.org/papers/JETIR2005189.pdf",
+      "https://en.wikipedia.org/wiki/Kundapura",
+      "https://www.theweek.in/theweek/cover/2020/12/17/warships-on-the-west-coast.html",
+      "https://organiser.org/2021/02/13/108623/bharat/battle-of-basrur-356th-anniversary-of-chatrapati-shivaji-maharajs-first-and-only-naval-expedition-to-free-basrur/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
   "9293": {
     "category": "Engineering",
     "fact": "Punalur's suspension bridge over the Kallada, built in 1877 under the Travancore government, is called South India's first motorable bridge. It was designed to sway so that wild animals from the forest would not cross into town. Local lore says its engineer rowed under it with his family while six elephants walked across, to prove it was safe.",
     "sources": [
       "https://en.wikipedia.org/wiki/Punalur_Suspension_Bridge",
       "https://en.wikipedia.org/wiki/Kallada_River"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "9342": {
+    "category": "History",
+    "fact": [
+      "Swathi Thirunal laid the foundation stone of the old stone bridge at Karamana in the 1840s but did not live to see it finished. Built by Lieutenant Horsley at a cost of over a lakh of rupees, it was opened by his successor in mid-December 1853 with a procession of elephants, and still stands on its original foundation.",
+      "Visakham Thirunal, the ruler credited with introducing tapioca to Travancore, kept a small experimental farm on the river bank near the Karamana bridge. A. Padmanabha Iyer's 1941 handbook on Travancore recalls him planting tobacco there and watching its growth under scientific treatment; he ruled only from 1880 to 1885."
+    ],
+    "sources": [
+      "https://www.thehindu.com/features/friday-review/history-and-culture/and-quiet-flows-the-karamana-bridging-past-and-present/article3892830.ece",
+      "https://archive.org/download/ahistorytravanc00menogoog/ahistorytravanc00menogoog_djvu.txt",
+      "https://www.thehindu.com/sci-tech/energy-and-environment/and-quiet-flows-the-karamana-the-river-wild/article4077504.ece",
+      "https://www.thehindu.com/life-and-style/food/how-tapioca-came-to-travancore/article28181288.ece"
     ],
     "confidence": "medium",
     "region": "south"
@@ -908,6 +965,24 @@
       "https://imvoyager.com/kukke-subramanya-temple-karnataka",
       "https://en.wikipedia.org/wiki/Kumaradhara_River",
       "https://karnatakatourism.org/tour-item/kukke-subramanya-temple/"
+    ],
+    "confidence": "medium",
+    "region": "south"
+  },
+  "9439": {
+    "category": "History",
+    "fact": [
+      "The river is often called India's English Channel because it divided French Mahe from British Malabar, but French territory lay on both sides. The town stood on the south bank, while the enclaves of Kallayi and Naluthara lay to the north, beyond a strip of British land. Naluthara's four villages were handed to the French only on 14 November 1853.",
+      "The Mahajana Sabha chose Bastille Day, 14 July 1954, to march into French Mahe, after its blockade had left the town short of daily supplies. Two days later, on 16 July, the French Administrator Deschamps handed power to the Sabha's president I.K. Kumaran at Government House, beside the river mouth, where Kumaran hoisted the Indian flag."
+    ],
+    "sources": [
+      "https://archive.org/download/dli.ministry.08195/GR368_djvu.txt",
+      "https://en.wikipedia.org/wiki/Mah%C3%A9_River",
+      "https://www.addastories.org/the-river-here/",
+      "https://en.wikipedia.org/wiki/Naluthara",
+      "https://mahe.gov.in/history/",
+      "https://mahe.gov.in/places-of-interest/",
+      "https://openthemagazine.com/voices/mahe-un-pur-esprit"
     ],
     "confidence": "medium",
     "region": "south"
@@ -930,6 +1005,21 @@
       "https://en.wikipedia.org/wiki/Aranmula_Boat_Race"
     ],
     "confidence": "high",
+    "region": "south"
+  },
+  "9642": {
+    "category": "History",
+    "fact": [
+      "On the south bank at Kallianpur stands Milagres Cathedral, founded in 1678 under a treaty between the Portuguese of Goa and the Keladi Nayakas of Bednore. The church was destroyed in 1784 during Tipu Sultan's rule, later rebuilt, and on 15 October 2012 became the cathedral of the new Diocese of Udupi.",
+      "T.M.A. Pai, who founded Manipal University upstream of here, came from Kallianpur."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kallianpur",
+      "https://en.wikipedia.org/wiki/Our_Lady_of_the_Miracles_Cathedral,_Kallianpur_(Milagres_Cathedral)",
+      "https://www.thehindu.com/news/cities/Mangalore/Milagres-Cathedral-to-celebrate-platinum-jubilee-of-its-building-from-today/article16780226.ece",
+      "https://en.wikipedia.org/wiki/T._M._A._Pai"
+    ],
+    "confidence": "medium",
     "region": "south"
   },
   "9687": {
@@ -1031,6 +1121,18 @@
     "fact": "It is named after Ghulam Rasool Galwan (1878-1925), a Ladakhi caravan leader who guided European explorers. His memoir, 'Servant of Sahibs', written in English he had picked up on his travels, was published in Cambridge in 1923 with an introduction by Francis Younghusband.",
     "sources": [
       "https://en.wikipedia.org/wiki/Rasool_Galwan"
+    ],
+    "confidence": "high",
+    "region": "north"
+  },
+  "12645": {
+    "category": "History",
+    "fact": "In 1931 cattle grazers at Naupur, near Gilgit town, found a wooden box of 5th-6th century Buddhist texts written on birch bark, among them the Lotus Sutra. Regarded as the subcontinent's oldest surviving collection of religious texts, they joined UNESCO's Memory of the World register in 2017; most are kept in the National Archives in New Delhi.",
+    "sources": [
+      "https://www.unesco.org/en/memory-world/gilgit-manuscript",
+      "https://www.historyofinformation.com/detail.php?id=4213",
+      "https://www.thenews.pk/tns/detail/558086-exploring-the-buddhist-treasure",
+      "https://en.wikipedia.org/wiki/Gilgit_manuscripts"
     ],
     "confidence": "high",
     "region": "north"
@@ -1523,6 +1625,15 @@
     ],
     "confidence": "high",
     "region": "east"
+  },
+  "26660": {
+    "category": "Geography",
+    "fact": "It forms Nepal's eastern frontier with India. Its national anthem also mentions \"सार्वभौम भई फैलिएका, मेची-महाकाली\" which means that its sovereignty extends from Mechi to Mahakali.",
+    "sources": [
+      "site owner"
+    ],
+    "confidence": "owner",
+    "region": "east (site owner)"
   },
   "27548": {
     "category": "Pilgrimage",

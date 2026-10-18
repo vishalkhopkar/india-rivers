@@ -32,7 +32,7 @@ More about these files:
 - `"swapped": true` in `data/river-overrides.json` is for a river the dataset recorded backwards, mouth first.
 - `data/river-facts.json`: an entry has `category`, `fact`, `sources`, `confidence` and `region`, and no `name` (the uid is enough; the build fails if a `name` is present). `fact` is one text, or a list of texts for a river with more than one. Only the fact text is published. A fact can link another river as `[[<uid>|<name>]]`. The build fails if a fact is longer than 80 words, has no source, or sits under a uid that is not on the map.
 - Route changes, which are what change a river's line and length:
-  - `data/added-rivers.json`: rivers the dataset lacks.
+  - `data/added-rivers.json`: rivers the dataset lacks. `cwcHeadOf` (a uid) makes one from the stretch of a dataset river that a `head` correction in `data/course-overrides.json` took away from it.
   - `data/added-rivers-osm.json`: the lines of the added rivers that were traced from OpenStreetMap.
   - `data/course-overrides.json`: corrections to the course of a river in the dataset.
 

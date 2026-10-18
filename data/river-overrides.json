@@ -346,6 +346,12 @@
     "rename": "Hariabhanga",
     "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
   },
+  "25543": {
+    "name": "Khan",
+    "rename": "Kanh",
+    "origin": "Limbodi lake, in the south-east of Indore, Madhya Pradesh",
+    "why": "The dataset spells it Khan; it is the Kanh (OSM \"Kanh River\", Google Maps; owner, 2026-10-06). Head redrawn along the eastern of Indore's two rivers, from Limbodi lake (data/course-overrides.json); CWC's head, past Rajwada to Rau, is the Saraswati (40469)."
+  },
   "26046": {
     "name": "Kuria",
     "down": "26630",
@@ -356,6 +362,14 @@
     "swapped": true,
     "down": "26906",
     "why": "Digitised mouth-first: its recorded start is exactly where the Najafgarh Drain begins. It flows south into the Najafgarh Drain, which continues it under a new name."
+  },
+  "26660": {
+    "name": "Mechi",
+    "origin": "Mahabharat Range, Nepal",
+    "via": [],
+    "entersAt": "Mirik, West Bengal",
+    "entersAtNear": true,
+    "why": "Rises in the Mahabharat Range of Nepal; the CWC line starts near Mirik, where the river reaches India and becomes the India-Nepal border (owner's correction)."
   },
   "26803": {
     "name": "Muri Ganga Or Bartala",
@@ -371,6 +385,11 @@
     "name": "Saptmukhi",
     "rename": "Saptamukhi",
     "why": "Spelling corrected from the CWC dataset's (Sundarbans pass, owner's request)."
+  },
+  "28179": {
+    "name": "Saraswati",
+    "down": "40469",
+    "why": "CWC records its confluence as the Khan. The river it joins there, south of the old city, is the Saraswati (40469), which CWC drew as the head of the Khan."
   },
   "29220": {
     "name": "Gomati River",
@@ -3074,5 +3093,30 @@
     "origin": "South of Kulpi, West Bengal",
     "end": "The Hooghly estuary south of Kulpi, West Bengal",
     "why": "Added river: place texts written by hand, since the automatic ones name towns across the estuary."
+  },
+  "40469": {
+    "name": "Saraswati",
+    "origin": "Rau, south-west of Indore, Madhya Pradesh",
+    "end": "Krishnapura Chhatri, by Rajwada, Indore, Madhya Pradesh",
+    "why": "Added river (CWC's old head of the Khan): place texts written by hand. It meets the Kanh at Krishnapura, in the middle of Indore."
+  },
+  "40470": {
+    "name": "",
+    "origin": "Limbodi lake, in the south-east of Indore, Madhya Pradesh",
+    "end": "South-east Indore, 2.5 km north of Limbodi lake, Madhya Pradesh",
+    "why": "Added river: place texts written by hand, since the automatic ones read only \"Indore\"."
+  },
+  "40471": {
+    "name": "",
+    "origin": "East of Musakhedi, Indore, Madhya Pradesh",
+    "end": "Musakhedi, Indore, Madhya Pradesh",
+    "why": "Added river: place texts written by hand, since the automatic ones read only \"Indore\"."
+  },
+  "40472": {
+    "name": "Ghizer",
+    "origin": "Shandur lake, at the Shandur pass, Gilgit-Baltistan",
+    "end": "Gupis, Gilgit-Baltistan",
+    "endNear": true,
+    "why": "Added river: place texts written by hand, since the gazetteer has no town to place it by (the automatic origin read only \"Jammu and Kashmir\" and the end was empty). Worded like the ends of the Shyok (15534) and the Indus (15535) in Gilgit-Baltistan. The line starts on the lake's east shore and meets the Gilgit 3 km west of Gupis."
   }
 }
