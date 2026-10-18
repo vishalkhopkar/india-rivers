@@ -92,13 +92,23 @@ export function wireInteraction(map: MapLibreMap) {
     if (!entry || isHidden(uid)) return;
     const [, minz, w, s, e, n] = entry;
 
+    // Keep the river clear of the panel: beside it on wide screens, below it on phones,
+    // where the panel spans nearly the full width (style.css, max-width: 600px) and
+    // padding for its width would leave no room to fit anything.
     const pad = 48;
+    const phone = window.matchMedia("(max-width: 600px)").matches;
+    // A panel that is not open yet (a #river-<uid> address on load) is about this tall.
+    const panelBottom = panel.bottom || 300;
     const camera = map.cameraForBounds(
       [
         [w, s],
         [e, n],
       ],
-      { padding: { top: pad, bottom: pad, right: pad, left: pad + panel.width } }
+      {
+        padding: phone
+          ? { top: pad + panelBottom, bottom: pad, right: pad, left: pad }
+          : { top: pad, bottom: pad, right: pad, left: pad + panel.width },
+      }
     );
     if (!camera) return;
     // The river is not drawn below its tier, so never stop short of it.

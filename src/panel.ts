@@ -127,6 +127,10 @@ export class InfoPanel {
     return this.el.hidden ? 0 : this.el.getBoundingClientRect().width;
   }
 
+  get bottom(): number {
+    return this.el.hidden ? 0 : this.el.getBoundingClientRect().bottom;
+  }
+
   private shown?: RiverProps;
 
   show(p: RiverProps) {
