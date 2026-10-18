@@ -2,10 +2,10 @@
 
 An interactive map of India's rivers. Clicking a river opens a panel with its length, where it rises, what it flows into and, for some rivers, a fun fact. It is a static site (Vite, TypeScript, MapLibre, PMTiles) published on GitHub Pages.
 
-- Production: https://vishalkhopkar.github.io/india-rivers/ is built from the `master` branch.
-- Dev: https://vishalkhopkar.github.io/india-rivers/dev/ is built from the `dev` branch.
+- Production: https://riversofindia.in/ is built from the `master` branch. The old address, https://vishalkhopkar.github.io/india-rivers/, redirects there.
+- Dev: https://riversofindia.in/dev/ is built from the `dev` branch.
 
-Every river has an address of its own, made from its uid: https://vishalkhopkar.github.io/india-rivers/#river-8969 opens the Ulhas. Selecting a river puts its address in the browser's address bar, and every river named in a panel ("Merges into", "Formed by", "Branched off from" and so on) is a link to that address.
+Every river has an address of its own, made from its uid: https://riversofindia.in/#river-8969 opens the Ulhas. Selecting a river puts its address in the browser's address bar, and every river named in a panel ("Merges into", "Formed by", "Branched off from" and so on) is a link to that address.
 
 ## Where river attributes are stored
 

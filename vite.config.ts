@@ -22,14 +22,14 @@ function maplibreWorker(): Plugin {
   };
 }
 
-// The deploy workflow builds master at /india-rivers/ and the dev branch at
-// /india-rivers/dev/, passing the path in BASE_PATH. Local builds use the production path.
-const basePath = process.env.BASE_PATH ?? "/india-rivers/";
+// The deploy workflow builds master at / and the dev branch at /dev/ (riversofindia.in is
+// the repo's GitHub Pages custom domain), passing the path in BASE_PATH. Local builds use
+// the production path.
+const basePath = process.env.BASE_PATH ?? "/";
 
 export default defineConfig(({ command, isPreview }) => ({
-  // GitHub Pages serves a project site from /<repo>/. Dev keeps "/" so local URLs and
-  // the verification scripts stay simple; `vite preview` mirrors Pages. Data URLs in
-  // the app are built from import.meta.env.BASE_URL, so they follow this automatically.
+  // Data URLs in the app are built from import.meta.env.BASE_URL, so they follow this
+  // automatically.
   base: command === "build" || isPreview ? basePath : "/",
   plugins: [maplibreWorker()],
   // In dev the same worker problem appears through dep pre-bundling, which rewrites
