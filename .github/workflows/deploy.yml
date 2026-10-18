@@ -1,8 +1,10 @@
 # Builds the site and publishes it to GitHub Pages on every push to master or dev.
 #
 # GitHub Pages gives a repo one site, so both environments ship in one artifact:
-#   master -> https://vishalkhopkar.github.io/india-rivers/
-#   dev    -> https://vishalkhopkar.github.io/india-rivers/dev/
+#   master -> https://riversofindia.in/
+#   dev    -> https://riversofindia.in/dev/
+# riversofindia.in is the repo's Pages custom domain (set in Settings > Pages, not by a CNAME
+# file), so vishalkhopkar.github.io/india-rivers/ redirects to it and the site is built at /.
 # Every run builds the current tip of both branches, so pushing either one leaves the
 # other environment as it was. The github-pages environment only accepts deploys from
 # master, so a push to dev just re-runs this workflow on master, which picks up dev.
@@ -54,7 +56,7 @@ jobs:
           path: prod
       - working-directory: prod
         env:
-          BASE_PATH: /india-rivers/
+          BASE_PATH: /
         run: npm ci && npm run build
       - name: Check the map data made it into the production build
         run: test -s prod/dist/rivers.pmtiles && test -s prod/dist/rivers-index.json && test -s prod/dist/borders.pmtiles && test -s prod/dist/maplibre/maplibre-gl-worker.mjs
@@ -75,7 +77,7 @@ jobs:
       - if: steps.dev.outputs.exists == 'true'
         working-directory: dev
         env:
-          BASE_PATH: /india-rivers/dev/
+          BASE_PATH: /dev/
         run: npm ci && npm run build
       - name: Check the map data made it into the dev build
         if: steps.dev.outputs.exists == 'true'

@@ -124,7 +124,7 @@ own paragraph. Only the fact text is published. Do the steps in order.
    - Message: one sentence in the style of `git log --oneline -8`, e.g. "Add a second fun fact for the
      Ulhas: its creeks make Salsette an island", via heredoc with the usual `Co-Authored-By` trailer.
    - `git push` on the current branch. Pushing `master` redeploys the live site,
-     https://vishalkhopkar.github.io/india-rivers/. Never force-push, never `--no-verify`. If the push
+     https://riversofindia.in/. Never force-push, never `--no-verify`. If the push
      is rejected, stop and report it.
 
 7. **Report**, briefly:
