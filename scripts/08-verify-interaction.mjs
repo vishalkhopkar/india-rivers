@@ -99,7 +99,7 @@ async function openRiver(name, center, zoom) {
 // --- 0. the border switches, as the page loads ------------------------------------
 const BORDER_LAYERS = {
   external: ["border-intl-casing", "border-intl"],
-  // the dotted LoC / LAC lines: only with the showLocLac feature flag (src/config.ts)
+  // the dotted LoC / LAC lines: drawn while the showLocLac feature flag is on (src/config.ts)
   locLac: ["border-line-casing", "border-line"],
   states: ["border-state-casing", "border-state"],
 };
@@ -751,13 +751,13 @@ await setSwitch("external", true);
   check("external layers shown, state layers hidden", sw.extShown.length === BORDER_LAYERS.external.length && sw.stShown.length === 0, `${sw.extShown.length}+${sw.stShown.length}`);
 }
 await drawnAtZooms("border-intl", "intl");
-// showLocLac is off by default: the dotted LoC / LAC lines stay hidden with the switch on.
+// showLocLac is on by default: the dotted LoC / LAC lines are drawn with the external switch.
 {
   const sw = await switches();
-  check("the LoC / LAC lines are not shown without the showLocLac flag", sw.locShown.length === 0, sw.locShown.join(","));
+  check("the LoC / LAC lines are shown with the external borders", sw.locShown.length === BORDER_LAYERS.locLac.length, sw.locShown.join(","));
   await page.evaluate(() => window.__map.jumpTo({ center: [77, 34.5], zoom: 6 }));
   await settle();
-  check("no dotted line is drawn over Kashmir", (await rendered("border-line")).n === 0);
+  check("the dotted line is drawn over Kashmir", (await rendered("border-line")).n > 0);
   check("the solid external border is drawn there", (await rendered("border-intl")).n > 0);
 }
 check("no state border is drawn", (await rendered("border-state")).n === 0);
