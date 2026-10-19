@@ -18,7 +18,7 @@ For these, do only this:
    - a naturality tag or text: `npm run data:naturality`
    - `hidden`: `npm run data:hidden`
    - anything else in `data/river-overrides.json` that only changes panel text (`origin`, `end`,
-     `entersAt`, `via`, `formedAt`, `branchesAt`, `rename`): `npm run data:places && npm run data:tiles`
+     `entersAt`, `via`, `formedAt`, `branchesAt`, `rename`): `npm run data:places && npm run data:tiles && npm run data:seo` (the last rewrites `data/seo-areas-rivers.json`, so stage that file too)
 4. Stage the edited file and the regenerated `public/` files by path, commit with a one-sentence
    message, and `git push` on the current branch.
 5. Reply in one or two lines: what changed and the commit hash.

@@ -65,6 +65,13 @@ const lineColor: ExpressionSpecification = [
   restColor,
 ];
 
+// A city landing page (/bengaluru/) carries its area on <body data-bbox="w,s,e,n">; the map
+// opens there instead of on all of India.
+function startBounds(): [number, number, number, number] {
+  const box = document.body.dataset.bbox?.split(",").map(Number);
+  return box?.length === 4 && box.every(Number.isFinite) ? (box as [number, number, number, number]) : INDIA_BOUNDS;
+}
+
 export function createMap(container: HTMLElement): MapLibreMap {
   // Production copies MapLibre's worker into the build (see vite.config.ts); dev serves
   // it straight from node_modules, where MapLibre finds it unaided.
@@ -76,7 +83,7 @@ export function createMap(container: HTMLElement): MapLibreMap {
   const map = new MapLibreMap({
     container,
     style: BASE_STYLE,
-    bounds: INDIA_BOUNDS,
+    bounds: startBounds(),
     fitBoundsOptions: { padding: 24 },
     // z3 lets a phone fit all of India; the tiles start at z3 for the same reason.
     minZoom: 3,

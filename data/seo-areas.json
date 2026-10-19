@@ -1,0 +1,91 @@
+[
+  {
+    "slug": "bengaluru",
+    "name": "Bengaluru",
+    "alt": "Bangalore",
+    "bbox": [77.35, 12.75, 77.85, 13.25],
+    "intro": "Bengaluru has no big river of its own. Its water runs through valleys of linked tanks and storm drains that feed the Arkavathi, Dakshina Pinakini and Vrishabhavathi, and this map follows each stream from its source to where it joins the next.",
+    "places": {
+      "Whitefield": [77.75, 12.9698],
+      "Koramangala": [77.6245, 12.9352],
+      "Bellandur": [77.6784, 12.9304],
+      "Hebbal": [77.597, 13.0358],
+      "Yelahanka": [77.5963, 13.1007],
+      "Electronic City": [77.6602, 12.8452],
+      "Jayanagar": [77.5838, 12.9308],
+      "Malleshwaram": [77.5646, 13.0035],
+      "Indiranagar": [77.6408, 12.9784],
+      "Banashankari": [77.5468, 12.9255],
+      "Sarjapur": [77.787, 12.86],
+      "Yeshwanthpur": [77.5409, 13.0285],
+      "Kengeri": [77.4833, 12.9177],
+      "Marathahalli": [77.7011, 12.9569],
+      "Varthur": [77.741, 12.939],
+      "Hennur": [77.643, 13.0358],
+      "KR Puram": [77.696, 13.007],
+      "Bannerghatta": [77.577, 12.8]
+    }
+  },
+  {
+    "slug": "mumbai",
+    "name": "Mumbai",
+    "alt": "Thane and Navi Mumbai",
+    "bbox": [72.75, 18.85, 73.25, 19.45],
+    "intro": "Mumbai's rivers are short: the Mithi, Poisar, Dahisar and Oshiwara drain into the Arabian Sea or the creeks around Thane and Navi Mumbai. This map shows where each one starts, where it ends and what it flows into.",
+    "places": {
+      "Chembur": [72.8997, 19.0622],
+      "Powai": [72.906, 19.1176],
+      "Bandra": [72.8295, 19.0596],
+      "Andheri": [72.8697, 19.1136],
+      "Borivali": [72.8567, 19.2307],
+      "Dahisar": [72.8596, 19.2502],
+      "Kurla": [72.8826, 19.0728],
+      "Thane": [72.9781, 19.2183],
+      "Vashi": [72.9981, 19.0771],
+      "Kalyan": [73.1355, 19.2437],
+      "Panvel": [73.1175, 18.9894],
+      "Mulund": [72.9425, 19.1726],
+      "Ghatkopar": [72.908, 19.079],
+      "Goregaon": [72.8526, 19.1663],
+      "Malad": [72.8484, 19.1874]
+    }
+  },
+  {
+    "slug": "hyderabad",
+    "name": "Hyderabad",
+    "alt": "Secunderabad",
+    "bbox": [78.0, 17.1, 78.9, 17.8],
+    "intro": "Hyderabad sits on the Musi and its tank chains. This map follows the Musi, the Esi and the smaller nalas and vagus that drain the city, from their sources to where they join.",
+    "places": {
+      "Secunderabad": [78.4983, 17.4399],
+      "Gachibowli": [78.3489, 17.4401],
+      "Uppal": [78.5591, 17.4058],
+      "Kukatpally": [78.3996, 17.4948],
+      "Charminar": [78.4747, 17.3616],
+      "HITEC City": [78.3772, 17.4435],
+      "LB Nagar": [78.5522, 17.3457],
+      "Malkajgiri": [78.5265, 17.456],
+      "Shamirpet": [78.57, 17.59],
+      "Patancheru": [78.265, 17.53]
+    }
+  },
+  {
+    "slug": "delhi",
+    "name": "Delhi",
+    "alt": "Delhi NCR",
+    "bbox": [76.85, 28.35, 77.5, 28.9],
+    "intro": "Delhi's streams are the Yamuna and the drains that carry the city's water into it, such as the Najafgarh and Shahdara drains. This map shows where each drain starts and what it flows into.",
+    "places": {
+      "Najafgarh": [76.9798, 28.609],
+      "Rohini": [77.1137, 28.738],
+      "Dwarka": [77.05, 28.5823],
+      "Okhla": [77.275, 28.5355],
+      "Noida": [77.391, 28.5355],
+      "Gurugram": [77.0266, 28.4595],
+      "Shahdara": [77.29, 28.67],
+      "Connaught Place": [77.2167, 28.6315],
+      "Narela": [77.0929, 28.8527],
+      "Mehrauli": [77.185, 28.518]
+    }
+  }
+]
