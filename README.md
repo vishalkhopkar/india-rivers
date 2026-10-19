@@ -47,9 +47,14 @@ More about these files:
    - anything else in `data/river-overrides.json`: `npm run data:tier && npm run data:topology && npm run data:abroad && npm run data:places && npm run data:facts && npm run data:tiles`
    - an added river or a course correction: `npm run data:added` first, then the line above.
 4. Run the checks: `npm run verify:data`, then `npm run verify:ui`. The second needs the dev server on port 5174 (`npm run dev -- --port 5174`).
-5. Commit the file you edited together with the regenerated files in `public/`. The deploy does not rebuild the map data; it publishes what is committed.
+5. If the river is on a city page (`data/seo-areas.json`) and you changed its name, length, origin, end or what it merges into, also run `npm run data:seo`; it rewrites `data/seo-areas-rivers.json`, which the build turns into the city pages.
+6. Commit the file you edited together with the regenerated files in `public/`. The deploy does not rebuild the map data; it publishes what is committed.
 
 All the steps in 3 except `data:naturality` and `data:hidden` read `build/`, which is not in git. On a fresh checkout `npm run data:all` creates it; that needs the source shapefile in `river_network_shape/` and the go-pmtiles binary in `tools/`.
+
+## City pages for search
+
+`riversofindia.in/bengaluru/`, `/mumbai/`, `/hyderabad/` and `/delhi/` are the same map opened on a city, with a visible list of that city's streams for search engines. They exist so searches like "Bangalore rivers map" or "stream near Chembur" can find the site. The cities, their bounds, intro text and the neighbourhoods matched to nearby streams are in `data/seo-areas.json`. `npm run data:seo` reads the finished tiles in `build/` and writes the stream lists to `data/seo-areas-rivers.json`; commit both. The pages themselves are made by the `seo` plugin in `vite.config.ts` during `vite build`, together with `robots.txt` and `sitemap.xml` (live build only; the `/dev/` build is `noindex`). To add a city, add an entry to `data/seo-areas.json` and run `npm run data:seo`.
 
 ## Doubtful naturality
 

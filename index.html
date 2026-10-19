@@ -3,11 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rivers of India</title>
+    <title>Rivers of India – Interactive Map of 30,000+ Rivers and Streams</title>
+    <meta
+      name="description"
+      content="Explore every river of India on one interactive map: from the Ganga, Brahmaputra and Godavari down to small streams. Click any river to see where it starts, where it ends, its length and what it merges into."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#14557f" />
+    <link rel="canonical" href="https://riversofindia.in/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rivers of India" />
+    <meta property="og:title" content="Rivers of India – Interactive Map of 30,000+ Rivers and Streams" />
+    <meta
+      property="og:description"
+      content="Click any river of India to see where it starts, where it ends, its length and what it merges into."
+    />
+    <meta property="og:url" content="https://riversofindia.in/" />
+    <meta property="og:image" content="https://riversofindia.in/og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="The Alaknanda and Bhagirathi rivers meeting at Devprayag, where the Ganga begins" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rivers of India – Interactive Map" />
+    <meta
+      name="twitter:description"
+      content="Click any river of India to see where it starts, where it ends, its length and what it merges into."
+    />
+    <meta name="twitter:image" content="https://riversofindia.in/og.jpg" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M4 6c6 0 6 6 12 6s6 6 12 6M4 16c6 0 6 6 12 6s6 4 12 4' fill='none' stroke='%2314557f' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://riversofindia.in/#website",
+            "name": "Rivers of India",
+            "url": "https://riversofindia.in/",
+            "inLanguage": "en-IN",
+            "description": "An interactive map of the rivers and streams of India."
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://riversofindia.in/#dataset",
+            "name": "Rivers of India",
+            "description": "More than 30,000 rivers and streams of India with their course, origin, mouth, length and the river each one merges into.",
+            "url": "https://riversofindia.in/",
+            "isAccessibleForFree": true,
+            "spatialCoverage": { "@type": "Country", "name": "India" },
+            "keywords": ["rivers of India", "river map", "Ganga", "Godavari", "river basins"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="map"></div>
+    <details class="guide">
+      <summary>About this map</summary>
+      <h1>Rivers of India: an interactive map</h1>
+      <p>
+        An interactive map of more than 30,000 rivers and streams of India. Zoom in and click a river to see
+        where it starts, where it ends, how long it is and which river it merges into. Major rivers such as
+        the Ganga, Brahmaputra, Indus, Godavari, Krishna, Narmada, Kaveri and Mahanadi appear first, and the
+        smaller tributaries, streams and city drains appear as you zoom in.
+      </p>
+      <h2>Rivers and streams by city</h2>
+      <ul>
+        <!--area-links-->
+      </ul>
+      <noscript><p>This map needs JavaScript to draw the rivers. Please enable it in your browser.</p></noscript>
+    </details>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

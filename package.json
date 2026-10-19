@@ -18,8 +18,9 @@
     "data:naturality": "node scripts/03e-naturality.mjs",
     "data:hidden": "node scripts/03f-hidden.mjs",
     "data:tiles": "node --max-old-space-size=12288 scripts/04-tiles.mjs",
+    "data:seo": "node scripts/04c-seo-areas.mjs",
     "data:borders": "node scripts/04b-borders.mjs",
-    "data:all": "npm run data:fetch && npm run data:extract && npm run data:added && npm run data:tier && npm run data:topology && npm run data:abroad && npm run data:places && npm run data:facts && npm run data:naturality && npm run data:hidden && npm run data:tiles",
+    "data:all": "npm run data:fetch && npm run data:extract && npm run data:added && npm run data:tier && npm run data:topology && npm run data:abroad && npm run data:places && npm run data:facts && npm run data:naturality && npm run data:hidden && npm run data:tiles && npm run data:seo",
     "verify:data": "node scripts/05-verify-tiles.mjs",
     "verify:borders": "node scripts/06b-verify-borders.mjs",
     "verify:ui": "node scripts/06-verify-pmtiles.mjs && node scripts/08-verify-interaction.mjs && node scripts/08b-verify-naturality.mjs && node scripts/08c-verify-hidden.mjs"

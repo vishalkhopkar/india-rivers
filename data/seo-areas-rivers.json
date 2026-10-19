@@ -1,0 +1,1676 @@
+{
+ "bengaluru": {
+  "rivers": [
+   {
+    "uid": "4132",
+    "name": "Ponnaiyar/Dakshina Pinakini",
+    "len": 493.7,
+    "from": "Chikkaballapur, Karnataka",
+    "to": "Puducherry",
+    "into": "Bay of Bengal",
+    "kind": "sea"
+   },
+   {
+    "uid": "7730",
+    "name": "Arkavati",
+    "len": 171.1,
+    "from": "40 km N of Bengaluru, Karnataka",
+    "to": "80 km S of Bengaluru, Karnataka",
+    "into": "Cauvery",
+    "kind": "trib"
+   },
+   {
+    "uid": "7707",
+    "name": "Vrishabhavati",
+    "len": 68.8,
+    "from": "Nandi Teertha temple near Sankey Tank, Malleshwaram, Bengaluru",
+    "to": "The Arkavati near Kanakapura, Karnataka",
+    "into": "Arkavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "3718",
+    "name": "Chinnar R",
+    "len": 46.1,
+    "from": "Jigani, Karnataka",
+    "to": "Hosur, Tamil Nadu",
+    "into": "Ponnaiyar/Dakshina Pinakini",
+    "kind": "trib"
+   },
+   {
+    "uid": "7599",
+    "name": "Suvarnamukhi",
+    "len": 41.8,
+    "from": "Bengaluru, Karnataka",
+    "to": "The Vrishabhavati north of Kanakapura, Karnataka",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "6885",
+    "name": "Antarangange Hole",
+    "len": 24.5,
+    "from": "20 km S of Bengaluru, Karnataka",
+    "to": "40 km S of Bengaluru, Karnataka",
+    "into": "Kutle Hole",
+    "kind": "trib"
+   },
+   {
+    "uid": "40044",
+    "name": "Koramangala Valley (K-100)",
+    "len": 15.6,
+    "from": "Majestic, Bengaluru",
+    "to": "Bellandur Lake, Bengaluru",
+    "into": "",
+    "kind": "trib"
+   },
+   {
+    "uid": "40051",
+    "name": "Nagarbhavi Thorai",
+    "len": 14.1,
+    "from": "Peenya, Bengaluru",
+    "to": "The Vrishabhavati near Bangalore University, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40045",
+    "name": "Challaghatta Valley (C-100)",
+    "len": 13.6,
+    "from": "Vasanth Nagar, Bengaluru",
+    "to": "Bellandur Lake, Bengaluru",
+    "into": "",
+    "kind": "trib"
+   },
+   {
+    "uid": "40047",
+    "name": "Hebbal Valley (H-200)",
+    "len": 13.5,
+    "from": "Yeshwanthpur, Bengaluru",
+    "to": "Below Nagavara Lake, Bengaluru",
+    "into": "Hebbal Valley (H-300)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40053",
+    "name": "Sonnenahalli",
+    "len": 12.8,
+    "from": "Herohalli, Bengaluru",
+    "to": "The Vrishabhavati near Kengeri, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40054",
+    "name": "Channasandra",
+    "len": 12,
+    "from": "JP Nagar, Bengaluru",
+    "to": "The Vrishabhavati near Rajarajeshwari Nagar, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40075",
+    "name": "Koramangala Valley (K-209)",
+    "len": 11.9,
+    "from": "Jayanagar, Bengaluru",
+    "to": "Koramangala Valley (K-100) near HSR Layout, Bengaluru",
+    "into": "Koramangala Valley (K-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40048",
+    "name": "Hebbal Valley (H-300)",
+    "len": 10.3,
+    "from": "Cooke Town, Bengaluru",
+    "to": "Near Bileshivale, Bengaluru",
+    "into": "",
+    "kind": "trib"
+   },
+   {
+    "uid": "7840",
+    "name": "Tattaguppe Halla",
+    "len": 10.1,
+    "from": "25 km S of Bengaluru, Karnataka",
+    "to": "25 km S of Bengaluru, Karnataka",
+    "into": "Suvarnamukhi",
+    "kind": "trib"
+   },
+   {
+    "uid": "7839",
+    "name": "Gudipalyada Hall",
+    "len": 10,
+    "from": "30 km S of Bengaluru, Karnataka",
+    "to": "25 km S of Bengaluru, Karnataka",
+    "into": "Suvarnamukhi",
+    "kind": "trib"
+   },
+   {
+    "uid": "40055",
+    "name": "Kathriguppe",
+    "len": 8.2,
+    "from": "Jayanagar, Bengaluru",
+    "to": "The Vrishabhavati near Rajarajeshwari Nagar, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "7137",
+    "name": "Jakkana Halla",
+    "len": 8,
+    "from": "Jigani, Karnataka",
+    "to": "30 km S of Bengaluru, Karnataka",
+    "into": "Antarangange Hole",
+    "kind": "trib"
+   },
+   {
+    "uid": "40050",
+    "name": "Hebbal Valley (BD-423)",
+    "len": 7.1,
+    "from": "16 km E of Bengaluru, Karnataka",
+    "to": "The Dakshina Pinakini near Koralur, east of Bengaluru",
+    "into": "Ponnaiyar/Dakshina Pinakini",
+    "kind": "trib"
+   },
+   {
+    "uid": "40113",
+    "name": "Hebbal Valley (BP-191)",
+    "len": 5.1,
+    "from": "Jakkur, Bengaluru",
+    "to": "Hebbal Valley (H-300) near Hennur, Bengaluru",
+    "into": "Hebbal Valley (H-300)",
+    "kind": "trib"
+   },
+   {
+    "uid": "7585",
+    "name": "Sudda Halla",
+    "len": 4.9,
+    "from": "19 km S of Bengaluru, Karnataka",
+    "to": "25 km S of Bengaluru, Karnataka",
+    "into": "Timmanarayana Halla",
+    "kind": "trib"
+   },
+   {
+    "uid": "40082",
+    "name": "Koramangala Valley (K-200)",
+    "len": 4.8,
+    "from": "Jayanagar, Bengaluru",
+    "to": "Koramangala Valley (K-209) near BTM Layout, Bengaluru",
+    "into": "Koramangala Valley (K-209)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40085",
+    "name": "Challaghatta Valley (C-200)",
+    "len": 4.7,
+    "from": "RT Nagar, Bengaluru",
+    "to": "Challaghatta Valley (C-100) near Halasuru (Ulsoor), Bengaluru",
+    "into": "Challaghatta Valley (C-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40114",
+    "name": "Hebbal Valley (H-400)",
+    "len": 4.6,
+    "from": "Banaswadi, Bengaluru",
+    "to": "Hebbal Valley (H-300) near Hennur, Bengaluru",
+    "into": "Hebbal Valley (H-300)",
+    "kind": "trib"
+   },
+   {
+    "uid": "7556",
+    "name": "Shantivan Halla",
+    "len": 4.2,
+    "from": "19 km S of Bengaluru, Karnataka",
+    "to": "25 km S of Bengaluru, Karnataka",
+    "into": "Tattaguppe Halla",
+    "kind": "trib"
+   },
+   {
+    "uid": "40056",
+    "name": "Vrishabhavati Valley (V-207)",
+    "len": 4.1,
+    "from": "Vijayanagar, Bengaluru",
+    "to": "The Vrishabhavati near Rajarajeshwari Nagar, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40065",
+    "name": "Vrishabhavati Valley (V-300)",
+    "len": 3.8,
+    "from": "Banashankari, Bengaluru",
+    "to": "The Kathriguppe near Rajarajeshwari Nagar, Bengaluru",
+    "into": "Kathriguppe",
+    "kind": "trib"
+   },
+   {
+    "uid": "7622",
+    "name": "Timmanarayana Halla",
+    "len": 3.8,
+    "from": "25 km S of Bengaluru, Karnataka",
+    "to": "20 km S of Bengaluru, Karnataka",
+    "into": "Shantivan Halla",
+    "kind": "trib"
+   },
+   {
+    "uid": "40057",
+    "name": "Vrishabhavati Valley (V-116)",
+    "len": 3.7,
+    "from": "Basaveshwaranagar, Bengaluru",
+    "to": "The Vrishabhavati near Vijayanagar, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40086",
+    "name": "Challaghatta Valley (C-105)",
+    "len": 3.6,
+    "from": "Byrasandra Melina Kere, Bengaluru",
+    "to": "Challaghatta Valley (C-100) near Domlur, Bengaluru",
+    "into": "Challaghatta Valley (C-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40058",
+    "name": "Vrishabhavati Valley (V-112)",
+    "len": 3.4,
+    "from": "Mahalakshmi Layout, Bengaluru",
+    "to": "The Vrishabhavati near Rajajinagar, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40059",
+    "name": "Vrishabhavati Valley (V-120)",
+    "len": 3.4,
+    "from": "Chamarajpet, Bengaluru",
+    "to": "The Vrishabhavati near Vijayanagar, Bengaluru",
+    "into": "Vrishabhavati",
+    "kind": "trib"
+   },
+   {
+    "uid": "40076",
+    "name": "Koramangala Valley (K-103)",
+    "len": 3.4,
+    "from": "Shivajinagar, Bengaluru",
+    "to": "Koramangala Valley (K-100) near Koramangala, Bengaluru",
+    "into": "Koramangala Valley (K-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40071",
+    "name": "Vrishabhavati Valley (V-201)",
+    "len": 2.7,
+    "from": "Laggere, Bengaluru",
+    "to": "The Nagarbhavi Thorai near Basaveshwaranagar, Bengaluru",
+    "into": "Nagarbhavi Thorai",
+    "kind": "trib"
+   },
+   {
+    "uid": "40078",
+    "name": "Koramangala Valley (K-110)",
+    "len": 2.7,
+    "from": "Basavanagudi, Bengaluru",
+    "to": "Koramangala Valley (K-100) near Shanti Nagar, Bengaluru",
+    "into": "Koramangala Valley (K-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40072",
+    "name": "Vrishabhavati Valley (V-202)",
+    "len": 2.6,
+    "from": "Yeswanthpur, Bengaluru",
+    "to": "The Nagarbhavi Thorai near Laggere, Bengaluru",
+    "into": "Nagarbhavi Thorai",
+    "kind": "trib"
+   },
+   {
+    "uid": "40104",
+    "name": "Hebbal Valley (H-201)",
+    "len": 2.6,
+    "from": "Sadashivanagar, Bengaluru",
+    "to": "Hebbal Valley (H-200) near Mathikere, Bengaluru",
+    "into": "Hebbal Valley (H-200)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40087",
+    "name": "Challaghatta Valley (C-104)",
+    "len": 2.5,
+    "from": "Baiyappanahalli, Bengaluru",
+    "to": "Challaghatta Valley (C-100) near Halasuru (Ulsoor), Bengaluru",
+    "into": "Challaghatta Valley (C-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40111",
+    "name": "Hebbal Valley (H-101)",
+    "len": 2.5,
+    "from": "RT Nagar, Bengaluru",
+    "to": "Hebbal, Bengaluru",
+    "into": "",
+    "kind": "trib"
+   },
+   {
+    "uid": "40105",
+    "name": "Hebbal Valley (H-205)",
+    "len": 2.4,
+    "from": "Jalahalli, Bengaluru",
+    "to": "Hebbal Valley (H-200) near Mathikere, Bengaluru",
+    "into": "Hebbal Valley (H-200)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40079",
+    "name": "Koramangala Valley (K-101)",
+    "len": 2.1,
+    "from": "Koramangala, Bengaluru",
+    "to": "Koramangala Valley (K-100) near Koramangala, Bengaluru",
+    "into": "Koramangala Valley (K-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40088",
+    "name": "Challaghatta Valley (C-103)",
+    "len": 2.1,
+    "from": "Domlur, Bengaluru",
+    "to": "Challaghatta Valley (C-100) near Domlur, Bengaluru",
+    "into": "Challaghatta Valley (C-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40089",
+    "name": "Challaghatta Valley (C-204)",
+    "len": 2.1,
+    "from": "Lingarajapuram, Bengaluru",
+    "to": "Challaghatta Valley (C-200) near Halasuru (Ulsoor), Bengaluru",
+    "into": "Challaghatta Valley (C-200)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40080",
+    "name": "Koramangala Valley (K-113)",
+    "len": 2,
+    "from": "Koramangala, Bengaluru",
+    "to": "Koramangala Valley (K-100) near Koramangala, Bengaluru",
+    "into": "Koramangala Valley (K-100)",
+    "kind": "trib"
+   },
+   {
+    "uid": "40122",
+    "name": "Hebbal Valley (MD-284)",
+    "len": 1.9,
+    "from": "Hoodi, Bengaluru",
+    "to": "Hoodi, Bengaluru",
+    "into": "",
+    "kind": "trib"
+   }
+  ],
+  "places": {
+   "Whitefield": [
+    "4132"
+   ],
+   "Koramangala": [
+    "40079",
+    "40044",
+    "40080",
+    "40082",
+    "40075",
+    "40076"
+   ],
+   "Bellandur": [
+    "40044",
+    "40045"
+   ],
+   "Hebbal": [
+    "40111",
+    "40047",
+    "40104"
+   ],
+   "Jayanagar": [
+    "40082",
+    "40078",
+    "40075",
+    "40055",
+    "40044",
+    "40065"
+   ],
+   "Malleshwaram": [
+    "7707",
+    "40058",
+    "40047",
+    "40057",
+    "40104",
+    "40072"
+   ],
+   "Indiranagar": [
+    "40087",
+    "40045",
+    "40086",
+    "40089",
+    "40085",
+    "40088",
+    "40048"
+   ],
+   "Banashankari": [
+    "40055",
+    "40065",
+    "40054",
+    "7707",
+    "40059"
+   ],
+   "Yeshwanthpur": [
+    "40051",
+    "40072",
+    "40105",
+    "40047",
+    "40058"
+   ],
+   "Kengeri": [
+    "40053",
+    "7707",
+    "40054"
+   ],
+   "Marathahalli": [
+    "40044",
+    "40045"
+   ],
+   "Hennur": [
+    "40114",
+    "40048",
+    "40047",
+    "40113"
+   ],
+   "Bannerghatta": [
+    "7556",
+    "7585",
+    "6885"
+   ]
+  }
+ },
+ "mumbai": {
+  "rivers": [
+   {
+    "uid": "8969",
+    "name": "Ulhas",
+    "len": 145.9,
+    "from": "Western Ghats near Lonavala, Maharashtra",
+    "to": "Vasai, Maharashtra",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8583",
+    "name": "Amba",
+    "len": 103,
+    "from": "Western Ghats near Khopoli, Maharashtra",
+    "to": "25 km S of Mumbai, Maharashtra",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8966",
+    "name": "Kalu",
+    "len": 100.9,
+    "from": "Western Ghats, 65 km S of Nashik, Maharashtra",
+    "to": "Kalyan, Maharashtra",
+    "into": "Bhatsai",
+    "kind": "trib"
+   },
+   {
+    "uid": "8620",
+    "name": "Bhatsai",
+    "len": 91.5,
+    "from": "Western Ghats near Igatpuri, Maharashtra",
+    "to": "Kalyan, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "8856",
+    "name": "Patalganga",
+    "len": 57,
+    "from": "Western Ghats, 55 km SE of Mumbai, Maharashtra",
+    "to": "30 km SE of Mumbai, Maharashtra",
+    "into": "Bhogeshwar",
+    "kind": "trib"
+   },
+   {
+    "uid": "8764",
+    "name": "Kasadi",
+    "len": 41.3,
+    "from": "Western Ghats near Kalyan, Maharashtra",
+    "to": "Mumbai, Maharashtra",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8654",
+    "name": "Dahisar",
+    "len": 28.1,
+    "from": "Tulsi Lake, Sanjay Gandhi National Park, Mumbai",
+    "to": "Manori Creek near Gorai, Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8749",
+    "name": "Kamvadi N",
+    "len": 26.4,
+    "from": "Western Ghats near Bhiwandi, Maharashtra",
+    "to": "Thane, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "40189",
+    "name": "Thane Creek",
+    "len": 26.4,
+    "from": "Western Ghats near Thane, Maharashtra",
+    "to": "Mumbai Harbour, between Trombay and Belapur",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8792",
+    "name": "Kumbheri",
+    "len": 25.6,
+    "from": "Western Ghats near Vasind, Maharashtra",
+    "to": "Kalyan, Maharashtra",
+    "into": "Bhatsai",
+    "kind": "trib"
+   },
+   {
+    "uid": "8928",
+    "name": "Tungar Nala",
+    "len": 24.5,
+    "from": "Western Ghats near Virar, Maharashtra",
+    "to": "Bhayandar, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "9061",
+    "name": "Varna",
+    "len": 21.1,
+    "from": "Western Ghats, 16 km N of Bhiwandi, Maharashtra",
+    "to": "Bhiwandi, Maharashtra",
+    "into": "Kamvadi N",
+    "kind": "trib"
+   },
+   {
+    "uid": "9009",
+    "name": "Poisar",
+    "len": 19.2,
+    "from": "Sanjay Gandhi National Park, Mumbai",
+    "to": "Malad Creek, opening to the sea at Versova, Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8877",
+    "name": "Saitani",
+    "len": 19.2,
+    "from": "Western Ghats, 17 km NE of Bhiwandi, Maharashtra",
+    "to": "50 km N of Mumbai, Maharashtra",
+    "into": "Tansa",
+    "kind": "trib"
+   },
+   {
+    "uid": "9064",
+    "name": "Gadhe",
+    "len": 19.1,
+    "from": "Western Ghats, 40 km E of Mumbai, Maharashtra",
+    "to": "Panvel, Maharashtra",
+    "into": "Panel",
+    "kind": "trib"
+   },
+   {
+    "uid": "40031",
+    "name": "Desai Khadi",
+    "len": 19,
+    "from": "Western Ghats near Dombivali, Maharashtra",
+    "to": "Diva, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "8809",
+    "name": "Mithi",
+    "len": 17.8,
+    "from": "Vihar Lake, Sanjay Gandhi National Park, Mumbai",
+    "to": "Mahim Creek, Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "40033",
+    "name": "Waldhuni",
+    "len": 17.7,
+    "from": "Malanggad foothills above Kakuli Lake, south of Ambernath, Maharashtra",
+    "to": "Shahad, Kalyan, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "8995",
+    "name": "Dhavri R",
+    "len": 16.2,
+    "from": "Western Ghats near Matheran, Maharashtra",
+    "to": "45 km SE of Mumbai, Maharashtra",
+    "into": "Patalganga",
+    "kind": "trib"
+   },
+   {
+    "uid": "8846",
+    "name": "Panel",
+    "len": 13.6,
+    "from": "Western Ghats near Panvel, Maharashtra",
+    "to": "Navi Mumbai, Maharashtra",
+    "into": "Kasadi",
+    "kind": "trib"
+   },
+   {
+    "uid": "40450",
+    "name": "Taloje",
+    "len": 13.5,
+    "from": "Near the Enkay Garden complex, east of Taloja MIDC, Navi Mumbai",
+    "to": "The Kasadi between Kharghar and Kalamboli, Navi Mumbai",
+    "into": "Kasadi",
+    "kind": "trib"
+   },
+   {
+    "uid": "8607",
+    "name": "Bava Malang",
+    "len": 13.2,
+    "from": "Western Ghats, 30 km E of Mumbai, Maharashtra",
+    "to": "The Taloje at Taloja, Navi Mumbai",
+    "into": "Taloje",
+    "kind": "trib"
+   },
+   {
+    "uid": "40224",
+    "name": "Ulwe",
+    "len": 13.2,
+    "from": "Hills south of Panvel, Maharashtra",
+    "to": "Moha Creek, south of Targhar station, Navi Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "8799",
+    "name": "Lendi N",
+    "len": 12.9,
+    "from": "Western Ghats near Badlapur, Maharashtra",
+    "to": "Panvel, Maharashtra",
+    "into": "Gadhe",
+    "kind": "trib"
+   },
+   {
+    "uid": "8935",
+    "name": "Vachko N",
+    "len": 11.7,
+    "from": "Western Ghats, 15 km N of Bhiwandi, Maharashtra",
+    "to": "Bhiwandi, Maharashtra",
+    "into": "Kamvadi N",
+    "kind": "trib"
+   },
+   {
+    "uid": "8821",
+    "name": "Mogidar Nala",
+    "len": 11.3,
+    "from": "Western Ghats near Bhiwandi, Maharashtra",
+    "to": "Thane, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "8650",
+    "name": "Chormuli",
+    "len": 10.9,
+    "from": "Western Ghats near Bhiwandi, Maharashtra",
+    "to": "Bhiwandi, Maharashtra",
+    "into": "Kamvadi N",
+    "kind": "trib"
+   },
+   {
+    "uid": "40027",
+    "name": "Mahul Creek",
+    "len": 10.8,
+    "from": "Ghatkopar West hills, Mumbai",
+    "to": "Mumbai Harbour at Mahul, Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "40025",
+    "name": "Oshiwara",
+    "len": 10.2,
+    "from": "Aarey Milk Colony, Goregaon, Mumbai",
+    "to": "Malad Creek at Lokhandwala, Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "40028",
+    "name": "Trombay Creek",
+    "len": 9.5,
+    "from": "Ghatkopar hills near R City Mall, Mumbai",
+    "to": "Thane Creek at Mankhurd, just north of the Vashi Bridge, Mumbai",
+    "into": "Thane Creek",
+    "kind": "trib"
+   },
+   {
+    "uid": "40229",
+    "name": "Nhava Creek",
+    "len": 9.3,
+    "from": "Jasai, near Uran",
+    "to": "Mumbai Harbour at Nhava, near Uran",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "40032",
+    "name": "Chena",
+    "len": 9.1,
+    "from": "Yeoor hills, Sanjay Gandhi National Park, Thane",
+    "to": "Ghodbunder, Thane",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "9084",
+    "name": "Barvi",
+    "len": 8.8,
+    "from": "Western Ghats near Badlapur, Maharashtra",
+    "to": "Kalyan, Maharashtra",
+    "into": "Ulhas",
+    "kind": "trib"
+   },
+   {
+    "uid": "40030",
+    "name": "Desai Khadi (south branch)",
+    "len": 8.4,
+    "from": "Hills south of Ambernath, Maharashtra",
+    "to": "Nilaje, south of Dombivli, Maharashtra",
+    "into": "Desai Khadi",
+    "kind": "trib"
+   },
+   {
+    "uid": "40029",
+    "name": "Desai Khadi (north branch)",
+    "len": 6.1,
+    "from": "Hills south of Ambernath, Maharashtra",
+    "to": "Nilaje, south of Dombivli, Maharashtra",
+    "into": "Desai Khadi",
+    "kind": "trib"
+   },
+   {
+    "uid": "40195",
+    "name": "Nane Pada Nalla",
+    "len": 4.8,
+    "from": "Mulund West, Mumbai",
+    "to": "Thane Creek at Mulund East, just south of the Airoli Bridge, Mumbai",
+    "into": "Thane Creek",
+    "kind": "trib"
+   },
+   {
+    "uid": "40026",
+    "name": "Vakola Nala",
+    "len": 4.8,
+    "from": "Shastri Nagar, Santacruz East, Mumbai",
+    "to": "Bandra Kurla Complex, just above Mahim Creek, Mumbai",
+    "into": "Mithi",
+    "kind": "trib"
+   },
+   {
+    "uid": "40035",
+    "name": "Mogara Nallah",
+    "len": 4.1,
+    "from": "Azad Nagar, Andheri West, Mumbai",
+    "to": "Malad Creek near Lokhandwala, Mumbai",
+    "into": "Arabian Sea",
+    "kind": "sea"
+   },
+   {
+    "uid": "40037",
+    "name": "Somaiyya Nalla",
+    "len": 3.6,
+    "from": "Tilak Nagar, near Lokmanya Tilak Terminus, Mumbai",
+    "to": "The Trombay Creek at the north-west corner of the Deonar dumping ground, Mumbai",
+    "into": "Trombay Creek",
+    "kind": "trib"
+   },
+   {
+    "uid": "40188",
+    "name": "Trombay Creek (northern mouth)",
+    "len": 3.3,
+    "from": "Mumbai, Maharashtra",
+    "to": "Thane Creek, 1 km north of the Trombay Creek's main mouth, Mumbai",
+    "into": "Thane Creek",
+    "kind": "trib"
+   },
+   {
+    "uid": "40451",
+    "name": "Taloje (northern branch)",
+    "len": 3,
+    "from": "North-eastern edge of Taloja MIDC, Navi Mumbai",
+    "to": "The Taloje in Taloja MIDC, just east of MIDC Road, Navi Mumbai",
+    "into": "Taloje",
+    "kind": "trib"
+   }
+  ],
+  "places": {
+   "Chembur": [
+    "40027",
+    "40037",
+    "40028",
+    "8809"
+   ],
+   "Powai": [
+    "8809",
+    "40028"
+   ],
+   "Bandra": [
+    "8809",
+    "40026"
+   ],
+   "Andheri": [
+    "8809",
+    "40026"
+   ],
+   "Borivali": [
+    "8654",
+    "9009"
+   ],
+   "Dahisar": [
+    "8654"
+   ],
+   "Kurla": [
+    "8809",
+    "40027",
+    "40037"
+   ],
+   "Thane": [
+    "40189",
+    "8969"
+   ],
+   "Vashi": [
+    "40189"
+   ],
+   "Kalyan": [
+    "40033",
+    "8969"
+   ],
+   "Panvel": [
+    "8846"
+   ],
+   "Mulund": [
+    "40195",
+    "8654"
+   ],
+   "Ghatkopar": [
+    "40027",
+    "40037",
+    "40028"
+   ],
+   "Goregaon": [
+    "40025",
+    "9009"
+   ],
+   "Malad": [
+    "9009",
+    "40025"
+   ]
+  }
+ },
+ "hyderabad": {
+  "rivers": [
+   {
+    "uid": "5657",
+    "name": "Manjra",
+    "len": 752.9,
+    "from": "Balaghat Range near Patoda, Beed district, Maharashtra",
+    "to": "Dharmabad, Maharashtra",
+    "into": "Godavari",
+    "kind": "trib"
+   },
+   {
+    "uid": "3220",
+    "name": "Musi",
+    "len": 296,
+    "from": "Vikarabad, Telangana",
+    "to": "25 km SE of Miryalaguda, Telangana",
+    "into": "Krishna",
+    "kind": "trib"
+   },
+   {
+    "uid": "2324",
+    "name": "Aler",
+    "len": 113.3,
+    "from": "45 km NE of Hyderabad, Telangana",
+    "to": "30 km NW of Suriapet, Telangana",
+    "into": "Musi",
+    "kind": "trib"
+   },
+   {
+    "uid": "5412",
+    "name": "Kodil",
+    "len": 88.4,
+    "from": "45 km NE of Hyderabad, Telangana",
+    "to": "20 km E of Kamareddi, Telangana",
+    "into": "Maner",
+    "kind": "trib"
+   },
+   {
+    "uid": "5026",
+    "name": "Haldi",
+    "len": 71.2,
+    "from": "40 km NE of Hyderabad, Telangana",
+    "to": "Medak, Telangana",
+    "into": "Manjra",
+    "kind": "trib"
+   },
+   {
+    "uid": "3219",
+    "name": "Esi",
+    "len": 70.5,
+    "from": "65 km SW of Hyderabad, Telangana",
+    "to": "Hyderabad, Telangana",
+    "into": "Musi",
+    "kind": "trib"
+   },
+   {
+    "uid": "2440",
+    "name": "Chinna Musi R",
+    "len": 70.3,
+    "from": "30 km S of Hyderabad, Telangana",
+    "to": "45 km E of Hyderabad, Telangana",
+    "into": "Musi",
+    "kind": "trib"
+   },
+   {
+    "uid": "2874",
+    "name": "Shamirpet Vagu",
+    "len": 69,
+    "from": "Dundigal, Telangana",
+    "to": "Gudur, Telangana",
+    "into": "Chinnaeru R",
+    "kind": "trib"
+   },
+   {
+    "uid": "2434",
+    "name": "China Vagu",
+    "len": 45,
+    "from": "40 km SE of Hyderabad, Telangana",
+    "to": "70 km SE of Hyderabad, Telangana",
+    "into": "Kongal",
+    "kind": "trib"
+   },
+   {
+    "uid": "2954",
+    "name": "Yelimineti Vagu",
+    "len": 43.6,
+    "from": "40 km S of Hyderabad, Telangana",
+    "to": "25 km SE of Hyderabad, Telangana",
+    "into": "Chinna Musi R",
+    "kind": "trib"
+   },
+   {
+    "uid": "5833",
+    "name": "Nandi Vagu",
+    "len": 42,
+    "from": "Vikarabad, Telangana",
+    "to": "Sangareddi, Telangana",
+    "into": "Manjra",
+    "kind": "trib"
+   },
+   {
+    "uid": "2618",
+    "name": "Kandukura Vagu",
+    "len": 37.9,
+    "from": "45 km NE of Hyderabad, Telangana",
+    "to": "70 km E of Hyderabad, Telangana",
+    "into": "Aler",
+    "kind": "trib"
+   },
+   {
+    "uid": "6692",
+    "name": "Nakka Vagu",
+    "len": 35.5,
+    "from": "18 km W of Hyderabad, Telangana",
+    "to": "Sangareddi, Telangana",
+    "into": "Manjra",
+    "kind": "trib"
+   },
+   {
+    "uid": "5932",
+    "name": "Pamla Vagu",
+    "len": 34.5,
+    "from": "35 km N of Hyderabad, Telangana",
+    "to": "Muttargi, Telangana",
+    "into": "Nakka Vagu",
+    "kind": "trib"
+   },
+   {
+    "uid": "2446",
+    "name": "Cholleru Vagu",
+    "len": 28,
+    "from": "Bhongir, Telangana",
+    "to": "65 km E of Hyderabad, Telangana",
+    "into": "Bukler",
+    "kind": "trib"
+   },
+   {
+    "uid": "2478",
+    "name": "Ermulli Vagu",
+    "len": 26.5,
+    "from": "25 km NE of Hyderabad, Telangana",
+    "to": "25 km E of Hyderabad, Telangana",
+    "into": "Musi",
+    "kind": "trib"
+   },
+   {
+    "uid": "2441",
+    "name": "Chinnaeru R",
+    "len": 25.8,
+    "from": "Gudur, Telangana",
+    "to": "50 km E of Hyderabad, Telangana",
+    "into": "Musi",
+    "kind": "trib"
+   },
+   {
+    "uid": "2390",
+    "name": "Bhimawaram N",
+    "len": 21.6,
+    "from": "55 km SW of Hyderabad, Telangana",
+    "to": "55 km SW of Hyderabad, Telangana",
+    "into": "Suraram",
+    "kind": "trib"
+   },
+   {
+    "uid": "6300",
+    "name": "Sovati Vagu",
+    "len": 19.1,
+    "from": "45 km W of Hyderabad, Telangana",
+    "to": "Sangareddi, Telangana",
+    "into": "Manjra",
+    "kind": "trib"
+   },
+   {
+    "uid": "40039",
+    "name": "Kukatpally Nala",
+    "len": 14.7,
+    "from": "Fox Sagar, Jeedimetla, Hyderabad",
+    "to": "Hussain Sagar, Hyderabad",
+    "into": "Hussain Sagar Surplus Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "5625",
+    "name": "Maisamma Vagu",
+    "len": 12.3,
+    "from": "25 km W of Hyderabad, Telangana",
+    "to": "Patancheru, Telangana",
+    "into": "Nakka Vagu",
+    "kind": "trib"
+   },
+   {
+    "uid": "40041",
+    "name": "Picket Nala",
+    "len": 11.3,
+    "from": "North-west of Old Alwal pond, Secunderabad",
+    "to": "Hussain Sagar, Hyderabad",
+    "into": "Hussain Sagar Surplus Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "6236",
+    "name": "Savutta Vagu",
+    "len": 10.7,
+    "from": "Sadasivpet, Telangana",
+    "to": "Sangareddi, Telangana",
+    "into": "Nandi Vagu",
+    "kind": "trib"
+   },
+   {
+    "uid": "2730",
+    "name": "Madyala Vagu",
+    "len": 7.6,
+    "from": "Secunderabad, Telangana",
+    "to": "Nagavaram, Telangana",
+    "into": "Ermulli Vagu",
+    "kind": "trib"
+   },
+   {
+    "uid": "40040",
+    "name": "Hussain Sagar Surplus Nala",
+    "len": 6,
+    "from": "Hyderabad, Telangana",
+    "to": "The Musi, south-east of Kacheguda station, Hyderabad",
+    "into": "Musi",
+    "kind": "trib"
+   },
+   {
+    "uid": "40336",
+    "name": "Balkapur Nala",
+    "len": 4.2,
+    "from": "Mehdipatnam, Hyderabad",
+    "to": "Hussain Sagar at Khairatabad, Hyderabad",
+    "into": "Kukatpally Nala",
+    "kind": "trib"
+   }
+  ],
+  "places": {
+   "Secunderabad": [
+    "40041",
+    "40040",
+    "40039"
+   ],
+   "Uppal": [
+    "3220"
+   ],
+   "Charminar": [
+    "3220"
+   ],
+   "Shamirpet": [
+    "2874"
+   ],
+   "Patancheru": [
+    "6692",
+    "5932",
+    "5625"
+   ]
+  }
+ },
+ "delhi": {
+  "rivers": [
+   {
+    "uid": "29239",
+    "name": "Yamuna",
+    "len": 1607.9,
+    "from": "Yamunotri Glacier (Himalayas), Uttarakhand",
+    "to": "Triveni Sangam, Prayagraj, Uttar Pradesh",
+    "into": "Ganga",
+    "kind": "trib"
+   },
+   {
+    "uid": "24407",
+    "name": "Hindon",
+    "len": 338.2,
+    "from": "25 km NE of Saharanpur, Uttar Pradesh",
+    "to": "Greater Noida, Uttar Pradesh",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "26906",
+    "name": "Najafgarh Drain",
+    "len": 94.9,
+    "from": "65 km W of Delhi",
+    "to": "Delhi",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "23446",
+    "name": "Drain No 8",
+    "len": 73.8,
+    "from": "Gohana, Haryana",
+    "to": "25 km N of Delhi",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "25975",
+    "name": "Kultana Chhudani Bupania Drain",
+    "len": 57.1,
+    "from": "Rohtak, Haryana",
+    "to": "Najafgarh, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "26790",
+    "name": "Mungashpur Drain",
+    "len": 42.6,
+    "from": "Narela, Delhi",
+    "to": "Najafgarh, Delhi",
+    "into": "Najafgarh Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "29188",
+    "name": "West Juan Drain",
+    "len": 31.1,
+    "from": "50 km NW of Delhi",
+    "to": "Bahadurgarh, Haryana",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "26668",
+    "name": "Mehandwari",
+    "len": 29.3,
+    "from": "35 km S of Delhi",
+    "to": "55 km S of Delhi",
+    "into": "Nuh Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "21889",
+    "name": "Basi Drain",
+    "len": 28.5,
+    "from": "35 km N of Delhi",
+    "to": "Delhi",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "23077",
+    "name": "Dasna Drain",
+    "len": 27.9,
+    "from": "Ghaziabad, Uttar Pradesh",
+    "to": "20 km SE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "26967",
+    "name": "Nangloi Drain",
+    "len": 27.5,
+    "from": "Rohini, Delhi",
+    "to": "Najafgarh, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "23094",
+    "name": "Daula Drain",
+    "len": 23.9,
+    "from": "35 km N of Delhi",
+    "to": "25 km NE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "28904",
+    "name": "Tera Drain",
+    "len": 22.8,
+    "from": "45 km N of Delhi",
+    "to": "30 km NE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "27265",
+    "name": "Pakasma Drain",
+    "len": 21.3,
+    "from": "15 km E of Rohtak, Haryana",
+    "to": "40 km W of Delhi",
+    "into": "West Juan Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "24661",
+    "name": "Jauhar Nala",
+    "len": 21.2,
+    "from": "Faridabad, Haryana",
+    "to": "17 km S of Faridabad, Haryana",
+    "into": "Gaunchhi Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "23905",
+    "name": "Ghata Or Badshahpur",
+    "len": 20.9,
+    "from": "Gurugram, Haryana",
+    "to": "Gurugram, Haryana",
+    "into": "Najafgarh Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "26236",
+    "name": "Li Nala",
+    "len": 20.3,
+    "from": "Deoli, Delhi",
+    "to": "Gurugram, Haryana",
+    "into": "Ghata Or Badshahpur",
+    "kind": "trib"
+   },
+   {
+    "uid": "26283",
+    "name": "Lohia",
+    "len": 19.3,
+    "from": "Greater Noida, Uttar Pradesh",
+    "to": "Greater Noida, Uttar Pradesh",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "26501",
+    "name": "Manesar Nala",
+    "len": 18.5,
+    "from": "Manesar, Haryana",
+    "to": "Najafgarh, Delhi",
+    "into": "Najafgarh Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "27269",
+    "name": "Pakhal Nala",
+    "len": 17.4,
+    "from": "Faridabad, Haryana",
+    "to": "16 km S of Faridabad, Haryana",
+    "into": "Sikrona Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "27132",
+    "name": "Noida Drain",
+    "len": 17.1,
+    "from": "Dalupura, Delhi",
+    "to": "Faridabad, Haryana",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "27288",
+    "name": "Palla Drain",
+    "len": 16.1,
+    "from": "Dadri, Uttar Pradesh",
+    "to": "Greater Noida, Uttar Pradesh",
+    "into": "Lohia",
+    "kind": "trib"
+   },
+   {
+    "uid": "23940",
+    "name": "Ghoga Drain",
+    "len": 15.9,
+    "from": "Narela, Delhi",
+    "to": "16 km NW of Delhi",
+    "into": "Daryapur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "24406",
+    "name": "Hindan Cut",
+    "len": 15.8,
+    "from": "Ghaziabad, Uttar Pradesh",
+    "to": "Delhi",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "28544",
+    "name": "Siwal Drain",
+    "len": 15.7,
+    "from": "Modinagar, Uttar Pradesh",
+    "to": "30 km NE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "23445",
+    "name": "Drain No 6",
+    "len": 14.6,
+    "from": "Narela, Delhi",
+    "to": "16 km NW of Delhi",
+    "into": "Daryapur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "28591",
+    "name": "Sonda Drain",
+    "len": 13.8,
+    "from": "Modinagar, Uttar Pradesh",
+    "to": "25 km NE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "28751",
+    "name": "Supplimentary Drain",
+    "len": 13.5,
+    "from": "Alipur, Delhi",
+    "to": "Delhi",
+    "into": "Najafgarh Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "28930",
+    "name": "Thana Kalan Drain",
+    "len": 11.2,
+    "from": "Narela, Delhi",
+    "to": "Outabgarh, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "25622",
+    "name": "Kharkhauda Drain",
+    "len": 9.7,
+    "from": "Kharkhauda, Haryana",
+    "to": "40 km NW of Delhi",
+    "into": "West Juan Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "25296",
+    "name": "Kasar Drain",
+    "len": 9.3,
+    "from": "Bahadurgarh, Haryana",
+    "to": "Najafgarh, Delhi",
+    "into": "Kultana Chhudani Bupania Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "27993",
+    "name": "Sadonpur Drain",
+    "len": 8.9,
+    "from": "Ghaziabad, Uttar Pradesh",
+    "to": "Greater Noida, Uttar Pradesh",
+    "into": "Lohia",
+    "kind": "trib"
+   },
+   {
+    "uid": "21936",
+    "name": "Bawana Drain",
+    "len": 8.7,
+    "from": "Bawana, Delhi",
+    "to": "Rohini, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "23334",
+    "name": "Dhulainti Nala",
+    "len": 8.2,
+    "from": "35 km S of Delhi",
+    "to": "Gurugram, Haryana",
+    "into": "Li Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "26347",
+    "name": "Madanpur Drain",
+    "len": 8.1,
+    "from": "Rohini, Delhi",
+    "to": "Najafgarh, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "25549",
+    "name": "Khanda Drain",
+    "len": 7.2,
+    "from": "Kharkhauda, Haryana",
+    "to": "40 km NW of Delhi",
+    "into": "West Juan Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "21940",
+    "name": "Bazidpur Drain",
+    "len": 6.9,
+    "from": "Bawana, Delhi",
+    "to": "Rohini, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "28359",
+    "name": "Sharpur Nala",
+    "len": 6.8,
+    "from": "Bhati, Delhi",
+    "to": "Asola, Delhi",
+    "into": "Li Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "26513",
+    "name": "Mangolpur Drain",
+    "len": 5.8,
+    "from": "Bahadurgarh, Haryana",
+    "to": "Bahadurgarh, Haryana",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "27940",
+    "name": "Rohar Nala",
+    "len": 5.8,
+    "from": "Dera Mandi, Delhi",
+    "to": "Dera Mandi, Delhi",
+    "into": "Li Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "27285",
+    "name": "Paliwala Nala",
+    "len": 5.8,
+    "from": "Faridabad, Haryana",
+    "to": "Faridabad, Haryana",
+    "into": "Pakhal Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "22235",
+    "name": "Bhikampur Drain",
+    "len": 5.5,
+    "from": "Muradnagar, Uttar Pradesh",
+    "to": "20 km NE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "24622",
+    "name": "Janwali Drain",
+    "len": 5.2,
+    "from": "Loni, Uttar Pradesh",
+    "to": "18 km NE of Delhi",
+    "into": "Hindon",
+    "kind": "trib"
+   },
+   {
+    "uid": "24870",
+    "name": "K Hurrampur Drain",
+    "len": 5,
+    "from": "Muradnagar, Uttar Pradesh",
+    "to": "Muradnagar, Uttar Pradesh",
+    "into": "Bhikampur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "25395",
+    "name": "Kaunsat Nala",
+    "len": 4.9,
+    "from": "30 km S of Delhi",
+    "to": "Gurugram, Haryana",
+    "into": "Li Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "27990",
+    "name": "Sadarpur Drain",
+    "len": 4.8,
+    "from": "Ghaziabad, Uttar Pradesh",
+    "to": "Ghaziabad, Uttar Pradesh",
+    "into": "Dasna Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "23072",
+    "name": "Daryapur Drain",
+    "len": 4.3,
+    "from": "16 km NW of Delhi",
+    "to": "Burari, Delhi",
+    "into": "Yamuna",
+    "kind": "trib"
+   },
+   {
+    "uid": "27432",
+    "name": "Patanwala Johar",
+    "len": 3.8,
+    "from": "Dera Mandi, Delhi",
+    "to": "25 km S of Delhi",
+    "into": "Li Nala",
+    "kind": "trib"
+   },
+   {
+    "uid": "26493",
+    "name": "Mandaura Drain",
+    "len": 3.1,
+    "from": "Narela, Delhi",
+    "to": "Narela, Delhi",
+    "into": "Mungashpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "23401",
+    "name": "Dohai Drain",
+    "len": 2.3,
+    "from": "Ghaziabad, Uttar Pradesh",
+    "to": "Ghaziabad, Uttar Pradesh",
+    "into": "Sadarpur Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "23942",
+    "name": "Ghoge Drain",
+    "len": 1.7,
+    "from": "Rohini, Delhi",
+    "to": "Narela, Delhi",
+    "into": "Ghoga Drain",
+    "kind": "trib"
+   },
+   {
+    "uid": "25070",
+    "name": "Kanauja Cut",
+    "len": 1.5,
+    "from": "Ghaziabad, Uttar Pradesh",
+    "to": "Ghaziabad, Uttar Pradesh",
+    "into": "Dohai Drain",
+    "kind": "trib"
+   }
+  ],
+  "places": {
+   "Najafgarh": [
+    "26790"
+   ],
+   "Rohini": [
+    "26967"
+   ],
+   "Dwarka": [
+    "26906"
+   ],
+   "Noida": [
+    "27132"
+   ],
+   "Narela": [
+    "23445"
+   ]
+  }
+ }
+}

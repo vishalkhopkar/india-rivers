@@ -11,6 +11,55 @@ body {
   inset: 0;
 }
 
+/* The text search engines read: what the map is, and for a city page the streams on it.
+   Visible and collapsible, bottom-left above the scale bar. */
+.guide {
+  position: absolute;
+  left: 12px;
+  bottom: 44px;
+  z-index: 2;
+  box-sizing: border-box;
+  width: min(420px, calc(100vw - 24px));
+  max-height: 45vh;
+  overflow-y: auto;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+  font-size: 13px;
+  line-height: 1.45;
+  color: #1c2b36;
+}
+
+.guide summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #14557f;
+}
+
+.guide h1 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+}
+
+.guide h2 {
+  margin: 12px 0 4px;
+  font-size: 13px;
+}
+
+.guide p {
+  margin: 6px 0;
+}
+
+.guide ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.guide a {
+  color: #14557f;
+}
+
 /* Sized to its content so every row is visible at once - never a scrolling box. */
 .panel {
   position: absolute;
