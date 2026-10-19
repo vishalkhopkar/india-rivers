@@ -1107,6 +1107,21 @@
     "confidence": "high",
     "region": "national"
   },
+  "12047": {
+    "category": "History",
+    "fact": [
+      "The Treaty of Tingmosgang in 1684, which ended the Tibet–Ladakh–Mughal war, fixed the Ladakh–Tibet frontier at the \"Lhari stream at Demchok\", as recorded in the Ladakh Chronicles. Over three centuries later, the Line of Actual Control still runs along this stream, known as the Charding Nullah in India and the Demchok River in China.",
+      "At its mouth the stream spreads into a delta about 2 km wide where it meets the Indus. Villages on both sides of the Line of Actual Control are called Demchok: one in Ladakh, administered by India, and one in Tibet, administered by China."
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Demchok_(historical_village)",
+      "https://en.wikipedia.org/wiki/Demchok_sector",
+      "https://en.wikipedia.org/wiki/Charding_Nullah",
+      "https://www.tribuneindia.com/news/india/explainer-why-demchok-on-line-of-actual-control-is-critical-for-india/amp"
+    ],
+    "confidence": "medium",
+    "region": "north"
+  },
   "12067": {
     "category": "Engineering",
     "fact": "The Chenab Rail Bridge near Reasi, opened on 6 June 2025, carries trains 359 m above the riverbed, making it the world's highest railway bridge, about 35 m taller than the Eiffel Tower. It is a key link of the line that finally connected the Kashmir Valley to India's rail network.",
