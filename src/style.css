@@ -11,6 +11,18 @@ body {
   inset: 0;
 }
 
+/* The crawlable intro text: present for search engines and screen readers, not drawn over the map. */
+.seo-intro {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Sized to its content so every row is visible at once - never a scrolling box. */
 .panel {
   position: absolute;

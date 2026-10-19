@@ -27,11 +27,39 @@ function maplibreWorker(): Plugin {
 // the production path.
 const basePath = process.env.BASE_PATH ?? "/";
 
+// Only the production build (served at the domain root) is for search engines. The dev build
+// at /dev/ is marked noindex so it never competes with the live site, and only the production
+// build ships robots.txt and sitemap.xml, which must live at the root to count.
+const SITE = "https://riversofindia.in";
+function seo(): Plugin {
+  const isProd = basePath === "/";
+  return {
+    name: "seo",
+    apply: "build",
+    transformIndexHtml(html) {
+      return isProd ? html : html.replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"');
+    },
+    generateBundle() {
+      if (!isProd) return;
+      this.emitFile({
+        type: "asset",
+        fileName: "robots.txt",
+        source: `User-agent: *\nAllow: /\nDisallow: /dev/\n\nSitemap: ${SITE}/sitemap.xml\n`,
+      });
+      this.emitFile({
+        type: "asset",
+        fileName: "sitemap.xml",
+        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${SITE}/</loc></url>\n</urlset>\n`,
+      });
+    },
+  };
+}
+
 export default defineConfig(({ command, isPreview }) => ({
   // Data URLs in the app are built from import.meta.env.BASE_URL, so they follow this
   // automatically.
   base: command === "build" || isPreview ? basePath : "/",
-  plugins: [maplibreWorker()],
+  plugins: [maplibreWorker(), seo()],
   // In dev the same worker problem appears through dep pre-bundling, which rewrites
   // maplibre-gl into .vite/deps/ without its worker. Serving it unbundled keeps the
   // pair together.
