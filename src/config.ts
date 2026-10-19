@@ -10,7 +10,7 @@ const DEFAULTS = {
   // The dotted Line of Control, Line of Actual Control and Shaksgam Valley boundary. When
   // on, they are drawn with the external borders ("Show external borders"); when off they
   // are never drawn, whatever that switch says.
-  showLocLac: false,
+  showLocLac: true,
 };
 
 const fromUrl = new Set(
